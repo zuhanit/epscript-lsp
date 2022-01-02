@@ -1,0 +1,28 @@
+{
+	"name": "eps-server",
+	"description": "Language Server for epScript.",
+	"version": "1.0.0",
+	"author": "Zuhanit",
+	"license": "MIT",
+	"engines": {
+		"node": "*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Microsoft/vscode-extension-samples"
+	},
+	"dependencies": {
+		"vscode-languageserver": "^7.0.0",
+		"vscode-languageserver-textdocument": "^1.0.1"
+	},
+	"devDependencies": {
+		"@types/chai": "^4.3.0",
+		"@types/mocha": "^9.0.0",
+		"chai": "^4.3.4",
+		"mocha": "^9.1.3",
+		"ts-node": "^10.4.0"
+	},
+	"scripts": {
+		"mocha-test": "mocha */test/**/*.test.ts -r ts-node/register"
+	}
+}
