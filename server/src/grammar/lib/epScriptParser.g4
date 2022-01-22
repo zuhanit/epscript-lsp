@@ -90,7 +90,7 @@ iterationStatement
  ;
 
 foreachBlock
- : '(' identifier ':' singleExpression ')'
+ : '(' identifier (',' identifier)* ':' singleExpression ')'
  ;
 
 onceStatement
@@ -149,43 +149,9 @@ objectVariableDeclaration
 // Type Annotations
 
 typeAnnotation
- : ':' type_
+ : ':' singleExpression
  ;
-
-type_
- : primaryType
- | singleExpression
- ;
-
-primaryType
- : predefinedType
- ;
-
-predefinedType
- : encodedTypes
- ;
-
-encodedTypes
- : TrgAllyStatus
- | TrgComparison
- | TrgCount
- | TrgModifier
- | TrgOrder
- | TrgPlayer
- | TrgProperty
- | TrgPropState
- | TrgResource
- | TrgScore
- | TrgSwitchAction
- | TrgSwitchState
- | TrgAIScript
- | TrgLocation
- | TrgString
- | TrgSwitch
- | TrgUnit
- | TrgTBL
- ;
-
+ 
 // Function Declaration
 
 functionDeclaration
@@ -253,31 +219,16 @@ singleExpression
  : anonymosuFunction                                            # AnonymousFunctionExpression
  | singleExpression '[' expressionSequence ']'                  # MemberExpression
  | singleExpression '.' identifier                              # MemberDotExpression
- | singleExpression arguments                                   # ArgumentExpression
+ | singleExpression arguments                                   # CallExpression
  | singleExpression '?' singleExpression ':' singleExpression   # TernaryExpression
- | singleExpression '++'                                        # PostIncreaseExpression
- | singleExpression '--'                                        # PostDecreaseExpression
- | '++' singleExpression                                        # PreIncreaseExpression
- | '--' singleExpression                                        # PreDecreaseExpression
- | '+' singleExpression                                         # UnaryPlusExpression
- | '-' singleExpression                                         # UnaryMinusExpression
- | '~' singleExpression                                         # BitNotExpression
- | '!' singleExpression                                         # NotExpression
- | singleExpression ('*' | '/' | '%') singleExpression          # MultiplicateExpression
- | singleExpression ('+' | '-') singleExpression                # AddictiveExpression
- | singleExpression ('<<' | '>>') singleExpression              # BitShiftExpression
- | singleExpression ('<' | '>' | '<=' | '>=') singleExpression  # RelationalExpression
- | singleExpression ('==' | '!=') singleExpression              # EqualityExpression
- | singleExpression '&' singleExpression                        # BitAndExpression
- | singleExpression '^' singleExpression                        # BitXOrExpression
- | singleExpression '|' singleExpression                        # BitOrExpression
- | singleExpression '&&' singleExpression                       # LogicalAndExpression
- | singleExpression '||' singleExpression                       # LogicalOrExpression
- | singleExpression '=' singleExpression                        # AssignmentExpression
- | singleExpression assignmentOperator singleExpression         # assignmentOperatorExpression
+ | singleExpression postfixOperator                             # PostfixExpression
+ | prefixOperator singleExpression                              # PrefixExpression
+ | singleExpression binaryOperator singleExpression             # BinaryExpression 
  | This                                                         # ThisExpression
  | identifier                                                   # IdentifierExpression
- | literal                                                      # LiteralExpression
+ | BooleanLiterl                                                # BooleanLiteralExpression
+ | StringLiteral                                                # StringLiteralExpression
+ | numericLiteral                                               # NumericLiteralExpression
  | arrayLiteral                                                 # ArrayLiteralExpression
  | '(' expressionSequence ')'                                   # ParanthesizedExpression
  ;
@@ -286,8 +237,41 @@ anonymosuFunction
  : Function '(' formalParameterList? ')' typeAnnotation? functionBody
  ;
 
-assignmentOperator
- : MultiplyAssign
+postfixOperator
+ : PlusPlus
+ | MinusMinus
+ ;
+
+prefixOperator
+ : PlusPlus
+ | MinusMinus
+ | Plus
+ | Minus
+ | BitNot
+ | Not
+ ;
+
+binaryOperator
+ : Multiply
+ | Divide
+ | Modulus
+ | Plus
+ | Minus
+ | LessThan
+ | MoreThan
+ | LessThanEquals
+ | GreaterThanEquals
+ | Equals
+ | NotEquals
+ | BitAnd
+ | BitXOr
+ | BitOr
+ | LeftShiftArithmetic
+ | RightShiftArithmetic
+ | And
+ | Or
+ | Assign
+ | MultiplyAssign
  | PlusAssign
  | BitOrAssign
  | MinusAssign
@@ -296,12 +280,6 @@ assignmentOperator
  | MultiplyAssign
  | LeftShiftArithmeticAssign
  | RightShiftArithmeticAssign
- ;
-
-literal
- : BooleanLiterl
- | StringLiteral
- | numericLiteral
  ;
 
 numericLiteral

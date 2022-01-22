@@ -87,26 +87,6 @@ Case        : 'case';
 Default     : 'default';
 This        : 'this';
 
-// Type
-TrgAllyStatus   : 'TrgAllyStatus';
-TrgComparison   : 'TrgComparsion';
-TrgCount        : 'TrgCount';
-TrgModifier     : 'TrgModifier';
-TrgOrder        : 'TrgOrder';
-TrgPlayer       : 'TrgPlayer';
-TrgProperty     : 'TrgProperty';
-TrgPropState    : 'TrgPropState';
-TrgResource     : 'TrgResource';
-TrgScore        : 'TrgScore';
-TrgSwitchAction : 'TrgSwitchAction';
-TrgSwitchState  : 'TrgSwitchState';
-TrgAIScript     : 'TrgAIScript';
-TrgLocation     : 'TrgLocation';
-TrgString       : 'TrgString';
-TrgSwitch       : 'TrgSwitch';
-TrgUnit         : 'TrgUnit';
-TrgTBL          : 'TrgTBL';
-
 // Identifier
 Identifier
  : IdentifierStart IdentifierPart*
