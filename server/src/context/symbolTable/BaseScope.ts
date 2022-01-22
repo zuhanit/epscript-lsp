@@ -1,3 +1,4 @@
+import { Range } from 'vscode-languageserver';
 import { BaseSymbol } from './BaseSymbol';
 import { IScope } from './IScope';
 import { ISymbol } from './ISymbol';
@@ -7,7 +8,8 @@ import { ISymbol } from './ISymbol';
  */
 export abstract class BaseScope implements IScope {
 	name = 'local';
-	parent: IScope | undefined;
+	parent: BaseScope | undefined;
+	range: Range;
 
 	/**
 	 * 스코프 내 심볼들.
@@ -30,9 +32,11 @@ export abstract class BaseScope implements IScope {
 
 	constructor(
 		name: string,
-		parent?: IScope,
+		range: Range,
+		parent?: BaseScope,
 	) {
 		this.name = name;
+		this.range = range;
 		this.parent = parent;
 	}
 
@@ -88,11 +92,12 @@ export abstract class BaseScope implements IScope {
 	 * 평가된 이름 얻기.
 	 * 
 	 * 자기 자신을 포함해 루트 스코프까지 스코프들로 이루어진 체이닝 이름을 얻어온다
-	 * (예: myModule.myClass.methodName)
+	 * (예: myModule.myClass.methodName).
+	 * 
+	 * 일반 `SymbolTable`에서 사용할 경우 predefined.global까지 있음에 주의
 	 * @returns 평가된 이름
 	 */
-
 	getFullyQualifiedName(): string {
-		return `${this.getEnclosingPathToRoot().reverse().join('.')}`;
+		return `${this.getEnclosingPathToRoot().reverse().map(x => x.name).join('.')}`;
 	}
 }

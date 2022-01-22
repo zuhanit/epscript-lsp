@@ -1,3 +1,5 @@
+import { Range } from 'vscode-languageserver';
+import { BaseScope } from './BaseScope';
 import { FunctionSymbol } from './FunctionSymbol';
 import { IScope } from './IScope';
 import { Type } from './Type';
@@ -7,8 +9,9 @@ export class MethodSymbol extends FunctionSymbol {
 
 	constructor(
 		name: string,
-		scope: IScope,
+		range: Range,
+		scope: BaseScope,
 	) {
-		super(name,scope);
+		super(name, range, scope);
 	}
 }

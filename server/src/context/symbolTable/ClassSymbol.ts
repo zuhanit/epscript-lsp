@@ -1,16 +1,20 @@
+import { Range } from 'vscode-languageserver';
+import { BaseScope } from './BaseScope';
 import { IScope } from './IScope';
 import { SymbolWithScope } from './SymbolWithScope';
 import { Type } from './Type';
+import { TypedSymbol } from './TypedSymbol';
 
-export class ClassSymbol extends SymbolWithScope {
+export class ClassSymbol extends SymbolWithScope implements TypedSymbol{
 	type: Type = {name: 'class'};
 	docString = '';
 
 	constructor(
 		name: string,
-		scope: IScope,
+		range: Range,
+		scope: BaseScope,
 	) {
-		super(name, scope);
+		super(name, range, scope);
 	}
 
 	/**
