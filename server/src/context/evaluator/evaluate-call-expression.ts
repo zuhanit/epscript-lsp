@@ -12,13 +12,9 @@ import { EvaluatorOption } from './evaluator-options';
 
 export function evaluateCallExpression({node, ...rest}: EvaluatorOption<CallExpressionContext>) {
 	const evaluated = evaluateNode({node: node.singleExpression(), ...rest});
-	// 노드가 존재하는지 확인.
-
-	console.log('Evaluate Call', evaluated, node);
 
 	// 심볼이 존재하는지 확인.
 	if (evaluated) {
-		console.log(evaluated, 'aa');
 		// 함수 심볼의 경우 리턴 타입을 반환
 		if (evaluated instanceof FunctionSymbol || evaluated instanceof MethodSymbol) {
 			return evaluated.retType;

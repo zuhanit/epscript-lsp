@@ -3,7 +3,7 @@ import { IScope } from '../symbolTable/IScope';
 import { ISymbol } from '../symbolTable/ISymbol';
 import { SymbolTable } from '../symbolTable/SymbolTable';
 import { evaluateAnonymousFunctionExpression } from './evaluate-anonymous-function-expression';
-import { evaluateCallExpression } from './evaluate-argument-expression';
+import { evaluateCallExpression } from './evaluate-call-expression';
 import { evaluateArrayLiteralExpression } from './evaluate-array-literal-expression';
 import { evaluateBinaryExpression } from './evaluate-binary-expression';
 import { evaluateIdentifierExpression } from './evaluate-identifier-expression';
