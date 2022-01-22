@@ -1,3 +1,4 @@
+import { Range } from 'vscode-languageserver';
 import { BaseScope } from './BaseScope';
 import { IScope } from './IScope';
 
@@ -6,8 +7,9 @@ import { IScope } from './IScope';
  */
 export class LocalScope extends BaseScope {
 	constructor(
-		parent: IScope,
+		range: Range,
+		parent: BaseScope,
 	) {
-		super('local', parent);
+		super('local', range, parent);
 	}
 }

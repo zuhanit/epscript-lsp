@@ -1,3 +1,4 @@
+import { Range } from 'vscode-languageserver';
 import { BaseScope } from './BaseScope';
 import { IScope } from './IScope';
 import { ISymbol } from './ISymbol';
@@ -9,13 +10,14 @@ import { ISymbol } from './ISymbol';
  * `SymbolWithScope` 추상 클래스를 이용해 작성한다.
  */
 export abstract class SymbolWithScope extends BaseScope implements ISymbol, IScope {
-	scope: IScope;
+	scope: BaseScope;
 
 	constructor(
 		name: string,
-		scope: IScope,
+		range: Range,
+		scope: BaseScope,
 	) {
-		super(name, scope);
+		super(name, range, scope);
 		this.scope = scope;
 	}
 }
