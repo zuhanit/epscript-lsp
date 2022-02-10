@@ -35,6 +35,8 @@ import { Parser } from './parser';
 import { URI } from 'vscode-uri';
 import * as path from 'path';
 import { provideSingatureHelp } from './document/signatureHelp';
+import { evaluateNode } from './context/evaluator/evaluator';
+import { CallExpressionContext } from './grammar/src/grammar/lib/epScriptParser';
 
 /**
  * epScript 랭기지 서버.
@@ -165,14 +167,25 @@ export class EPSServer
 
 	private onSignatureHelp(params: SignatureHelpParams) {
 		const contextPackage = this.analyzer.getContextPackageByURI(params.textDocument.uri);
-		const node = this.analyzer.getNodeAtPosition(params.textDocument.uri, params.position);
+		const scopes = this.analyzer.getScopesAtPosition(params.textDocument.uri, params.position);
+		const singleExpressions = this.analyzer.getSingleExpressionAtPosition(params.textDocument.uri, params.position);
 
 		if (contextPackage === undefined) return undefined;
 
-		const singleExpressions = this.analyzer.getSingleExpressionAtPosition(params.textDocument.uri, params.position);
 		if (singleExpressions === null) return undefined;
 
-		return provideSingatureHelp({params: params, contextPackage: contextPackage, name: ''}, singleExpressions);
+		const scope: BaseScope = scopes
+			? scopes[scopes.length-1]
+			: contextPackage.parsePackage.symbolTable.globalScope;
+
+		let singleExpression = singleExpressions[0];
+
+		if (singleExpression instanceof CallExpressionContext) {
+			singleExpression = singleExpression.singleExpression();
+		}
+		
+		const evaluated = evaluateNode({node: singleExpression, currentScope: scope, diagnostics: [], languageManager: this.languageManager, symbolTable: contextPackage.parsePackage.symbolTable});
+		return provideSingatureHelp({params: params, contextPackage: contextPackage, name: ''}, evaluated, singleExpressions[0]);
 	}
 
 	private onDiagnostic(params: TextDocumentChangeEvent<TextDocument>): Diagnostic[] {
@@ -199,15 +212,26 @@ export class EPSServer
 	}
 
 	private onHover(params: HoverParams): Hover | undefined {
-		console.log('hover', params);
 		const contextPackage = this.analyzer.getContextPackageByURI(params.textDocument.uri);
+		const scopes = this.analyzer.getScopesAtPosition(params.textDocument.uri, params.position);
+		const singleExpressions = this.analyzer.getSingleExpressionAtPosition(params.textDocument.uri, params.position);
 		const node = this.analyzer.getNodeAtPosition(params.textDocument.uri, params.position);
-		
-		// 잘못된 다큐먼트?
-		if (node === null || node === undefined) return undefined;
-		if (contextPackage !== undefined) return provideHoverItem({params: params, contextPackage, name: node.text});
 
-		return;
+		if (!contextPackage || !node || !singleExpressions) return undefined;
+
+		const scope: BaseScope = scopes
+			? scopes[scopes.length-1]
+			: contextPackage.parsePackage.symbolTable.globalScope;
+
+		let singleExpression = singleExpressions[0];
+
+		if (singleExpression instanceof CallExpressionContext) {
+			singleExpression = singleExpression.singleExpression();
+		}
+		
+		const evaluated = evaluateNode({node: singleExpression, currentScope: scope, diagnostics: [], languageManager: this.languageManager, symbolTable: contextPackage.parsePackage.symbolTable});
+
+		return provideHoverItem({contextPackage: contextPackage, name: node.text, params: params}, evaluated);
 	}
 
 	private async onDefinition(params: DefinitionParams): Promise<Definition | undefined> {
