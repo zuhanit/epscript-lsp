@@ -21,7 +21,8 @@ import {
 	DidChangeConfigurationParams,
 	CreateFilesParams,
 	DidChangeConfigurationNotification,
-	InitializeResult
+	InitializeResult,
+	SignatureHelpParams
 } from 'vscode-languageserver/node';
 
 import { Analyzer } from './analyzer';
@@ -33,6 +34,7 @@ import { LanguageManager } from './i18n/LanguageManager';
 import { Parser } from './parser';
 import { URI } from 'vscode-uri';
 import * as path from 'path';
+import { provideSingatureHelp } from './document/signatureHelp';
 
 /**
  * epScript 랭기지 서버.
@@ -103,13 +105,13 @@ export class EPSServer
 				if (workspace) this.analyzer.analyze(change.document.uri, change.document, workspace, this.languageManager);
 				
 			}
-
 			this.connection.sendDiagnostics({ uri: change.document.uri, diagnostics: this.onDiagnostic(change) });
 		});
 		connection.workspace.onDidCreateFiles((params) => this.onDidCreateFiles(params));
 		connection.onCompletion((params: CompletionParams, token: CancellationToken) => this.onCompletion(params));
 		connection.onHover((params: HoverParams) => this.onHover(params));
 		connection.onDefinition((params: DefinitionParams) => this.onDefinition(params));
+		connection.onSignatureHelp((params: SignatureHelpParams) => this.onSignatureHelp(params));
 		connection.onDidChangeConfiguration((params: DidChangeConfigurationParams) => this.onDidChangeConfiguration(params)); // Why it didn't works?
 	}
 
@@ -128,7 +130,9 @@ export class EPSServer
 			},
 			hoverProvider: {},
 			definitionProvider: true,
-
+			signatureHelpProvider: {
+				triggerCharacters: ['(', ','],
+			},
 			workspace: {
 				fileOperations: {
 					didCreate: {
@@ -157,6 +161,18 @@ export class EPSServer
 
 	private onDidChangeConfiguration(params: DidChangeConfigurationParams) {
 		console.log('Changed');
+	}
+
+	private onSignatureHelp(params: SignatureHelpParams) {
+		const contextPackage = this.analyzer.getContextPackageByURI(params.textDocument.uri);
+		const node = this.analyzer.getNodeAtPosition(params.textDocument.uri, params.position);
+
+		if (contextPackage === undefined) return undefined;
+
+		const singleExpressions = this.analyzer.getSingleExpressionAtPosition(params.textDocument.uri, params.position);
+		if (singleExpressions === null) return undefined;
+
+		return provideSingatureHelp({params: params, contextPackage: contextPackage, name: ''}, singleExpressions);
 	}
 
 	private onDiagnostic(params: TextDocumentChangeEvent<TextDocument>): Diagnostic[] {
