@@ -23,7 +23,8 @@ export enum SymbolKind {
 export interface SymbolInfo {
 	name: string;
 	detail: string;
-	kind: SymbolKind
+	kind: SymbolKind;
+	args?: SymbolInfo[];
 }
 
 export const symbolKindToCompletionKind = new Map<SymbolKind, CompletionItemKind>([
@@ -90,6 +91,7 @@ export function getSymbolInfo(symbol: ISymbol): SymbolInfo {
 			name: symbol.name,
 			detail: `(method) ${symbol.scope.name}.${symbol.name}(${args.map(x => x.detail).join(', ')}): ${literalToType(symbol.retType)}`,
 			kind: SymbolKind.Function,
+			args: args,
 		};
 	}
 
@@ -99,6 +101,7 @@ export function getSymbolInfo(symbol: ISymbol): SymbolInfo {
 			name: symbol.name,
 			detail: `function ${symbol.name}(${args.map(x => x.detail).join(', ')}): ${literalToType(symbol.retType)}`,
 			kind: SymbolKind.Function,
+			args: args,
 		};
 	}
 
