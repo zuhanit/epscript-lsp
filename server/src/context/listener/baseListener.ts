@@ -1,17 +1,50 @@
-import { FormalParameterArgContext, FunctionDeclarationContext, ProgramContext, VariableDeclarationContext, VariableDeclarationListContext, VariableStatementContext } from '../../grammar/epScriptParser';
-import { epScriptParserListener } from '../../grammar/epScriptParserListener';
+import { ExpressionStatementContext, ForeachStatementContext, FormalParameterArgContext, ForStatementContext, FunctionDeclarationContext, IfStatementContext, ImportStatementContext, ObjectDeclarationContext, ObjectVariableDeclarationContext, ProgramContext, VariableDeclarationListContext, WhileStatementContext } from '../../grammar/src/grammar/lib/epScriptParser';
+import { epScriptParserListener } from '../../grammar/src/grammar/lib/epScriptParserListener';
 import { getAllEUDClasses, getAllEUDFunctions } from '../../lib/eudplib/builtin';
 import { BaseScope } from '../symbolTable/BaseScope';
 import { FunctionSymbol as FunctionSymbol } from '../symbolTable/FunctionSymbol';
 import { IScope } from '../symbolTable/IScope';
 import { ParameterSymbol } from '../symbolTable/ParameterSymbol';
-import { SymbolTable } from '../symbolTable/SymbolTable';
 import { VariableSymbol } from '../symbolTable/VariableSymbol';
-import { TypedSymbol } from '../symbolTable/TypedSymbol';
+import { LocalScope } from '../symbolTable/LocalScope';
+import { getRangeByContext, zeroRange } from '../../util/range';
+import { ClassSymbol } from '../symbolTable/ClassSymbol';
+import { MemberSymbol } from '../symbolTable/MemberSymbol';
+import { ISymbol } from '../symbolTable/ISymbol';
+import { MethodSymbol } from '../symbolTable/MethodSymbol';
+import { ModuleSymbol } from '../symbolTable/ModuleSymbol';
+import { evaluateNode } from '../evaluator/evaluator';
+import { Literal } from '../evaluator/literal';
+import { Parser } from '../../parser';
+import { Analyzer } from '../../analyzer';
+import { existsSync, readFileSync } from 'fs';
+import { TextDocument } from 'vscode-languageserver-textdocument';
+import { ContextSymbolTable } from '../ContextSymbolTable';
+import { URI as VSURI } from 'vscode-uri';
+import * as path from 'path';
+import { BaseSymbol } from '../symbolTable/BaseSymbol';
+import { Diagnostic } from 'vscode-languageserver';
+import { keys, LanguageManager } from '../../i18n/LanguageManager';
+import { Token } from 'antlr4ts';
 
+/**
+ * 심볼 테이블 작성을 위한 ANTLR 리스너.
+ */
 export class BaseListener implements epScriptParserListener {
-	public symbolTable: SymbolTable = new SymbolTable();
-	private currentScope: IScope = this.symbolTable.globalScope;
+	public symbolTable: ContextSymbolTable;
+	private currentScope: BaseScope;
+
+	constructor(
+		private parser: Parser,
+		private document: TextDocument,
+		private workspaceFolder: string,
+		private analyzer: Analyzer,
+		private diagnostics: Diagnostic[],
+		private languageManager: LanguageManager,
+	) {
+		this.symbolTable = new ContextSymbolTable(document);
+		this.currentScope = this.symbolTable.globalScope;
+	}
 
 	enterProgram(ctx: ProgramContext): void {
 		getAllEUDFunctions(this.symbolTable.predefinedScope).forEach((x) => {
@@ -22,58 +55,255 @@ export class BaseListener implements epScriptParserListener {
 		});
 	}
 
+	/**
+	 * Expression
+	 * Expression들은 모두 해석되어 Symbol들을 넘겨준다.
+	 */
+
+	enterExpressionStatement(ctx: ExpressionStatementContext) {
+		ctx.expressionSequence().singleExpression().forEach(expr => evaluateNode({node: expr, currentScope: this.currentScope, symbolTable: this.symbolTable, languageManager: this.languageManager, diagnostics: this.diagnostics}));
+	}
+
+	// 임포트 진입
+	enterImportStatement(ctx: ImportStatementContext) {
+		// FIXME: 파이썬 파일도 처리할 수 있게 해야 합니다. 분기를 나눠서 처리하도록...
+		const namespace = ctx.importNamespace();
+		const dotted = ctx.dottedName().text.split('.');
+		let name: string = dotted[dotted.length-1];
+
+		if (namespace !== undefined) {
+			name = namespace.identifier().text;
+			this.checkSymbolDuplicated(name, namespace.identifier().Identifier().symbol);
+		}
+		
+		this.checkSymbolDuplicated(name, ctx.dottedName().identifier().Identifier().symbol);
+
+		const symbol = new ModuleSymbol(name, getRangeByContext(ctx.dottedName()), getRangeByContext(ctx), this.currentScope);
+
+		// analyzer에서 패키지를 가져오기 위해 파일 경로를 조합해줘야 합니다.
+		const currentPath = path.parse(VSURI.parse(this.document.uri).fsPath);
+		const paths = path.join(currentPath.dir, '..', ...dotted.slice(0, dotted.length-1), dotted[dotted.length-1] + '.eps');
+		const importURI = VSURI.file(paths);
+		console.log(paths, importURI, dotted);
+		let contextPackage = this.analyzer.getContextPackageByURI(importURI.toString());
+
+		if (contextPackage) { // ContextPackage가 존재할 경우
+			contextPackage.parsePackage.symbolTable.globalScope.getSymbols().forEach(x => {
+				const moduleSymbol = x as BaseScope;
+				moduleSymbol.blockRange = zeroRange;
+				symbol.symbols.set(moduleSymbol.name, moduleSymbol);
+			});
+			symbol.scope = contextPackage.parsePackage.symbolTable.globalScope;
+		} else { // 존재하지 않을 경우
+			if (existsSync(paths)) {
+				const fileContent = readFileSync(paths, 'utf8');
+				const result = this.analyzer.analyze(importURI.toString(), TextDocument.create(importURI.toString(), 'eps', 0, fileContent), this.workspaceFolder, this.languageManager);
+
+				contextPackage = result;
+				contextPackage.parsePackage.symbolTable.globalScope.getSymbols().forEach(x => {
+					const moduleSymbol = x as BaseScope;
+					moduleSymbol.blockRange = zeroRange;
+					symbol.symbols.set(moduleSymbol.name, moduleSymbol);
+				});
+			}
+		}
+
+		this.currentScope.symbols.set(symbol.name, symbol); // insert 메소드 사용시 심볼의 스코프가 강제로 currentScope로 고정되기 때문에 심볼 맵을 직접 수정합니다.`
+		this.pushScope(symbol);
+	}
+
+	// 임포트 탈출
+	exitImportStatement() {
+		this.popScope();
+	}
+
+	// 변수 선언 진입
 	enterVariableDeclarationList(ctx: VariableDeclarationListContext) {
 		const modifier: string = ctx.varModifier().text;
 		const symbols = ctx.variableDeclaration().map((x) => {
+			let value: Literal = null;
+			if (x.singleExpression() !== undefined) value = evaluateNode({node: x.singleExpression()!, symbolTable: this.symbolTable, currentScope: this.currentScope, languageManager: this.languageManager, diagnostics: this.diagnostics});
 			const symbol = new VariableSymbol(
 				x.assignAble().text,
 				this.currentScope,
-				x
+				getRangeByContext(x.assignAble())
 			);
+			symbol.value = value;
 			symbol.modifier = modifier === 'var' ? 'var' : 'const';
+			this.checkSymbolDuplicated(symbol.name, x.assignAble().identifier().Identifier().symbol);
 			return symbol;
 		});
 		symbols.forEach((x) => this.currentScope.insert(x));
 	}
 
+	// 함수 선언 진입
 	enterFunctionDeclaration(ctx: FunctionDeclarationContext) {
-		const symbol = new FunctionSymbol(ctx.identifier().text, this.currentScope);
+		const isParentClassSymbol = function(parent: IScope | ISymbol): boolean {
+			if (parent instanceof ClassSymbol) return true;
+			return false;
+		};
+
+		const symbol = isParentClassSymbol(this.currentScope)
+			? new MethodSymbol(ctx.identifier().text, getRangeByContext(ctx.identifier()), getRangeByContext(ctx), this.currentScope)
+			: new FunctionSymbol(ctx.identifier().text, getRangeByContext(ctx.identifier()), getRangeByContext(ctx), this.currentScope);
+		
+		const typeAnnotation = ctx.typeAnnotation()?.singleExpression();
+		if (typeAnnotation) {
+			const resolved = evaluateNode({node: typeAnnotation, symbolTable: this.symbolTable, currentScope: this.currentScope, languageManager: this.languageManager, diagnostics: this.diagnostics});
+			if (resolved) symbol.retType = resolved;
+		} else {
+			symbol.retType = null;
+		}
+
+		this.checkSymbolDuplicated(ctx.identifier().text, ctx.identifier().Identifier().symbol);
 		this.currentScope.insert(symbol);
 		this.pushScope(symbol);
 	}
 
-	exitFunctionDeclaration(ctx: FunctionDeclarationContext) {
+	// 함수 선언 탈출
+	exitFunctionDeclaration() {
 		this.popScope();
 	}
 
+	// 함수 파라미터 진입
 	enterFormalParameterArg(ctx: FormalParameterArgContext) {
-		const symbol = new ParameterSymbol(ctx.assignAble().text, this.currentScope);
-		const typeName = ctx.typeAnnotation()?.type_().text;
-		if (typeName) {
-			const resolved = this.symbolTable.globalScope.resolve(typeName);
-			if (resolved && "type" in resolved) {
-				symbol.type = resolved;
-			}
+		const symbol = new ParameterSymbol(ctx.assignAble().text, this.currentScope, getRangeByContext(ctx));
+
+		const typeAnnotation = ctx.typeAnnotation()?.singleExpression();
+		if (typeAnnotation) {
+			const resolved = evaluateNode({node: typeAnnotation, symbolTable: this.symbolTable, currentScope: this.currentScope, languageManager: this.languageManager, diagnostics: this.diagnostics});
+			if (resolved) symbol.value = resolved;
+		} else {
+			symbol.value = null;
 		}
+		
+		if (FunctionSymbol.isFunctionSymbol(this.currentScope)) this.currentScope.arguments.push(symbol);
+
 		this.currentScope.insert(symbol);
+	}
+
+	enterObjectDeclaration(ctx: ObjectDeclarationContext) {
+		const symbol = new ClassSymbol(ctx.identifier().text, getRangeByContext(ctx.identifier()), getRangeByContext(ctx), this.currentScope);
+		this.checkSymbolDuplicated(ctx.identifier().text, ctx.identifier().Identifier().symbol);
+		this.currentScope.insert(symbol);
+		this.pushScope(symbol);
+	}
+
+	enterObjectVariableDeclaration(ctx: ObjectVariableDeclarationContext) {
+		const symbol = new MemberSymbol(ctx.identifier().text, this.currentScope, getRangeByContext(ctx));
+		const typeAnnotation = ctx.typeAnnotation()?.singleExpression();
+		if (typeAnnotation) {
+			const resolved = evaluateNode({node: typeAnnotation, symbolTable: this.symbolTable, currentScope: this.currentScope, languageManager: this.languageManager, diagnostics: this.diagnostics});
+			if (resolved) symbol.value = resolved;
+		}
+		this.checkSymbolDuplicated(ctx.identifier().text, ctx.identifier().Identifier().symbol);
+		this.currentScope.insert(symbol);
+	}
+
+	exitObjectDeclaration() {
+		this.popScope();
+	}
+
+	// *** Block Scope *** //
+
+	// if문 진입
+	enterIfStatement(ctx: IfStatementContext) {
+		const symbol = new LocalScope(getRangeByContext(ctx), this.currentScope);
+		this.currentScope.insert(symbol);
+		this.pushScope(symbol);
+	}
+
+	// if문 탈출
+	exitIfStatement(ctx: IfStatementContext) {
+		this.popScope();
+	}
+
+	enterForeachStatement(ctx: ForeachStatementContext) {
+		const symbol = new LocalScope(getRangeByContext(ctx), this.currentScope);
+		const symbols = ctx.foreachBlock().identifier().map(x => new VariableSymbol(
+			x.Identifier().text,
+			symbol,
+			getRangeByContext(x),
+			x
+		));
+		symbols.forEach(x => symbol.insert(x));
+		this.currentScope.insert(symbol);
+		this.pushScope(symbol);
+	}
+
+	exitForeachStatement() {
+		this.popScope();
+	}
+
+	enterWhileStatement(ctx: WhileStatementContext) {
+		const symbol = new LocalScope(getRangeByContext(ctx), this.currentScope);
+		this.currentScope.insert(symbol);
+		this.pushScope(symbol);
+	}
+
+	exitWhileStatement() {
+		this.popScope();
+	}
+
+	enterForStatement(ctx: ForStatementContext) {
+		const symbol = new LocalScope(getRangeByContext(ctx), this.currentScope);
+		// const dcls = ctx.variableDeclarationList();
+
+		// if (dcls) {
+		// 	dcls.variableDeclaration().forEach(x => {
+		// 		symbol.insert(new VariableSymbol(
+		// 			x.assignAble().text,
+		// 			symbol,
+		// 			getRangeByContext(x.assignAble()),
+		// 		));
+		// 	});
+		// }
+
+		this.currentScope.insert(symbol);
+		this.pushScope(symbol);
+	}
+
+	exitForStatement() {
+		this.popScope();
 	}
 
 	/**
 	 * 스코프 집어넣기.
 	 * @param scope 대상 스코프
 	 */
-	pushScope(scope: BaseScope): void {
+	private pushScope(scope: BaseScope): void {
 		this.currentScope = scope;
 	}
 
 	/**
 	 * 부모 스코프로 이동.
 	 */
-	popScope(): void {
+	private popScope(): void {
 		if (this.currentScope.parent) {
 			this.currentScope = this.currentScope.parent;
 		} else {
-			throw new Error('Cannot pop scope with no parent');
+			throw new Error('Cannot pop scope at Root Scope');
 		}
+	}
+
+	/**
+	 * 심볼명이 중복되어있는지 확인
+	 */
+	private checkSymbolDuplicated(name: string, offendingToken: Token) {
+		const duplicatedSymbol = this.currentScope.getSymbolsUntilThis().find(x => x.name === name);
+		if (duplicatedSymbol) this.diagnostics.push({
+			message: this.languageManager.getDiagnosticsKey(keys['diagnostics.duplicatedIdentifier']) + ': ' + name,
+			range: {
+                start: {
+                    character: offendingToken.charPositionInLine,
+                    line: offendingToken.line - 1,
+                },
+                end: {
+                    character: offendingToken.charPositionInLine + offendingToken.stopIndex -
+                        offendingToken.startIndex + 1,
+                    line: offendingToken.line - 1,
+                },
+            },
+		});
 	}
 }
