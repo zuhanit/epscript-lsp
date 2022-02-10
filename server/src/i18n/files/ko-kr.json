@@ -1,0 +1,10 @@
+{
+	"hello": "반가워요 세상!",
+	"duplicatedIdentifier": "중복된 식별자",
+	"notExist": "다음 심볼이 존재하지 않습니다.",
+	"argumentLengthNotMatch": "매개인자 갯수가 맞지 않습니다.",
+	"expected": "기대된 값",
+	"butGot": "실제 값",
+	"property": "속성",
+	"doesNotExist": "존재하지 않습니다"
+}
