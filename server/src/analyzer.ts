@@ -12,6 +12,7 @@ import { ContextSymbolTable } from './context/ContextSymbolTable';
 import { ContextPackage } from './context/IContextPackage';
 import { BaseScope } from './context/symbolTable/BaseScope';
 import { SymbolTable } from './context/symbolTable/SymbolTable';
+import { SingleExpressionContext } from './grammar/src/grammar/lib/epScriptParser';
 import { LanguageManager } from './i18n/LanguageManager';
 import { Parser } from './parser';
 import { getEPSPaths } from './workspace';
@@ -118,9 +119,49 @@ export class Analyzer {
 	 */
 	public getContextPackageByURI(uri: URI) {
 		let result: ContextPackage | undefined = undefined;
+
 		for (const packages of this.workspaceFolders.values()) {
-			result = packages.get(uri);
+			const contextPackage = packages.get(uri);
+			if (contextPackage) result = contextPackage;
 		}
+
+		return result;
+	}
+
+	public getSingleExpressionAtPosition
+		(
+			uri: URI,
+			position: Position,
+		)
+	{
+		const ast = this.getContextPackageByURI(uri)?.parsePackage.ast;
+		if (ast === undefined) return null;
+		return this.singleExpressionFromPosition(ast, position.character, position.line + 1);
+	}
+
+	private singleExpressionFromPosition
+		(
+			root: ParseTree,
+			character: number,
+			line: number,
+		): SingleExpressionContext[]
+	{
+		const result: SingleExpressionContext[] = [];
+
+		if (root instanceof SingleExpressionContext) {
+			if (root.start.line <= line && root.stop && root.stop.line >= line) {
+				result.push(root);
+			}
+		} else {
+			const context = root as ParserRuleContext;
+
+			if (context.children) {
+				context.children.forEach(x => {
+					result.push(...this.singleExpressionFromPosition(x, character, line));
+				});
+			}
+		}
+
 		return result;
 	}
 
