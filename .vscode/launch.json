@@ -7,7 +7,9 @@
 			"request": "launch",
 			"name": "Launch Client",
 			"runtimeExecutable": "${execPath}",
-			"args": ["--extensionDevelopmentPath=${workspaceRoot}"],
+			"args": [
+				"--extensionDevelopmentPath=${workspaceRoot}"
+			],
 			"outFiles": ["${workspaceRoot}/client/out/**/*.js"],
 			"preLaunchTask": {
 				"type": "npm",
@@ -23,33 +25,17 @@
 			"outFiles": ["${workspaceRoot}/server/out/**/*.js"]
 		},
 		{
-			"name": "Language Server E2E Test",
+			"name": "Launch Extension",
 			"type": "extensionHost",
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
-			"args": [
-				"--extensionDevelopmentPath=${workspaceRoot}",
-				"--extensionTestsPath=${workspaceRoot}/client/out/test/index",
-				"${workspaceRoot}/client/testFixture"
-			],
-			"outFiles": ["${workspaceRoot}/client/out/test/**/*.js"]
-		},
-		{
-			"name": "Language Server Context Test",
-			"type": "extensionHost",
-			"request": "launch",
-			"runtimeExecutable": "${execPath}",
-			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}",
-				"--extensionTestPath=${workspaceRoot}/server/out/test/index",
-				"${workspaceRoot}/server/textFixture"
-			],
+			"args": ["--extensionDevelopmentPath=${workspaceRoot}"],
 		}
 	],
 	"compounds": [
 		{
 			"name": "Client + Server",
-			"configurations": ["Launch Client", "Attach to Server"]
+			"configurations": ["Launch Extension", "Attach to Server"]
 		}
 	]
 }
