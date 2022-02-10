@@ -1,4 +1,4 @@
-import { SingleExpressionContext } from '../../grammar/epScriptParser';
+import { SingleExpressionContext } from '../../grammar/src/grammar/lib/epScriptParser';
 import { IScope } from '../symbolTable/IScope';
 import { ISymbol } from '../symbolTable/ISymbol';
 import { SymbolTable } from '../symbolTable/SymbolTable';

@@ -1,4 +1,4 @@
-import { ArrayLiteralExpressionContext } from '../../grammar/epScriptParser';
+import { ArrayLiteralExpressionContext } from '../../grammar/src/grammar/lib/epScriptParser';
 import { evaluateNode } from './evaluator';
 import { EvaluatorOption } from './evaluator-options';
 import { Literal } from './literal';
