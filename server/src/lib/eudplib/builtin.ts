@@ -7,6 +7,7 @@ import { MethodSymbol } from '../../context/symbolTable/MethodSymbol';
 import { ParameterSymbol } from '../../context/symbolTable/ParameterSymbol';
 import { zeroRange } from '../../util/range';
 import { builtinClasses } from './classes';
+import { builtinEncode } from './encodes';
 import { builtinFunctions } from './funcs';
 
 /**
@@ -27,12 +28,27 @@ export function getAllEUDFunctions(scope: BaseScope): FunctionSymbol[] {
 		);
 		x.args.forEach((y) => {
 			const argSymbol = new ParameterSymbol(y, symbol, zeroRange);
-			symbol.insert(argSymbol);
 			symbol.arguments.push(argSymbol);
+			symbol.insert(argSymbol);
 		});
 		symbol.docString = x.doc;
 		return symbol;
 	});
+	funcs.push(...builtinEncode.map(x => {
+		const symbol = new FunctionSymbol(
+			x.name,
+			zeroRange,
+			zeroRange,
+			scope,
+		);
+		x.args.forEach(y => {
+			const argSymbol = new ParameterSymbol(y, symbol, zeroRange);
+			symbol.arguments.push(argSymbol);
+			symbol.insert(argSymbol);
+		});
+		symbol.docString = x.doc;
+		return symbol;
+	}));
 	return funcs;
 }
 
