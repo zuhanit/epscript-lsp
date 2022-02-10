@@ -25,7 +25,7 @@ export function evaluateMemberDotExpression({node, ...rest}: EvaluatorOption<Mem
 						literalToType(expressionResult) +
 						"'.";
 
-		pushDiagnostic(message, rest.diagnostics, node.identifier().Identifier().symbol);
+		pushDiagnostic(message, rest.diagnostics, node.identifier());
 	}
 
 	return match;

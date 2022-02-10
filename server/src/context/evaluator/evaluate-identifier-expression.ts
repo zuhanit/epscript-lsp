@@ -5,6 +5,6 @@ import { EvaluatorOption } from './evaluator-options';
 
 export function evaluateIdentifierExpression({node, ...rest}: EvaluatorOption<IdentifierExpressionContext>) {
 	const resolved = rest.currentScope.resolve(node.text);
-	if (resolved === undefined) pushDiagnostic(rest.languageManager.getDiagnosticsKey(keys['diagnostics.notExist']) + ` "${node.text}"`, rest.diagnostics, node.identifier().Identifier().symbol);
+	if (resolved === undefined) pushDiagnostic(rest.languageManager.getDiagnosticsKey(keys['diagnostics.notExist']) + ` "${node.text}"`, rest.diagnostics, node.identifier());
 	return resolved;
 }

@@ -25,7 +25,7 @@ import * as path from 'path';
 import { BaseSymbol } from '../symbolTable/BaseSymbol';
 import { Diagnostic } from 'vscode-languageserver';
 import { keys, LanguageManager } from '../../i18n/LanguageManager';
-import { Token } from 'antlr4ts';
+import { ParserRuleContext, Token } from 'antlr4ts';
 
 /**
  * 심볼 테이블 작성을 위한 ANTLR 리스너.
@@ -73,10 +73,10 @@ export class BaseListener implements epScriptParserListener {
 
 		if (namespace !== undefined) {
 			name = namespace.identifier().text;
-			this.checkSymbolDuplicated(name, namespace.identifier().Identifier().symbol);
+			this.checkSymbolDuplicated(name, namespace.identifier());
 		}
 		
-		this.checkSymbolDuplicated(name, ctx.dottedName().identifier().Identifier().symbol);
+		this.checkSymbolDuplicated(name, ctx.dottedName().identifier());
 
 		const symbol = new ModuleSymbol(name, getRangeByContext(ctx.dottedName()), getRangeByContext(ctx), this.currentScope);
 
@@ -130,7 +130,7 @@ export class BaseListener implements epScriptParserListener {
 			);
 			symbol.value = value;
 			symbol.modifier = modifier === 'var' ? 'var' : 'const';
-			this.checkSymbolDuplicated(symbol.name, x.assignAble().identifier().Identifier().symbol);
+			this.checkSymbolDuplicated(symbol.name, x.assignAble().identifier());
 			return symbol;
 		});
 		symbols.forEach((x) => this.currentScope.insert(x));
@@ -155,7 +155,7 @@ export class BaseListener implements epScriptParserListener {
 			symbol.retType = null;
 		}
 
-		this.checkSymbolDuplicated(ctx.identifier().text, ctx.identifier().Identifier().symbol);
+		this.checkSymbolDuplicated(ctx.identifier().text, ctx.identifier());
 		this.currentScope.insert(symbol);
 		this.pushScope(symbol);
 	}
@@ -184,7 +184,7 @@ export class BaseListener implements epScriptParserListener {
 
 	enterObjectDeclaration(ctx: ObjectDeclarationContext) {
 		const symbol = new ClassSymbol(ctx.identifier().text, getRangeByContext(ctx.identifier()), getRangeByContext(ctx), this.currentScope);
-		this.checkSymbolDuplicated(ctx.identifier().text, ctx.identifier().Identifier().symbol);
+		this.checkSymbolDuplicated(ctx.identifier().text, ctx.identifier());
 		this.currentScope.insert(symbol);
 		this.pushScope(symbol);
 	}
@@ -196,7 +196,7 @@ export class BaseListener implements epScriptParserListener {
 			const resolved = evaluateNode({node: typeAnnotation, symbolTable: this.symbolTable, currentScope: this.currentScope, languageManager: this.languageManager, diagnostics: this.diagnostics});
 			if (resolved) symbol.value = resolved;
 		}
-		this.checkSymbolDuplicated(ctx.identifier().text, ctx.identifier().Identifier().symbol);
+		this.checkSymbolDuplicated(ctx.identifier().text, ctx.identifier());
 		this.currentScope.insert(symbol);
 	}
 
@@ -247,17 +247,6 @@ export class BaseListener implements epScriptParserListener {
 
 	enterForStatement(ctx: ForStatementContext) {
 		const symbol = new LocalScope(getRangeByContext(ctx), this.currentScope);
-		// const dcls = ctx.variableDeclarationList();
-
-		// if (dcls) {
-		// 	dcls.variableDeclaration().forEach(x => {
-		// 		symbol.insert(new VariableSymbol(
-		// 			x.assignAble().text,
-		// 			symbol,
-		// 			getRangeByContext(x.assignAble()),
-		// 		));
-		// 	});
-		// }
 
 		this.currentScope.insert(symbol);
 		this.pushScope(symbol);
@@ -289,21 +278,24 @@ export class BaseListener implements epScriptParserListener {
 	/**
 	 * 심볼명이 중복되어있는지 확인
 	 */
-	private checkSymbolDuplicated(name: string, offendingToken: Token) {
+	private checkSymbolDuplicated(name: string, t: ParserRuleContext) {
 		const duplicatedSymbol = this.currentScope.getSymbolsUntilThis().find(x => x.name === name);
 		if (duplicatedSymbol) this.diagnostics.push({
 			message: this.languageManager.getDiagnosticsKey(keys['diagnostics.duplicatedIdentifier']) + ': ' + name,
 			range: {
-                start: {
-                    character: offendingToken.charPositionInLine,
-                    line: offendingToken.line - 1,
-                },
-                end: {
-                    character: offendingToken.charPositionInLine + offendingToken.stopIndex -
-                        offendingToken.startIndex + 1,
-                    line: offendingToken.line - 1,
-                },
-            },
+				start: {
+					character: t.start.charPositionInLine,
+					line: t.start.line,
+				},
+				end: {
+					character: t.stop && t.stop.text
+						? t.stop.charPositionInLine + t.stop.text?.length
+						: t.start.charPositionInLine,
+					line: t.stop
+						? t.stop.line
+						: t.start.line
+				}
+			}
 		});
 	}
 }

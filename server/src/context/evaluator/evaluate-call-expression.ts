@@ -41,7 +41,7 @@ export function evaluateCallExpression({node, ...rest}: EvaluatorOption<CallExpr
 									" " +
 									argumentLength +
 									".";
-					pushDiagnostic(message, rest.diagnostics, node.arguments().start);
+					pushDiagnostic(message, rest.diagnostics, node.arguments());
 				}
 			}
 

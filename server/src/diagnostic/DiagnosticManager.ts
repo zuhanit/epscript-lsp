@@ -1,20 +1,25 @@
 import { ParserRuleContext, Token } from 'antlr4ts';
-import { Diagnostic } from 'vscode-languageserver';
+import { Diagnostic, Range } from 'vscode-languageserver';
 import { keys, LanguageManager } from '../i18n/LanguageManager';
 
-export function pushDiagnostic(message: string, diagnostic: Diagnostic[], offendingToken: Token) {
+export function pushDiagnostic(message: string, diagnostic: Diagnostic[], t: ParserRuleContext): void;
+
+export function pushDiagnostic(message: string, diagnostic: Diagnostic[], t: ParserRuleContext) {
 	diagnostic.push({
 		message: message,
 		range: {
 			start: {
-				character: offendingToken.charPositionInLine,
-				line: offendingToken.line - 1,
+				character: t.start.charPositionInLine,
+				line: t.start.line,
 			},
 			end: {
-				character: offendingToken.charPositionInLine + offendingToken.stopIndex -
-					offendingToken.startIndex + 1,
-				line: offendingToken.line - 1,
-			},
+				character: t.stop && t.stop.text
+					? t.stop.charPositionInLine + t.stop.text?.length
+					: t.start.charPositionInLine,
+				line: t.stop
+					? t.stop.line
+					: t.start.line
+			}
 		}
 	});
 }
