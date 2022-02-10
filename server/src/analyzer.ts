@@ -1,11 +1,23 @@
 import { ParserRuleContext } from 'antlr4ts';
 import { ParseTree } from 'antlr4ts/tree/ParseTree';
 import { TerminalNode } from 'antlr4ts/tree/TerminalNode';
+import { readFile, readFileSync } from 'fs';
+import { Glob, glob } from 'glob';
+import { Context } from 'mocha';
+import { promisify } from 'util';
 import { Connection, InitializeParams, URI, WorkspaceFolder } from 'vscode-languageserver';
 import { Position, TextDocument } from 'vscode-languageserver-textdocument';
+import { URI as VSURI } from 'vscode-uri';
+import { ContextSymbolTable } from './context/ContextSymbolTable';
 import { ContextPackage } from './context/IContextPackage';
+import { BaseScope } from './context/symbolTable/BaseScope';
+import { SymbolTable } from './context/symbolTable/SymbolTable';
+import { LanguageManager } from './i18n/LanguageManager';
 import { Parser } from './parser';
+import { getEPSPaths } from './workspace';
 
+const readFileAsync = promisify(readFile);
+type FolderPath = string;
 /**
  * 문서 정리 프로그램.
  */
@@ -13,7 +25,7 @@ export class Analyzer {
 	/**
 	 * 클라이언트에 열려있는 문서 패키지.
 	 */
-	public documents = new Map<URI, ContextPackage>();
+	public workspaceFolders = new Map<URI, Map<URI, ContextPackage>>();
 	public parser: Parser;
 
 	constructor(parser: Parser) {
@@ -30,38 +42,141 @@ export class Analyzer {
 			connection: Connection,
 			params: InitializeParams,
 			parser: Parser,
+			languageManager: LanguageManager,
 		): Promise<Analyzer>
 	{
-		// params.workspaceFolders
 		console.log('Analyzer Initialized');
+		console.log('I got those workspaceFolders: ', params.workspaceFolders);
 		const analyzer = new Analyzer(parser);
+
+		params.workspaceFolders?.forEach(async folder => {
+			let filePaths: string[] = [];
+			const folderPath = VSURI.parse(folder.uri).fsPath;
+
+			try {
+				filePaths = await getEPSPaths(folderPath);
+			} catch (err) {
+				console.log('Analyzer initializing failed while get epScript files. reason: ', err);
+			}
+
+			filePaths.forEach(async file => {
+				const fileUri = folder.uri + '/' + file;
+				const path = folderPath + '\\' + file;
+				const content = await readFileAsync(path, 'utf8');
+
+				analyzer.analyze(fileUri, TextDocument.create(fileUri, 'eps', 0, content), folderPath, languageManager);
+			});
+		});
+
 		return analyzer;
 	}
 
-	public async analyze
+	/**
+	 * 문서 내용 분석하기.
+	 * 
+	 * 내부적으로 분석하며 `Analyzer`의 workspaceFolder도 수정합니다.
+	 * 
+	 * @param uri 문서 URI
+	 * @param document 문서 TextDocument
+	 * @param folderPath workspaceFolder의 경로
+	 * @returns ContextPackage
+	 */
+	public analyze
 		(
 			uri: URI,
 			document: TextDocument,
-		): Promise<ContextPackage>
+			folderPath: string,
+			languageManager: LanguageManager,
+		): ContextPackage
 	{
+		const workspace = this.workspaceFolders.get(folderPath);
 		const contextPackage: ContextPackage = {
 			document: document,
-			parsePackage: this.parser.parse(document),
+			parsePackage: this.parser.parse(document, folderPath, this, languageManager),
+			workspaceFolder: folderPath,
 		};
-		this.documents.set(uri, contextPackage);
+		
+		if (workspace) {
+			workspace.set(uri, contextPackage);
+		} else {
+			this.workspaceFolders.set(folderPath, new Map<URI, ContextPackage>([
+				[uri, contextPackage]
+			]));
+		}
+
 		return contextPackage;
 	}
 
+	/**
+	 * URI를 통해 `ContextPackage` 얻어오기.
+	 * 
+	 * VSCode에선 workspaceFolder를 통해 문서들을 관리하므로,
+	 * workspaceFolders를 순환하며 맞는 URI 문서를 가져옵니다.
+	 * 
+	 * @param uri 얻어올 문서의 URI
+	 * @returns ContextPackage
+	 */
+	public getContextPackageByURI(uri: URI) {
+		let result: ContextPackage | undefined = undefined;
+		for (const packages of this.workspaceFolders.values()) {
+			result = packages.get(uri);
+		}
+		return result;
+	}
+
+	/**
+	 * 현재 포지션에 있는 ANTLR 노드 얻어오기.
+	 * 
+	 * @param uri 문서 URI
+	 * @param position 열려있는 문서 커버의 포지션
+	 * @returns 
+	 */
 	public getNodeAtPosition
 		(
 			uri: URI,
 			position: Position,
 		)
 	{
-		const ast = this.documents.get(uri)?.parsePackage.ast;
+		const ast = this.getContextPackageByURI(uri)?.parsePackage.ast;
 		if (ast === undefined) return null;
-		console.log(ast);
 		return this.parseTreeFromPosition(ast, position.character, position.line + 1);
+	}
+
+	/**
+	 * 포지션을 포함하고 있는 스코프 배열 얻어오기.
+	 * 
+	 * @param uri 문서 URI
+	 * @param position 열려있는 문서 커서의 포지션
+	 * @returns 
+	 */
+	public getScopesAtPosition
+		(
+			uri: URI,
+			position: Position,
+		)
+	{
+		const symbolTable = this.getContextPackageByURI(uri)?.parsePackage.symbolTable;
+		if (symbolTable === undefined) return undefined;
+
+		return this.scopesFromPosition(symbolTable, position.character, position.line);
+	}
+
+	public scopesFromPosition
+		(
+			symbolTable: ContextSymbolTable,
+			character: number,
+			line: number,
+		): BaseScope[] | undefined
+	{
+
+		const scopes = symbolTable
+			.globalScope
+			.getAllSymbols()
+			.filter<BaseScope>(BaseScope.isBaseScope)
+			.filter(x => x.blockRange.start.line <= line && x.blockRange.end.line >= line);
+
+		if (scopes.length === 0) return undefined;
+		return scopes;
 	}
 
 	public parseTreeFromPosition = (root: ParseTree, column: number, row: number): ParseTree | undefined => {
@@ -105,8 +220,4 @@ export class Analyzer {
 	
 		}
 	};
-
-	public getWordAtPosition() {
-		//
-	}
 }
