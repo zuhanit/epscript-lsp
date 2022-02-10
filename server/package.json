@@ -12,17 +12,26 @@
 		"url": "https://github.com/Microsoft/vscode-extension-samples"
 	},
 	"dependencies": {
+		"@types/i18next": "^13.0.0",
+		"antlr4-c3": "^2.2.1",
+		"glob": "^7.2.0",
+		"i18next": "^21.6.10",
 		"vscode-languageserver": "^7.0.0",
-		"vscode-languageserver-textdocument": "^1.0.1"
+		"vscode-languageserver-textdocument": "^1.0.1",
+		"vscode-uri": "^3.0.3"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.3.0",
 		"@types/mocha": "^9.0.0",
+		"antlr4ts": "^0.5.0-alpha.4",
+		"antlr4ts-cli": "^0.5.0-alpha.4",
 		"chai": "^4.3.4",
 		"mocha": "^9.1.3",
 		"ts-node": "^10.4.0"
 	},
 	"scripts": {
-		"mocha-test": "mocha */test/**/*.test.ts -r ts-node/register"
+		"mocha-test": "mocha */test/**/*.test.ts -r ts-node/register",
+		"antlr-compile-windows": "antlr4ts -o ./src/grammar -visitor ./src/grammar/lib/epScriptLexer.g4 ./src/grammar/lib/epScriptParser.g4",
+		"antlr-compile-linux": "cd src/grammar/lib && antlr4ts epScriptLexer.g4 epScriptParser.g4 -o ../src/grammar/lib"
 	}
 }
