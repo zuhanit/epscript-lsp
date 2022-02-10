@@ -1,4 +1,4 @@
-// Generated from ./src/grammar/lib/epScriptParser.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from epScriptParser.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ATN } from "antlr4ts/atn/ATN";
@@ -24,8 +24,6 @@ import { VocabularyImpl } from "antlr4ts/VocabularyImpl";
 import * as Utils from "antlr4ts/misc/Utils";
 
 import { epScriptParserListener } from "./epScriptParserListener";
-import { epScriptParserVisitor } from "./epScriptParserVisitor";
-
 
 export class epScriptParser extends Parser {
 	public static readonly BooleanLiterl = 1;
@@ -3161,14 +3159,6 @@ export class ProgramContext extends ParserRuleContext {
 			listener.exitProgram(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitProgram) {
-			return visitor.visitProgram(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -3191,14 +3181,6 @@ export class SourceElementContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitSourceElement) {
 			listener.exitSourceElement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitSourceElement) {
-			return visitor.visitSourceElement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -3264,14 +3246,6 @@ export class StatementContext extends ParserRuleContext {
 			listener.exitStatement(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitStatement) {
-			return visitor.visitStatement(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -3296,14 +3270,6 @@ export class BlockContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitBlock) {
 			listener.exitBlock(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitBlock) {
-			return visitor.visitBlock(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -3336,14 +3302,6 @@ export class StatementListContext extends ParserRuleContext {
 			listener.exitStatementList(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitStatementList) {
-			return visitor.visitStatementList(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -3371,14 +3329,6 @@ export class ImportStatementContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitImportStatement) {
 			listener.exitImportStatement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitImportStatement) {
-			return visitor.visitImportStatement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -3409,14 +3359,6 @@ export class DottedNameContext extends ParserRuleContext {
 			listener.exitDottedName(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitDottedName) {
-			return visitor.visitDottedName(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -3442,14 +3384,6 @@ export class ImportNamespaceContext extends ParserRuleContext {
 			listener.exitImportNamespace(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitImportNamespace) {
-			return visitor.visitImportNamespace(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -3473,14 +3407,6 @@ export class VariableStatementContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitVariableStatement) {
 			listener.exitVariableStatement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitVariableStatement) {
-			return visitor.visitVariableStatement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -3525,14 +3451,6 @@ export class VariableDeclarationListContext extends ParserRuleContext {
 			listener.exitVariableDeclarationList(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitVariableDeclarationList) {
-			return visitor.visitVariableDeclarationList(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -3561,14 +3479,6 @@ export class VariableDeclarationContext extends ParserRuleContext {
 			listener.exitVariableDeclaration(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitVariableDeclaration) {
-			return visitor.visitVariableDeclaration(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -3589,14 +3499,6 @@ export class EmptyStatementContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitEmptyStatement) {
 			listener.exitEmptyStatement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitEmptyStatement) {
-			return visitor.visitEmptyStatement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -3621,14 +3523,6 @@ export class AssignAbleContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitAssignAble) {
 			listener.exitAssignAble(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitAssignAble) {
-			return visitor.visitAssignAble(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -3656,14 +3550,6 @@ export class ExpressionStatementContext extends ParserRuleContext {
 			listener.exitExpressionStatement(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitExpressionStatement) {
-			return visitor.visitExpressionStatement(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -3685,14 +3571,6 @@ export class VarModifierContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitVarModifier) {
 			listener.exitVarModifier(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitVarModifier) {
-			return visitor.visitVarModifier(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -3732,14 +3610,6 @@ export class IfStatementContext extends ParserRuleContext {
 			listener.exitIfStatement(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitIfStatement) {
-			return visitor.visitIfStatement(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -3777,14 +3647,6 @@ export class WhileStatementContext extends IterationStatementContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitWhileStatement) {
 			listener.exitWhileStatement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitWhileStatement) {
-			return visitor.visitWhileStatement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -3832,14 +3694,6 @@ export class ForStatementContext extends IterationStatementContext {
 			listener.exitForStatement(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitForStatement) {
-			return visitor.visitForStatement(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 export class ForeachStatementContext extends IterationStatementContext {
 	public Foreach(): TerminalNode { return this.getToken(epScriptParser.Foreach, 0); }
@@ -3863,14 +3717,6 @@ export class ForeachStatementContext extends IterationStatementContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitForeachStatement) {
 			listener.exitForeachStatement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitForeachStatement) {
-			return visitor.visitForeachStatement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -3918,14 +3764,6 @@ export class ForeachBlockContext extends ParserRuleContext {
 			listener.exitForeachBlock(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitForeachBlock) {
-			return visitor.visitForeachBlock(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -3949,14 +3787,6 @@ export class OnceStatementContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitOnceStatement) {
 			listener.exitOnceStatement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitOnceStatement) {
-			return visitor.visitOnceStatement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -3985,14 +3815,6 @@ export class ContinueStatementContext extends ParserRuleContext {
 			listener.exitContinueStatement(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitContinueStatement) {
-			return visitor.visitContinueStatement(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4019,14 +3841,6 @@ export class BreakStatementContext extends ParserRuleContext {
 			listener.exitBreakStatement(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitBreakStatement) {
-			return visitor.visitBreakStatement(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4051,14 +3865,6 @@ export class ReturnStatementContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitReturnStatement) {
 			listener.exitReturnStatement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitReturnStatement) {
-			return visitor.visitReturnStatement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4089,14 +3895,6 @@ export class SwitchStatementContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitSwitchStatement) {
 			listener.exitSwitchStatement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitSwitchStatement) {
-			return visitor.visitSwitchStatement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4134,14 +3932,6 @@ export class CaseBlockContext extends ParserRuleContext {
 			listener.exitCaseBlock(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitCaseBlock) {
-			return visitor.visitCaseBlock(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4170,14 +3960,6 @@ export class CaseClausesContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitCaseClauses) {
 			listener.exitCaseClauses(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitCaseClauses) {
-			return visitor.visitCaseClauses(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4209,14 +3991,6 @@ export class CaseClauseContext extends ParserRuleContext {
 			listener.exitCaseClause(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitCaseClause) {
-			return visitor.visitCaseClause(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4241,14 +4015,6 @@ export class DefaultClauseContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitDefaultClause) {
 			listener.exitDefaultClause(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitDefaultClause) {
-			return visitor.visitDefaultClause(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4278,14 +4044,6 @@ export class ObjectDeclarationContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitObjectDeclaration) {
 			listener.exitObjectDeclaration(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitObjectDeclaration) {
-			return visitor.visitObjectDeclaration(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4320,14 +4078,6 @@ export class ObjectTailContext extends ParserRuleContext {
 			listener.exitObjectTail(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitObjectTail) {
-			return visitor.visitObjectTail(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4353,14 +4103,6 @@ export class ObjectElementContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitObjectElement) {
 			listener.exitObjectElement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitObjectElement) {
-			return visitor.visitObjectElement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4392,14 +4134,6 @@ export class ObjectVariableDeclarationContext extends ParserRuleContext {
 			listener.exitObjectVariableDeclaration(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitObjectVariableDeclaration) {
-			return visitor.visitObjectVariableDeclaration(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4423,14 +4157,6 @@ export class TypeAnnotationContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitTypeAnnotation) {
 			listener.exitTypeAnnotation(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitTypeAnnotation) {
-			return visitor.visitTypeAnnotation(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4467,14 +4193,6 @@ export class FunctionDeclarationContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitFunctionDeclaration) {
 			listener.exitFunctionDeclaration(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitFunctionDeclaration) {
-			return visitor.visitFunctionDeclaration(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4519,14 +4237,6 @@ export class FormalParameterListContext extends ParserRuleContext {
 			listener.exitFormalParameterList(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitFormalParameterList) {
-			return visitor.visitFormalParameterList(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4554,14 +4264,6 @@ export class FormalParameterArgContext extends ParserRuleContext {
 			listener.exitFormalParameterArg(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitFormalParameterArg) {
-			return visitor.visitFormalParameterArg(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4584,14 +4286,6 @@ export class LastFormalParameterArgContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitLastFormalParameterArg) {
 			listener.exitLastFormalParameterArg(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitLastFormalParameterArg) {
-			return visitor.visitLastFormalParameterArg(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4618,14 +4312,6 @@ export class FunctionBodyContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitFunctionBody) {
 			listener.exitFunctionBody(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitFunctionBody) {
-			return visitor.visitFunctionBody(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4659,14 +4345,6 @@ export class FunctionDefineContext extends ParserRuleContext {
 			listener.exitFunctionDefine(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitFunctionDefine) {
-			return visitor.visitFunctionDefine(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4697,14 +4375,6 @@ export class SourceElementsContext extends ParserRuleContext {
 			listener.exitSourceElements(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitSourceElements) {
-			return visitor.visitSourceElements(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4729,14 +4399,6 @@ export class ArrayLiteralContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitArrayLiteral) {
 			listener.exitArrayLiteral(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitArrayLiteral) {
-			return visitor.visitArrayLiteral(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4778,14 +4440,6 @@ export class ElementListContext extends ParserRuleContext {
 			listener.exitElementList(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitElementList) {
-			return visitor.visitElementList(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4808,14 +4462,6 @@ export class ArrayElementContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitArrayElement) {
 			listener.exitArrayElement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitArrayElement) {
-			return visitor.visitArrayElement(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4843,14 +4489,6 @@ export class ArgumentsContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitArguments) {
 			listener.exitArguments(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitArguments) {
-			return visitor.visitArguments(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4892,14 +4530,6 @@ export class ArgumentListContext extends ParserRuleContext {
 			listener.exitArgumentList(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitArgumentList) {
-			return visitor.visitArgumentList(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -4922,14 +4552,6 @@ export class ArgumentContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitArgument) {
 			listener.exitArgument(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitArgument) {
-			return visitor.visitArgument(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4971,14 +4593,6 @@ export class ExpressionSequenceContext extends ParserRuleContext {
 			listener.exitExpressionSequence(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitExpressionSequence) {
-			return visitor.visitExpressionSequence(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -5012,14 +4626,6 @@ export class AnonymousFunctionExpressionContext extends SingleExpressionContext 
 			listener.exitAnonymousFunctionExpression(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitAnonymousFunctionExpression) {
-			return visitor.visitAnonymousFunctionExpression(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 export class MemberExpressionContext extends SingleExpressionContext {
 	public singleExpression(): SingleExpressionContext {
@@ -5044,14 +4650,6 @@ export class MemberExpressionContext extends SingleExpressionContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitMemberExpression) {
 			listener.exitMemberExpression(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitMemberExpression) {
-			return visitor.visitMemberExpression(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5079,14 +4677,6 @@ export class MemberDotExpressionContext extends SingleExpressionContext {
 			listener.exitMemberDotExpression(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitMemberDotExpression) {
-			return visitor.visitMemberDotExpression(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 export class CallExpressionContext extends SingleExpressionContext {
 	public singleExpression(): SingleExpressionContext {
@@ -5109,14 +4699,6 @@ export class CallExpressionContext extends SingleExpressionContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitCallExpression) {
 			listener.exitCallExpression(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitCallExpression) {
-			return visitor.visitCallExpression(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5148,14 +4730,6 @@ export class TernaryExpressionContext extends SingleExpressionContext {
 			listener.exitTernaryExpression(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitTernaryExpression) {
-			return visitor.visitTernaryExpression(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 export class PostfixExpressionContext extends SingleExpressionContext {
 	public singleExpression(): SingleExpressionContext {
@@ -5180,14 +4754,6 @@ export class PostfixExpressionContext extends SingleExpressionContext {
 			listener.exitPostfixExpression(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitPostfixExpression) {
-			return visitor.visitPostfixExpression(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 export class PrefixExpressionContext extends SingleExpressionContext {
 	public prefixOperator(): PrefixOperatorContext {
@@ -5210,14 +4776,6 @@ export class PrefixExpressionContext extends SingleExpressionContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitPrefixExpression) {
 			listener.exitPrefixExpression(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitPrefixExpression) {
-			return visitor.visitPrefixExpression(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5250,14 +4808,6 @@ export class BinaryExpressionContext extends SingleExpressionContext {
 			listener.exitBinaryExpression(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitBinaryExpression) {
-			return visitor.visitBinaryExpression(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 export class ThisExpressionContext extends SingleExpressionContext {
 	public This(): TerminalNode { return this.getToken(epScriptParser.This, 0); }
@@ -5275,14 +4825,6 @@ export class ThisExpressionContext extends SingleExpressionContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitThisExpression) {
 			listener.exitThisExpression(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitThisExpression) {
-			return visitor.visitThisExpression(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5306,14 +4848,6 @@ export class IdentifierExpressionContext extends SingleExpressionContext {
 			listener.exitIdentifierExpression(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitIdentifierExpression) {
-			return visitor.visitIdentifierExpression(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 export class BooleanLiteralExpressionContext extends SingleExpressionContext {
 	public BooleanLiterl(): TerminalNode { return this.getToken(epScriptParser.BooleanLiterl, 0); }
@@ -5333,14 +4867,6 @@ export class BooleanLiteralExpressionContext extends SingleExpressionContext {
 			listener.exitBooleanLiteralExpression(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitBooleanLiteralExpression) {
-			return visitor.visitBooleanLiteralExpression(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 export class StringLiteralExpressionContext extends SingleExpressionContext {
 	public StringLiteral(): TerminalNode { return this.getToken(epScriptParser.StringLiteral, 0); }
@@ -5358,14 +4884,6 @@ export class StringLiteralExpressionContext extends SingleExpressionContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitStringLiteralExpression) {
 			listener.exitStringLiteralExpression(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitStringLiteralExpression) {
-			return visitor.visitStringLiteralExpression(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5389,14 +4907,6 @@ export class NumericLiteralExpressionContext extends SingleExpressionContext {
 			listener.exitNumericLiteralExpression(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitNumericLiteralExpression) {
-			return visitor.visitNumericLiteralExpression(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 export class ArrayLiteralExpressionContext extends SingleExpressionContext {
 	public arrayLiteral(): ArrayLiteralContext {
@@ -5416,14 +4926,6 @@ export class ArrayLiteralExpressionContext extends SingleExpressionContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitArrayLiteralExpression) {
 			listener.exitArrayLiteralExpression(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitArrayLiteralExpression) {
-			return visitor.visitArrayLiteralExpression(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5447,14 +4949,6 @@ export class ParanthesizedExpressionContext extends SingleExpressionContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitParanthesizedExpression) {
 			listener.exitParanthesizedExpression(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitParanthesizedExpression) {
-			return visitor.visitParanthesizedExpression(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5490,14 +4984,6 @@ export class AnonymosuFunctionContext extends ParserRuleContext {
 			listener.exitAnonymosuFunction(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitAnonymosuFunction) {
-			return visitor.visitAnonymosuFunction(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -5519,14 +5005,6 @@ export class PostfixOperatorContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitPostfixOperator) {
 			listener.exitPostfixOperator(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitPostfixOperator) {
-			return visitor.visitPostfixOperator(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5554,14 +5032,6 @@ export class PrefixOperatorContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitPrefixOperator) {
 			listener.exitPrefixOperator(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitPrefixOperator) {
-			return visitor.visitPrefixOperator(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5612,14 +5082,6 @@ export class BinaryOperatorContext extends ParserRuleContext {
 			listener.exitBinaryOperator(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitBinaryOperator) {
-			return visitor.visitBinaryOperator(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -5641,14 +5103,6 @@ export class NumericLiteralContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitNumericLiteral) {
 			listener.exitNumericLiteral(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitNumericLiteral) {
-			return visitor.visitNumericLiteral(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5678,14 +5132,6 @@ export class IdentifierNameContext extends ParserRuleContext {
 			listener.exitIdentifierName(this);
 		}
 	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitIdentifierName) {
-			return visitor.visitIdentifierName(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
 }
 
 
@@ -5706,14 +5152,6 @@ export class IdentifierContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitIdentifier) {
 			listener.exitIdentifier(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitIdentifier) {
-			return visitor.visitIdentifier(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5738,14 +5176,6 @@ export class ReservedWordContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitReservedWord) {
 			listener.exitReservedWord(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitReservedWord) {
-			return visitor.visitReservedWord(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5787,14 +5217,6 @@ export class KeywordContext extends ParserRuleContext {
 	public exitRule(listener: epScriptParserListener): void {
 		if (listener.exitKeyword) {
 			listener.exitKeyword(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: epScriptParserVisitor<Result>): Result {
-		if (visitor.visitKeyword) {
-			return visitor.visitKeyword(this);
-		} else {
-			return visitor.visitChildren(this);
 		}
 	}
 }
