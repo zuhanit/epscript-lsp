@@ -38,15 +38,35 @@
 		],
 		"configuration": {
 			"type": "object",
-			"title": "epScript configuration",
+			"title": "epScript",
 			"properties": {
 				"epscript.welcome": {
 					"type": "boolean",
 					"default": "true",
-					"description": "epScript 확장을 설치한 뒤 처음 프로그램이 작동했을 시 안내 메시지를 받습니다."
+					"markdownDescription": "Notify `Getting Started` when plugin enabled."
+				},
+				"epscript.language": {
+					"type": "string",
+					"default": "English",
+					"enum": [
+						"English",
+						"한국어"
+					],
+					"enumDescriptions": [
+						"Set language configuration to English",
+						"언어 설정을 한국어로 합니다."
+					],
+					"description": "Language configuration for any messages from epScript Server, like Diagnostics."
 				}
 			}
-		}
+		},
+		"grammars": [
+			{
+				"language": "epscript",
+				"scopeName": "source.eps",
+				"path": "./syntaxes/epScript.tmLanguage.json"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -68,6 +88,6 @@
 	"dependencies": {
 		"antlr4-c3": "^2.0.2",
 		"antlr4ts": "^0.5.0-alpha.4",
-		"vscode-uri": "^3.0.2"
+		"vscode-uri": "^3.0.3"
 	}
 }
