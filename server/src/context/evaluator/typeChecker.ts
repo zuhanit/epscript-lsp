@@ -1,5 +1,5 @@
 import { ParserRuleContext } from 'antlr4ts';
-import { AnonymousFunctionExpressionContext, MemberExpressionContext, MemberDotExpressionContext, CallExpressionContext, TernaryExpressionContext, PostfixExpressionContext, PrefixExpressionContext, BinaryExpressionContext, ThisExpressionContext, IdentifierExpressionContext, ArrayLiteralExpressionContext, ParanthesizedExpressionContext, BooleanLiteralExpressionContext, NumericLiteralExpressionContext, StringLiteralExpressionContext } from '../../grammar/epScriptParser';
+import { AnonymousFunctionExpressionContext, MemberExpressionContext, MemberDotExpressionContext, CallExpressionContext, TernaryExpressionContext, PostfixExpressionContext, PrefixExpressionContext, BinaryExpressionContext, ThisExpressionContext, IdentifierExpressionContext, ArrayLiteralExpressionContext, ParanthesizedExpressionContext, BooleanLiteralExpressionContext, NumericLiteralExpressionContext, StringLiteralExpressionContext } from '../../grammar/src/grammar/lib/epScriptParser';
 
 export function isAnonymousFunctionExpression(node: ParserRuleContext): node is AnonymousFunctionExpressionContext {
     return node instanceof AnonymousFunctionExpressionContext;
