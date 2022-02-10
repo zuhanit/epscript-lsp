@@ -1,4 +1,5 @@
 import { Range } from 'vscode-languageserver';
+import { ContextSymbolTable } from '../ContextSymbolTable';
 import { BaseSymbol } from './BaseSymbol';
 import { IScope } from './IScope';
 import { ISymbol } from './ISymbol';
@@ -8,8 +9,9 @@ import { ISymbol } from './ISymbol';
  */
 export abstract class BaseScope implements IScope {
 	name = 'local';
-	parent: BaseScope | undefined;
 	range: Range;
+	blockRange: Range;
+	parent?: BaseScope | undefined;
 
 	/**
 	 * 스코프 내 심볼들.
@@ -33,11 +35,13 @@ export abstract class BaseScope implements IScope {
 	constructor(
 		name: string,
 		range: Range,
+		blockRange: Range,
 		parent?: BaseScope,
 	) {
 		this.name = name;
 		this.range = range;
 		this.parent = parent;
+		this.blockRange = blockRange;
 	}
 
 	insert(symbol: ISymbol): void {
@@ -71,6 +75,24 @@ export abstract class BaseScope implements IScope {
 		return symbols;
 	}
 
+	/**
+	 * 
+	 * 현재 스코프까지의 심볼들 얻어오기.
+	 * 
+	 * @returns 현재 스코프까지의 심볼들
+	 */
+	getSymbolsUntilThis() {
+		const symbols: ISymbol[] = this.getSymbols();
+		let parent: BaseScope | undefined = this.parent;
+
+		while (parent) {
+			symbols.push(...parent?.getSymbols());
+			parent = parent.parent;
+		}
+
+		return symbols;
+	}
+
 	resolve(name: string): ISymbol | undefined {
 		const symbol = this.symbols.get(name);
 		if (symbol) return symbol; // 스코프에서 찾았을 시 반환
@@ -99,5 +121,9 @@ export abstract class BaseScope implements IScope {
 	 */
 	getFullyQualifiedName(): string {
 		return `${this.getEnclosingPathToRoot().reverse().map(x => x.name).join('.')}`;
+	}
+
+	public static isBaseScope(arg: any): arg is BaseScope {
+		return arg instanceof BaseScope;
 	}
 }

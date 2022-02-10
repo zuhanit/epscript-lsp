@@ -1,5 +1,6 @@
 import { ParserRuleContext } from 'antlr4ts';
 import { Position, Range } from 'vscode-languageserver';
+import { BaseScope } from './BaseScope';
 import { IScope } from './IScope';
 import { VariableSymbol } from './VariableSymbol';
 
@@ -12,10 +13,14 @@ export class ParameterSymbol extends VariableSymbol {
 
 	constructor(
 		name: string,
-		scope: IScope,
+		scope: BaseScope,
 		Range: Range,
 		defNode?: ParserRuleContext,
 	) {
 		super(name, scope, Range, defNode);
+	}
+
+	public static isParameterSymbol(arg: any): arg is ParameterSymbol {
+		return arg instanceof ParameterSymbol;
 	}
 }

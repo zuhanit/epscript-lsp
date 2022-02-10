@@ -1,26 +1,29 @@
 import { ParserRuleContext } from 'antlr4ts';
 import { Position, Range } from 'vscode-languageserver';
+import { ContextSymbolTable } from '../ContextSymbolTable';
 import { Literal } from '../evaluator/literal';
+import { BaseScope } from './BaseScope';
 import { IScope } from './IScope';
 import { ISymbol } from './ISymbol';
+import { PredefinedScope } from './PredefinedScope';
 import { Type } from './Type';
 
 export abstract class BaseSymbol implements ISymbol {
 	public name: string;
-	public scope: IScope;
+	public scope?: BaseScope;
 	public type: Literal;
 	public defNode: ParserRuleContext | undefined;
 	public range: Range;
 
 	constructor(
 		name: string,
-		scope: IScope,
 		range: Range,
+		scope?: BaseScope,
 		defNode?: ParserRuleContext,
 	) {
 		this.name = name;
-		this.scope = scope;
 		this.range = range;
+		this.scope = scope;
 		this.defNode = defNode;
 	}
 
@@ -33,7 +36,10 @@ export abstract class BaseSymbol implements ISymbol {
 	 * @returns 평가된 이름 
 	 */
 	public getFullyQualifiedName(): string {
-		const path = this.scope.getEnclosingPathToRoot();
+		const scope = this.scope;
+		const path = scope
+			? scope.getEnclosingPathToRoot()
+			: [];
 		return `${path.reverse().map(x => x.name).join('.')}.${this.name}`;
 	}
 }

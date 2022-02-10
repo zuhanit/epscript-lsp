@@ -15,9 +15,10 @@ export abstract class SymbolWithScope extends BaseScope implements ISymbol, ISco
 	constructor(
 		name: string,
 		range: Range,
+		blockRange: Range,
 		scope: BaseScope,
 	) {
-		super(name, range, scope);
+		super(name, range, blockRange, scope);
 		this.scope = scope;
 	}
 }

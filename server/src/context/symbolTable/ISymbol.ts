@@ -11,5 +11,5 @@ import { IScope } from './IScope';
  */
 export interface ISymbol {
 	name: string;
-	scope: IScope;
+	scope?: IScope;
 }

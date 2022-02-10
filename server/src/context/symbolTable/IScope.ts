@@ -17,7 +17,7 @@ export interface IScope {
 	 * 
 	 * undefined일 경우 루트 스코프이다.
 	 */
-	parent: IScope | undefined;
+	parent?: IScope | undefined;
 
 	
 	/**

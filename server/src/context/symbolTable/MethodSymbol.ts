@@ -10,8 +10,13 @@ export class MethodSymbol extends FunctionSymbol {
 	constructor(
 		name: string,
 		range: Range,
+		blockRange: Range,
 		scope: BaseScope,
 	) {
-		super(name, range, scope);
+		super(name, range, blockRange, scope);
+	}
+
+	public static isMethodSymbol(arg: any): arg is MethodSymbol {
+		return arg instanceof MethodSymbol;
 	}
 }

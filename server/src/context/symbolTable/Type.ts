@@ -8,4 +8,4 @@ export interface Type {
 	name: SymbolType;
 }
 
-type SymbolType = 'variable' | 'function' | 'void' | 'class' | 'method' | 'member' | 'undefined';
+type SymbolType = 'variable' | 'function' | 'void' | 'class' | 'method' | 'member' | 'module' | 'undefined';
