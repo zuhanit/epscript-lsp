@@ -14,9 +14,10 @@ export function evaluateCallExpression({node, ...rest}: EvaluatorOption<CallExpr
 	if (evaluated) {
 		// 함수 심볼의 경우 리턴 타입을 반환
 		if (evaluated instanceof FunctionSymbol || evaluated instanceof MethodSymbol) {
+			let parameterLength = evaluated.arguments.length;
 			const argumentList = node.arguments().argumentList();
 
-			let keyArgsIndex: number | undefined = undefined;
+			let argsIndex: number | undefined = undefined;
 			let argumentLength = argumentList
 				? node.arguments().argumentList()!.argument().length
 				: 0;
@@ -25,17 +26,24 @@ export function evaluateCallExpression({node, ...rest}: EvaluatorOption<CallExpr
 				const args = argumentList.argument();
 				evaluated.arguments.forEach((arg, index) => {
 					if (arg.name.includes('=') && !args[index]) argumentLength += 1;
-					if (arg.name.startsWith('*')) keyArgsIndex = index;
+					if (arg.name.startsWith('**')) {
+						argsIndex = index;
+						parameterLength -= 1;
+					}
+					if (arg.name.startsWith('*') && !arg.name.startsWith('**')) {
+						parameterLength -= 1;
+						argsIndex = index;
+					}
 				});
 			}
 
-			if (evaluated.arguments.length !== argumentLength) {
-				if (!(keyArgsIndex && argumentLength <= keyArgsIndex)) {
+			if (parameterLength !== argumentLength) {
+				if (argsIndex && argumentLength <= argsIndex) {
 					const message = rest.languageManager.getDiagnosticsKey(keys['diagnostics.argumentLengthNotMatch']) +
 									". " +
 									rest.languageManager.getDiagnosticsKey(keys['diagnostics.expected']) +
 									" " +
-									evaluated.arguments.length +
+									parameterLength +
 									" arguments, " +
 									rest.languageManager.getDiagnosticsKey(keys['diagnostics.butGot']) +
 									" " +
