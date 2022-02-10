@@ -4,42 +4,35 @@
  * ------------------------------------------------------------------------------------------ */
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import {
-	createConnection,
 	TextDocuments,
 	Diagnostic,
-	DiagnosticSeverity,
-	ProposedFeatures,
 	InitializeParams,
-	DidChangeConfigurationNotification,
 	CompletionItem,
-	CompletionItemKind,
-	TextDocumentPositionParams,
 	TextDocumentSyncKind,
-	InitializeResult,
-	CompletionItemTag,
-	Position,
-	SemanticTokensBuilder,
-	SemanticTokensRegistrationType,
-	DocumentHighlight,
-	MessageActionItem,
-	Command,
-	SignatureHelp,
 	Connection,
 	ServerCapabilities,
 	HoverParams,
-	CodeActionParams,
-	SignatureHelpParams,
 	DefinitionParams,
-	ExecuteCommandParams,
 	CompletionParams,
 	CancellationToken,
-	Hover
+	Hover,
+	Definition,
+	TextDocumentChangeEvent,
+	DidChangeConfigurationParams,
+	CreateFilesParams,
+	DidChangeConfigurationNotification,
+	InitializeResult
 } from 'vscode-languageserver/node';
 
 import { Analyzer } from './analyzer';
-import { getCompletion } from './context';
+import { BaseScope } from './context/symbolTable/BaseScope';
+import { provideCompletion } from './document/completion';
+import { provideDefinition } from './document/definition';
 import { provideHoverItem } from './document/hover';
+import { LanguageManager } from './i18n/LanguageManager';
 import { Parser } from './parser';
+import { URI } from 'vscode-uri';
+import * as path from 'path';
 
 /**
  * epScript 랭기지 서버.
@@ -55,6 +48,7 @@ export class EPSServer
 		(
 			connection: Connection,
 			analyzer: Analyzer,
+			private languageManager: LanguageManager,
 		)
 	{
 		this.connection = connection;
@@ -75,27 +69,48 @@ export class EPSServer
 		): Promise<EPSServer>
 	{
 		const parser = new Parser();
+		const languageManager = new LanguageManager();
 		return Promise.all([
-			Analyzer.initialize(connection, params, parser),
+			Analyzer.initialize(connection, params, parser, languageManager),
 		]).then(([
 			analyzer,
 		]) => {
-			return new EPSServer(connection, analyzer);
+			return new EPSServer(connection, analyzer, languageManager);
 		});
 	}
 
 	/**
 	 * 서버 이벤트 핸들러 등록.
 	 */
-	public register(connection: Connection): void {
+	public async register(connection: Connection): Promise<void> {
 		this.textDocument.listen(connection);
-		this.textDocument.onDidChangeContent((change) => {
-			console.log('Change Detected');
-			this.analyzer.analyze(change.document.uri, change.document);
-		});
+		this.textDocument.onDidChangeContent(change => {
+			const contextPackage = this.analyzer.getContextPackageByURI(change.document.uri);
 
-		connection.onCompletion((params: CompletionParams, token: CancellationToken) => getCompletion(params));
+			if (contextPackage !== undefined) {
+				this.analyzer.analyze(change.document.uri, change.document, contextPackage.workspaceFolder, this.languageManager);
+			} else {
+				const folderPath = path.parse(URI.parse(change.document.uri).fsPath).dir;
+				let workspace: string | undefined;
+
+				// WorkspaceFolder 검색.
+				for (const v of this.analyzer.workspaceFolders.keys()) {
+					if (folderPath.startsWith(v)) {
+						workspace = v;
+					}
+				}
+
+				if (workspace) this.analyzer.analyze(change.document.uri, change.document, workspace, this.languageManager);
+				
+			}
+
+			this.connection.sendDiagnostics({ uri: change.document.uri, diagnostics: this.onDiagnostic(change) });
+		});
+		connection.workspace.onDidCreateFiles((params) => this.onDidCreateFiles(params));
+		connection.onCompletion((params: CompletionParams, token: CancellationToken) => this.onCompletion(params));
 		connection.onHover((params: HoverParams) => this.onHover(params));
+		connection.onDefinition((params: DefinitionParams) => this.onDefinition(params));
+		connection.onDidChangeConfiguration((params: DidChangeConfigurationParams) => this.onDidChangeConfiguration(params)); // Why it didn't works?
 	}
 
 	/**
@@ -106,26 +121,85 @@ export class EPSServer
 	public capabilities(): ServerCapabilities {
 		console.log('Capabilities Get');
 		return {
-			textDocumentSync: TextDocumentSyncKind.Full,
+			textDocumentSync: TextDocumentSyncKind.Incremental,
 			completionProvider: {
 				resolveProvider: false,
 				triggerCharacters: ['.'],
 			},
-			hoverProvider: {
+			hoverProvider: {},
+			definitionProvider: true,
 
-			}
+			workspace: {
+				fileOperations: {
+					didCreate: {
+						filters: [
+							{
+								scheme: 'file',
+								pattern: { glob: '**/*.eps', matches: 'file' },
+							},
+						]
+					}
+				},
+				workspaceFolders: {
+					changeNotifications: true
+				},
+			},
+			
 		};
 	}
 
+	private onDidCreateFiles(params: CreateFilesParams) {
+		params.files.forEach(file => {
+			const folderURI = URI.file(path.parse(URI.parse(file.uri).fsPath).dir);
+			// this.analyzer.analyze(params.)
+		});
+	}
+
+	private onDidChangeConfiguration(params: DidChangeConfigurationParams) {
+		console.log('Changed');
+	}
+
+	private onDiagnostic(params: TextDocumentChangeEvent<TextDocument>): Diagnostic[] {
+		const contextPackage = this.analyzer.getContextPackageByURI(params.document.uri);
+
+		if (contextPackage === undefined) return [];
+
+		return contextPackage.parsePackage.diagnostic;
+	}
+
+	private onCompletion(params: CompletionParams): CompletionItem[] | undefined {
+		const contextPackage = this.analyzer.getContextPackageByURI(params.textDocument.uri);
+		const scopes = this.analyzer.getScopesAtPosition(params.textDocument.uri, params.position);
+
+		if (contextPackage === undefined) return undefined;
+
+		const scope: BaseScope = scopes
+			? scopes[scopes.length-1]
+			: contextPackage.parsePackage.symbolTable.globalScope;
+
+		console.log(scope);
+
+		return provideCompletion({params: params, contextPackage: contextPackage, name: scope.name}, scope, this.analyzer);
+	}
+
 	private onHover(params: HoverParams): Hover | undefined {
-		console.log('Hover');
-		const contextPackage = this.analyzer.documents.get(params.textDocument.uri);
+		console.log('hover', params);
+		const contextPackage = this.analyzer.getContextPackageByURI(params.textDocument.uri);
 		const node = this.analyzer.getNodeAtPosition(params.textDocument.uri, params.position);
 		
 		// 잘못된 다큐먼트?
 		if (node === null || node === undefined) return undefined;
-		if (contextPackage !== undefined) return provideHoverItem({params: params, contextPackage}, node.text);
+		if (contextPackage !== undefined) return provideHoverItem({params: params, contextPackage, name: node.text});
 
 		return;
+	}
+
+	private async onDefinition(params: DefinitionParams): Promise<Definition | undefined> {
+		const contextPackage = this.analyzer.getContextPackageByURI(params.textDocument.uri);
+		const node = this.analyzer.getNodeAtPosition(params.textDocument.uri, params.position);
+		
+		// 잘못된 다큐먼트?
+		if (node === null || node === undefined) return undefined;
+		if (contextPackage !== undefined) return await provideDefinition({params: params, contextPackage, name: node.text});
 	}
 }
