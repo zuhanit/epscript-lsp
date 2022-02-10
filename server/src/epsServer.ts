@@ -206,8 +206,6 @@ export class EPSServer
 			? scopes[scopes.length-1]
 			: contextPackage.parsePackage.symbolTable.globalScope;
 
-		console.log(scope);
-
 		return provideCompletion({params: params, contextPackage: contextPackage, name: scope.name}, scope, this.analyzer);
 	}
 
