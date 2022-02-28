@@ -3,6 +3,7 @@
 	"description": "Language Server for epScript.",
 	"version": "1.0.0",
 	"author": "Zuhanit",
+	"publisher": "zuhanit",
 	"license": "MIT",
 	"engines": {
 		"node": "*"

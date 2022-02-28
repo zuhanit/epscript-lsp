@@ -4,7 +4,7 @@
  * ------------------------------------------------------------------------------------------ */
 
 import * as path from 'path';
-import { workspace, ExtensionContext } from 'vscode';
+import { workspace, ExtensionContext, window, WorkspaceFolder, commands } from 'vscode';
 
 import {
 	LanguageClient,
@@ -12,6 +12,7 @@ import {
 	ServerOptions,
 	TransportKind
 } from 'vscode-languageclient/node';
+import { BuildManager, BuildScript } from './buildManager';
 
 let client: LanguageClient;
 
@@ -55,6 +56,18 @@ export function activate(context: ExtensionContext) {
 
 	// Start the client. This will also launch the server
 	client.start();
+	const workspaces: WorkspaceFolder[] = workspace.workspaceFolders.map(x => {
+		return {
+			index: x.index,
+			name: x.name,
+			uri: x.uri
+		};
+	});
+	const buildManager = new BuildManager(workspaces);
+	window.registerTreeDataProvider('euddraftBuild', buildManager);
+	commands.registerCommand('euddraftBuild.refresh', () => buildManager.refresh());
+	commands.registerCommand('euddraftBuild.run', (node: BuildScript) => buildManager.build(node));
+	commands.registerCommand('euddraftBuild.edit', (node: BuildScript) => buildManager.edit(node));
 }
 
 export function deactivate(): Thenable<void> | undefined {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64.042603mm"
+   height="23.083862mm"
+   viewBox="0 0 64.042603 23.083862"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <rect
+       x="654.48169"
+       y="619.76459"
+       width="79.720757"
+       height="64.290932"
+       id="rect20975" />
+    <rect
+       x="149.15495"
+       y="320.16885"
+       width="266.16446"
+       height="136.29678"
+       id="rect2739" />
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-42.564326,-90.593733)">
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text2737"
+       style="font-style:normal;font-weight:normal;font-size:120px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2739);fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.77953;stroke-miterlimit:4;stroke-dasharray:none"><tspan
+         x="149.1543"
+         y="429.64761"
+         id="tspan61900"><tspan
+           style="stroke:#38b1d4"
+           id="tspan61898">EDD</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text20973"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect20975);fill:#000000;fill-opacity:1;stroke:none" />
+  </g>
+</svg>
