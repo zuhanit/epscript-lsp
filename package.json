@@ -52,6 +52,10 @@
 				"command": "euddraftBuild.edit",
 				"title": "Edit",
 				"icon": "resources/edit.svg"
+			},
+			{
+				"command": "epscript.offsets",
+				"title": "Offsets"
 			}
 		],
 		"configuration": {
@@ -111,6 +115,13 @@
 					"when": "view == euddraftBuild",
 					"group": "inline"
 				}
+			],
+			"editor/context": [
+				{
+					"command": "epscript.offsets",
+					"when": "resourceLangId == epscript",
+					"group": "epsc"
+				}
 			]
 		},
 		"taskDefinitions": [
@@ -124,7 +135,11 @@
 				"scopeName": "source.eps",
 				"path": "./syntaxes/epScript.tmLanguage.json"
 			}
-		]
+		],
+		"keybindings": {
+			"command": "epscript.offsets",
+			"key": "ctrl+o"
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

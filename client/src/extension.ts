@@ -13,6 +13,7 @@ import {
 	TransportKind
 } from 'vscode-languageclient/node';
 import { BuildManager, BuildScript } from './buildManager';
+import { OffsetManager } from './offsetManager';
 
 let client: LanguageClient;
 
@@ -63,11 +64,13 @@ export function activate(context: ExtensionContext) {
 			uri: x.uri
 		};
 	});
+	const offsetManager = new OffsetManager();
 	const buildManager = new BuildManager(workspaces);
 	window.registerTreeDataProvider('euddraftBuild', buildManager);
 	commands.registerCommand('euddraftBuild.refresh', () => buildManager.refresh());
 	commands.registerCommand('euddraftBuild.run', (node: BuildScript) => buildManager.build(node));
 	commands.registerCommand('euddraftBuild.edit', (node: BuildScript) => buildManager.edit(node));
+	commands.registerTextEditorCommand('epscript.offsets', async (editor) => offsetManager.main(editor));
 }
 
 export function deactivate(): Thenable<void> | undefined {
