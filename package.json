@@ -161,6 +161,8 @@
 	"dependencies": {
 		"antlr4-c3": "^2.0.2",
 		"antlr4ts": "^0.5.0-alpha.4",
+		"glob": "^8.0.3",
+		"npm-install-missing": "^0.1.4",
 		"tsc": "^2.0.4",
 		"vscode-uri": "^3.0.3"
 	}
