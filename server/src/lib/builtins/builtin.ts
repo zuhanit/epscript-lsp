@@ -62,6 +62,7 @@ export function getAllEUDFunctions(scope: BaseScope): FunctionSymbol[] {
       return symbol;
     })
   );
+
   return funcs;
 }
 
