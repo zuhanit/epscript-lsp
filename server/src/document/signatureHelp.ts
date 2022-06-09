@@ -6,10 +6,13 @@ import {
 } from "vscode-languageserver";
 import { evaluateNode } from "../context/evaluator/evaluator";
 import { Literal } from "../context/evaluator/literal";
-import { getSymbolInfo } from "../context/facade";
+import { getSymbolInfo, SymbolInfo } from "../context/facade";
 import { BaseScope } from "../context/symbolTable/BaseScope";
 import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
 import {
+  ArgumentContext,
+  ArgumentListContext,
+  BinaryExpressionContext,
   CallExpressionContext,
   SingleExpressionContext,
 } from "../grammar/src/grammar/lib/epScriptParser";
@@ -28,15 +31,7 @@ export function provideSingatureHelp(
 
   if (evaluated instanceof BaseSymbol || evaluated instanceof BaseScope) {
     const symbolInfo = getSymbolInfo(evaluated);
-    const args: ParameterInformation[] = [];
-
-    if (symbolInfo.args) {
-      symbolInfo.args.forEach((arg) => {
-        args.push({
-          label: arg.detail,
-        });
-      });
-    }
+    const args: ParameterInformation[] = getParameterInformation(symbolInfo);
 
     const signature: SignatureInformation = {
       label: symbolInfo.name + "(" + args.map((x) => x.label).join(", ") + ")",
@@ -44,14 +39,71 @@ export function provideSingatureHelp(
     };
 
     signatureItem.signatures.push(signature);
+    signatureItem.activeParameter = getActiveParameterNumber(
+      singleExpression,
+      symbolInfo
+    );
   }
+  console.log(evaluated);
+  return signatureItem;
+}
 
-  if (singleExpression instanceof CallExpressionContext) {
-    const exprArgumentList = singleExpression.arguments().argumentList();
+const getActiveParameterNumber = (
+  expr: SingleExpressionContext,
+  symbolInfo: SymbolInfo
+) => {
+  if (expr instanceof CallExpressionContext) {
+    const exprArgumentList = expr.arguments().argumentList();
     if (exprArgumentList) {
-      signatureItem.activeParameter = exprArgumentList.argument().length - 1;
+      const args = exprArgumentList.argument();
+      if (hasAssignOperator(args)) {
+        const currentArgument = args[args.length - 1].singleExpression();
+        if (isAssignOperator(currentArgument)) {
+          if (symbolInfo.args) {
+            return symbolInfo.args.findIndex(
+              (arg) => arg.name == currentArgument.singleExpression()[0].text
+            );
+          }
+        }
+      } else {
+        // Cannot use positional arguments after Keyword Arguments
+        console.log("arr...");
+        return exprArgumentList.argument().length - 1;
+      }
     }
   }
 
-  return signatureItem;
-}
+  return -1;
+};
+
+const getParameterInformation = (
+  symbolInfo: SymbolInfo
+): ParameterInformation[] => {
+  if (symbolInfo.args) {
+    return symbolInfo.args.map((arg) => ({
+      label: arg.detail,
+    }));
+  }
+
+  return [];
+};
+
+const hasAssignOperator = (args: ArgumentContext[]) => {
+  return args.some((arg) => {
+    const singleExpression = arg.singleExpression();
+    return isAssignOperator(singleExpression);
+  });
+};
+
+const isAssignOperator = (
+  expr: SingleExpressionContext
+): expr is BinaryExpressionContext => {
+  if (
+    expr instanceof BinaryExpressionContext &&
+    expr.binaryOperator().Assign()
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
