@@ -1,10 +1,8 @@
 const { exec, spawn } = require("child_process");
 const { src, dest, series, task, parallel } = require("gulp");
 const webpack = require("webpack-stream");
-const {
-  webpackClientConfig,
-  webpackServerConfig,
-} = require("../webpack.config");
+const webpackClientConfig = require("../client/webpack.config");
+const webpackServerConfig = require("../server/webpack.config");
 
 const updateeudplib = async (cb) => {
   return exec("git submodule update", (err, stdout, stderr) => {
