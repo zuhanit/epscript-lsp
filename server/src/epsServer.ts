@@ -243,6 +243,47 @@ export class EPSServer {
     );
   }
 
+  private onCompletion(params: CompletionParams): CompletionItem[] | undefined {
+    const contextPackage = this.analyzer.getContextPackageByURI(
+      params.textDocument.uri
+    );
+    const scopes = this.analyzer.getScopesAtPosition(
+      params.textDocument.uri,
+      params.position
+    );
+    const singleExpressions = this.analyzer.getSingleExpressionAtPosition(
+      params.textDocument.uri,
+      params.position
+    );
+
+    if (contextPackage === undefined) return undefined;
+    if (singleExpressions === null) return undefined;
+
+    let singleExpression = singleExpressions[0];
+
+    if (singleExpression instanceof CallExpressionContext) {
+      singleExpression = singleExpression.singleExpression();
+    }
+    const scope: BaseScope = scopes
+      ? scopes[scopes.length - 1]
+      : contextPackage.parsePackage.symbolTable.globalScope;
+
+    const evaluated = evaluateNode({
+      node: singleExpression,
+      currentScope: scope,
+      diagnostics: [],
+      languageManager: this.languageManager,
+      symbolTable: contextPackage.parsePackage.symbolTable,
+    });
+
+    return provideCompletion(
+      { params: params, contextPackage: contextPackage, name: scope.name },
+      scope,
+      this.analyzer,
+      evaluated
+    );
+  }
+
   private onDiagnostic(
     params: TextDocumentChangeEvent<TextDocument>
   ): Diagnostic[] {
@@ -253,28 +294,6 @@ export class EPSServer {
     if (contextPackage === undefined) return [];
 
     return contextPackage.parsePackage.diagnostic;
-  }
-
-  private onCompletion(params: CompletionParams): CompletionItem[] | undefined {
-    const contextPackage = this.analyzer.getContextPackageByURI(
-      params.textDocument.uri
-    );
-    const scopes = this.analyzer.getScopesAtPosition(
-      params.textDocument.uri,
-      params.position
-    );
-
-    if (contextPackage === undefined) return undefined;
-
-    const scope: BaseScope = scopes
-      ? scopes[scopes.length - 1]
-      : contextPackage.parsePackage.symbolTable.globalScope;
-
-    return provideCompletion(
-      { params: params, contextPackage: contextPackage, name: scope.name },
-      scope,
-      this.analyzer
-    );
   }
 
   private onHover(params: HoverParams): Hover | undefined {
