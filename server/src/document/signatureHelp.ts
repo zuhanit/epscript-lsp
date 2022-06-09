@@ -44,7 +44,6 @@ export function provideSingatureHelp(
       symbolInfo
     );
   }
-  console.log(evaluated);
   return signatureItem;
 }
 
@@ -67,7 +66,6 @@ const getActiveParameterNumber = (
         }
       } else {
         // Cannot use positional arguments after Keyword Arguments
-        console.log("arr...");
         return exprArgumentList.argument().length - 1;
       }
     }
