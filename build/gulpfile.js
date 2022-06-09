@@ -38,7 +38,13 @@ const publish = () => {
 
 task(
   "default",
-  series(compileClient, updateeudplib, buildeudplibData, compileServer)
+  series(updateeudplib, buildeudplibData, compileServer, compileClient)
 );
-task("build", series(compileClient, compileServer));
-task("publish", series(compileClient, compileServer, publish));
+task(
+  "build",
+  series(updateeudplib, buildeudplibData, compileServer, compileClient)
+);
+task(
+  "publish",
+  series(updateeudplib, buildeudplibData, compileClient, compileServer, publish)
+);
