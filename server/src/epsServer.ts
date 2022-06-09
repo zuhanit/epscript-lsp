@@ -108,13 +108,21 @@ export class EPSServer {
           }
         }
 
-        if (workspace)
+        if (workspace) {
           this.analyzer.analyze(
             change.document.uri,
             change.document,
             workspace,
             this.languageManager
           );
+        } else {
+          this.analyzer.analyze(
+            change.document.uri,
+            change.document,
+            "no-folder-temporary-workspace",
+            this.languageManager
+          );
+        }
       }
       this.connection.sendDiagnostics({
         uri: change.document.uri,
@@ -139,6 +147,12 @@ export class EPSServer {
       (params: DidChangeConfigurationParams) =>
         this.onDidChangeConfiguration(params)
     ); // Why it didn't works?
+    connection.onInitialized(async () => {
+      console.log(
+        `Server Initialized at ${new Date().toLocaleDateString("ko-KR")}`
+      );
+      console.log("TextDocument:", this.textDocument);
+    });
   }
 
   /**
@@ -149,7 +163,7 @@ export class EPSServer {
   public capabilities(): ServerCapabilities {
     console.log("Capabilities Get");
     return {
-      textDocumentSync: TextDocumentSyncKind.Incremental,
+      textDocumentSync: TextDocumentSyncKind.Full,
       completionProvider: {
         resolveProvider: false,
         triggerCharacters: ["."],
