@@ -6,7 +6,7 @@ import { VariableSymbol } from "./VariableSymbol";
 
 export type ParameterKind =
   | "POSITIONAL_ONLY"
-  | "POSITION_OR_KEYWORD"
+  | "POSITIONAL_OR_KEYWORD"
   | "VAR_POSITIONAL"
   | "KEYWORD_ONLY"
   | "VAR_KEYWORD";

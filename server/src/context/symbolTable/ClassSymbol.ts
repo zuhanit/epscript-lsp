@@ -17,7 +17,7 @@ export class ClassSymbol extends SymbolWithScope implements TypedSymbol {
 
     const cast = new MethodSymbol("cast", range, blockRange, this);
     cast.arguments.push(
-      new ParameterSymbol("target", cast, range, "POSITION_OR_KEYWORD")
+      new ParameterSymbol("target", cast, range, "POSITIONAL_OR_KEYWORD")
     );
     cast.retType = this;
 

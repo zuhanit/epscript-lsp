@@ -52,7 +52,7 @@ export function getAllEUDFunctions(scope: BaseScope): FunctionSymbol[] {
           y,
           symbol,
           zeroRange,
-          "POSITION_OR_KEYWORD",
+          "POSITIONAL_OR_KEYWORD",
           { value: "empty", type: "str" }
         );
         symbol.arguments.push(argSymbol);
