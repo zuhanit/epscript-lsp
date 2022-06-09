@@ -75,4 +75,8 @@ const serverMain = {
     ],
   },
 };
-module.exports = [clientMain, serverMain];
+
+module.exports = {
+  webpackClientConfig: clientMain,
+  webpackServerConfig: serverMain,
+};
