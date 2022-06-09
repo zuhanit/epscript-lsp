@@ -29,6 +29,16 @@
         "--extensionDevelopmentKind=web"
       ],
       "outFiles": ["${workspaceRoot}/client/dist/**/*.js"]
+    },
+    {
+      "name": "Debug ANTLR4 grammar",
+      "type": "antlr-debug",
+      "request": "launch",
+      "input": "server/src/grammar/lib/test/keyword_arguments.eps",
+      "grammar": "server/src/grammar/lib/epScriptParser.g4",
+      "startRule": "program",
+      "printParseTree": true,
+      "visualParseTree": true
     }
   ],
   "compounds": [
