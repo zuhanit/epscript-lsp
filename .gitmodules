@@ -1,0 +1,3 @@
+[submodule "server/src/lib/eudplib"]
+	path = server/src/lib/eudplib
+	url = https://www.github.com/armoha/eudplib.git
