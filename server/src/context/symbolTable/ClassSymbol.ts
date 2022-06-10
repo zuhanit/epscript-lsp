@@ -11,6 +11,7 @@ import { TypedSymbol } from "./TypedSymbol";
 export class ClassSymbol extends SymbolWithScope implements TypedSymbol {
   type: Type = { name: "class" };
   docString = "";
+  arguments: ParameterSymbol[] = [];
 
   constructor(name: string, range: Range, blockRange: Range, scope: BaseScope) {
     super(name, range, blockRange, scope);
