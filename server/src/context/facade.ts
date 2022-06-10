@@ -38,7 +38,7 @@ export const symbolKindToCompletionKind = new Map<
   [SymbolKind.Parameter, CompletionItemKind.Variable],
   [SymbolKind.Module, CompletionItemKind.Module],
   [SymbolKind.Variable, CompletionItemKind.Variable],
-  [SymbolKind.Constant, CompletionItemKind.Constant],
+  [SymbolKind.Constant, CompletionItemKind.Variable],
 ]);
 
 export function translateSymbolKindToCompletionKind(
@@ -90,10 +90,12 @@ export function getSymbolInfo(symbol: ISymbol): SymbolInfo {
   }
 
   if (ClassSymbol.isClassSymbol(symbol)) {
+    const args = symbol.arguments.map((arg) => getSymbolInfo(arg));
     return {
       name: symbol.name,
       detail: `class ${symbol.name}`,
       kind: SymbolKind.Class,
+      args: args,
     };
   }
 
@@ -106,10 +108,7 @@ export function getSymbolInfo(symbol: ISymbol): SymbolInfo {
   }
 
   if (MethodSymbol.isMethodSymbol(symbol)) {
-    const args = symbol
-      .getSymbols()
-      .filter<ParameterSymbol>(ParameterSymbol.isParameterSymbol)
-      .map((x) => getSymbolInfo(x));
+    const args = symbol.arguments.map((arg) => getSymbolInfo(arg));
     return {
       name: symbol.name,
       detail: `(method) ${symbol.scope.name}.${symbol.name}(${args
@@ -121,10 +120,7 @@ export function getSymbolInfo(symbol: ISymbol): SymbolInfo {
   }
 
   if (FunctionSymbol.isFunctionSymbol(symbol)) {
-    const args = symbol
-      .getSymbols()
-      .filter<ParameterSymbol>(ParameterSymbol.isParameterSymbol)
-      .map((x) => getSymbolInfo(x));
+    const args = symbol.arguments.map((arg) => getSymbolInfo(arg));
     return {
       name: symbol.name,
       detail: `function ${symbol.name}(${args
