@@ -20,7 +20,7 @@ import eudplibClass from "../json/class.json";
  * @param scope 들어갈 스코프
  * @returns FunctionSymbol[]
  */
-export function getAllEUDFunctions(scope: BaseScope): FunctionSymbol[] {
+export function pushBuiltinFunction(scope: BaseScope): void {
   const funcs = eudplibFunction.map((fx) => {
     const symbol = new FunctionSymbol(
       fx.name.startsWith("f_")
@@ -38,6 +38,9 @@ export function getAllEUDFunctions(scope: BaseScope): FunctionSymbol[] {
         arg.kind as ParameterKind,
         arg.default
       );
+      argSymbol.type = scope.getSymbolByName(arg.type)
+        ? scope.getSymbolByName(arg.type)
+        : arg.type;
       symbol.arguments.push(argSymbol);
       symbol.insert(argSymbol);
     });
@@ -63,7 +66,7 @@ export function getAllEUDFunctions(scope: BaseScope): FunctionSymbol[] {
     })
   );
 
-  return funcs;
+  funcs.forEach((fx) => scope.insert(fx));
 }
 
 /**
@@ -72,9 +75,20 @@ export function getAllEUDFunctions(scope: BaseScope): FunctionSymbol[] {
  * @param scope 들어갈 스코프
  * @returns ClassSymbol[]
  */
-export function getAllEUDClasses(scope: BaseScope): ClassSymbol[] {
+export function pushBuiltinClass(scope: BaseScope): void {
   const classes = eudplibClass.map((cls) => {
     const symbol = new ClassSymbol(cls.name, zeroRange, zeroRange, scope);
+    cls.args.forEach((arg) => {
+      const argSymbol = new ParameterSymbol(
+        arg.name,
+        symbol,
+        zeroRange,
+        arg.kind as ParameterKind,
+        arg.default
+      );
+      symbol.insert(argSymbol);
+      symbol.arguments.push(argSymbol);
+    });
     cls.methods.forEach((method) => {
       const methodSymbol = new MethodSymbol(
         method.name,
@@ -99,5 +113,6 @@ export function getAllEUDClasses(scope: BaseScope): ClassSymbol[] {
     symbol.docString = cls.docs;
     return symbol;
   });
-  return classes;
+
+  classes.forEach((cls) => scope.insert(cls));
 }

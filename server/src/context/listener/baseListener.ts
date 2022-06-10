@@ -14,8 +14,8 @@ import {
 } from "../../grammar/src/grammar/lib/epScriptParser";
 import { epScriptParserListener } from "../../grammar/src/grammar/lib/epScriptParserListener";
 import {
-  getAllEUDClasses,
-  getAllEUDFunctions,
+  pushBuiltinClass,
+  pushBuiltinFunction,
 } from "../../lib/builtins/builtin";
 import { BaseScope } from "../symbolTable/BaseScope";
 import { FunctionSymbol as FunctionSymbol } from "../symbolTable/FunctionSymbol";
@@ -63,12 +63,8 @@ export class BaseListener implements epScriptParserListener {
   }
 
   enterProgram(ctx: ProgramContext): void {
-    getAllEUDFunctions(this.symbolTable.predefinedScope).forEach((x) => {
-      this.symbolTable.insertPredefinedSymbol(x);
-    });
-    getAllEUDClasses(this.symbolTable.predefinedScope).forEach((x) => {
-      this.symbolTable.insertPredefinedSymbol(x);
-    });
+    pushBuiltinClass(this.symbolTable.predefinedScope);
+    pushBuiltinFunction(this.symbolTable.predefinedScope);
   }
 
   /**
