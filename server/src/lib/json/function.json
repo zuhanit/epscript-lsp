@@ -9,7 +9,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Comparison",
@@ -18,7 +18,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "Number",
@@ -36,7 +36,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             }
         ],
         "docs": ""
@@ -51,7 +51,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgOrder"
             }
         ],
         "docs": ""
@@ -86,7 +86,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Comparison",
@@ -95,7 +95,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "Number",
@@ -113,7 +113,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Location",
@@ -122,7 +122,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -137,7 +137,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -152,7 +152,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": "Action: CenterView for everyone (including observers)"
@@ -167,7 +167,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Comparison",
@@ -176,7 +176,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "Number",
@@ -194,7 +194,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": "[Player] commands [Comparison] [Number] [Unit].\n\n    Example::\n        Command(Player1, AtLeast, 30, \"Terran Marine\")\n\n\n    "
@@ -209,7 +209,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -224,7 +224,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Location",
@@ -233,7 +233,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -248,7 +248,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -263,7 +263,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Location",
@@ -272,7 +272,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -317,7 +317,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "Time",
@@ -365,7 +365,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Where",
@@ -374,7 +374,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "ForPlayer",
@@ -383,7 +383,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             }
         ],
         "docs": ""
@@ -407,7 +407,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Where",
@@ -416,7 +416,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "Player",
@@ -425,7 +425,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Properties",
@@ -434,7 +434,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgProperty"
             }
         ],
         "docs": ""
@@ -449,7 +449,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Comparison",
@@ -458,7 +458,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "Number",
@@ -476,7 +476,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -491,7 +491,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Comparison",
@@ -500,7 +500,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "Number",
@@ -518,7 +518,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Mask",
@@ -678,7 +678,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgOrder"
             }
         ],
         "docs": ""
@@ -1936,7 +1936,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "Time",
@@ -1960,7 +1960,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgAIScript"
             },
             {
                 "name": "issueError",
@@ -1984,7 +1984,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2008,7 +2008,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2032,7 +2032,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2128,7 +2128,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2152,7 +2152,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2176,7 +2176,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2200,7 +2200,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2224,7 +2224,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgProperty"
             },
             {
                 "name": "issueError",
@@ -2248,7 +2248,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2272,7 +2272,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2296,7 +2296,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2344,7 +2344,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2368,7 +2368,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2392,7 +2392,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "issueError",
@@ -2416,7 +2416,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "issueError",
@@ -2580,7 +2580,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgProperty"
             }
         ],
         "docs": ""
@@ -2595,7 +2595,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             }
         ],
         "docs": ""
@@ -2610,7 +2610,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             }
         ],
         "docs": ""
@@ -2650,7 +2650,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             }
         ],
         "docs": ""
@@ -2674,7 +2674,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Owner",
@@ -2683,7 +2683,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Where",
@@ -2692,7 +2692,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "NewOwner",
@@ -2701,7 +2701,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             }
         ],
         "docs": ""
@@ -2716,7 +2716,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgScore"
             }
         ],
         "docs": ""
@@ -2800,7 +2800,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Player",
@@ -2809,7 +2809,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             }
         ],
         "docs": ""
@@ -2833,7 +2833,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Where",
@@ -2842,7 +2842,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "ForPlayer",
@@ -2851,7 +2851,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             }
         ],
         "docs": ""
@@ -2881,7 +2881,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Label",
@@ -2905,7 +2905,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Location",
@@ -2914,7 +2914,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "Label",
@@ -2947,7 +2947,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Label",
@@ -2980,7 +2980,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Location",
@@ -2989,7 +2989,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "Label",
@@ -3022,7 +3022,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Label",
@@ -3055,7 +3055,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "Label",
@@ -3088,7 +3088,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgScore"
             },
             {
                 "name": "Label",
@@ -3127,7 +3127,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Label",
@@ -3151,7 +3151,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             },
             {
                 "name": "Label",
@@ -3175,7 +3175,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgScore"
             },
             {
                 "name": "Label",
@@ -3199,7 +3199,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -3214,7 +3214,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             }
         ],
         "docs": ""
@@ -3259,7 +3259,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgScore"
             }
         ],
         "docs": ""
@@ -3355,7 +3355,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "value",
@@ -3388,7 +3388,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "value",
@@ -3421,7 +3421,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "value",
@@ -3463,7 +3463,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "value",
@@ -3496,7 +3496,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -3511,7 +3511,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": "Action: MinimapPing for everyone (including observers)"
@@ -3535,7 +3535,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Owner",
@@ -3544,7 +3544,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Where",
@@ -3553,7 +3553,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "Percent",
@@ -3595,7 +3595,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Owner",
@@ -3604,7 +3604,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Where",
@@ -3613,7 +3613,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -3637,7 +3637,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Owner",
@@ -3646,7 +3646,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Where",
@@ -3655,7 +3655,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "Percent",
@@ -3688,7 +3688,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Where",
@@ -3697,7 +3697,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "NewValue",
@@ -3730,7 +3730,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Owner",
@@ -3739,7 +3739,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Where",
@@ -3748,7 +3748,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "Percent",
@@ -3772,7 +3772,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -3787,7 +3787,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             }
         ],
         "docs": ""
@@ -3802,7 +3802,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "OnUnit",
@@ -3811,7 +3811,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Owner",
@@ -3820,7 +3820,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "DestLocation",
@@ -3829,7 +3829,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -3853,7 +3853,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Owner",
@@ -3862,7 +3862,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "StartLocation",
@@ -3871,7 +3871,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "DestLocation",
@@ -3880,7 +3880,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -3925,7 +3925,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Comparison",
@@ -3934,7 +3934,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "Number",
@@ -3958,7 +3958,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Owner",
@@ -3967,7 +3967,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "StartLocation",
@@ -3976,7 +3976,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "OrderType",
@@ -3985,7 +3985,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgOrder"
             },
             {
                 "name": "DestLocation",
@@ -3994,7 +3994,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -4009,7 +4009,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -4335,7 +4335,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Player",
@@ -4344,7 +4344,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             }
         ],
         "docs": ""
@@ -4368,7 +4368,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Where",
@@ -4377,7 +4377,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "ForPlayer",
@@ -4386,7 +4386,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             }
         ],
         "docs": ""
@@ -4449,7 +4449,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -4469,7 +4469,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             }
         ],
         "docs": ""
@@ -4517,7 +4517,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "ScoreType",
@@ -4526,7 +4526,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgScore"
             },
             {
                 "name": "Comparison",
@@ -4535,7 +4535,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgComparison"
             },
             {
                 "name": "Number",
@@ -4574,7 +4574,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Status",
@@ -4598,7 +4598,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "Time",
@@ -4622,7 +4622,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgOrder"
             }
         ],
         "docs": ""
@@ -4637,7 +4637,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Modifier",
@@ -4646,7 +4646,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "Number",
@@ -4664,7 +4664,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -4679,7 +4679,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Modifier",
@@ -4688,7 +4688,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "Number",
@@ -4706,7 +4706,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Mask",
@@ -4739,7 +4739,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Owner",
@@ -4748,7 +4748,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Where",
@@ -4757,7 +4757,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -4781,7 +4781,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Owner",
@@ -4790,7 +4790,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Where",
@@ -4799,7 +4799,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             }
         ],
         "docs": ""
@@ -4814,7 +4814,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Modifier",
@@ -4823,7 +4823,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "Number",
@@ -4841,7 +4841,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -4865,7 +4865,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "value",
@@ -4898,7 +4898,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "value",
@@ -4931,7 +4931,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "value",
@@ -4973,7 +4973,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "value",
@@ -5147,7 +5147,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Modifier",
@@ -5156,7 +5156,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "Amount",
@@ -5174,7 +5174,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             }
         ],
         "docs": ""
@@ -5189,7 +5189,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgPlayer"
             },
             {
                 "name": "Modifier",
@@ -5198,7 +5198,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "Amount",
@@ -5216,7 +5216,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgScore"
             }
         ],
         "docs": ""
@@ -5327,7 +5327,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Time",
@@ -5351,7 +5351,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "time",
@@ -5519,7 +5519,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "value",
@@ -5543,7 +5543,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             },
             {
                 "name": "Where",
@@ -5552,7 +5552,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgLocation"
             },
             {
                 "name": "WAVName",
@@ -5570,7 +5570,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgModifier"
             },
             {
                 "name": "Time",
@@ -5821,7 +5821,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -9027,7 +9027,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -9042,7 +9042,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -9057,7 +9057,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgUnit"
             }
         ],
         "docs": ""
@@ -9146,7 +9146,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             }
         ],
         "docs": ""
@@ -9161,7 +9161,7 @@
                     "value": "empty",
                     "type": "type"
                 },
-                "type": "any"
+                "type": "TrgResource"
             }
         ],
         "docs": ""
