@@ -52,6 +52,25 @@ def getFunctionArgsSpec(function):
         ]
 
     def getParameterInfo(param):
+        def getParamTypeByName(name):
+            StockTypes = {
+                "TrgComparison": ('Comparison', 'cmptype'),
+                "TrgModifier": ('TimeModifier', 'Modifier', 'modtype'),
+                "TrgOrder": ("OrderType"),
+                "TrgPlayer": ('Player', 'p', 'ForPlayer', 'Owner', 'NewOwner'),
+                "TrgProperty": ('Properties', 'prop'),
+                "TrgResource": ("ResourceType"),
+                "TrgScore": ("ScoreType"),
+                "TrgAIScript": ('ais', 'script'),
+                "TrgLocation": ('Location', 'Where', 'location', 'DestLocation', 'StartLocation'),
+                "TrgUnit": ('Unit, OnUnit, UnitType, unit'),
+            }
+
+            for k, v in StockTypes.items():
+              if name in v:
+                return k
+            return "any"
+
         if (param.name == '_fdict'):
             return {
                 "name": param.name,
@@ -70,7 +89,7 @@ def getFunctionArgsSpec(function):
                     "value": 'empty' if param.default == inspect._empty else str(param.default),
                     "type": type(param.default).__name__
                 },
-                "type": "any"
+                "type": getParamTypeByName(param.name)
             }
     params = inspect.signature(function).parameters.values()
     return list(map(getParameterInfo, params))
