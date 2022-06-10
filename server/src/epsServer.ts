@@ -258,15 +258,15 @@ export class EPSServer {
 
     if (contextPackage === undefined) return undefined;
     if (singleExpressions === null) return undefined;
+    const scope: BaseScope = scopes
+      ? scopes[scopes.length - 1]
+      : contextPackage.parsePackage.symbolTable.globalScope;
 
     let singleExpression = singleExpressions[0];
 
     if (singleExpression instanceof CallExpressionContext) {
       singleExpression = singleExpression.singleExpression();
     }
-    const scope: BaseScope = scopes
-      ? scopes[scopes.length - 1]
-      : contextPackage.parsePackage.symbolTable.globalScope;
 
     const evaluated = evaluateNode({
       node: singleExpression,
@@ -275,12 +275,12 @@ export class EPSServer {
       languageManager: this.languageManager,
       symbolTable: contextPackage.parsePackage.symbolTable,
     });
-
     return provideCompletion(
       { params: params, contextPackage: contextPackage, name: scope.name },
       scope,
       this.analyzer,
-      evaluated
+      evaluated,
+      singleExpressions[0]
     );
   }
 

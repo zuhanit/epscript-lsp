@@ -18,15 +18,31 @@ import { ISymbol } from "../context/symbolTable/ISymbol";
 import { ModuleSymbol } from "../context/symbolTable/ModuleSymbol";
 import { ParameterSymbol } from "../context/symbolTable/ParameterSymbol";
 import { VariableSymbol } from "../context/symbolTable/VariableSymbol";
-import { epScriptParser } from "../grammar/src/grammar/lib/epScriptParser";
+import {
+  epScriptParser,
+  SingleExpressionContext,
+} from "../grammar/src/grammar/lib/epScriptParser";
+import {
+  SCTrgAIScript,
+  SCTrgComparison,
+  SCTrgEncode,
+  SCTrgModifier,
+  SCTrgOrder,
+  SCTrgPlayer,
+  SCTrgResource,
+  SCTrgScore,
+  SCTrgUnit,
+} from "../lib/builtins/encodes";
 import { literalToType } from "../util/literalUtils";
 import { ProviderOption } from "./provider-option";
+import { getActiveParameterNumber } from "./utils/paramUtil";
 
 export function provideCompletion(
   { params, contextPackage }: ProviderOption<CompletionParams>,
   scope: BaseScope,
   analyzer: Analyzer,
-  evaluated: any
+  evaluated: any,
+  singleExpression: SingleExpressionContext
 ): CompletionItem[] {
   const result: CompletionItem[] = [];
 
@@ -133,6 +149,7 @@ export function provideCompletion(
               });
             }
           });
+          result.push(...getTypeCompletion(evaluated, singleExpression));
         }
         break;
     }
@@ -208,4 +225,65 @@ function getCompletionForSymbol(symbol: ISymbol): CompletionItem {
     detail: info.detail,
     kind: translateSymbolKindToCompletionKind(info.kind),
   };
+}
+
+function getTypeCompletion(
+  symbol: FunctionSymbol,
+  singleExpression: SingleExpressionContext
+) {
+  const activeParameter = getActiveParameterNumber(
+    singleExpression,
+    getSymbolInfo(symbol)
+  );
+  if (activeParameter != -1 && activeParameter <= symbol.arguments.length) {
+    const curr = symbol.arguments[activeParameter];
+    if (curr.type instanceof ClassSymbol) {
+      console.log(curr, curr.type);
+      switch (curr.type.name) {
+        case "TrgAIScript":
+          return getEncodeCompletion("TrgAIScript");
+        case "TrgComparison":
+          return getEncodeCompletion("TrgComparison");
+        case "TrgModifier":
+          return getEncodeCompletion("TrgModifier");
+        case "TrgOrder":
+          return getEncodeCompletion("TrgOrder");
+        case "TrgPlayer":
+          return getEncodeCompletion("TrgPlayer");
+        case "TrgResource":
+          return getEncodeCompletion("TrgResource");
+        case "TrgScore":
+          return getEncodeCompletion("TrgScore");
+        case "TrgUnit":
+          return getEncodeCompletion("TrgUnit");
+      }
+    }
+  }
+  return [];
+}
+
+function getEncodeCompletion(encode: SCTrgEncode) {
+  const generate = (el: string): CompletionItem => ({
+    label: `"${el}"`,
+    kind: CompletionItemKind.Constant,
+  });
+  switch (encode) {
+    case "TrgAIScript":
+      return SCTrgAIScript.map((el) => generate(el));
+    case "TrgComparison":
+      return SCTrgComparison.map((el) => generate(el));
+    case "TrgModifier":
+      return SCTrgModifier.map((el) => generate(el));
+    case "TrgOrder":
+      return SCTrgOrder.map((el) => generate(el));
+    case "TrgPlayer":
+      return SCTrgPlayer.map((el) => generate(el));
+    case "TrgResource":
+      return SCTrgResource.map((el) => generate(el));
+    case "TrgScore":
+      return SCTrgScore.map((el) => generate(el));
+    case "TrgUnit":
+      return SCTrgUnit.map((el) => generate(el));
+  }
+  return [];
 }
