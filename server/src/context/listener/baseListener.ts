@@ -252,7 +252,10 @@ export class BaseListener implements epScriptParserListener {
         languageManager: this.languageManager,
         diagnostics: this.diagnostics,
       });
-      if (resolved) symbol.value = resolved;
+      if (resolved) {
+        symbol.value = resolved;
+        symbol.type = resolved;
+      }
     } else {
       symbol.value = null;
     }
