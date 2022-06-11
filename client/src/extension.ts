@@ -45,7 +45,10 @@ export function activate(context: ExtensionContext) {
 
   // Options to control the language client
   const clientOptions: LanguageClientOptions = {
-    documentSelector: [{ scheme: "file", language: "epscript" }],
+    documentSelector: [
+      { scheme: "file", language: "epscript" },
+      { scheme: "untitled", language: "epscript" },
+    ],
     synchronize: {
       // Notify the server about file changes to '.clientrc files contained in the workspace
       fileEvents: workspace.createFileSystemWatcher("**/.clientrc"),
