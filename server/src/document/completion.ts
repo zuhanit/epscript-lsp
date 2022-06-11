@@ -23,14 +23,21 @@ import {
   SingleExpressionContext,
 } from "../grammar/src/grammar/lib/epScriptParser";
 import {
+  SCImage,
+  SCIscript,
   SCTrgAIScript,
+  SCTrgAllyStatus,
   SCTrgComparison,
   SCTrgEncode,
   SCTrgModifier,
   SCTrgOrder,
   SCTrgPlayer,
+  SCTrgProperty,
   SCTrgResource,
   SCTrgScore,
+  SCTrgSwitchAction,
+  SCTrgSwitchState,
+  SCTrgTBL,
   SCTrgUnit,
 } from "../lib/builtins/encodes";
 import { literalToType } from "../util/literalUtils";
@@ -242,6 +249,20 @@ function getTypeCompletion(
       switch (curr.type.name) {
         case "TrgAIScript":
           return getEncodeCompletion("TrgAIScript");
+        case "TrgAllyStatus":
+          return getEncodeCompletion("TrgAllyStatus");
+        case "TrgProperty":
+          return getEncodeCompletion("TrgProperty");
+        case "TrgSwitchState":
+          return getEncodeCompletion("TrgSwitchState");
+        case "TrgSwitchAction":
+          return getEncodeCompletion("TrgSwitchAction");
+        case "Image":
+          return getEncodeCompletion("Image");
+        case "Iscript":
+          return getEncodeCompletion("Iscript");
+        case "TrgTBL":
+          return getEncodeCompletion("TrgTBL");
         case "TrgComparison":
           return getEncodeCompletion("TrgComparison");
         case "TrgModifier":
@@ -270,6 +291,20 @@ function getEncodeCompletion(encode: SCTrgEncode) {
   switch (encode) {
     case "TrgAIScript":
       return SCTrgAIScript.map((el) => generate(el));
+    case "TrgAllyStatus":
+      return SCTrgAllyStatus.map((el) => generate(el));
+    case "TrgProperty":
+      return SCTrgProperty.map((el) => generate(el));
+    case "TrgSwitchState":
+      return SCTrgSwitchState.map((el) => generate(el));
+    case "TrgSwitchAction":
+      return SCTrgSwitchAction.map((el) => generate(el));
+    case "Image":
+      return SCImage.map((el) => generate(el));
+    case "Iscript":
+      return SCIscript.map((el) => generate(el));
+    case "TrgTBL":
+      return SCTrgTBL.map((el) => generate(el));
     case "TrgComparison":
       return SCTrgComparison.map((el) => generate(el));
     case "TrgModifier":
