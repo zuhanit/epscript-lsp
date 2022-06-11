@@ -285,12 +285,16 @@ function getTypeCompletion(
 
 function getEncodeCompletion(encode: SCTrgEncode) {
   const generate = (el: string): CompletionItem => ({
+    label: `${el}`,
+    kind: CompletionItemKind.Constant,
+  });
+  const generateWithQuotes = (el: string): CompletionItem => ({
     label: `"${el}"`,
     kind: CompletionItemKind.Constant,
   });
   switch (encode) {
     case "TrgAIScript":
-      return SCTrgAIScript.map((el) => generate(el));
+      return SCTrgAIScript.map((el) => generateWithQuotes(el));
     case "TrgAllyStatus":
       return SCTrgAllyStatus.map((el) => generate(el));
     case "TrgProperty":
@@ -300,11 +304,11 @@ function getEncodeCompletion(encode: SCTrgEncode) {
     case "TrgSwitchAction":
       return SCTrgSwitchAction.map((el) => generate(el));
     case "Image":
-      return SCImage.map((el) => generate(el));
+      return SCImage.map((el) => generateWithQuotes(el));
     case "Iscript":
-      return SCIscript.map((el) => generate(el));
+      return SCIscript.map((el) => generateWithQuotes(el));
     case "TrgTBL":
-      return SCTrgTBL.map((el) => generate(el));
+      return SCTrgTBL.map((el) => generateWithQuotes(el));
     case "TrgComparison":
       return SCTrgComparison.map((el) => generate(el));
     case "TrgModifier":
@@ -318,7 +322,7 @@ function getEncodeCompletion(encode: SCTrgEncode) {
     case "TrgScore":
       return SCTrgScore.map((el) => generate(el));
     case "TrgUnit":
-      return SCTrgUnit.map((el) => generate(el));
+      return SCTrgUnit.map((el) => generateWithQuotes(el));
   }
   return [];
 }
