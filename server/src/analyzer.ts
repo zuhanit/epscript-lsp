@@ -31,7 +31,7 @@ export class Analyzer {
   /**
    * 클라이언트에 열려있는 문서 패키지.
    */
-  public workspaceFolders = new Map<URI, Map<URI, ContextPackage>>();
+  public documentations = new Map<URI, ContextPackage>();
   public parser: Parser;
 
   constructor(parser: Parser) {
@@ -52,7 +52,6 @@ export class Analyzer {
     console.log("Analyzer Initialized");
     console.log("I got those workspaceFolders: ", params.workspaceFolders);
     const analyzer = new Analyzer(parser);
-
     params.workspaceFolders?.forEach(async (folder) => {
       let filePaths: string[] = [];
       const folderPath = VSURI.parse(folder.uri).fsPath;
@@ -74,7 +73,6 @@ export class Analyzer {
         analyzer.analyze(
           fileUri,
           TextDocument.create(fileUri, "eps", 0, content),
-          folderPath,
           languageManager
         );
       });
@@ -86,61 +84,31 @@ export class Analyzer {
   /**
    * 문서 내용 분석하기.
    *
-   * 내부적으로 분석하며 `Analyzer`의 workspaceFolder도 수정합니다.
-   *
    * @param uri 문서 URI
    * @param document 문서 TextDocument
-   * @param folderPath workspaceFolder의 경로
    * @returns ContextPackage
    */
   public analyze(
     uri: URI,
     document: TextDocument,
-    folderPath: string,
     languageManager: LanguageManager
   ): ContextPackage {
-    const workspace = this.workspaceFolders.get(folderPath);
     const contextPackage: ContextPackage = {
       document: document,
-      parsePackage: this.parser.parse(
-        document,
-        folderPath,
-        this,
-        languageManager
-      ),
-      workspaceFolder: folderPath,
+      parsePackage: this.parser.parse(document, this, languageManager),
     };
-
-    if (workspace) {
-      workspace.set(uri, contextPackage);
-    } else {
-      this.workspaceFolders.set(
-        folderPath,
-        new Map<URI, ContextPackage>([[uri, contextPackage]])
-      );
-    }
-
+    this.documentations.set(uri, contextPackage);
     return contextPackage;
   }
 
   /**
    * URI를 통해 `ContextPackage` 얻어오기.
    *
-   * VSCode에선 workspaceFolder를 통해 문서들을 관리하므로,
-   * workspaceFolders를 순환하며 맞는 URI 문서를 가져옵니다.
-   *
    * @param uri 얻어올 문서의 URI
    * @returns ContextPackage
    */
   public getContextPackageByURI(uri: URI) {
-    let result: ContextPackage | undefined = undefined;
-
-    for (const packages of this.workspaceFolders.values()) {
-      const contextPackage = packages.get(uri);
-      if (contextPackage) result = contextPackage;
-    }
-
-    return result;
+    return this.documentations.get(uri);
   }
 
   public getSingleExpressionAtPosition(uri: URI, position: Position) {
