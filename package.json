@@ -78,6 +78,11 @@
             "언어 설정을 한국어로 합니다."
           ],
           "description": "Language configuration for any messages from epScript Server, like Diagnostics."
+        },
+        "epscript.diagnostics": {
+          "type": "boolean",
+          "default": "true",
+          "description": "Receive Code Diagnostics."
         }
       }
     },
