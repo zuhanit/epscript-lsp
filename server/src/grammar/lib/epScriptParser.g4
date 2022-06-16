@@ -55,7 +55,7 @@ variableStatement
  ;
 
 variableDeclarationList
- : varModifier variableDeclaration (',' variableDeclaration)*
+ : Static? varModifier variableDeclaration (',' variableDeclaration)*
  ;
 
 variableDeclaration
