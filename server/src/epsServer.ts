@@ -92,37 +92,14 @@ export class EPSServer {
         this.analyzer.analyze(
           change.document.uri,
           change.document,
-          contextPackage.workspaceFolder,
           this.languageManager
         );
       } else {
-        const folderPath = path.parse(
-          URI.parse(change.document.uri).fsPath
-        ).dir;
-        let workspace: string | undefined;
-
-        // WorkspaceFolder 검색.
-        for (const v of this.analyzer.workspaceFolders.keys()) {
-          if (folderPath.startsWith(v)) {
-            workspace = v;
-          }
-        }
-
-        if (workspace) {
-          this.analyzer.analyze(
-            change.document.uri,
-            change.document,
-            workspace,
-            this.languageManager
-          );
-        } else {
-          this.analyzer.analyze(
-            change.document.uri,
-            change.document,
-            "no-folder-temporary-workspace",
-            this.languageManager
-          );
-        }
+        this.analyzer.analyze(
+          change.document.uri,
+          change.document,
+          this.languageManager
+        );
       }
       this.connection.sendDiagnostics({
         uri: change.document.uri,
