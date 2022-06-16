@@ -1,9 +1,8 @@
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { ParsePackage } from '../parser';
-import { SymbolTable } from './symbolTable/SymbolTable';
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { ParsePackage } from "../parser";
+import { SymbolTable } from "./symbolTable/SymbolTable";
 
 export interface ContextPackage {
-	document: TextDocument;
-	parsePackage: ParsePackage;
-	workspaceFolder: string,
+  document: TextDocument;
+  parsePackage: ParsePackage;
 }
