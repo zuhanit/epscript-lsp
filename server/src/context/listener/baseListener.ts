@@ -53,7 +53,6 @@ export class BaseListener implements epScriptParserListener {
   constructor(
     private parser: Parser,
     private document: TextDocument,
-    private workspaceFolder: string,
     private analyzer: Analyzer,
     private diagnostics: Diagnostic[],
     private languageManager: LanguageManager
@@ -139,7 +138,6 @@ export class BaseListener implements epScriptParserListener {
         const result = this.analyzer.analyze(
           importURI.toString(),
           TextDocument.create(importURI.toString(), "eps", 0, fileContent),
-          this.workspaceFolder,
           this.languageManager
         );
 
