@@ -48,7 +48,10 @@ export class EPSServer {
   private textDocument: TextDocuments<TextDocument> = new TextDocuments(
     TextDocument
   );
-
+  private configuration = {
+    language: "en-us",
+    diagnostics: true,
+  };
   private constructor(
     connection: Connection,
     analyzer: Analyzer,
@@ -83,7 +86,7 @@ export class EPSServer {
    */
   public async register(connection: Connection): Promise<void> {
     this.textDocument.listen(connection);
-    this.textDocument.onDidChangeContent((change) => {
+    this.textDocument.onDidChangeContent(async (change) => {
       const contextPackage = this.analyzer.getContextPackageByURI(
         change.document.uri
       );
@@ -101,10 +104,18 @@ export class EPSServer {
           this.languageManager
         );
       }
-      this.connection.sendDiagnostics({
-        uri: change.document.uri,
-        diagnostics: this.onDiagnostic(change),
-      });
+      this.configuration = await this.getConfiguration(change.document.uri);
+      if (this.configuration.diagnostics === true) {
+        this.connection.sendDiagnostics({
+          uri: change.document.uri,
+          diagnostics: this.onDiagnostic(change),
+        });
+      } else {
+        this.connection.sendDiagnostics({
+          uri: change.document.uri,
+          diagnostics: [],
+        });
+      }
     });
     connection.workspace.onDidCreateFiles((params) =>
       this.onDidCreateFiles(params)
@@ -123,12 +134,16 @@ export class EPSServer {
     connection.onDidChangeConfiguration(
       (params: DidChangeConfigurationParams) =>
         this.onDidChangeConfiguration(params)
-    ); // Why it didn't works?
+    );
     connection.onInitialized(async () => {
       console.log(
         `Server Initialized at ${new Date().toLocaleDateString("ko-KR")}`
       );
       console.log("TextDocument:", this.textDocument);
+      connection.client.register(
+        DidChangeConfigurationNotification.type,
+        undefined
+      );
     });
   }
 
@@ -168,6 +183,13 @@ export class EPSServer {
     };
   }
 
+  private async getConfiguration(resource: string) {
+    return await this.connection.workspace.getConfiguration({
+      scopeUri: resource,
+      section: "epscript",
+    });
+  }
+
   private onDidCreateFiles(params: CreateFilesParams) {
     params.files.forEach((file) => {
       const folderURI = URI.file(path.parse(URI.parse(file.uri).fsPath).dir);
@@ -175,8 +197,8 @@ export class EPSServer {
     });
   }
 
-  private onDidChangeConfiguration(params: DidChangeConfigurationParams) {
-    console.log("Changed");
+  private async onDidChangeConfiguration(params: DidChangeConfigurationParams) {
+    const result = await this.getConfiguration("diagnostics");
   }
 
   private onSignatureHelp(params: SignatureHelpParams) {
