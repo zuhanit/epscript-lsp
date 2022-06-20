@@ -1,5 +1,6 @@
 dist
 node_modules
 client/server
+.antlr
 .vscode-test
 *.pyc
