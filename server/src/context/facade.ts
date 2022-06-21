@@ -8,18 +8,7 @@ import { ModuleSymbol } from "./symbolTable/ModuleSymbol";
 import { ParameterSymbol } from "./symbolTable/ParameterSymbol";
 import { VariableSymbol } from "./symbolTable/VariableSymbol";
 import { MethodSymbol } from "./symbolTable/MethodSymbol";
-
-export enum SymbolKind {
-  Function,
-  Method,
-  Class,
-  Member,
-  Module,
-  Variable,
-  Constant,
-  Parameter,
-}
-
+import { SymbolKind } from "vscode-languageserver";
 export interface SymbolInfo {
   name: string;
   detail: string;
@@ -35,8 +24,7 @@ export const symbolKindToCompletionKind = new Map<
   [SymbolKind.Function, CompletionItemKind.Function],
   [SymbolKind.Method, CompletionItemKind.Method],
   [SymbolKind.Class, CompletionItemKind.Class],
-  [SymbolKind.Member, CompletionItemKind.Field],
-  [SymbolKind.Parameter, CompletionItemKind.Variable],
+  [SymbolKind.Property, CompletionItemKind.Property],
   [SymbolKind.Module, CompletionItemKind.Module],
   [SymbolKind.Variable, CompletionItemKind.Variable],
   [SymbolKind.Constant, CompletionItemKind.Variable],
@@ -63,7 +51,7 @@ export function getSymbolInfo(symbol: ISymbol): SymbolInfo {
                 : symbol.defaultValue.value
             }`,
       ].join(""),
-      kind: SymbolKind.Parameter,
+      kind: SymbolKind.Property,
     };
   }
 
@@ -73,7 +61,7 @@ export function getSymbolInfo(symbol: ISymbol): SymbolInfo {
       detail: `(property) ${symbol.scope.name}.${symbol.name}: ${
         symbol.value ? literalToType(symbol.value) : "undefined"
       }`,
-      kind: SymbolKind.Member,
+      kind: SymbolKind.Property,
     };
   }
 
