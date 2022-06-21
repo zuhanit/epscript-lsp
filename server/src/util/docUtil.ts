@@ -24,10 +24,8 @@ export const getDocumentation = (
 ): string | undefined => {
   const previousTokenIndex = ctx.start.tokenIndex - 1;
   const previousToken = tokenStream.get(previousTokenIndex);
-  console.log(ctx.text, previousToken.text, previousToken);
   if (previousToken.type === epScriptLexer.DocComment && previousToken.text) {
     const parsedDoc = parse(previousToken.text);
-    console.log(parsedDoc);
     return getDocumentationSpec(parsedDoc);
   }
 
