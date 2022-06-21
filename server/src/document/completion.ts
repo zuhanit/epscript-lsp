@@ -230,6 +230,10 @@ function getCompletionForSymbol(symbol: ISymbol): CompletionItem {
   return {
     label: info.name,
     detail: info.detail,
+    documentation: {
+      kind: "markdown",
+      value: info.documentation ? info.documentation : "",
+    },
     kind: translateSymbolKindToCompletionKind(info.kind),
   };
 }
