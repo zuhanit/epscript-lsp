@@ -23,10 +23,12 @@ export const getDocumentation = (
   tokenStream: CommonTokenStream
 ): string | undefined => {
   const previousTokenIndex = ctx.start.tokenIndex - 1;
-  const previousToken = tokenStream.get(previousTokenIndex);
-  if (previousToken.type === epScriptLexer.DocComment && previousToken.text) {
-    const parsedDoc = parse(previousToken.text);
-    return getDocumentationSpec(parsedDoc);
+  if (previousTokenIndex >= 0) {
+    const previousToken = tokenStream.get(previousTokenIndex);
+    if (previousToken.type === epScriptLexer.DocComment && previousToken.text) {
+      const parsedDoc = parse(previousToken.text);
+      return getDocumentationSpec(parsedDoc);
+    }
   }
 
   return undefined;
