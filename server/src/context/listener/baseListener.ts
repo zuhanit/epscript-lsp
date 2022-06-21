@@ -116,9 +116,9 @@ export class BaseListener implements epScriptParserListener {
     const basePath = path.join(
       currentPath.dir,
       "..",
-      ...dotted.slice(0, dotted.length - 1)
+      ...dotted.slice(0, dotted.length - 1),
+      dotted[dotted.length - 1]
     );
-
     if (existsSync(basePath + ".eps")) {
       const epsPath = basePath + ".eps";
       const importURI = VSURI.file(epsPath).toString();
