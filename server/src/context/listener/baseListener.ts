@@ -41,7 +41,10 @@ import * as path from "path";
 import { BaseSymbol } from "../symbolTable/BaseSymbol";
 import { Diagnostic } from "vscode-languageserver";
 import { keys, LanguageManager } from "../../i18n/LanguageManager";
-import { ParserRuleContext, Token } from "antlr4ts";
+import { CommonTokenStream, ParserRuleContext, Token } from "antlr4ts";
+import { epScriptLexer } from "../../grammar/src/grammar/lib/epScriptLexer";
+import { parse } from "comment-parser";
+import { getDocumentation, getDocumentationSpec } from "../../util/docUtil";
 
 /**
  * 심볼 테이블 작성을 위한 ANTLR 리스너.
@@ -55,7 +58,8 @@ export class BaseListener implements epScriptParserListener {
     private document: TextDocument,
     private analyzer: Analyzer,
     private diagnostics: Diagnostic[],
-    private languageManager: LanguageManager
+    private languageManager: LanguageManager,
+    private tokenStream: CommonTokenStream
   ) {
     this.symbolTable = new ContextSymbolTable(document);
     this.currentScope = this.symbolTable.globalScope;
@@ -193,7 +197,6 @@ export class BaseListener implements epScriptParserListener {
       if (parent instanceof ClassSymbol) return true;
       return false;
     };
-
     const symbol = isParentClassSymbol(this.currentScope)
       ? new MethodSymbol(
           ctx.identifier().text,
@@ -209,6 +212,7 @@ export class BaseListener implements epScriptParserListener {
         );
 
     const typeAnnotation = ctx.typeAnnotation()?.singleExpression();
+    symbol.docString = getDocumentation(ctx, this.tokenStream);
     if (typeAnnotation) {
       const resolved = evaluateNode({
         node: typeAnnotation,
@@ -271,6 +275,7 @@ export class BaseListener implements epScriptParserListener {
       getRangeByContext(ctx),
       this.currentScope
     );
+    symbol.docString = getDocumentation(ctx, this.tokenStream);
     this.checkSymbolDuplicated(ctx.identifier().text, ctx.identifier());
     this.currentScope.insert(symbol);
     this.pushScope(symbol);
