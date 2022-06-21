@@ -23,6 +23,10 @@ import {
   DidChangeConfigurationNotification,
   InitializeResult,
   SignatureHelpParams,
+  DocumentSymbolParams,
+  DocumentSymbol,
+  WorkspaceSymbolParams,
+  SymbolInformation,
 } from "vscode-languageserver/node";
 
 import { Analyzer } from "./analyzer";
@@ -37,6 +41,8 @@ import * as path from "path";
 import { provideSingatureHelp } from "./document/signatureHelp";
 import { evaluateNode } from "./context/evaluator/evaluator";
 import { CallExpressionContext } from "./grammar/src/grammar/lib/epScriptParser";
+import { getDocumentSymbol } from "./document/documentSymbol";
+import { getWorkspaceSymbol } from "./document/workspaceSymbol";
 
 /**
  * epScript 랭기지 서버.
@@ -131,6 +137,8 @@ export class EPSServer {
     connection.onSignatureHelp((params: SignatureHelpParams) =>
       this.onSignatureHelp(params)
     );
+    connection.onDocumentSymbol((params) => this.onDocumentSymbol(params));
+    connection.onWorkspaceSymbol((params) => this.onWorkspaceSymbol(params));
     connection.onDidChangeConfiguration(
       (params: DidChangeConfigurationParams) =>
         this.onDidChangeConfiguration(params)
@@ -165,6 +173,8 @@ export class EPSServer {
       signatureHelpProvider: {
         triggerCharacters: ["(", ",", "="],
       },
+      documentSymbolProvider: true,
+      workspaceSymbolProvider: true,
       workspace: {
         fileOperations: {
           didCreate: {
@@ -357,5 +367,21 @@ export class EPSServer {
         contextPackage,
         name: node.text,
       });
+  }
+
+  private async onDocumentSymbol(
+    params: DocumentSymbolParams
+  ): Promise<DocumentSymbol[] | undefined> {
+    const contextPackage = this.analyzer.getContextPackageByURI(
+      params.textDocument.uri
+    );
+    if (!contextPackage) return undefined;
+    return getDocumentSymbol(contextPackage);
+  }
+
+  private async onWorkspaceSymbol(
+    params: WorkspaceSymbolParams
+  ): Promise<SymbolInformation[]> {
+    return getWorkspaceSymbol(this.analyzer.documentations);
   }
 }
