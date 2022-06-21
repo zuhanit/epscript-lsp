@@ -27,7 +27,6 @@ import { ContextSymbolTable } from "./context/ContextSymbolTable";
 import { ErrorListener } from "./context/listener/ErrorListener";
 import { LexerErrorListener } from "./context/listener/LexerErrorListener";
 import { LanguageManager } from "./i18n/LanguageManager";
-
 export interface ParsePackage {
   symbolTable: ContextSymbolTable;
   core: CodeCompletionCore;
@@ -79,7 +78,8 @@ export class Parser {
       document,
       analyzer,
       diagnostics,
-      languageManager
+      languageManager,
+      this.tokenStream
     );
 
     ParseTreeWalker.DEFAULT.walk(listener as ParseTreeListener, tree);

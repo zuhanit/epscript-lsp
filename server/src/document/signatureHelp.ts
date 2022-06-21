@@ -1,4 +1,5 @@
 import {
+  MarkupContent,
   ParameterInformation,
   SignatureHelp,
   SignatureHelpParams,
@@ -32,9 +33,15 @@ export function provideSingatureHelp(
   if (evaluated instanceof BaseSymbol || evaluated instanceof BaseScope) {
     const symbolInfo = getSymbolInfo(evaluated);
     const args: ParameterInformation[] = getParameterInformation(symbolInfo);
-
+    const documentation: MarkupContent | undefined = symbolInfo.documentation
+      ? {
+          kind: "markdown",
+          value: symbolInfo.documentation,
+        }
+      : undefined;
     const signature: SignatureInformation = {
       label: symbolInfo.name + "(" + args.map((x) => x.label).join(", ") + ")",
+      documentation: documentation,
       parameters: args,
     };
 

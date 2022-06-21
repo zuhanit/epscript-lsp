@@ -12,7 +12,7 @@ import { TypedSymbol } from "./TypedSymbol";
 export class FunctionSymbol extends SymbolWithScope implements TypedSymbol {
   type: Literal = "FunctionSymbol";
   retType: Literal;
-  docString = "";
+  docString: string | undefined;
   arguments: ParameterSymbol[] = [];
 
   constructor(name: string, range: Range, blockRange: Range, scope: BaseScope) {

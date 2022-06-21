@@ -23,6 +23,7 @@ export enum SymbolKind {
 export interface SymbolInfo {
   name: string;
   detail: string;
+  documentation?: string;
   kind: SymbolKind;
   args?: SymbolInfo[];
 }
@@ -94,6 +95,7 @@ export function getSymbolInfo(symbol: ISymbol): SymbolInfo {
     return {
       name: symbol.name,
       detail: `class ${symbol.name}`,
+      documentation: symbol.docString,
       kind: SymbolKind.Class,
       args: args,
     };
@@ -114,6 +116,7 @@ export function getSymbolInfo(symbol: ISymbol): SymbolInfo {
       detail: `(method) ${symbol.scope.name}.${symbol.name}(${args
         .map((x) => x.detail)
         .join(", ")}): ${literalToType(symbol.retType)}`,
+      documentation: symbol.docString,
       kind: SymbolKind.Function,
       args: args,
     };
@@ -126,6 +129,7 @@ export function getSymbolInfo(symbol: ISymbol): SymbolInfo {
       detail: `function ${symbol.name}(${args
         .map((x) => x.detail)
         .join(", ")}): ${literalToType(symbol.retType)}`,
+      documentation: symbol.docString,
       kind: SymbolKind.Function,
       args: args,
     };

@@ -4,6 +4,7 @@ import {
   CompletionItem,
   CompletionItemKind,
   CompletionParams,
+  MarkupContent,
 } from "vscode-languageserver";
 import { Analyzer } from "../analyzer";
 import {
@@ -226,10 +227,16 @@ const ignoredTokenSets = new Set([
 
 function getCompletionForSymbol(symbol: ISymbol): CompletionItem {
   const info = getSymbolInfo(symbol);
-
+  const documentation: MarkupContent | undefined = info.documentation
+    ? {
+        kind: "markdown",
+        value: info.documentation,
+      }
+    : undefined;
   return {
     label: info.name,
     detail: info.detail,
+    documentation: documentation,
     kind: translateSymbolKindToCompletionKind(info.kind),
   };
 }

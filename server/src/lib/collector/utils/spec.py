@@ -11,7 +11,7 @@ def getFunctionSpec(name, function):
         "object": function,
         "args": getFunctionArgsSpec(function),
         "argspec": inspect.signature(function),
-        "docs": function.__doc__ if function.__doc__ is not None else ""
+        "docs": inspect.getdoc(function) if function.__doc__ is not None else ""
     }
 
 
@@ -121,5 +121,5 @@ def getClassSpec(name, cls):
         # FIXME: It can't collect not function inherited method like __class__, or property.
         "methods": list(map(lambda mem: getFunctionSpec(mem[0], mem[1]), inspect.getmembers(cls, isfunction))),
         "object": cls,
-        "docs": cls.__doc__ if cls.__doc__ is not None else ""
+        "docs": inspect.getdoc(cls) if cls.__doc__ is not None else ""
     }

@@ -10,7 +10,7 @@ import { TypedSymbol } from "./TypedSymbol";
 
 export class ClassSymbol extends SymbolWithScope implements TypedSymbol {
   type: Type = { name: "class" };
-  docString = "";
+  docString: string | undefined;
   arguments: ParameterSymbol[] = [];
 
   constructor(name: string, range: Range, blockRange: Range, scope: BaseScope) {
