@@ -113,40 +113,34 @@ export class BaseListener implements epScriptParserListener {
 
     // analyzer에서 패키지를 가져오기 위해 파일 경로를 조합해줘야 합니다.
     const currentPath = path.parse(VSURI.parse(this.document.uri).fsPath);
-    const paths = path.join(
+    const basePath = path.join(
       currentPath.dir,
       "..",
-      ...dotted.slice(0, dotted.length - 1),
-      dotted[dotted.length - 1] + ".eps"
-    );
-    const importURI = VSURI.file(paths);
-    console.log(paths, importURI, dotted);
-    let contextPackage = this.analyzer.getContextPackageByURI(
-      importURI.toString()
+      ...dotted.slice(0, dotted.length - 1)
     );
 
-    if (contextPackage) {
-      // ContextPackage가 존재할 경우
-      contextPackage.parsePackage.symbolTable.globalScope
-        .getSymbols()
-        .forEach((x) => {
-          const moduleSymbol = x as BaseScope;
-          moduleSymbol.blockRange = zeroRange;
-          symbol.symbols.set(moduleSymbol.name, moduleSymbol);
-        });
-      symbol.scope = contextPackage.parsePackage.symbolTable.globalScope;
-    } else {
-      // 존재하지 않을 경우
-      if (existsSync(paths)) {
-        const fileContent = readFileSync(paths, "utf8");
+    if (existsSync(basePath + ".eps")) {
+      const epsPath = basePath + ".eps";
+      const importURI = VSURI.file(epsPath).toString();
+      const contextPackage = this.analyzer.getContextPackageByURI(importURI);
+      if (contextPackage) {
+        contextPackage.parsePackage.symbolTable.globalScope
+          .getSymbols()
+          .forEach((x) => {
+            const moduleSymbol = x as BaseScope;
+            moduleSymbol.blockRange = zeroRange;
+            symbol.symbols.set(moduleSymbol.name, moduleSymbol);
+          });
+        symbol.scope = contextPackage.parsePackage.symbolTable.globalScope;
+      } else {
+        const fileContent = readFileSync(epsPath, "utf8");
         const result = this.analyzer.analyze(
           importURI.toString(),
           TextDocument.create(importURI.toString(), "eps", 0, fileContent),
           this.languageManager
         );
 
-        contextPackage = result;
-        contextPackage.parsePackage.symbolTable.globalScope
+        result.parsePackage.symbolTable.globalScope
           .getSymbols()
           .forEach((x) => {
             const moduleSymbol = x as BaseScope;
