@@ -6,3 +6,4 @@ server/out/**
 *.webpack.config.js
 webpack.config.js
 gulpfile.js
+**/grammar/lib/**
