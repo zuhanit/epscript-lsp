@@ -14,18 +14,15 @@ import {
   HoverParams,
   DefinitionParams,
   CompletionParams,
-  CancellationToken,
   Hover,
   Definition,
   TextDocumentChangeEvent,
   DidChangeConfigurationParams,
   CreateFilesParams,
   DidChangeConfigurationNotification,
-  InitializeResult,
   SignatureHelpParams,
   DocumentSymbolParams,
   DocumentSymbol,
-  WorkspaceSymbolParams,
   SymbolInformation,
 } from "vscode-languageserver/node";
 
@@ -36,8 +33,6 @@ import { provideDefinition } from "./document/definition";
 import { provideHoverItem } from "./document/hover";
 import { LanguageManager } from "./i18n/LanguageManager";
 import { Parser } from "./parser";
-import { URI } from "vscode-uri";
-import * as path from "path";
 import { provideSingatureHelp } from "./document/signatureHelp";
 import { evaluateNode } from "./context/evaluator/evaluator";
 import { CallExpressionContext } from "./grammar/src/grammar/lib/epScriptParser";
@@ -126,9 +121,8 @@ export class EPSServer {
     connection.workspace.onDidCreateFiles((params) =>
       this.onDidCreateFiles(params)
     );
-    connection.onCompletion(
-      (params: CompletionParams, token: CancellationToken) =>
-        this.onCompletion(params)
+    connection.onCompletion((params: CompletionParams) =>
+      this.onCompletion(params)
     );
     connection.onHover((params: HoverParams) => this.onHover(params));
     connection.onDefinition((params: DefinitionParams) =>
@@ -138,7 +132,7 @@ export class EPSServer {
       this.onSignatureHelp(params)
     );
     connection.onDocumentSymbol((params) => this.onDocumentSymbol(params));
-    connection.onWorkspaceSymbol((params) => this.onWorkspaceSymbol(params));
+    connection.onWorkspaceSymbol(() => this.onWorkspaceSymbol());
     connection.onDidChangeConfiguration(
       (params: DidChangeConfigurationParams) =>
         this.onDidChangeConfiguration(params)
@@ -200,15 +194,14 @@ export class EPSServer {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private onDidCreateFiles(params: CreateFilesParams) {
-    params.files.forEach((file) => {
-      const folderURI = URI.file(path.parse(URI.parse(file.uri).fsPath).dir);
-      // this.analyzer.analyze(params.)
-    });
+    //
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private async onDidChangeConfiguration(params: DidChangeConfigurationParams) {
-    const result = await this.getConfiguration("diagnostics");
+    //
   }
 
   private onSignatureHelp(params: SignatureHelpParams) {
@@ -245,11 +238,7 @@ export class EPSServer {
       languageManager: this.languageManager,
       symbolTable: contextPackage.parsePackage.symbolTable,
     });
-    return provideSingatureHelp(
-      { params: params, contextPackage: contextPackage, name: "" },
-      evaluated,
-      singleExpressions[0]
-    );
+    return provideSingatureHelp(evaluated, singleExpressions[0]);
   }
 
   private onCompletion(params: CompletionParams): CompletionItem[] | undefined {
@@ -309,10 +298,6 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
-    const scopes = this.analyzer.getScopesAtPosition(
-      params.textDocument.uri,
-      params.position
-    );
     const singleExpressions = this.analyzer.getSingleExpressionAtPosition(
       params.textDocument.uri,
       params.position
@@ -324,28 +309,17 @@ export class EPSServer {
 
     if (!contextPackage || !node || !singleExpressions) return undefined;
 
-    const scope: BaseScope = scopes
-      ? scopes[scopes.length - 1]
-      : contextPackage.parsePackage.symbolTable.globalScope;
-
     let singleExpression = singleExpressions[0];
 
     if (singleExpression instanceof CallExpressionContext) {
       singleExpression = singleExpression.singleExpression();
     }
 
-    const evaluated = evaluateNode({
-      node: singleExpression,
-      currentScope: scope,
-      diagnostics: [],
-      languageManager: this.languageManager,
-      symbolTable: contextPackage.parsePackage.symbolTable,
+    return provideHoverItem({
+      contextPackage: contextPackage,
+      name: node.text,
+      params: params,
     });
-
-    return provideHoverItem(
-      { contextPackage: contextPackage, name: node.text, params: params },
-      evaluated
-    );
   }
 
   private async onDefinition(
@@ -379,9 +353,7 @@ export class EPSServer {
     return getDocumentSymbol(contextPackage);
   }
 
-  private async onWorkspaceSymbol(
-    params: WorkspaceSymbolParams
-  ): Promise<SymbolInformation[]> {
+  private async onWorkspaceSymbol(): Promise<SymbolInformation[]> {
     return getWorkspaceSymbol(this.analyzer.documentations);
   }
 }

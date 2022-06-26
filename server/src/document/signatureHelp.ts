@@ -2,26 +2,19 @@ import {
   MarkupContent,
   ParameterInformation,
   SignatureHelp,
-  SignatureHelpParams,
   SignatureInformation,
 } from "vscode-languageserver";
-import { evaluateNode } from "../context/evaluator/evaluator";
 import { Literal } from "../context/evaluator/literal";
 import { getSymbolInfo } from "../context/facade";
 import { BaseScope } from "../context/symbolTable/BaseScope";
 import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
-import {
-  ArgumentListContext,
-  SingleExpressionContext,
-} from "../grammar/src/grammar/lib/epScriptParser";
+import { SingleExpressionContext } from "../grammar/src/grammar/lib/epScriptParser";
 import {
   getParameterInformation,
   getActiveParameterNumber,
 } from "./utils/paramUtil";
-import { ProviderOption } from "./provider-option";
 
 export function provideSingatureHelp(
-  { contextPackage, name, params }: ProviderOption<SignatureHelpParams>,
   evaluated: Literal,
   singleExpression: SingleExpressionContext
 ): SignatureHelp {

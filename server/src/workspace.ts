@@ -1,4 +1,3 @@
-import { rejects } from "assert";
 import { glob } from "glob";
 
 export async function getEPSPaths(workspacePath: string): Promise<string[]> {

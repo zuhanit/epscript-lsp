@@ -1,9 +1,8 @@
-import { DocumentSymbol, DocumentSymbolParams } from "vscode-languageserver";
+import { DocumentSymbol } from "vscode-languageserver";
 import { getSymbolInfo } from "../context/facade";
 import { ContextPackage } from "../context/IContextPackage";
 import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
 import { ParameterSymbol } from "../context/symbolTable/ParameterSymbol";
-import { ProviderOption } from "./provider-option";
 
 export async function getDocumentSymbol(
   contextPackage: ContextPackage

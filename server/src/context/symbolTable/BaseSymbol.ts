@@ -1,12 +1,8 @@
 import { ParserRuleContext } from "antlr4ts";
-import { Position, Range } from "vscode-languageserver";
-import { ContextSymbolTable } from "../ContextSymbolTable";
+import { Range } from "vscode-languageserver";
 import { Literal } from "../evaluator/literal";
 import { BaseScope } from "./BaseScope";
-import { IScope } from "./IScope";
 import { ISymbol } from "./ISymbol";
-import { PredefinedScope } from "./PredefinedScope";
-import { Type } from "./Type";
 
 export abstract class BaseSymbol implements ISymbol {
   public name: string;

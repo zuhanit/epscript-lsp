@@ -1,6 +1,5 @@
-import { ParserRuleContext, Token } from "antlr4ts";
-import { Diagnostic, Range } from "vscode-languageserver";
-import { keys, LanguageManager } from "../i18n/LanguageManager";
+import { ParserRuleContext } from "antlr4ts";
+import { Diagnostic } from "vscode-languageserver";
 
 export function pushDiagnostic(
   message: string,

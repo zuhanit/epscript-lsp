@@ -1,18 +1,13 @@
 import {
-  CustomExecution,
   Event,
   EventEmitter,
-  FileType,
   ProviderResult,
-  Pseudoterminal,
   ShellExecution,
   Task,
   tasks,
   TaskScope,
   TreeDataProvider,
   TreeItem,
-  TreeView,
-  Uri,
   window,
   workspace,
   WorkspaceFolder,
@@ -20,7 +15,6 @@ import {
 
 import * as glob from "glob";
 import { join } from "path";
-import { TextDocuments } from "vscode-languageserver";
 
 interface Script {
   fileName: string;
@@ -36,7 +30,7 @@ export class BuildManager implements TreeDataProvider<BuildScript> {
 
   constructor(public workspaceFolder: WorkspaceFolder[]) {}
 
-  public refresh(element?: BuildScript): void {
+  public refresh(): void {
     this._onDidChangeTreeData.fire();
   }
 

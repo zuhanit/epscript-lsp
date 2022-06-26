@@ -4,10 +4,6 @@ import {
   InitializeParams,
   InitializeResult,
   ProposedFeatures,
-  CancellationToken,
-  CompletionItem,
-  CompletionParams,
-  TextDocumentSyncKind,
 } from "vscode-languageserver/node";
 
 import { EPSServer } from "./epsServer";

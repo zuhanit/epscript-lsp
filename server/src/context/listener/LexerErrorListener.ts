@@ -1,9 +1,4 @@
-import {
-  ANTLRErrorListener,
-  RecognitionException,
-  Recognizer,
-  Token,
-} from "antlr4ts";
+import { ANTLRErrorListener, Recognizer } from "antlr4ts";
 import { Diagnostic } from "vscode-languageserver";
 
 export class LexerErrorListener implements ANTLRErrorListener<number> {
@@ -14,8 +9,7 @@ export class LexerErrorListener implements ANTLRErrorListener<number> {
     offendingSymbol: T | undefined,
     line: number,
     charPositionInLine: number,
-    msg: string,
-    e: RecognitionException | undefined
+    msg: string
   ): void {
     const error: Diagnostic = {
       message: msg,

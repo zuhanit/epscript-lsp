@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Analyzer } from "../analyzer";
 import { Parser } from "../parser";
 import { FIXTURES_DOCUMENT, FIXTURES_URI } from "./fixtures";

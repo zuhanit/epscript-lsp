@@ -1,6 +1,5 @@
 import { Range } from "vscode-languageserver";
 import { BaseScope } from "./BaseScope";
-import { IScope } from "./IScope";
 import { SymbolWithScope } from "./SymbolWithScope";
 
 /**

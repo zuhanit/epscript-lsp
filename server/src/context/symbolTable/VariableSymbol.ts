@@ -1,11 +1,8 @@
 import { ParserRuleContext } from "antlr4ts";
-import { Position, Range } from "vscode-languageserver";
+import { Range } from "vscode-languageserver";
 import { Literal } from "../evaluator/literal";
 import { BaseScope } from "./BaseScope";
 import { BaseSymbol } from "./BaseSymbol";
-import { IScope } from "./IScope";
-import { Type } from "./Type";
-import { TypedSymbol } from "./TypedSymbol";
 
 export type Modifier = "var" | "const";
 export class VariableSymbol extends BaseSymbol {

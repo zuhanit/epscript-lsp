@@ -1,4 +1,3 @@
-import { Position } from "vscode-languageserver";
 import { zeroRange } from "../../util/range";
 import { BaseScope } from "./BaseScope";
 import { BaseSymbol } from "./BaseSymbol";

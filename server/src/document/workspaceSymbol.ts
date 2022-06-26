@@ -1,15 +1,6 @@
-import {
-  DocumentSymbol,
-  DocumentSymbolParams,
-  SymbolInformation,
-  URI,
-} from "vscode-languageserver";
-import { getSymbolInfo } from "../context/facade";
+import { SymbolInformation, URI } from "vscode-languageserver";
 import { ContextPackage } from "../context/IContextPackage";
-import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
-import { ParameterSymbol } from "../context/symbolTable/ParameterSymbol";
 import { getDocumentSymbol } from "./documentSymbol";
-import { ProviderOption } from "./provider-option";
 
 export async function getWorkspaceSymbol(
   documentations: Map<URI, ContextPackage>

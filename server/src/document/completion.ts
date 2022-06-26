@@ -9,7 +9,6 @@ import {
 import { Analyzer } from "../analyzer";
 import {
   getSymbolInfo,
-  symbolKindToCompletionKind,
   translateSymbolKindToCompletionKind,
 } from "../context/facade";
 import { BaseScope } from "../context/symbolTable/BaseScope";
@@ -17,7 +16,6 @@ import { ClassSymbol } from "../context/symbolTable/ClassSymbol";
 import { FunctionSymbol } from "../context/symbolTable/FunctionSymbol";
 import { ISymbol } from "../context/symbolTable/ISymbol";
 import { ModuleSymbol } from "../context/symbolTable/ModuleSymbol";
-import { ParameterSymbol } from "../context/symbolTable/ParameterSymbol";
 import { VariableSymbol } from "../context/symbolTable/VariableSymbol";
 import {
   epScriptParser,
@@ -41,7 +39,6 @@ import {
   SCTrgTBL,
   SCTrgUnit,
 } from "../lib/builtins/encodes";
-import { literalToType } from "../util/literalUtils";
 import { ProviderOption } from "./provider-option";
 import { getActiveParameterNumber } from "./utils/paramUtil";
 

@@ -1,4 +1,3 @@
-import { BaseSymbol } from "./BaseSymbol";
 import { SymbolWithScope } from "./SymbolWithScope";
 import { Type } from "./Type";
 import { TypedSymbol } from "./TypedSymbol";

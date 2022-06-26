@@ -3,8 +3,7 @@ import { ClassSymbol } from "../symbolTable/ClassSymbol";
 import { EvaluatorOption } from "./evaluator-options";
 
 export function evaluateThisExpression({
-  node,
-  ...rest
+  currentScope,
 }: EvaluatorOption<ThisExpressionContext>) {
-  return rest.currentScope as ClassSymbol;
+  return currentScope as ClassSymbol;
 }

@@ -1,29 +1,20 @@
 import { ParserRuleContext } from "antlr4ts";
 import { ParseTree } from "antlr4ts/tree/ParseTree";
 import { TerminalNode } from "antlr4ts/tree/TerminalNode";
-import { readFile, readFileSync } from "fs";
-import { Glob, glob } from "glob";
-import { Context } from "mocha";
+import { readFile } from "fs";
 import { promisify } from "util";
-import {
-  Connection,
-  InitializeParams,
-  URI,
-  WorkspaceFolder,
-} from "vscode-languageserver";
+import { Connection, InitializeParams, URI } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { URI as VSURI } from "vscode-uri";
 import { ContextSymbolTable } from "./context/ContextSymbolTable";
 import { ContextPackage } from "./context/IContextPackage";
 import { BaseScope } from "./context/symbolTable/BaseScope";
-import { SymbolTable } from "./context/symbolTable/SymbolTable";
 import { SingleExpressionContext } from "./grammar/src/grammar/lib/epScriptParser";
 import { LanguageManager } from "./i18n/LanguageManager";
 import { Parser } from "./parser";
 import { getEPSPaths } from "./workspace";
 
 const readFileAsync = promisify(readFile);
-type FolderPath = string;
 /**
  * 문서 정리 프로그램.
  */

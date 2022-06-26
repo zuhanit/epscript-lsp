@@ -1,11 +1,8 @@
-import { Range } from "vscode-languageserver";
 import { BaseScope } from "../../context/symbolTable/BaseScope";
 import { ClassSymbol } from "../../context/symbolTable/ClassSymbol";
 import { FunctionSymbol } from "../../context/symbolTable/FunctionSymbol";
-import { IScope } from "../../context/symbolTable/IScope";
 import { MethodSymbol } from "../../context/symbolTable/MethodSymbol";
 import {
-  DefaultValue,
   ParameterKind,
   ParameterSymbol,
 } from "../../context/symbolTable/ParameterSymbol";

@@ -1,6 +1,4 @@
 import { Range } from "vscode-languageserver";
-import { ContextSymbolTable } from "../ContextSymbolTable";
-import { BaseSymbol } from "./BaseSymbol";
 import { IScope } from "./IScope";
 import { ISymbol } from "./ISymbol";
 

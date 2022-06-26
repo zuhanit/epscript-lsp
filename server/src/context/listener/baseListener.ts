@@ -8,7 +8,6 @@ import {
   ImportStatementContext,
   ObjectDeclarationContext,
   ObjectVariableDeclarationContext,
-  ProgramContext,
   VariableDeclarationListContext,
   WhileStatementContext,
 } from "../../grammar/src/grammar/lib/epScriptParser";
@@ -38,13 +37,10 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { ContextSymbolTable } from "../ContextSymbolTable";
 import { URI as VSURI } from "vscode-uri";
 import * as path from "path";
-import { BaseSymbol } from "../symbolTable/BaseSymbol";
 import { Diagnostic } from "vscode-languageserver";
 import { keys, LanguageManager } from "../../i18n/LanguageManager";
-import { CommonTokenStream, ParserRuleContext, Token } from "antlr4ts";
-import { epScriptLexer } from "../../grammar/src/grammar/lib/epScriptLexer";
-import { parse } from "comment-parser";
-import { getDocumentation, getDocumentationSpec } from "../../util/docUtil";
+import { CommonTokenStream, ParserRuleContext } from "antlr4ts";
+import { getDocumentation } from "../../util/docUtil";
 
 /**
  * 심볼 테이블 작성을 위한 ANTLR 리스너.
@@ -65,7 +61,7 @@ export class BaseListener implements epScriptParserListener {
     this.currentScope = this.symbolTable.globalScope;
   }
 
-  enterProgram(ctx: ProgramContext): void {
+  enterProgram(): void {
     pushBuiltinClass(this.symbolTable.predefinedScope);
     pushBuiltinFunction(this.symbolTable.predefinedScope);
   }
@@ -310,7 +306,7 @@ export class BaseListener implements epScriptParserListener {
   }
 
   // if문 탈출
-  exitIfStatement(ctx: IfStatementContext) {
+  exitIfStatement() {
     this.popScope();
   }
 

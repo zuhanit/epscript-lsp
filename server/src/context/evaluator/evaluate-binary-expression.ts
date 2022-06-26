@@ -1,9 +1,7 @@
-import { BinaryExpressionContext } from "../../grammar/src/grammar/lib/epScriptParser";
-import { epScriptParser } from "../../grammar/src/grammar/lib/epScriptParser";
-import { ParsePackage } from "../../parser";
-import { BaseScope } from "../symbolTable/BaseScope";
-import { BaseSymbol } from "../symbolTable/BaseSymbol";
-import { SymbolTable } from "../symbolTable/SymbolTable";
+import {
+  BinaryExpressionContext,
+  epScriptParser,
+} from "../../grammar/src/grammar/lib/epScriptParser";
 import { VariableSymbol } from "../symbolTable/VariableSymbol";
 import { evaluateNode } from "./evaluator";
 import { EvaluatorOption } from "./evaluator-options";

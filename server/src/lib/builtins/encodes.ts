@@ -1,7 +1,3 @@
-import { FunctionSymbol } from "../../context/symbolTable/FunctionSymbol";
-import { ParameterSymbol } from "../../context/symbolTable/ParameterSymbol";
-import { zeroRange } from "../../util/range";
-
 interface BuiltinEncode {
   name: string;
   args: string[];

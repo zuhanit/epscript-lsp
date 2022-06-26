@@ -1,12 +1,4 @@
-import {
-  ANTLRErrorListener,
-  Recognizer,
-  RecognitionException,
-  Token,
-  CommonToken,
-  ParserErrorListener,
-} from "antlr4ts";
-import { Override } from "antlr4ts/Decorators";
+import { Recognizer, Token, ParserErrorListener } from "antlr4ts";
 import { Diagnostic } from "vscode-languageserver";
 
 export class ErrorListener implements ParserErrorListener {
@@ -17,8 +9,7 @@ export class ErrorListener implements ParserErrorListener {
     offendingSymbol: T | undefined,
     line: number,
     charPositionInLine: number,
-    msg: string,
-    e: RecognitionException | undefined
+    msg: string
   ) {
     const error: Diagnostic = {
       message: msg,

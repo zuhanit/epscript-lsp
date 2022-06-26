@@ -1,5 +1,3 @@
-import * as antlr from "antlr4ts";
-import { RuleContext } from "antlr4ts";
 import { IScope } from "./IScope";
 
 /**

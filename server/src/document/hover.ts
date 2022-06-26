@@ -1,15 +1,12 @@
 import { Hover, HoverParams, MarkupContent } from "vscode-languageserver";
-import { Literal } from "../context/evaluator/literal";
 import { getSymbolInfo } from "../context/facade";
-import { BaseScope } from "../context/symbolTable/BaseScope";
-import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
 import { ISymbol } from "../context/symbolTable/ISymbol";
 import { ProviderOption } from "./provider-option";
 
-export function provideHoverItem(
-  { params, contextPackage, name }: ProviderOption<HoverParams>,
-  evaluated: Literal
-): Hover | undefined {
+export function provideHoverItem({
+  contextPackage,
+  name,
+}: ProviderOption<HoverParams>): Hover | undefined {
   const symbolTable = contextPackage.parsePackage.symbolTable;
   const symbol = symbolTable.getSymbolByName(name);
   let content: MarkupContent | undefined;

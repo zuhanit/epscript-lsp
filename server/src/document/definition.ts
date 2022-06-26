@@ -2,12 +2,9 @@ import { Definition, DefinitionParams, URI } from "vscode-languageserver";
 import { ContextSymbolTable } from "../context/ContextSymbolTable";
 import { BaseScope } from "../context/symbolTable/BaseScope";
 import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
-import { ModuleSymbol } from "../context/symbolTable/ModuleSymbol";
-import { SymbolWithScope } from "../context/symbolTable/SymbolWithScope";
 import { ProviderOption } from "./provider-option";
 
 export async function provideDefinition({
-  params,
   contextPackage,
   name,
 }: ProviderOption<DefinitionParams>): Promise<Definition | undefined> {

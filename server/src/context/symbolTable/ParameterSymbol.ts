@@ -1,7 +1,6 @@
 import { ParserRuleContext } from "antlr4ts";
-import { Position, Range } from "vscode-languageserver";
+import { Range } from "vscode-languageserver";
 import { BaseScope } from "./BaseScope";
-import { IScope } from "./IScope";
 import { VariableSymbol } from "./VariableSymbol";
 
 export type ParameterKind =

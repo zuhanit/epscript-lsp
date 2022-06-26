@@ -1,4 +1,4 @@
-import { CompletionItemKind } from "vscode-languageserver";
+import { CompletionItemKind, SymbolKind } from "vscode-languageserver";
 import { literalToType } from "../util/literalUtils";
 import { ClassSymbol } from "./symbolTable/ClassSymbol";
 import { FunctionSymbol } from "./symbolTable/FunctionSymbol";
@@ -8,7 +8,6 @@ import { ModuleSymbol } from "./symbolTable/ModuleSymbol";
 import { ParameterSymbol } from "./symbolTable/ParameterSymbol";
 import { VariableSymbol } from "./symbolTable/VariableSymbol";
 import { MethodSymbol } from "./symbolTable/MethodSymbol";
-import { SymbolKind } from "vscode-languageserver";
 export interface SymbolInfo {
   name: string;
   detail: string;
