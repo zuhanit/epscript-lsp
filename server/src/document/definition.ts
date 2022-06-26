@@ -1,52 +1,59 @@
-import { Definition, DefinitionParams, URI } from 'vscode-languageserver';
-import { ContextSymbolTable } from '../context/ContextSymbolTable';
-import { BaseScope } from '../context/symbolTable/BaseScope';
-import { BaseSymbol } from '../context/symbolTable/BaseSymbol';
-import { ModuleSymbol } from '../context/symbolTable/ModuleSymbol';
-import { SymbolWithScope } from '../context/symbolTable/SymbolWithScope';
-import { ProviderOption } from './provider-option';
+import { Definition, DefinitionParams, URI } from "vscode-languageserver";
+import { ContextSymbolTable } from "../context/ContextSymbolTable";
+import { BaseScope } from "../context/symbolTable/BaseScope";
+import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
+import { ModuleSymbol } from "../context/symbolTable/ModuleSymbol";
+import { SymbolWithScope } from "../context/symbolTable/SymbolWithScope";
+import { ProviderOption } from "./provider-option";
 
-export async function provideDefinition({params, contextPackage, name}: ProviderOption<DefinitionParams>): Promise<Definition | undefined> {
-	const symbolTable = contextPackage.parsePackage.symbolTable;
-	const symbol = symbolTable.getSymbolByName(name);
+export async function provideDefinition({
+  params,
+  contextPackage,
+  name,
+}: ProviderOption<DefinitionParams>): Promise<Definition | undefined> {
+  const symbolTable = contextPackage.parsePackage.symbolTable;
+  const symbol = symbolTable.getSymbolByName(name);
 
-	if (symbol) return getDefinitionForSymbol(symbol, contextPackage.document.uri);
+  if (symbol)
+    return getDefinitionForSymbol(symbol, contextPackage.document.uri);
 }
 
 function getDefinitionForSymbol(symbol: BaseSymbol, uri: URI): Definition {
-	const result: Definition = {
-		range: symbol.range,
-		uri: uri,
-	};
+  const result: Definition = {
+    range: symbol.range,
+    uri: uri,
+  };
 
-	const symbolURI: URI | undefined = getSymbolTable(symbol)?.owner.uri;
-	if (symbolURI) result.uri = symbolURI;
+  const symbolURI: URI | undefined = getSymbolTable(symbol)?.owner.uri;
+  if (symbolURI) result.uri = symbolURI;
 
-	return result;
+  return result;
 }
 
-function getSymbolTable(symbol: BaseSymbol | BaseScope): ContextSymbolTable | undefined {
-	if (symbol instanceof BaseSymbol) {
-		let parent: BaseScope | undefined = symbol.scope;
+function getSymbolTable(
+  symbol: BaseSymbol | BaseScope
+): ContextSymbolTable | undefined {
+  if (symbol instanceof BaseSymbol) {
+    let parent: BaseScope | undefined = symbol.scope;
 
-		while (parent) {
-			if (parent instanceof ContextSymbolTable) {
-				return parent;
-			}
-			parent = parent.parent;
-		}
-	
-		return undefined;
-	} else {
-		let parent: BaseScope | undefined = symbol.parent;
+    while (parent) {
+      if (parent instanceof ContextSymbolTable) {
+        return parent;
+      }
+      parent = parent.parent;
+    }
 
-		while (parent) {
-			if (parent instanceof ContextSymbolTable) {
-				return parent;
-			}
-			parent = parent.parent;
-		}
-	
-		return undefined;
-	}
+    return undefined;
+  } else {
+    let parent: BaseScope | undefined = symbol.parent;
+
+    while (parent) {
+      if (parent instanceof ContextSymbolTable) {
+        return parent;
+      }
+      parent = parent.parent;
+    }
+
+    return undefined;
+  }
 }

@@ -1,11 +1,14 @@
-import { PrefixExpressionContext } from '../../grammar/src/grammar/lib/epScriptParser';
-import { evaluateNode } from './evaluator';
-import { EvaluatorOption } from './evaluator-options';
+import { PrefixExpressionContext } from "../../grammar/src/grammar/lib/epScriptParser";
+import { evaluateNode } from "./evaluator";
+import { EvaluatorOption } from "./evaluator-options";
 
-export function evaluatePrefixExpression({node, ...rest}: EvaluatorOption<PrefixExpressionContext>) {
-	const operandValue = evaluateNode({node: node.singleExpression(), ...rest});
-	// switch (node.prefixOperator().start.type) {
-		// TODO
-	// }
-	return operandValue;
+export function evaluatePrefixExpression({
+  node,
+  ...rest
+}: EvaluatorOption<PrefixExpressionContext>) {
+  const operandValue = evaluateNode({ node: node.singleExpression(), ...rest });
+  // switch (node.prefixOperator().start.type) {
+  // TODO
+  // }
+  return operandValue;
 }

@@ -1,10 +1,10 @@
 {
-	"hello": "Hello world!",
-	"duplicatedIdentifier": "Duplicated Identifier",
-	"notExist": "Cannot find name",
-	"argumentLengthNotMatch": "Argument length is not matched.",
-	"expected": "expected",
-	"butGot": "but got",
-	"property": "Property",
-	"doesNotExist": "does not exist on type"
+  "hello": "Hello world!",
+  "duplicatedIdentifier": "Duplicated Identifier",
+  "notExist": "Cannot find name",
+  "argumentLengthNotMatch": "Argument length is not matched.",
+  "expected": "expected",
+  "butGot": "but got",
+  "property": "Property",
+  "doesNotExist": "does not exist on type"
 }
