@@ -24,6 +24,13 @@
         "reveal": "never"
       },
       "problemMatcher": ["$ts-webpack-watch", "$tslint-webpack-watch"]
+    },
+    {
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": ["$eslint-stylish"],
+      "label": "npm: lint",
+      "detail": "eslint ./client/src ./server/src --ext .ts,.tsx"
     }
   ]
 }
