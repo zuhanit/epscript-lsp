@@ -102,37 +102,48 @@ export class Analyzer {
     return this.documentations.get(uri);
   }
 
-  public getSingleExpressionAtPosition(uri: URI, position: Position) {
+  public getSingleExpressionAtPosition(
+    uri: URI,
+    position: Position,
+    filter?: (value: any, index?: number, Array?: any[]) => boolean
+  ) {
     const ast = this.getContextPackageByURI(uri)?.parsePackage.ast;
     if (ast === undefined) return null;
     return this.singleExpressionFromPosition(
       ast,
       position.character,
-      position.line + 1
+      position.line + 1,
+      filter
     );
   }
 
   private singleExpressionFromPosition(
     root: ParseTree,
     character: number,
-    line: number
+    line: number,
+    filter?: (value: any, index?: number, Array?: any[]) => boolean
   ): SingleExpressionContext[] {
     const result: SingleExpressionContext[] = [];
 
     if (root instanceof SingleExpressionContext) {
-      if (root.start.line <= line && root.stop && root.stop.line >= line) {
+      if (
+        root.start.line <= line &&
+        root.stop &&
+        root.stop.line >= line &&
+        root.stop.charPositionInLine >= character
+      ) {
         result.push(root);
       }
-    } else {
-      const context = root as ParserRuleContext;
+    }
+    const context = root as ParserRuleContext;
 
-      if (context.children) {
-        context.children.forEach((x) => {
-          result.push(...this.singleExpressionFromPosition(x, character, line));
-        });
-      }
+    if (context.children) {
+      context.children.forEach((x) => {
+        result.push(...this.singleExpressionFromPosition(x, character, line));
+      });
     }
 
+    if (filter) return result.filter(filter);
     return result;
   }
 

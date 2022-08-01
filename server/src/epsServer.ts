@@ -165,7 +165,7 @@ export class EPSServer {
       hoverProvider: {},
       definitionProvider: true,
       signatureHelpProvider: {
-        triggerCharacters: ["(", ",", "="],
+        triggerCharacters: ["(", ",", ")", "="],
       },
       documentSymbolProvider: true,
       workspaceSymbolProvider: true,
@@ -214,7 +214,8 @@ export class EPSServer {
     );
     const singleExpressions = this.analyzer.getSingleExpressionAtPosition(
       params.textDocument.uri,
-      params.position
+      params.position,
+      (expr) => expr instanceof CallExpressionContext
     );
 
     if (contextPackage === undefined) return undefined;
@@ -225,7 +226,7 @@ export class EPSServer {
       ? scopes[scopes.length - 1]
       : contextPackage.parsePackage.symbolTable.globalScope;
 
-    let singleExpression = singleExpressions[0];
+    let singleExpression = singleExpressions[singleExpressions.length - 1];
 
     if (singleExpression instanceof CallExpressionContext) {
       singleExpression = singleExpression.singleExpression();
@@ -238,6 +239,7 @@ export class EPSServer {
       languageManager: this.languageManager,
       symbolTable: contextPackage.parsePackage.symbolTable,
     });
+
     return provideSingatureHelp(evaluated, singleExpressions[0]);
   }
 
