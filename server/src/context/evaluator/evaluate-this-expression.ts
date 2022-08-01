@@ -5,5 +5,8 @@ import { EvaluatorOption } from "./evaluator-options";
 export function evaluateThisExpression({
   currentScope,
 }: EvaluatorOption<ThisExpressionContext>) {
-  return currentScope as ClassSymbol;
+  if (!currentScope.parent || !ClassSymbol.isClassSymbol(currentScope.parent)) {
+    return undefined;
+  }
+  return currentScope.parent as ClassSymbol;
 }
