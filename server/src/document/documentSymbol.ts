@@ -4,7 +4,7 @@ import { ContextPackage } from "../context/IContextPackage";
 import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
 import { ParameterSymbol } from "../context/symbolTable/ParameterSymbol";
 
-export async function getDocumentSymbol(
+export function getDocumentSymbol(
   contextPackage: ContextPackage
 ): Promise<DocumentSymbol[]> {
   const result: DocumentSymbol[] =
@@ -21,5 +21,7 @@ export async function getDocumentSymbol(
           selectionRange: bSymbol.range,
         };
       });
-  return result;
+  return new Promise((res) => {
+    res(result);
+  });
 }
