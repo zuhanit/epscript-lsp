@@ -82,11 +82,12 @@ export class Analyzer {
   public analyze(
     uri: URI,
     document: TextDocument,
-    languageManager: LanguageManager
+    languageManager: LanguageManager,
+    module = false
   ): ContextPackage {
     const contextPackage: ContextPackage = {
       document: document,
-      parsePackage: this.parser.parse(document, this, languageManager),
+      parsePackage: this.parser.parse(document, this, languageManager, module),
     };
     this.documentations.set(uri, contextPackage);
     return contextPackage;
