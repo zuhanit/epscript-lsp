@@ -47,15 +47,15 @@ import { getDocumentation } from "../../util/docUtil";
  */
 export class BaseListener implements epScriptParserListener {
   public symbolTable: ContextSymbolTable;
-  private currentScope: BaseScope;
+  public currentScope: BaseScope;
 
   constructor(
-    private parser: Parser,
-    private document: TextDocument,
-    private analyzer: Analyzer,
-    private diagnostics: Diagnostic[],
-    private languageManager: LanguageManager,
-    private tokenStream: CommonTokenStream
+    public parser: Parser,
+    public document: TextDocument,
+    public analyzer: Analyzer,
+    public diagnostics: Diagnostic[],
+    public languageManager: LanguageManager,
+    public tokenStream: CommonTokenStream
   ) {
     this.symbolTable = new ContextSymbolTable(document);
     this.currentScope = this.symbolTable.globalScope;
@@ -133,7 +133,8 @@ export class BaseListener implements epScriptParserListener {
         const result = this.analyzer.analyze(
           importURI.toString(),
           TextDocument.create(importURI.toString(), "eps", 0, fileContent),
-          this.languageManager
+          this.languageManager,
+          true
         );
 
         result.parsePackage.symbolTable.globalScope

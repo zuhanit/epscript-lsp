@@ -15,6 +15,7 @@ import { Analyzer } from "./analyzer";
 import { ContextSymbolTable } from "./context/ContextSymbolTable";
 import { ErrorListener } from "./context/listener/ErrorListener";
 import { LanguageManager } from "./i18n/LanguageManager";
+import { ModuleListener } from "./context/listener/ModuleListener";
 export interface ParsePackage {
   symbolTable: ContextSymbolTable;
   core: CodeCompletionCore;
@@ -49,7 +50,8 @@ export class Parser {
   public parse(
     document: TextDocument,
     analyzer: Analyzer,
-    languageManager: LanguageManager
+    languageManager: LanguageManager,
+    module: boolean
   ): ParsePackage {
     this.setText(document.getText());
     this.tokenStream.seek(0);
@@ -61,15 +63,26 @@ export class Parser {
     this.parser.addErrorListener(errorListener);
 
     const tree = this.parser.program();
-    const listener = new BaseListener(
-      this,
-      document,
-      analyzer,
-      diagnostics,
-      languageManager,
-      this.tokenStream
-    );
-
+    let listener: BaseListener;
+    if (module) {
+      listener = new ModuleListener(
+        this,
+        document,
+        analyzer,
+        diagnostics,
+        languageManager,
+        this.tokenStream
+      );
+    } else {
+      listener = new BaseListener(
+        this,
+        document,
+        analyzer,
+        diagnostics,
+        languageManager,
+        this.tokenStream
+      );
+    }
     ParseTreeWalker.DEFAULT.walk(listener as ParseTreeListener, tree);
     return {
       ast: tree,
