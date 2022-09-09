@@ -1,5 +1,5 @@
 {
-  "name": "eps-server",
+  "name": "@eps-server/server",
   "description": "Language Server for epScript.",
   "version": "1.0.10",
   "author": "Zuhanit",
