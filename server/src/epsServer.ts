@@ -24,6 +24,7 @@ import {
   DocumentSymbolParams,
   DocumentSymbol,
   SymbolInformation,
+  SemanticTokensBuilder,
 } from "vscode-languageserver/node";
 
 import { Analyzer } from "./analyzer";
@@ -38,6 +39,11 @@ import { evaluateNode } from "./context/evaluator/evaluator";
 import { CallExpressionContext } from "./grammar/src/grammar/lib/epScriptParser";
 import { getDocumentSymbol } from "./document/documentSymbol";
 import { getWorkspaceSymbol } from "./document/workspaceSymbol";
+import {
+  provideTokens,
+  tokenModifiers,
+  TokenType,
+} from "./document/semanticToken";
 
 /**
  * epScript 랭기지 서버.
@@ -118,6 +124,21 @@ export class EPSServer {
         });
       }
     });
+    connection.languages.semanticTokens.on((params) => {
+      const contextPackage = this.analyzer.getContextPackageByURI(
+        params.textDocument.uri
+      );
+
+      if (!contextPackage) return { data: [] };
+
+      const builder = provideTokens(contextPackage);
+      return builder.build();
+    });
+    connection.languages.semanticTokens.onRange(() => {
+      return {
+        data: [],
+      };
+    });
     connection.workspace.onDidCreateFiles((params) =>
       this.onDidCreateFiles(params)
     );
@@ -137,7 +158,12 @@ export class EPSServer {
       (params: DidChangeConfigurationParams) =>
         this.onDidChangeConfiguration(params)
     );
-    connection.onInitialized(async () => {
+    connection.onInitialized((params) => {
+      const p = params as any;
+      const clientCapabilities = p;
+      console.log(
+        `Client capabilities: ${JSON.stringify(clientCapabilities, null, 2)}`
+      );
       console.log(
         `Server Initialized at ${new Date().toLocaleDateString("ko-KR")}`
       );
@@ -182,6 +208,16 @@ export class EPSServer {
         },
         workspaceFolders: {
           changeNotifications: true,
+        },
+      },
+      semanticTokensProvider: {
+        legend: {
+          tokenTypes: Object.keys(TokenType),
+          tokenModifiers: tokenModifiers,
+        },
+        range: false,
+        full: {
+          delta: false,
         },
       },
     };
