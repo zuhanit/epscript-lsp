@@ -1,5 +1,5 @@
 import { epScriptParserListener } from "../../grammar/src/grammar/lib/epScriptParserListener";
-import { BaseListener } from "./BaseListener";
+import { BaseListener } from "./baseListener";
 
 /**
  * 모듈 심볼 테이블 작성을 위한 리스너.

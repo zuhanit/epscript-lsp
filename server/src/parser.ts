@@ -4,7 +4,7 @@ import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
 import { ParseTreeWalker } from "antlr4ts/tree/ParseTreeWalker";
 import { Diagnostic } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { BaseListener } from "./context/listener/BaseListener";
+import { BaseListener } from "./context/listener/baseListener";
 import { epScriptLexer } from "./grammar/src/grammar/lib/epScriptLexer";
 import {
   epScriptParser,
