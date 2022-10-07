@@ -19,6 +19,5 @@ export async function getWorkspaceSymbol(
       })
     );
   });
-  console.log(result);
   return result;
 }

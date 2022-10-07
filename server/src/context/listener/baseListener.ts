@@ -92,6 +92,7 @@ export class BaseListener implements epScriptParserListener {
     const namespace = ctx.importNamespace();
     const dotted = ctx.dottedName().text.split(".");
     let name: string = dotted[dotted.length - 1];
+    console.log("Import visited:", dotted);
 
     if (namespace !== undefined) {
       name = namespace.identifier().text;

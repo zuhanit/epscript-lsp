@@ -249,7 +249,6 @@ function getTypeCompletion(
   if (activeParameter != -1 && activeParameter <= symbol.arguments.length) {
     const curr = symbol.arguments[activeParameter];
     if (curr && curr.type instanceof ClassSymbol) {
-      console.log(curr, curr.type);
       switch (curr.type.name) {
         case "TrgAIScript":
           return getEncodeCompletion("TrgAIScript");

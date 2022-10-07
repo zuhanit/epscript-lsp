@@ -1,3 +1,4 @@
+import { ImportStatementContext } from "../../grammar/src/grammar/lib/epScriptParser";
 import { epScriptParserListener } from "../../grammar/src/grammar/lib/epScriptParserListener";
 import { BaseListener } from "./baseListener";
 
@@ -10,7 +11,8 @@ export class ModuleListener
   extends BaseListener
   implements epScriptParserListener
 {
-  enterImportStatement(): void {
+  enterImportStatement(ctx: ImportStatementContext): void {
+    console.log("M-visited", ctx.dottedName().text);
     return;
   }
 

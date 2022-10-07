@@ -160,10 +160,6 @@ export class EPSServer {
     );
     connection.onInitialized((params) => {
       const p = params as any;
-      const clientCapabilities = p;
-      console.log(
-        `Client capabilities: ${JSON.stringify(clientCapabilities, null, 2)}`
-      );
       console.log(
         `Server Initialized at ${new Date().toLocaleDateString("ko-KR")}`
       );

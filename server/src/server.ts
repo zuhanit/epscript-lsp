@@ -37,7 +37,6 @@ connection.onInitialize(
       } seconds`
     );
 
-    console.log(connection);
     return {
       capabilities: server.capabilities(),
     };
