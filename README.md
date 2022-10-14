@@ -1,4 +1,4 @@
-# eps-server
+# epscript-lsp
 
 ![Download](https://img.shields.io/visual-studio-marketplace/i/zuhanit.eps-server?style=plastic) ![Community](https://img.shields.io/badge/Community-%20EDAC-yellow?link=https://cafe.naver.com/edac)
 
@@ -23,6 +23,7 @@ Provides epScript language support via epScript Language Server, for VSCode.
 - Quick offset select
   - Select offsets from [euddb](https://euddb.website/), by Command`(CTRL+P -> Offset)` or click `CTRL+O`.
     ![Offset](https://github.com/zuhanit/epscript-language-server/blob/master/images/offset.gif?raw=true)
+- Semantic Highlight
 
 ## Settings and Customization
 
