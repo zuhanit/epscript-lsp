@@ -1,7 +1,7 @@
 import {
   BinaryExpressionContext,
   epScriptParser,
-} from "../../grammar/src/grammar/lib/epScriptParser";
+} from "../../grammar/lib/epScriptParser";
 import { VariableSymbol } from "../symbolTable/VariableSymbol";
 import { evaluateNode } from "./evaluator";
 import { EvaluatorOption } from "./evaluator-options";

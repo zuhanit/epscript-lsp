@@ -33,7 +33,7 @@
   },
   "scripts": {
     "mocha-test": "mocha */test/**/*.test.ts -r ts-node/register",
-    "antlr-compile-windows": "antlr4ts -o ./src/grammar/src/grammar/lib -visitor ./src/grammar/lib/epScriptLexer.g4 ./src/grammar/lib/epScriptParser.g4",
-    "antlr-compile-linux": "cd src/grammar/lib && antlr4ts epScriptLexer.g4 epScriptParser.g4 -o ../src/grammar/lib"
+    "antlr-compile-windows": "cd src/grammar && antlr4ts -o ./lib -visitor ./epScriptLexer.g4 ./epScriptParser.g4",
+    "antlr-compile-linux": "cd src/grammar && antlr4ts epScriptLexer.g4 epScriptParser.g4 -o ./lib"
   }
 }

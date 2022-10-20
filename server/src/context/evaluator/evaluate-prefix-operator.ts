@@ -1,4 +1,4 @@
-import { PrefixExpressionContext } from "../../grammar/src/grammar/lib/epScriptParser";
+import { PrefixExpressionContext } from "../../grammar/lib/epScriptParser";
 import { evaluateNode } from "./evaluator";
 import { EvaluatorOption } from "./evaluator-options";
 

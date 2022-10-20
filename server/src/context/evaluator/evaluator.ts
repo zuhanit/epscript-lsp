@@ -1,4 +1,4 @@
-import { SingleExpressionContext } from "../../grammar/src/grammar/lib/epScriptParser";
+import { SingleExpressionContext } from "../../grammar/lib/epScriptParser";
 import { evaluateAnonymousFunctionExpression } from "./evaluate-anonymous-function-expression";
 import { evaluateCallExpression } from "./evaluate-call-expression";
 import { evaluateArrayLiteralExpression } from "./evaluate-array-literal-expression";

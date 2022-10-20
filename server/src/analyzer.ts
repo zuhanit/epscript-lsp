@@ -9,7 +9,7 @@ import { URI as VSURI } from "vscode-uri";
 import { ContextSymbolTable } from "./context/ContextSymbolTable";
 import { ContextPackage } from "./context/IContextPackage";
 import { BaseScope } from "./context/symbolTable/BaseScope";
-import { SingleExpressionContext } from "./grammar/src/grammar/lib/epScriptParser";
+import { SingleExpressionContext } from "./grammar/lib/epScriptParser";
 import { LanguageManager } from "./i18n/LanguageManager";
 import { Parser } from "./parser";
 import { getEPSPaths } from "./workspace";

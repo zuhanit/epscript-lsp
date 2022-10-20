@@ -1,5 +1,5 @@
-import { ImportStatementContext } from "../../grammar/src/grammar/lib/epScriptParser";
-import { epScriptParserListener } from "../../grammar/src/grammar/lib/epScriptParserListener";
+import { ImportStatementContext } from "../../grammar/lib/epScriptParser";
+import { epScriptParserListener } from "../../grammar/lib/epScriptParserListener";
 import { BaseListener } from "./baseListener";
 
 /**

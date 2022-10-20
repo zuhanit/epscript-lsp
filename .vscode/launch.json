@@ -34,8 +34,8 @@
       "name": "Debug ANTLR4 grammar",
       "type": "antlr-debug",
       "request": "launch",
-      "input": "server/src/grammar/lib/test/keyword_arguments.eps",
-      "grammar": "server/src/grammar/lib/epScriptParser.g4",
+      "input": "server/src/grammar/lib/test/test.eps",
+      "grammar": "server/src/grammar/epScriptParser.g4",
       "startRule": "program",
       "printParseTree": true,
       "visualParseTree": true

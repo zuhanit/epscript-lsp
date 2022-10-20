@@ -15,7 +15,7 @@ import {
   BooleanLiteralExpressionContext,
   NumericLiteralExpressionContext,
   StringLiteralExpressionContext,
-} from "../../grammar/src/grammar/lib/epScriptParser";
+} from "../../grammar/lib/epScriptParser";
 
 export function isAnonymousFunctionExpression(
   node: ParserRuleContext

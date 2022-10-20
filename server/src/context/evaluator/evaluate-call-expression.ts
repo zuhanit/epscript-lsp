@@ -1,5 +1,5 @@
 import { pushDiagnostic } from "../../diagnostic/DiagnosticManager";
-import { CallExpressionContext } from "../../grammar/src/grammar/lib/epScriptParser";
+import { CallExpressionContext } from "../../grammar/lib/epScriptParser";
 import { keys } from "../../i18n/LanguageManager";
 import { ClassSymbol } from "../symbolTable/ClassSymbol";
 import { FunctionSymbol } from "../symbolTable/FunctionSymbol";

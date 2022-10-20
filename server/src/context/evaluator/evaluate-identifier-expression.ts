@@ -1,5 +1,5 @@
 import { pushDiagnostic } from "../../diagnostic/DiagnosticManager";
-import { IdentifierExpressionContext } from "../../grammar/src/grammar/lib/epScriptParser";
+import { IdentifierExpressionContext } from "../../grammar/lib/epScriptParser";
 import { keys } from "../../i18n/LanguageManager";
 import { EvaluatorOption } from "./evaluator-options";
 

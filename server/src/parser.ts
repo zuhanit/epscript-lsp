@@ -5,11 +5,8 @@ import { ParseTreeWalker } from "antlr4ts/tree/ParseTreeWalker";
 import { Diagnostic } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { BaseListener } from "./context/listener/baseListener";
-import { epScriptLexer } from "./grammar/src/grammar/lib/epScriptLexer";
-import {
-  epScriptParser,
-  ProgramContext,
-} from "./grammar/src/grammar/lib/epScriptParser";
+import { epScriptLexer } from "./grammar/lib/epScriptLexer";
+import { epScriptParser, ProgramContext } from "./grammar/lib/epScriptParser";
 
 import { Analyzer } from "./analyzer";
 import { ContextSymbolTable } from "./context/ContextSymbolTable";

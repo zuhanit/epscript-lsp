@@ -20,7 +20,7 @@ import { VariableSymbol } from "../context/symbolTable/VariableSymbol";
 import {
   epScriptParser,
   SingleExpressionContext,
-} from "../grammar/src/grammar/lib/epScriptParser";
+} from "../grammar/lib/epScriptParser";
 import {
   SCImage,
   SCIscript,

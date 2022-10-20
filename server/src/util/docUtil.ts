@@ -1,6 +1,6 @@
 import { CommonTokenStream, ParserRuleContext } from "antlr4ts";
 import { Block, parse } from "comment-parser";
-import { epScriptLexer } from "../grammar/src/grammar/lib/epScriptLexer";
+import { epScriptLexer } from "../grammar/lib/epScriptLexer";
 
 export const getDocumentationSpec = (blocks: Block[]) => {
   const description: string[] = [];

@@ -8,7 +8,7 @@ import { Literal } from "../context/evaluator/literal";
 import { getSymbolInfo } from "../context/facade";
 import { BaseScope } from "../context/symbolTable/BaseScope";
 import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
-import { SingleExpressionContext } from "../grammar/src/grammar/lib/epScriptParser";
+import { SingleExpressionContext } from "../grammar/lib/epScriptParser";
 import {
   getParameterInformation,
   getActiveParameterNumber,
