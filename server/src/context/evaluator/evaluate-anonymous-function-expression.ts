@@ -1,4 +1,4 @@
-import { AnonymousFunctionExpressionContext } from "../../grammar/src/grammar/lib/epScriptParser";
+import { AnonymousFunctionExpressionContext } from "../../grammar/lib/epScriptParser";
 import { getRangeByContext } from "../../util/range";
 import { FunctionSymbol } from "../symbolTable/FunctionSymbol";
 import { EvaluatorOption } from "./evaluator-options";

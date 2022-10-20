@@ -5,7 +5,7 @@ import {
   BinaryExpressionContext,
   CallExpressionContext,
   SingleExpressionContext,
-} from "../../grammar/src/grammar/lib/epScriptParser";
+} from "../../grammar/lib/epScriptParser";
 
 /**
  * Get zero-based active parameter number of current Expression.

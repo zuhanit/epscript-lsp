@@ -55,7 +55,8 @@ variableStatement
  ;
 
 variableDeclarationList
- : Static? varModifier variableDeclaration (',' variableDeclaration)*
+ : Static? varModifier assignAble (',' assignAble)* SemiColon # VariableDefineList
+ | Static? varModifier assignAble (',' assignAble)* ('=' singleExpression)+ # VariableAssignmentList
  ;
 
 variableDeclaration
@@ -110,7 +111,7 @@ returnStatement
  ;
 
 switchStatement
- : Switch '(' expressionSequence ')' caseBlock
+ : (Switch|Epdswitch) '(' expressionSequence ')' caseBlock
  ;
 
 caseBlock

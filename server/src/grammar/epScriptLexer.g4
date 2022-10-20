@@ -83,6 +83,7 @@ Break       : 'break';
 Continue    : 'continue';
 Return      : 'return';
 Switch      : 'switch';
+Epdswitch   : 'epdswitch';
 Case        : 'case';
 Default     : 'default';
 This        : 'this';

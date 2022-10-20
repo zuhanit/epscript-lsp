@@ -24,7 +24,6 @@ import {
   DocumentSymbolParams,
   DocumentSymbol,
   SymbolInformation,
-  SemanticTokensBuilder,
 } from "vscode-languageserver/node";
 
 import { Analyzer } from "./analyzer";
@@ -36,7 +35,7 @@ import { LanguageManager } from "./i18n/LanguageManager";
 import { Parser } from "./parser";
 import { provideSingatureHelp } from "./document/signatureHelp";
 import { evaluateNode } from "./context/evaluator/evaluator";
-import { CallExpressionContext } from "./grammar/src/grammar/lib/epScriptParser";
+import { CallExpressionContext } from "./grammar/lib/epScriptParser";
 import { getDocumentSymbol } from "./document/documentSymbol";
 import { getWorkspaceSymbol } from "./document/workspaceSymbol";
 import {
@@ -159,6 +158,7 @@ export class EPSServer {
         this.onDidChangeConfiguration(params)
     );
     connection.onInitialized((params) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const p = params as any;
       console.log(
         `Server Initialized at ${new Date().toLocaleDateString("ko-KR")}`

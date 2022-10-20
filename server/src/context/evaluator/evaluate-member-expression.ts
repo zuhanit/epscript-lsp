@@ -1,4 +1,4 @@
-import { MemberExpressionContext } from "../../grammar/src/grammar/lib/epScriptParser";
+import { MemberExpressionContext } from "../../grammar/lib/epScriptParser";
 import { ClassSymbol } from "../symbolTable/ClassSymbol";
 import { EvaluatorOption } from "./evaluator-options";
 

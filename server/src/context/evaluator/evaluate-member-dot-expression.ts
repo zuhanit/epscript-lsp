@@ -1,5 +1,5 @@
 import { pushDiagnostic } from "../../diagnostic/DiagnosticManager";
-import { MemberDotExpressionContext } from "../../grammar/src/grammar/lib/epScriptParser";
+import { MemberDotExpressionContext } from "../../grammar/lib/epScriptParser";
 import { keys } from "../../i18n/LanguageManager";
 import { literalToType } from "../../util/literalUtils";
 import { BaseScope } from "../symbolTable/BaseScope";

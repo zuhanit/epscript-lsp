@@ -2,7 +2,7 @@ import {
   epScriptParser,
   IdentifierContext,
   PostfixExpressionContext,
-} from "../../grammar/src/grammar/lib/epScriptParser";
+} from "../../grammar/lib/epScriptParser";
 import { evaluateNode } from "./evaluator";
 import { EvaluatorOption } from "./evaluator-options";
 

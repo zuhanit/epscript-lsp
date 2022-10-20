@@ -1,4 +1,4 @@
-import { ParanthesizedExpressionContext } from "../../grammar/src/grammar/lib/epScriptParser";
+import { ParanthesizedExpressionContext } from "../../grammar/lib/epScriptParser";
 import { evaluateNode } from "./evaluator";
 import { EvaluatorOption } from "./evaluator-options";
 
