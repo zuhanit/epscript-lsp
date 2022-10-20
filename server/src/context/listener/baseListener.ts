@@ -8,10 +8,11 @@ import {
   ImportStatementContext,
   ObjectDeclarationContext,
   ObjectVariableDeclarationContext,
-  VariableDeclarationListContext,
+  VariableAssignmentListContext,
+  VariableDefineListContext,
   WhileStatementContext,
-} from "../../grammar/src/grammar/lib/epScriptParser";
-import { epScriptParserListener } from "../../grammar/src/grammar/lib/epScriptParserListener";
+} from "../../grammar/lib/epScriptParser";
+import { epScriptParserListener } from "../../grammar/lib/epScriptParserListener";
 import {
   pushBuiltinClass,
   pushBuiltinFunction,
@@ -29,7 +30,6 @@ import { ISymbol } from "../symbolTable/ISymbol";
 import { MethodSymbol } from "../symbolTable/MethodSymbol";
 import { ModuleSymbol } from "../symbolTable/ModuleSymbol";
 import { evaluateNode } from "../evaluator/evaluator";
-import { Literal } from "../evaluator/literal";
 import { Parser } from "../../parser";
 import { Analyzer } from "../../analyzer";
 import { existsSync, readFileSync } from "fs";
@@ -158,29 +158,44 @@ export class BaseListener implements epScriptParserListener {
   }
 
   // 변수 선언 진입
-  enterVariableDeclarationList(ctx: VariableDeclarationListContext) {
-    const modifier: string = ctx.varModifier().text;
-    const symbols = ctx.variableDeclaration().map((x) => {
-      let value: Literal = null;
-      if (x.singleExpression() !== undefined)
-        value = evaluateNode({
-          node: x.singleExpression()!,
-          symbolTable: this.symbolTable,
-          currentScope: this.currentScope,
-          languageManager: this.languageManager,
-          diagnostics: this.diagnostics,
-        });
+  enterVariableDefineList(ctx: VariableDefineListContext) {
+    const modifier = ctx.varModifier().text;
+    const symbols = ctx.assignAble().map((id) => {
       const symbol = new VariableSymbol(
-        x.assignAble().text,
+        id.text,
         this.currentScope,
-        getRangeByContext(x.assignAble())
+        getRangeByContext(id)
       );
-      symbol.value = value;
       symbol.modifier = modifier === "var" ? "var" : "const";
-      this.checkSymbolDuplicated(symbol.name, x.assignAble().identifier());
+      this.checkSymbolDuplicated(symbol.name, id);
       return symbol;
     });
-    symbols.forEach((x) => this.currentScope.insert(x));
+    symbols.forEach((symbol) => this.currentScope.insert(symbol));
+  }
+
+  enterVariableAssignmentList(ctx: VariableAssignmentListContext) {
+    const modifier = ctx.varModifier().text;
+    const values = ctx.singleExpression().map((expr) =>
+      evaluateNode({
+        node: expr,
+        symbolTable: this.symbolTable,
+        currentScope: this.currentScope,
+        languageManager: this.languageManager,
+        diagnostics: this.diagnostics,
+      })
+    );
+    const symbols = ctx.assignAble().map((assignable, idx) => {
+      const symbol = new VariableSymbol(
+        assignable.identifier().text,
+        this.currentScope,
+        getRangeByContext(assignable)
+      );
+      symbol.value = values[idx];
+      symbol.modifier = modifier === "var" ? "var" : "const";
+      this.checkSymbolDuplicated(symbol.name, assignable.identifier());
+      return symbol;
+    });
+    symbols.forEach((symbol) => this.currentScope.insert(symbol));
   }
 
   // 함수 선언 진입
