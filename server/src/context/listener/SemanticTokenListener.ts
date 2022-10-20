@@ -1,13 +1,10 @@
-import { ParserRuleContext, TokenStreamRewriter } from "antlr4ts";
+import { ParserRuleContext } from "antlr4ts";
 import { TerminalNode } from "antlr4ts/tree/TerminalNode";
 import { SemanticTokensBuilder } from "vscode-languageserver";
 import { BuilderItem, TokenType } from "../../document/semanticToken";
 import {
   AnonymosuFunctionContext,
-  ArgumentContext,
-  ArrayElementContext,
   BinaryOperatorContext,
-  BlockContext,
   BooleanLiteralExpressionContext,
   BreakStatementContext,
   CallExpressionContext,
@@ -24,7 +21,6 @@ import {
   ImportStatementContext,
   KeywordContext,
   MemberDotExpressionContext,
-  NumericLiteralContext,
   NumericLiteralExpressionContext,
   ObjectDeclarationContext,
   ObjectVariableDeclarationContext,
@@ -35,12 +31,12 @@ import {
   StringLiteralExpressionContext,
   SwitchStatementContext,
   TypeAnnotationContext,
+  VariableAssignmentListContext,
   VariableDeclarationContext,
-  VariableDeclarationListContext,
+  VariableDefineListContext,
   WhileStatementContext,
-} from "../../grammar/src/grammar/lib/epScriptParser";
-import { epScriptParserListener } from "../../grammar/src/grammar/lib/epScriptParserListener";
-import { ContextPackage } from "../IContextPackage";
+} from "../../grammar/lib/epScriptParser";
+import { epScriptParserListener } from "../../grammar/lib/epScriptParserListener";
 
 export class SemanticTokenListener implements epScriptParserListener {
   constructor(private builder: SemanticTokensBuilder) {}
@@ -52,9 +48,17 @@ export class SemanticTokenListener implements epScriptParserListener {
     this.push(ctx.dottedName(), TokenType.namespace);
   };
 
-  enterVariableDeclarationList?:
-    | ((ctx: VariableDeclarationListContext) => void)
-    | undefined = (ctx) => {
+  enterVariableDefineList = (ctx: VariableDefineListContext) => {
+    ctx
+      .assignAble()
+      .forEach((assignable) => this.push(assignable, TokenType.variable));
+    this.push(ctx.varModifier(), TokenType.keyword);
+  };
+
+  enterVariableAssignmentList = (ctx: VariableAssignmentListContext) => {
+    ctx
+      .assignAble()
+      .forEach((assignable) => this.push(assignable, TokenType.variable));
     this.push(ctx.varModifier(), TokenType.keyword);
   };
 
@@ -124,7 +128,8 @@ export class SemanticTokenListener implements epScriptParserListener {
   enterSwitchStatement?: ((ctx: SwitchStatementContext) => void) | undefined = (
     ctx
   ) => {
-    this.push(ctx.Switch(), TokenType.keyword);
+    const switchToken = ctx.Switch() ?? ctx.Epdswitch();
+    this.push(switchToken as TerminalNode, TokenType.keyword);
   };
 
   enterCaseClause?: ((ctx: CaseClauseContext) => void) | undefined = (ctx) => {
