@@ -4,21 +4,23 @@
   "configurations": [
     {
       "name": "Launch Client",
-      "type": "pwa-extensionHost",
+      "type": "extensionHost",
       "debugWebWorkerHost": true,
       "request": "launch",
       "runtimeExecutable": "${execPath}",
       "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
       "outFiles": ["${workspaceRoot}/client/dist/**/*.js"],
+      "outputCapture": "std",
       "preLaunchTask": "npm: watch"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "attach",
       "name": "Attach to Server",
       "port": 6009,
       "restart": true,
-      "outFiles": ["${workspaceRoot}/server/dist/**/*.js"]
+      "outFiles": ["${workspaceRoot}/server/dist/**/*.js"],
+      "outputCapture": "std"
     },
     {
       "name": "Launch Client 2",
