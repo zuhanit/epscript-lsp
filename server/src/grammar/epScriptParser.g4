@@ -55,8 +55,8 @@ variableStatement
  ;
 
 variableDeclarationList
- : Static? varModifier assignAble (',' assignAble)* SemiColon # VariableDefineList
- | Static? varModifier assignAble (',' assignAble)* ('=' singleExpression)+ # VariableAssignmentList
+ : Static? varModifier assignAble (',' assignAble)* # VariableDefineList
+ | Static? varModifier assignAble (',' assignAble)* '=' singleExpression (',' singleExpression)* # VariableAssignmentList
  ;
 
 variableDeclaration
