@@ -103,30 +103,42 @@ export class Analyzer {
     return this.documentations.get(uri);
   }
 
-  public getSingleExpressionAtPosition(
+  /**
+   * Get `ParserRuleContext` in position.
+   *
+   * @param uri
+   * @param position
+   * @param rule
+   * @param filter
+   * @returns
+   */
+  public getRuleAtPosition<T extends ParserRuleContext>(
     uri: URI,
     position: Position,
+    rule: new (...args: any[]) => T,
     filter?: (value: any, index?: number, Array?: any[]) => boolean
   ) {
     const ast = this.getContextPackageByURI(uri)?.parsePackage.ast;
     if (ast === undefined) return null;
-    return this.singleExpressionFromPosition(
+    return this.ruleFromPosition(
       ast,
       position.character,
       position.line + 1,
+      rule,
       filter
     );
   }
 
-  private singleExpressionFromPosition(
+  private ruleFromPosition<T extends ParserRuleContext>(
     root: ParseTree,
     character: number,
     line: number,
+    rule: new (...args: any[]) => T,
     filter?: (value: any, index?: number, Array?: any[]) => boolean
-  ): SingleExpressionContext[] {
-    const result: SingleExpressionContext[] = [];
+  ) {
+    const result: T[] = [];
 
-    if (root instanceof SingleExpressionContext) {
+    if (root instanceof rule) {
       if (
         root.start.line <= line &&
         root.stop &&
@@ -140,12 +152,86 @@ export class Analyzer {
 
     if (context.children) {
       context.children.forEach((x) => {
-        result.push(...this.singleExpressionFromPosition(x, character, line));
+        result.push(...this.ruleFromPosition(x, character, line, rule));
       });
     }
 
     if (filter) return result.filter(filter);
     return result;
+  }
+
+  /**
+   * Get single `ParserRuleContext` in position.
+   *
+   * _Single_ is `ParserRuleContext` that has same `start` and `stop` token. In this case,
+   * analyzer try to find token by text length.
+   * @param uri
+   * @param position
+   * @param rule
+   * @param filter
+   * @returns
+   */
+  public getSingleRuleAtPosition<T extends ParserRuleContext>(
+    uri: URI,
+    position: Position,
+    rule: new (...args: any[]) => T,
+    filter?: (value: any, index?: number, Array?: any[]) => boolean
+  ) {
+    const ast = this.getContextPackageByURI(uri)?.parsePackage.ast;
+    if (ast === undefined) return null;
+    return this.singleRuleFromPosition(
+      ast,
+      position.character,
+      position.line + 1,
+      rule,
+      filter
+    );
+  }
+
+  private singleRuleFromPosition<T extends ParserRuleContext>(
+    root: ParseTree,
+    character: number,
+    line: number,
+    rule: new (...args: any[]) => T,
+    filter?: (value: any, index?: number, Array?: any[]) => boolean
+  ) {
+    const result: T[] = [];
+
+    if (root instanceof rule) {
+      if (
+        root.start.line == line &&
+        root.start.charPositionInLine <= character &&
+        root.start.charPositionInLine + root.text.length >= character
+      ) {
+        result.push(root);
+      }
+    }
+    const context = root as ParserRuleContext;
+
+    if (context.children) {
+      context.children.forEach((x) => {
+        result.push(...this.singleRuleFromPosition(x, character, line, rule));
+      });
+    }
+
+    if (filter) return result.filter(filter);
+    return result;
+  }
+
+  public getSingleExpressionAtPosition(
+    uri: URI,
+    position: Position,
+    filter?: (value: any, index?: number, Array?: any[]) => boolean
+  ) {
+    const ast = this.getContextPackageByURI(uri)?.parsePackage.ast;
+    if (ast === undefined) return null;
+    return this.ruleFromPosition(
+      ast,
+      position.character,
+      position.line + 1,
+      SingleExpressionContext,
+      filter
+    );
   }
 
   /**

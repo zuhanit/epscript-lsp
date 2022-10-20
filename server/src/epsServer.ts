@@ -244,35 +244,32 @@ export class EPSServer {
       params.textDocument.uri,
       params.position
     );
-    const singleExpressions = this.analyzer.getSingleExpressionAtPosition(
+    const callExpressions = this.analyzer.getRuleAtPosition(
       params.textDocument.uri,
       params.position,
-      (expr) => expr instanceof CallExpressionContext
+      CallExpressionContext
     );
 
     if (contextPackage === undefined) return undefined;
-
-    if (singleExpressions === null) return undefined;
+    if (!callExpressions) return undefined;
 
     const scope: BaseScope = scopes
       ? scopes[scopes.length - 1]
       : contextPackage.parsePackage.symbolTable.globalScope;
 
-    let singleExpression = singleExpressions[singleExpressions.length - 1];
+    const callExpression = callExpressions[callExpressions.length - 1];
 
-    if (singleExpression instanceof CallExpressionContext) {
-      singleExpression = singleExpression.singleExpression();
-    }
+    if (!callExpression) return undefined;
 
     const evaluated = evaluateNode({
-      node: singleExpression,
+      node: callExpression.singleExpression(),
       currentScope: scope,
       diagnostics: [],
       languageManager: this.languageManager,
       symbolTable: contextPackage.parsePackage.symbolTable,
     });
 
-    return provideSingatureHelp(evaluated, singleExpressions[0]);
+    return provideSingatureHelp(evaluated, callExpressions[0]);
   }
 
   private onCompletion(params: CompletionParams): CompletionItem[] | undefined {
@@ -349,11 +346,14 @@ export class EPSServer {
       singleExpression = singleExpression.singleExpression();
     }
 
-    return provideHoverItem({
-      contextPackage: contextPackage,
-      name: node.text,
-      params: params,
-    });
+    return provideHoverItem(
+      {
+        contextPackage: contextPackage,
+        name: node.text,
+        params: params,
+      },
+      this.analyzer
+    );
   }
 
   private async onDefinition(
