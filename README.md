@@ -1,13 +1,9 @@
-# epscript-lsp
+# epscript-lsp &middot; ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg) ![Download](https://img.shields.io/visual-studio-marketplace/i/zuhanit.eps-server?style=plastic) ![Community](https://img.shields.io/badge/Community-%20EDAC-yellow?link=https://cafe.naver.com/edac)
 
-![Download](https://img.shields.io/visual-studio-marketplace/i/zuhanit.eps-server?style=plastic) ![Community](https://img.shields.io/badge/Community-%20EDAC-yellow?link=https://cafe.naver.com/edac)
+epScript language support via Language Server Protocol.
 
-Provides epScript language support via epScript Language Server, for VSCode.
-
-## Quick Start
-
-1. [Install the eps-server Extension for Visual Studio Code.](https://code.visualstudio.com/docs/editor/extension-marketplace)
-2. Extension is activated when you access a .eps file
+- Visual Studio Code
+- _Neovim (In progress)_
 
 ## Features
 
@@ -42,8 +38,14 @@ Users can customize eps-server via settings.json in your workspace or Settings E
     - `English`
     - `한국어`
 
+## Installation
+
+You can use eps-server easily by npm. Just install it!
+
+- `yarn add @eps-server/server` for server package.
+
 ## Questions, issues, contributions
 
 - If you have a question about this extension, please [open an issue on GitHub](https://github.com/zuhanit/epscript-language-server/issues) with question label.
-- If any problem is happend, please open an issue with Log. You can check logs at _Output - epScript Language Client_.
+- If any problem is happend, please open an issue with Log. You can check logs at _Output - epScript Language Client_ _(in vscode)_.
 - Any kind of contributions are always welcome!
