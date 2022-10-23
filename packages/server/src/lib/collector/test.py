@@ -3,7 +3,7 @@ import json
 import inspect
 import os
 
-sys.path.append("server/src/lib/eudplib")
+sys.path.append("packages/server/src/lib/eudplib")
 
 import eudplib
 from utils.spec import getFunctionSpec, getClassSpec

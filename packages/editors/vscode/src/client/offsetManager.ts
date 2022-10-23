@@ -1,5 +1,5 @@
 import { QuickPickItem, TextEditor, window } from "vscode";
-import * as offsets from "./offsets/offset.json";
+import * as offsets from "./data/offset.json";
 
 export class OffsetManager {
   public async main(editor: TextEditor) {

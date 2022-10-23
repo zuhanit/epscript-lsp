@@ -7,6 +7,6 @@
     "sourceMap": true,
     "resolveJsonModule": true
   },
-  "include": ["src"],
+  "include": ["src/extension.ts"],
   "exclude": ["node_modules"]
 }
