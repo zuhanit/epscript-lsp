@@ -184,6 +184,8 @@
     "npm-install-missing": "^0.1.4",
     "tsc": "^2.0.4",
     "vsce": "^2.9.1",
+    "vscode": "^1.1.37",
+    "vscode-languageclient": "^8.0.2",
     "vscode-uri": "^3.0.3"
   }
 }
