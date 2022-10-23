@@ -23,9 +23,9 @@ interface Script {
 }
 
 export class BuildManager implements TreeDataProvider<BuildScript> {
-  private _onDidChangeTreeData: EventEmitter<BuildScript | undefined | void> =
-    new EventEmitter<BuildScript | undefined | void>();
-  readonly onDidChangeTreeData: Event<void | BuildScript> =
+  private _onDidChangeTreeData: EventEmitter<BuildScript | undefined> =
+    new EventEmitter<BuildScript | undefined>();
+  readonly onDidChangeTreeData: Event<BuildScript> =
     this._onDidChangeTreeData.event;
 
   constructor(public workspaceFolder: WorkspaceFolder[]) {}
