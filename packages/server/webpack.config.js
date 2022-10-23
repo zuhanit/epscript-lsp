@@ -1,4 +1,4 @@
-const withDefaults = require("../shared.webpack.config");
+const withDefaults = require("../../shared.webpack.config");
 const path = require("path");
 
 /**@type {import('webpack').Configuration}*/

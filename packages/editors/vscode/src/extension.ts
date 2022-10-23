@@ -18,15 +18,15 @@ import {
   ServerOptions,
   TransportKind,
 } from "vscode-languageclient/node";
-import { BuildManager, BuildScript } from "./buildManager";
-import { OffsetManager } from "./offsetManager";
+import { BuildManager, BuildScript } from "./client/buildManager";
+import { OffsetManager } from "./client/offsetManager";
 
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
   // The server is implemented in node
   const serverModule = context.asAbsolutePath(
-    path.join("server", "dist", "server.js")
+    path.join("packages", "server", "dist", "server.js")
   );
   // The debug options for the server
   // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
@@ -67,7 +67,7 @@ export function activate(context: ExtensionContext) {
   client.start();
   const workspaceFolder = workspace.workspaceFolders;
   if (workspaceFolder) {
-    const workspaces: WorkspaceFolder[] = workspace.workspaceFolders.map(
+    const workspaces: WorkspaceFolder[] = workspaceFolder.map(
       (x) => {
         return {
           index: x.index,

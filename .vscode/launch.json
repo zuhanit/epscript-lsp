@@ -9,7 +9,7 @@
       "request": "launch",
       "runtimeExecutable": "${execPath}",
       "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
-      "outFiles": ["${workspaceRoot}/client/dist/**/*.js"],
+      "outFiles": ["${workspaceRoot}/packages/editors/vscode/client/dist/**/*.js"],
       "outputCapture": "std",
       "preLaunchTask": "npm: watch"
     },
@@ -19,18 +19,8 @@
       "name": "Attach to Server",
       "port": 6009,
       "restart": true,
-      "outFiles": ["${workspaceRoot}/server/dist/**/*.js"],
+      "outFiles": ["${workspaceRoot}/packages/server/dist/**/*.js"],
       "outputCapture": "std"
-    },
-    {
-      "name": "Launch Client 2",
-      "type": "extensionHost",
-      "request": "launch",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceRoot}",
-        "--extensionDevelopmentKind=web"
-      ],
-      "outFiles": ["${workspaceRoot}/client/dist/**/*.js"]
     },
     {
       "name": "Debug ANTLR4 grammar",
