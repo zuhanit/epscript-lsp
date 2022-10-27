@@ -1,5 +1,5 @@
 {
-  "name": "@eps-server/vscode",
+  "name": "eps-server",
   "description": "Language Server for epScript.",
   "author": "Zuhanit",
   "license": "MIT",
