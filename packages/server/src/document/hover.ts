@@ -70,8 +70,9 @@ function getDocumentationForOffset(
   offset: ArrayElement<typeof offsets>
 ): MarkupContent {
   const value: string[] = [
-    "### 0x" + offset.addr,
-    `#### ${offset.name}`,
+    "```",
+    `(0x${offset.addr}) ${offset.name}\n`,
+    "```",
     offset.desc.split("\r\n").join("\\\n") + "\\\n\\",
     `_@version_ — \`${offset.ver}\`\\`,
     `_@playerID_ — \`${offset.pid}\`\\`,
