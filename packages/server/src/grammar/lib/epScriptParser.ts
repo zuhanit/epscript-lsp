@@ -31,80 +31,81 @@ export class epScriptParser extends Parser {
 	public static readonly BooleanLiterl = 1;
 	public static readonly DecimalLiteral = 2;
 	public static readonly HexIntegerLiteral = 3;
-	public static readonly OpenBracket = 4;
-	public static readonly CloseBracket = 5;
-	public static readonly OpenParen = 6;
-	public static readonly CloseParen = 7;
-	public static readonly OpenBrace = 8;
-	public static readonly CloseBrace = 9;
-	public static readonly Dot = 10;
-	public static readonly QuestionMark = 11;
-	public static readonly Comma = 12;
-	public static readonly Colon = 13;
-	public static readonly SemiColon = 14;
-	public static readonly PlusPlus = 15;
-	public static readonly MinusMinus = 16;
-	public static readonly PlusAssign = 17;
-	public static readonly MinusAssign = 18;
-	public static readonly MultiplyAssign = 19;
-	public static readonly LeftShiftArithmeticAssign = 20;
-	public static readonly RightShiftArithmeticAssign = 21;
-	public static readonly BitAndAssign = 22;
-	public static readonly BitXorAssign = 23;
-	public static readonly BitOrAssign = 24;
-	public static readonly And = 25;
-	public static readonly Or = 26;
-	public static readonly LeftShiftArithmetic = 27;
-	public static readonly RightShiftArithmetic = 28;
-	public static readonly BitNot = 29;
-	public static readonly BitAnd = 30;
-	public static readonly BitOr = 31;
-	public static readonly BitXOr = 32;
-	public static readonly Equals = 33;
-	public static readonly LessThanEquals = 34;
-	public static readonly GreaterThanEquals = 35;
-	public static readonly LessThan = 36;
-	public static readonly MoreThan = 37;
-	public static readonly NotEquals = 38;
-	public static readonly Not = 39;
-	public static readonly Plus = 40;
-	public static readonly Minus = 41;
-	public static readonly Multiply = 42;
-	public static readonly Divide = 43;
-	public static readonly Modulus = 44;
-	public static readonly Assign = 45;
-	public static readonly Import = 46;
-	public static readonly As = 47;
-	public static readonly Var = 48;
-	public static readonly Const = 49;
-	public static readonly Static = 50;
-	public static readonly Function = 51;
-	public static readonly Object = 52;
-	public static readonly L2V = 53;
-	public static readonly Once = 54;
-	public static readonly If = 55;
-	public static readonly Else = 56;
-	public static readonly For = 57;
-	public static readonly Foreach = 58;
-	public static readonly While = 59;
-	public static readonly Break = 60;
-	public static readonly Continue = 61;
-	public static readonly Return = 62;
-	public static readonly Switch = 63;
-	public static readonly Epdswitch = 64;
-	public static readonly Case = 65;
-	public static readonly Default = 66;
-	public static readonly This = 67;
-	public static readonly Identifier = 68;
-	public static readonly StringLiteral = 69;
-	public static readonly WhiteSpaces = 70;
-	public static readonly LineTerminator = 71;
-	public static readonly DocComment = 72;
-	public static readonly MultiLineComment = 73;
-	public static readonly SingleLineComment = 74;
-	public static readonly UnexpectedCharacter = 75;
-	public static readonly DoubleStringCharacter = 76;
-	public static readonly SingleStringCharacter = 77;
+	public static readonly BinaryLiteral = 4;
+	public static readonly OpenBracket = 5;
+	public static readonly CloseBracket = 6;
+	public static readonly OpenParen = 7;
+	public static readonly CloseParen = 8;
+	public static readonly OpenBrace = 9;
+	public static readonly CloseBrace = 10;
+	public static readonly Dot = 11;
+	public static readonly QuestionMark = 12;
+	public static readonly Comma = 13;
+	public static readonly Colon = 14;
+	public static readonly SemiColon = 15;
+	public static readonly PlusPlus = 16;
+	public static readonly MinusMinus = 17;
+	public static readonly PlusAssign = 18;
+	public static readonly MinusAssign = 19;
+	public static readonly MultiplyAssign = 20;
+	public static readonly LeftShiftArithmeticAssign = 21;
+	public static readonly RightShiftArithmeticAssign = 22;
+	public static readonly BitAndAssign = 23;
+	public static readonly BitXorAssign = 24;
+	public static readonly BitOrAssign = 25;
+	public static readonly And = 26;
+	public static readonly Or = 27;
+	public static readonly LeftShiftArithmetic = 28;
+	public static readonly RightShiftArithmetic = 29;
+	public static readonly BitNot = 30;
+	public static readonly BitAnd = 31;
+	public static readonly BitOr = 32;
+	public static readonly BitXOr = 33;
+	public static readonly Equals = 34;
+	public static readonly LessThanEquals = 35;
+	public static readonly GreaterThanEquals = 36;
+	public static readonly LessThan = 37;
+	public static readonly MoreThan = 38;
+	public static readonly NotEquals = 39;
+	public static readonly Not = 40;
+	public static readonly Plus = 41;
+	public static readonly Minus = 42;
+	public static readonly Multiply = 43;
+	public static readonly Divide = 44;
+	public static readonly Modulus = 45;
+	public static readonly Assign = 46;
+	public static readonly Import = 47;
+	public static readonly As = 48;
+	public static readonly Var = 49;
+	public static readonly Const = 50;
+	public static readonly Static = 51;
+	public static readonly Function = 52;
+	public static readonly Object = 53;
+	public static readonly L2V = 54;
+	public static readonly Once = 55;
+	public static readonly If = 56;
+	public static readonly Else = 57;
+	public static readonly For = 58;
+	public static readonly Foreach = 59;
+	public static readonly While = 60;
+	public static readonly Break = 61;
+	public static readonly Continue = 62;
+	public static readonly Return = 63;
+	public static readonly Switch = 64;
+	public static readonly Epdswitch = 65;
+	public static readonly Case = 66;
+	public static readonly Default = 67;
+	public static readonly This = 68;
+	public static readonly Identifier = 69;
+	public static readonly StringLiteral = 70;
+	public static readonly WhiteSpaces = 71;
+	public static readonly LineTerminator = 72;
+	public static readonly DocComment = 73;
+	public static readonly MultiLineComment = 74;
+	public static readonly SingleLineComment = 75;
+	public static readonly UnexpectedCharacter = 76;
+	public static readonly DoubleStringCharacter = 77;
+	public static readonly SingleStringCharacter = 78;
 	public static readonly RULE_program = 0;
 	public static readonly RULE_sourceElement = 1;
 	public static readonly RULE_statement = 2;
@@ -177,21 +178,21 @@ export class epScriptParser extends Parser {
 	];
 
 	private static readonly _LITERAL_NAMES: Array<string | undefined> = [
-		undefined, undefined, undefined, undefined, "'['", "']'", "'('", "')'", 
-		"'{'", "'}'", "'.'", "'?'", "','", "':'", "';'", "'++'", "'--'", "'+='", 
-		"'-='", "'*='", "'<<='", "'>>='", "'&='", "'^='", "'|='", "'&&'", "'||'", 
-		"'<<'", "'>>'", "'~'", "'&'", "'|'", "'^'", "'=='", "'<='", "'>='", "'<'", 
-		"'>'", "'!='", "'!'", "'+'", "'-'", "'*'", "'/'", "'%'", "'='", "'import'", 
-		"'as'", "'var'", "'const'", "'static'", "'function'", "'object'", "'l2v'", 
-		"'once'", "'if'", "'else'", "'for'", "'foreach'", "'while'", "'break'", 
-		"'continue'", "'return'", "'switch'", "'epdswitch'", "'case'", "'default'", 
-		"'this'",
+		undefined, undefined, undefined, undefined, undefined, "'['", "']'", "'('", 
+		"')'", "'{'", "'}'", "'.'", "'?'", "','", "':'", "';'", "'++'", "'--'", 
+		"'+='", "'-='", "'*='", "'<<='", "'>>='", "'&='", "'^='", "'|='", "'&&'", 
+		"'||'", "'<<'", "'>>'", "'~'", "'&'", "'|'", "'^'", "'=='", "'<='", "'>='", 
+		"'<'", "'>'", "'!='", "'!'", "'+'", "'-'", "'*'", "'/'", "'%'", "'='", 
+		"'import'", "'as'", "'var'", "'const'", "'static'", "'function'", "'object'", 
+		"'l2v'", "'once'", "'if'", "'else'", "'for'", "'foreach'", "'while'", 
+		"'break'", "'continue'", "'return'", "'switch'", "'epdswitch'", "'case'", 
+		"'default'", "'this'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
-		undefined, "BooleanLiterl", "DecimalLiteral", "HexIntegerLiteral", "OpenBracket", 
-		"CloseBracket", "OpenParen", "CloseParen", "OpenBrace", "CloseBrace", 
-		"Dot", "QuestionMark", "Comma", "Colon", "SemiColon", "PlusPlus", "MinusMinus", 
-		"PlusAssign", "MinusAssign", "MultiplyAssign", "LeftShiftArithmeticAssign", 
+		undefined, "BooleanLiterl", "DecimalLiteral", "HexIntegerLiteral", "BinaryLiteral", 
+		"OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
+		"CloseBrace", "Dot", "QuestionMark", "Comma", "Colon", "SemiColon", "PlusPlus", 
+		"MinusMinus", "PlusAssign", "MinusAssign", "MultiplyAssign", "LeftShiftArithmeticAssign", 
 		"RightShiftArithmeticAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
 		"And", "Or", "LeftShiftArithmetic", "RightShiftArithmetic", "BitNot", 
 		"BitAnd", "BitOr", "BitXOr", "Equals", "LessThanEquals", "GreaterThanEquals", 
@@ -240,7 +241,7 @@ export class epScriptParser extends Parser {
 			this.state = 111;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Import - 39)) | (1 << (epScriptParser.Var - 39)) | (1 << (epScriptParser.Const - 39)) | (1 << (epScriptParser.Static - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.Object - 39)) | (1 << (epScriptParser.Once - 39)) | (1 << (epScriptParser.If - 39)) | (1 << (epScriptParser.For - 39)) | (1 << (epScriptParser.Foreach - 39)) | (1 << (epScriptParser.While - 39)) | (1 << (epScriptParser.Break - 39)) | (1 << (epScriptParser.Continue - 39)) | (1 << (epScriptParser.Return - 39)) | (1 << (epScriptParser.Switch - 39)) | (1 << (epScriptParser.Epdswitch - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Import - 40)) | (1 << (epScriptParser.Var - 40)) | (1 << (epScriptParser.Const - 40)) | (1 << (epScriptParser.Static - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.Object - 40)) | (1 << (epScriptParser.Once - 40)) | (1 << (epScriptParser.If - 40)) | (1 << (epScriptParser.For - 40)) | (1 << (epScriptParser.Foreach - 40)) | (1 << (epScriptParser.While - 40)) | (1 << (epScriptParser.Break - 40)) | (1 << (epScriptParser.Continue - 40)) | (1 << (epScriptParser.Return - 40)) | (1 << (epScriptParser.Switch - 40)) | (1 << (epScriptParser.Epdswitch - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 				{
 				this.state = 110;
 				this.sourceElements();
@@ -438,7 +439,7 @@ export class epScriptParser extends Parser {
 			this.state = 135;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Import - 39)) | (1 << (epScriptParser.Var - 39)) | (1 << (epScriptParser.Const - 39)) | (1 << (epScriptParser.Static - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.Object - 39)) | (1 << (epScriptParser.Once - 39)) | (1 << (epScriptParser.If - 39)) | (1 << (epScriptParser.For - 39)) | (1 << (epScriptParser.Foreach - 39)) | (1 << (epScriptParser.While - 39)) | (1 << (epScriptParser.Break - 39)) | (1 << (epScriptParser.Continue - 39)) | (1 << (epScriptParser.Return - 39)) | (1 << (epScriptParser.Switch - 39)) | (1 << (epScriptParser.Epdswitch - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Import - 40)) | (1 << (epScriptParser.Var - 40)) | (1 << (epScriptParser.Const - 40)) | (1 << (epScriptParser.Static - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.Object - 40)) | (1 << (epScriptParser.Once - 40)) | (1 << (epScriptParser.If - 40)) | (1 << (epScriptParser.For - 40)) | (1 << (epScriptParser.Foreach - 40)) | (1 << (epScriptParser.While - 40)) | (1 << (epScriptParser.Break - 40)) | (1 << (epScriptParser.Continue - 40)) | (1 << (epScriptParser.Return - 40)) | (1 << (epScriptParser.Switch - 40)) | (1 << (epScriptParser.Epdswitch - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 				{
 				this.state = 134;
 				this.statementList();
@@ -484,7 +485,7 @@ export class epScriptParser extends Parser {
 				this.state = 142;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Import - 39)) | (1 << (epScriptParser.Var - 39)) | (1 << (epScriptParser.Const - 39)) | (1 << (epScriptParser.Static - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.Object - 39)) | (1 << (epScriptParser.Once - 39)) | (1 << (epScriptParser.If - 39)) | (1 << (epScriptParser.For - 39)) | (1 << (epScriptParser.Foreach - 39)) | (1 << (epScriptParser.While - 39)) | (1 << (epScriptParser.Break - 39)) | (1 << (epScriptParser.Continue - 39)) | (1 << (epScriptParser.Return - 39)) | (1 << (epScriptParser.Switch - 39)) | (1 << (epScriptParser.Epdswitch - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0));
+			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Import - 40)) | (1 << (epScriptParser.Var - 40)) | (1 << (epScriptParser.Const - 40)) | (1 << (epScriptParser.Static - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.Object - 40)) | (1 << (epScriptParser.Once - 40)) | (1 << (epScriptParser.If - 40)) | (1 << (epScriptParser.For - 40)) | (1 << (epScriptParser.Foreach - 40)) | (1 << (epScriptParser.While - 40)) | (1 << (epScriptParser.Break - 40)) | (1 << (epScriptParser.Continue - 40)) | (1 << (epScriptParser.Return - 40)) | (1 << (epScriptParser.Switch - 40)) | (1 << (epScriptParser.Epdswitch - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0));
 			}
 		}
 		catch (re) {
@@ -1016,6 +1017,7 @@ export class epScriptParser extends Parser {
 				case epScriptParser.BooleanLiterl:
 				case epScriptParser.DecimalLiteral:
 				case epScriptParser.HexIntegerLiteral:
+				case epScriptParser.BinaryLiteral:
 				case epScriptParser.OpenBracket:
 				case epScriptParser.OpenParen:
 				case epScriptParser.PlusPlus:
@@ -1041,7 +1043,7 @@ export class epScriptParser extends Parser {
 					this.state = 236;
 					this._errHandler.sync(this);
 					_la = this._input.LA(1);
-					if (((((_la - 48)) & ~0x1F) === 0 && ((1 << (_la - 48)) & ((1 << (epScriptParser.Var - 48)) | (1 << (epScriptParser.Const - 48)) | (1 << (epScriptParser.Static - 48)))) !== 0)) {
+					if (((((_la - 49)) & ~0x1F) === 0 && ((1 << (_la - 49)) & ((1 << (epScriptParser.Var - 49)) | (1 << (epScriptParser.Const - 49)) | (1 << (epScriptParser.Static - 49)))) !== 0)) {
 						{
 						this.state = 235;
 						this.variableDeclarationList();
@@ -1058,7 +1060,7 @@ export class epScriptParser extends Parser {
 				this.state = 242;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-				if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+				if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 					{
 					this.state = 241;
 					this.expressionSequence();
@@ -1070,7 +1072,7 @@ export class epScriptParser extends Parser {
 				this.state = 246;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-				if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+				if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 					{
 					this.state = 245;
 					this.expressionSequence();
@@ -1203,7 +1205,7 @@ export class epScriptParser extends Parser {
 			this.state = 274;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 				{
 				this.state = 273;
 				this.expressionSequence();
@@ -1241,7 +1243,7 @@ export class epScriptParser extends Parser {
 			this.state = 280;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 				{
 				this.state = 279;
 				this.expressionSequence();
@@ -1279,7 +1281,7 @@ export class epScriptParser extends Parser {
 			this.state = 286;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 				{
 				this.state = 285;
 				this.expressionSequence();
@@ -1461,7 +1463,7 @@ export class epScriptParser extends Parser {
 			this.state = 317;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Import - 39)) | (1 << (epScriptParser.Var - 39)) | (1 << (epScriptParser.Const - 39)) | (1 << (epScriptParser.Static - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.Object - 39)) | (1 << (epScriptParser.Once - 39)) | (1 << (epScriptParser.If - 39)) | (1 << (epScriptParser.For - 39)) | (1 << (epScriptParser.Foreach - 39)) | (1 << (epScriptParser.While - 39)) | (1 << (epScriptParser.Break - 39)) | (1 << (epScriptParser.Continue - 39)) | (1 << (epScriptParser.Return - 39)) | (1 << (epScriptParser.Switch - 39)) | (1 << (epScriptParser.Epdswitch - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Import - 40)) | (1 << (epScriptParser.Var - 40)) | (1 << (epScriptParser.Const - 40)) | (1 << (epScriptParser.Static - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.Object - 40)) | (1 << (epScriptParser.Once - 40)) | (1 << (epScriptParser.If - 40)) | (1 << (epScriptParser.For - 40)) | (1 << (epScriptParser.Foreach - 40)) | (1 << (epScriptParser.While - 40)) | (1 << (epScriptParser.Break - 40)) | (1 << (epScriptParser.Continue - 40)) | (1 << (epScriptParser.Return - 40)) | (1 << (epScriptParser.Switch - 40)) | (1 << (epScriptParser.Epdswitch - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 				{
 				this.state = 316;
 				this.statementList();
@@ -1499,7 +1501,7 @@ export class epScriptParser extends Parser {
 			this.state = 322;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Import - 39)) | (1 << (epScriptParser.Var - 39)) | (1 << (epScriptParser.Const - 39)) | (1 << (epScriptParser.Static - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.Object - 39)) | (1 << (epScriptParser.Once - 39)) | (1 << (epScriptParser.If - 39)) | (1 << (epScriptParser.For - 39)) | (1 << (epScriptParser.Foreach - 39)) | (1 << (epScriptParser.While - 39)) | (1 << (epScriptParser.Break - 39)) | (1 << (epScriptParser.Continue - 39)) | (1 << (epScriptParser.Return - 39)) | (1 << (epScriptParser.Switch - 39)) | (1 << (epScriptParser.Epdswitch - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Import - 40)) | (1 << (epScriptParser.Var - 40)) | (1 << (epScriptParser.Const - 40)) | (1 << (epScriptParser.Static - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.Object - 40)) | (1 << (epScriptParser.Once - 40)) | (1 << (epScriptParser.If - 40)) | (1 << (epScriptParser.For - 40)) | (1 << (epScriptParser.Foreach - 40)) | (1 << (epScriptParser.While - 40)) | (1 << (epScriptParser.Break - 40)) | (1 << (epScriptParser.Continue - 40)) | (1 << (epScriptParser.Return - 40)) | (1 << (epScriptParser.Switch - 40)) | (1 << (epScriptParser.Epdswitch - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 				{
 				this.state = 321;
 				this.statementList();
@@ -1860,7 +1862,7 @@ export class epScriptParser extends Parser {
 			this.state = 381;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Import - 39)) | (1 << (epScriptParser.Var - 39)) | (1 << (epScriptParser.Const - 39)) | (1 << (epScriptParser.Static - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.Object - 39)) | (1 << (epScriptParser.Once - 39)) | (1 << (epScriptParser.If - 39)) | (1 << (epScriptParser.For - 39)) | (1 << (epScriptParser.Foreach - 39)) | (1 << (epScriptParser.While - 39)) | (1 << (epScriptParser.Break - 39)) | (1 << (epScriptParser.Continue - 39)) | (1 << (epScriptParser.Return - 39)) | (1 << (epScriptParser.Switch - 39)) | (1 << (epScriptParser.Epdswitch - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Import - 40)) | (1 << (epScriptParser.Var - 40)) | (1 << (epScriptParser.Const - 40)) | (1 << (epScriptParser.Static - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.Object - 40)) | (1 << (epScriptParser.Once - 40)) | (1 << (epScriptParser.If - 40)) | (1 << (epScriptParser.For - 40)) | (1 << (epScriptParser.Foreach - 40)) | (1 << (epScriptParser.While - 40)) | (1 << (epScriptParser.Break - 40)) | (1 << (epScriptParser.Continue - 40)) | (1 << (epScriptParser.Return - 40)) | (1 << (epScriptParser.Switch - 40)) | (1 << (epScriptParser.Epdswitch - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 				{
 				this.state = 380;
 				this.sourceElements();
@@ -1950,7 +1952,7 @@ export class epScriptParser extends Parser {
 				this.state = 397;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Import - 39)) | (1 << (epScriptParser.Var - 39)) | (1 << (epScriptParser.Const - 39)) | (1 << (epScriptParser.Static - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.Object - 39)) | (1 << (epScriptParser.Once - 39)) | (1 << (epScriptParser.If - 39)) | (1 << (epScriptParser.For - 39)) | (1 << (epScriptParser.Foreach - 39)) | (1 << (epScriptParser.While - 39)) | (1 << (epScriptParser.Break - 39)) | (1 << (epScriptParser.Continue - 39)) | (1 << (epScriptParser.Return - 39)) | (1 << (epScriptParser.Switch - 39)) | (1 << (epScriptParser.Epdswitch - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0));
+			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.OpenBrace) | (1 << epScriptParser.SemiColon) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Import - 40)) | (1 << (epScriptParser.Var - 40)) | (1 << (epScriptParser.Const - 40)) | (1 << (epScriptParser.Static - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.Object - 40)) | (1 << (epScriptParser.Once - 40)) | (1 << (epScriptParser.If - 40)) | (1 << (epScriptParser.For - 40)) | (1 << (epScriptParser.Foreach - 40)) | (1 << (epScriptParser.While - 40)) | (1 << (epScriptParser.Break - 40)) | (1 << (epScriptParser.Continue - 40)) | (1 << (epScriptParser.Return - 40)) | (1 << (epScriptParser.Switch - 40)) | (1 << (epScriptParser.Epdswitch - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0));
 			}
 		}
 		catch (re) {
@@ -2030,7 +2032,7 @@ export class epScriptParser extends Parser {
 				this.state = 410;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-				if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+				if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 					{
 					this.state = 409;
 					this.arrayElement();
@@ -2144,7 +2146,7 @@ export class epScriptParser extends Parser {
 			this.state = 439;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 				{
 				this.state = 435;
 				this.argumentList();
@@ -2202,7 +2204,7 @@ export class epScriptParser extends Parser {
 					this.state = 446;
 					this._errHandler.sync(this);
 					_la = this._input.LA(1);
-					if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (epScriptParser.Not - 39)) | (1 << (epScriptParser.Plus - 39)) | (1 << (epScriptParser.Minus - 39)) | (1 << (epScriptParser.Function - 39)) | (1 << (epScriptParser.This - 39)) | (1 << (epScriptParser.Identifier - 39)) | (1 << (epScriptParser.StringLiteral - 39)))) !== 0)) {
+					if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.BooleanLiterl) | (1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral) | (1 << epScriptParser.OpenBracket) | (1 << epScriptParser.OpenParen) | (1 << epScriptParser.PlusPlus) | (1 << epScriptParser.MinusMinus) | (1 << epScriptParser.BitNot))) !== 0) || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (epScriptParser.Not - 40)) | (1 << (epScriptParser.Plus - 40)) | (1 << (epScriptParser.Minus - 40)) | (1 << (epScriptParser.Function - 40)) | (1 << (epScriptParser.This - 40)) | (1 << (epScriptParser.Identifier - 40)) | (1 << (epScriptParser.StringLiteral - 40)))) !== 0)) {
 						{
 						this.state = 445;
 						this.argument();
@@ -2385,6 +2387,7 @@ export class epScriptParser extends Parser {
 				break;
 			case epScriptParser.DecimalLiteral:
 			case epScriptParser.HexIntegerLiteral:
+			case epScriptParser.BinaryLiteral:
 				{
 				_localctx = new NumericLiteralExpressionContext(_localctx);
 				this._ctx = _localctx;
@@ -2644,7 +2647,7 @@ export class epScriptParser extends Parser {
 			{
 			this.state = 520;
 			_la = this._input.LA(1);
-			if (!(((((_la - 15)) & ~0x1F) === 0 && ((1 << (_la - 15)) & ((1 << (epScriptParser.PlusPlus - 15)) | (1 << (epScriptParser.MinusMinus - 15)) | (1 << (epScriptParser.BitNot - 15)) | (1 << (epScriptParser.Not - 15)) | (1 << (epScriptParser.Plus - 15)) | (1 << (epScriptParser.Minus - 15)))) !== 0))) {
+			if (!(((((_la - 16)) & ~0x1F) === 0 && ((1 << (_la - 16)) & ((1 << (epScriptParser.PlusPlus - 16)) | (1 << (epScriptParser.MinusMinus - 16)) | (1 << (epScriptParser.BitNot - 16)) | (1 << (epScriptParser.Not - 16)) | (1 << (epScriptParser.Plus - 16)) | (1 << (epScriptParser.Minus - 16)))) !== 0))) {
 			this._errHandler.recoverInline(this);
 			} else {
 				if (this._input.LA(1) === Token.EOF) {
@@ -2680,7 +2683,7 @@ export class epScriptParser extends Parser {
 			{
 			this.state = 522;
 			_la = this._input.LA(1);
-			if (!(((((_la - 17)) & ~0x1F) === 0 && ((1 << (_la - 17)) & ((1 << (epScriptParser.PlusAssign - 17)) | (1 << (epScriptParser.MinusAssign - 17)) | (1 << (epScriptParser.MultiplyAssign - 17)) | (1 << (epScriptParser.LeftShiftArithmeticAssign - 17)) | (1 << (epScriptParser.RightShiftArithmeticAssign - 17)) | (1 << (epScriptParser.BitAndAssign - 17)) | (1 << (epScriptParser.BitXorAssign - 17)) | (1 << (epScriptParser.BitOrAssign - 17)) | (1 << (epScriptParser.And - 17)) | (1 << (epScriptParser.Or - 17)) | (1 << (epScriptParser.LeftShiftArithmetic - 17)) | (1 << (epScriptParser.RightShiftArithmetic - 17)) | (1 << (epScriptParser.BitAnd - 17)) | (1 << (epScriptParser.BitOr - 17)) | (1 << (epScriptParser.BitXOr - 17)) | (1 << (epScriptParser.Equals - 17)) | (1 << (epScriptParser.LessThanEquals - 17)) | (1 << (epScriptParser.GreaterThanEquals - 17)) | (1 << (epScriptParser.LessThan - 17)) | (1 << (epScriptParser.MoreThan - 17)) | (1 << (epScriptParser.NotEquals - 17)) | (1 << (epScriptParser.Plus - 17)) | (1 << (epScriptParser.Minus - 17)) | (1 << (epScriptParser.Multiply - 17)) | (1 << (epScriptParser.Divide - 17)) | (1 << (epScriptParser.Modulus - 17)) | (1 << (epScriptParser.Assign - 17)))) !== 0))) {
+			if (!(((((_la - 18)) & ~0x1F) === 0 && ((1 << (_la - 18)) & ((1 << (epScriptParser.PlusAssign - 18)) | (1 << (epScriptParser.MinusAssign - 18)) | (1 << (epScriptParser.MultiplyAssign - 18)) | (1 << (epScriptParser.LeftShiftArithmeticAssign - 18)) | (1 << (epScriptParser.RightShiftArithmeticAssign - 18)) | (1 << (epScriptParser.BitAndAssign - 18)) | (1 << (epScriptParser.BitXorAssign - 18)) | (1 << (epScriptParser.BitOrAssign - 18)) | (1 << (epScriptParser.And - 18)) | (1 << (epScriptParser.Or - 18)) | (1 << (epScriptParser.LeftShiftArithmetic - 18)) | (1 << (epScriptParser.RightShiftArithmetic - 18)) | (1 << (epScriptParser.BitAnd - 18)) | (1 << (epScriptParser.BitOr - 18)) | (1 << (epScriptParser.BitXOr - 18)) | (1 << (epScriptParser.Equals - 18)) | (1 << (epScriptParser.LessThanEquals - 18)) | (1 << (epScriptParser.GreaterThanEquals - 18)) | (1 << (epScriptParser.LessThan - 18)) | (1 << (epScriptParser.MoreThan - 18)) | (1 << (epScriptParser.NotEquals - 18)) | (1 << (epScriptParser.Plus - 18)) | (1 << (epScriptParser.Minus - 18)) | (1 << (epScriptParser.Multiply - 18)) | (1 << (epScriptParser.Divide - 18)) | (1 << (epScriptParser.Modulus - 18)) | (1 << (epScriptParser.Assign - 18)))) !== 0))) {
 			this._errHandler.recoverInline(this);
 			} else {
 				if (this._input.LA(1) === Token.EOF) {
@@ -2716,7 +2719,7 @@ export class epScriptParser extends Parser {
 			{
 			this.state = 524;
 			_la = this._input.LA(1);
-			if (!(_la === epScriptParser.DecimalLiteral || _la === epScriptParser.HexIntegerLiteral)) {
+			if (!((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << epScriptParser.DecimalLiteral) | (1 << epScriptParser.HexIntegerLiteral) | (1 << epScriptParser.BinaryLiteral))) !== 0))) {
 			this._errHandler.recoverInline(this);
 			} else {
 				if (this._input.LA(1) === Token.EOF) {
@@ -2861,7 +2864,7 @@ export class epScriptParser extends Parser {
 			{
 			this.state = 534;
 			_la = this._input.LA(1);
-			if (!(((((_la - 46)) & ~0x1F) === 0 && ((1 << (_la - 46)) & ((1 << (epScriptParser.Import - 46)) | (1 << (epScriptParser.As - 46)) | (1 << (epScriptParser.Var - 46)) | (1 << (epScriptParser.Const - 46)) | (1 << (epScriptParser.Static - 46)) | (1 << (epScriptParser.Function - 46)) | (1 << (epScriptParser.Object - 46)) | (1 << (epScriptParser.L2V - 46)) | (1 << (epScriptParser.Once - 46)) | (1 << (epScriptParser.If - 46)) | (1 << (epScriptParser.Else - 46)) | (1 << (epScriptParser.For - 46)) | (1 << (epScriptParser.Foreach - 46)) | (1 << (epScriptParser.While - 46)) | (1 << (epScriptParser.Break - 46)) | (1 << (epScriptParser.Continue - 46)) | (1 << (epScriptParser.Return - 46)) | (1 << (epScriptParser.Switch - 46)) | (1 << (epScriptParser.Case - 46)) | (1 << (epScriptParser.Default - 46)))) !== 0))) {
+			if (!(((((_la - 47)) & ~0x1F) === 0 && ((1 << (_la - 47)) & ((1 << (epScriptParser.Import - 47)) | (1 << (epScriptParser.As - 47)) | (1 << (epScriptParser.Var - 47)) | (1 << (epScriptParser.Const - 47)) | (1 << (epScriptParser.Static - 47)) | (1 << (epScriptParser.Function - 47)) | (1 << (epScriptParser.Object - 47)) | (1 << (epScriptParser.L2V - 47)) | (1 << (epScriptParser.Once - 47)) | (1 << (epScriptParser.If - 47)) | (1 << (epScriptParser.Else - 47)) | (1 << (epScriptParser.For - 47)) | (1 << (epScriptParser.Foreach - 47)) | (1 << (epScriptParser.While - 47)) | (1 << (epScriptParser.Break - 47)) | (1 << (epScriptParser.Continue - 47)) | (1 << (epScriptParser.Return - 47)) | (1 << (epScriptParser.Switch - 47)) | (1 << (epScriptParser.Case - 47)) | (1 << (epScriptParser.Default - 47)))) !== 0))) {
 			this._errHandler.recoverInline(this);
 			} else {
 				if (this._input.LA(1) === Token.EOF) {
@@ -2929,7 +2932,7 @@ export class epScriptParser extends Parser {
 	}
 
 	public static readonly _serializedATN: string =
-		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03O\u021B\x04\x02" +
+		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03P\u021B\x04\x02" +
 		"\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07" +
 		"\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x04" +
 		"\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12\x04" +
@@ -2985,10 +2988,10 @@ export class epScriptParser extends Parser {
 		"\x1E\x02 \x02\"\x02$\x02&\x02(\x02*\x02,\x02.\x020\x022\x024\x026\x02" +
 		"8\x02:\x02<\x02>\x02@\x02B\x02D\x02F\x02H\x02J\x02L\x02N\x02P\x02R\x02" +
 		"T\x02V\x02X\x02Z\x02\\\x02^\x02`\x02b\x02d\x02f\x02h\x02j\x02l\x02n\x02" +
-		"\x02\t\x03\x0223\x03\x02AB\x03\x02\x11\x12\x05\x02\x11\x12\x1F\x1F)+\x05" +
-		"\x02\x13\x1E (*/\x03\x02\x04\x05\x04\x020ACD\x02\u0234\x02q\x03\x02\x02" +
-		"\x02\x04u\x03\x02\x02\x02\x06\x85\x03\x02\x02\x02\b\x87\x03\x02\x02\x02" +
-		"\n\x8E\x03\x02\x02\x02\f\x92\x03\x02\x02\x02\x0E\x99\x03\x02\x02\x02\x10" +
+		"\x02\t\x03\x0234\x03\x02BC\x03\x02\x12\x13\x05\x02\x12\x13  *,\x05\x02" +
+		"\x14\x1F!)+0\x03\x02\x04\x06\x04\x021BDE\x02\u0234\x02q\x03\x02\x02\x02" +
+		"\x04u\x03\x02\x02\x02\x06\x85\x03\x02\x02\x02\b\x87\x03\x02\x02\x02\n" +
+		"\x8E\x03\x02\x02\x02\f\x92\x03\x02\x02\x02\x0E\x99\x03\x02\x02\x02\x10" +
 		"\xA4\x03\x02\x02\x02\x12\xA7\x03\x02\x02\x02\x14\xCB\x03\x02\x02\x02\x16" +
 		"\xCD\x03\x02\x02\x02\x18\xD2\x03\x02\x02\x02\x1A\xD4\x03\x02\x02\x02\x1C" +
 		"\xD6\x03\x02\x02\x02\x1E\xD9\x03\x02\x02\x02 \xDB\x03\x02\x02\x02\"\u0100" +
@@ -3015,172 +3018,172 @@ export class epScriptParser extends Parser {
 		"\x02\x02\x85{\x03\x02\x02\x02\x85|\x03\x02\x02\x02\x85}\x03\x02\x02\x02" +
 		"\x85~\x03\x02\x02\x02\x85\x7F\x03\x02\x02\x02\x85\x80\x03\x02\x02\x02" +
 		"\x85\x81\x03\x02\x02\x02\x85\x82\x03\x02\x02\x02\x85\x83\x03\x02\x02\x02" +
-		"\x85\x84\x03\x02\x02\x02\x86\x07\x03\x02\x02\x02\x87\x89\x07\n\x02\x02" +
+		"\x85\x84\x03\x02\x02\x02\x86\x07\x03\x02\x02\x02\x87\x89\x07\v\x02\x02" +
 		"\x88\x8A\x05\n\x06\x02\x89\x88\x03\x02\x02\x02\x89\x8A\x03\x02\x02\x02" +
-		"\x8A\x8B\x03\x02\x02\x02\x8B\x8C\x07\v\x02\x02\x8C\t\x03\x02\x02\x02\x8D" +
+		"\x8A\x8B\x03\x02\x02\x02\x8B\x8C\x07\f\x02\x02\x8C\t\x03\x02\x02\x02\x8D" +
 		"\x8F\x05\x06\x04\x02\x8E\x8D\x03\x02\x02\x02\x8F\x90\x03\x02\x02\x02\x90" +
 		"\x8E\x03\x02\x02\x02\x90\x91\x03\x02\x02\x02\x91\v\x03\x02\x02\x02\x92" +
-		"\x93\x070\x02\x02\x93\x95\x05\x0E\b\x02\x94\x96\x05\x10\t\x02\x95\x94" +
+		"\x93\x071\x02\x02\x93\x95\x05\x0E\b\x02\x94\x96\x05\x10\t\x02\x95\x94" +
 		"\x03\x02\x02\x02\x95\x96\x03\x02\x02\x02\x96\x97\x03\x02\x02\x02\x97\x98" +
-		"\x07\x10\x02\x02\x98\r\x03\x02\x02\x02\x99\x9A\b\b\x01\x02\x9A\x9B\x05" +
-		"j6\x02\x9B\xA1\x03\x02\x02\x02\x9C\x9D\f\x04\x02\x02\x9D\x9E\x07\f\x02" +
+		"\x07\x11\x02\x02\x98\r\x03\x02\x02\x02\x99\x9A\b\b\x01\x02\x9A\x9B\x05" +
+		"j6\x02\x9B\xA1\x03\x02\x02\x02\x9C\x9D\f\x04\x02\x02\x9D\x9E\x07\r\x02" +
 		"\x02\x9E\xA0\x05j6\x02\x9F\x9C\x03\x02\x02\x02\xA0\xA3\x03\x02\x02\x02" +
 		"\xA1\x9F\x03\x02\x02\x02\xA1\xA2\x03\x02\x02\x02\xA2\x0F\x03\x02\x02\x02" +
-		"\xA3\xA1\x03\x02\x02\x02\xA4\xA5\x071\x02\x02\xA5\xA6\x05j6\x02\xA6\x11" +
-		"\x03\x02\x02\x02\xA7\xA8\x05\x14\v\x02\xA8\xA9\x07\x10\x02\x02\xA9\x13" +
-		"\x03\x02\x02\x02\xAA\xAC\x074\x02\x02\xAB\xAA\x03\x02\x02\x02\xAB\xAC" +
+		"\xA3\xA1\x03\x02\x02\x02\xA4\xA5\x072\x02\x02\xA5\xA6\x05j6\x02\xA6\x11" +
+		"\x03\x02\x02\x02\xA7\xA8\x05\x14\v\x02\xA8\xA9\x07\x11\x02\x02\xA9\x13" +
+		"\x03\x02\x02\x02\xAA\xAC\x075\x02\x02\xAB\xAA\x03\x02\x02\x02\xAB\xAC" +
 		"\x03\x02\x02\x02\xAC\xAD\x03\x02\x02\x02\xAD\xAE\x05\x1E\x10\x02\xAE\xB3" +
-		"\x05\x1A\x0E\x02\xAF\xB0\x07\x0E\x02\x02\xB0\xB2\x05\x1A\x0E\x02\xB1\xAF" +
+		"\x05\x1A\x0E\x02\xAF\xB0\x07\x0F\x02\x02\xB0\xB2\x05\x1A\x0E\x02\xB1\xAF" +
 		"\x03\x02\x02\x02\xB2\xB5\x03\x02\x02\x02\xB3\xB1\x03\x02\x02\x02\xB3\xB4" +
 		"\x03\x02\x02\x02\xB4\xCC\x03\x02\x02\x02\xB5\xB3\x03\x02\x02\x02\xB6\xB8" +
-		"\x074\x02\x02\xB7\xB6\x03\x02\x02\x02\xB7\xB8\x03\x02\x02\x02\xB8\xB9" +
+		"\x075\x02\x02\xB7\xB6\x03\x02\x02\x02\xB7\xB8\x03\x02\x02\x02\xB8\xB9" +
 		"\x03\x02\x02\x02\xB9\xBA\x05\x1E\x10\x02\xBA\xBF\x05\x1A\x0E\x02\xBB\xBC" +
-		"\x07\x0E\x02\x02\xBC\xBE\x05\x1A\x0E\x02\xBD\xBB\x03\x02\x02\x02\xBE\xC1" +
+		"\x07\x0F\x02\x02\xBC\xBE\x05\x1A\x0E\x02\xBD\xBB\x03\x02\x02\x02\xBE\xC1" +
 		"\x03\x02\x02\x02\xBF\xBD\x03\x02\x02\x02\xBF\xC0\x03\x02\x02\x02\xC0\xC2" +
-		"\x03\x02\x02\x02\xC1\xBF\x03\x02\x02\x02\xC2\xC3\x07/\x02\x02\xC3\xC8" +
-		"\x05\\/\x02\xC4\xC5\x07\x0E\x02\x02\xC5\xC7\x05\\/\x02\xC6\xC4\x03\x02" +
+		"\x03\x02\x02\x02\xC1\xBF\x03\x02\x02\x02\xC2\xC3\x070\x02\x02\xC3\xC8" +
+		"\x05\\/\x02\xC4\xC5\x07\x0F\x02\x02\xC5\xC7\x05\\/\x02\xC6\xC4\x03\x02" +
 		"\x02\x02\xC7\xCA\x03\x02\x02\x02\xC8\xC6\x03\x02\x02\x02\xC8\xC9\x03\x02" +
 		"\x02\x02\xC9\xCC\x03\x02\x02\x02\xCA\xC8\x03\x02\x02\x02\xCB\xAB\x03\x02" +
 		"\x02\x02\xCB\xB7\x03\x02\x02\x02\xCC\x15\x03\x02\x02\x02\xCD\xD0\x05\x1A" +
-		"\x0E\x02\xCE\xCF\x07/\x02\x02\xCF\xD1\x05\\/\x02\xD0\xCE\x03\x02\x02\x02" +
-		"\xD0\xD1\x03\x02\x02\x02\xD1\x17\x03\x02\x02\x02\xD2\xD3\x07\x10\x02\x02" +
+		"\x0E\x02\xCE\xCF\x070\x02\x02\xCF\xD1\x05\\/\x02\xD0\xCE\x03\x02\x02\x02" +
+		"\xD0\xD1\x03\x02\x02\x02\xD1\x17\x03\x02\x02\x02\xD2\xD3\x07\x11\x02\x02" +
 		"\xD3\x19\x03\x02\x02\x02\xD4\xD5\x05j6\x02\xD5\x1B\x03\x02\x02\x02\xD6" +
-		"\xD7\x05Z.\x02\xD7\xD8\x07\x10\x02\x02\xD8\x1D\x03\x02\x02\x02\xD9\xDA" +
-		"\t\x02\x02\x02\xDA\x1F\x03\x02\x02\x02\xDB\xDC\x079\x02\x02\xDC\xDD\x07" +
-		"\b\x02\x02\xDD\xDE\x05Z.\x02\xDE\xDF\x07\t\x02\x02\xDF\xE2\x05\x06\x04" +
-		"\x02\xE0\xE1\x07:\x02\x02\xE1\xE3\x05\x06\x04\x02\xE2\xE0\x03\x02\x02" +
-		"\x02\xE2\xE3\x03\x02\x02\x02\xE3!\x03\x02\x02\x02\xE4\xE5\x07=\x02\x02" +
-		"\xE5\xE6\x07\b\x02\x02\xE6\xE7\x05Z.\x02\xE7\xE8\x07\t\x02\x02\xE8\xE9" +
-		"\x05\x06\x04\x02\xE9\u0101\x03\x02\x02\x02\xEA\xEB\x07;\x02\x02\xEB\xF0" +
-		"\x07\b\x02\x02\xEC\xF1\x05Z.\x02\xED\xEF\x05\x14\v\x02\xEE\xED\x03\x02" +
+		"\xD7\x05Z.\x02\xD7\xD8\x07\x11\x02\x02\xD8\x1D\x03\x02\x02\x02\xD9\xDA" +
+		"\t\x02\x02\x02\xDA\x1F\x03\x02\x02\x02\xDB\xDC\x07:\x02\x02\xDC\xDD\x07" +
+		"\t\x02\x02\xDD\xDE\x05Z.\x02\xDE\xDF\x07\n\x02\x02\xDF\xE2\x05\x06\x04" +
+		"\x02\xE0\xE1\x07;\x02\x02\xE1\xE3\x05\x06\x04\x02\xE2\xE0\x03\x02\x02" +
+		"\x02\xE2\xE3\x03\x02\x02\x02\xE3!\x03\x02\x02\x02\xE4\xE5\x07>\x02\x02" +
+		"\xE5\xE6\x07\t\x02\x02\xE6\xE7\x05Z.\x02\xE7\xE8\x07\n\x02\x02\xE8\xE9" +
+		"\x05\x06\x04\x02\xE9\u0101\x03\x02\x02\x02\xEA\xEB\x07<\x02\x02\xEB\xF0" +
+		"\x07\t\x02\x02\xEC\xF1\x05Z.\x02\xED\xEF\x05\x14\v\x02\xEE\xED\x03\x02" +
 		"\x02\x02\xEE\xEF\x03\x02\x02\x02\xEF\xF1\x03\x02\x02\x02\xF0\xEC\x03\x02" +
-		"\x02\x02\xF0\xEE\x03\x02\x02\x02\xF1\xF2\x03\x02\x02\x02\xF2\xF4\x07\x10" +
+		"\x02\x02\xF0\xEE\x03\x02\x02\x02\xF1\xF2\x03\x02\x02\x02\xF2\xF4\x07\x11" +
 		"\x02\x02\xF3\xF5\x05Z.\x02\xF4\xF3\x03\x02\x02\x02\xF4\xF5\x03\x02\x02" +
-		"\x02\xF5\xF6\x03\x02\x02\x02\xF6\xF8\x07\x10\x02\x02\xF7\xF9\x05Z.\x02" +
+		"\x02\xF5\xF6\x03\x02\x02\x02\xF6\xF8\x07\x11\x02\x02\xF7\xF9\x05Z.\x02" +
 		"\xF8\xF7\x03\x02\x02\x02\xF8\xF9\x03\x02\x02\x02\xF9\xFA\x03\x02\x02\x02" +
-		"\xFA\xFB\x07\t\x02\x02\xFB\u0101\x05\x06\x04\x02\xFC\xFD\x07<\x02\x02" +
+		"\xFA\xFB\x07\n\x02\x02\xFB\u0101\x05\x06\x04\x02\xFC\xFD\x07=\x02\x02" +
 		"\xFD\xFE\x05$\x13\x02\xFE\xFF\x05\x06\x04\x02\xFF\u0101\x03\x02\x02\x02" +
 		"\u0100\xE4\x03\x02\x02\x02\u0100\xEA\x03\x02\x02\x02\u0100\xFC\x03\x02" +
-		"\x02\x02\u0101#\x03\x02\x02\x02\u0102\u0103\x07\b\x02\x02\u0103\u0108" +
-		"\x05j6\x02\u0104\u0105\x07\x0E\x02\x02\u0105\u0107\x05j6\x02\u0106\u0104" +
+		"\x02\x02\u0101#\x03\x02\x02\x02\u0102\u0103\x07\t\x02\x02\u0103\u0108" +
+		"\x05j6\x02\u0104\u0105\x07\x0F\x02\x02\u0105\u0107\x05j6\x02\u0106\u0104" +
 		"\x03\x02\x02\x02\u0107\u010A\x03\x02\x02\x02\u0108\u0106\x03\x02\x02\x02" +
 		"\u0108\u0109\x03\x02\x02\x02\u0109\u010B\x03\x02\x02\x02\u010A\u0108\x03" +
-		"\x02\x02\x02\u010B\u010C\x07\x0F\x02\x02\u010C\u010D\x05\\/\x02\u010D" +
-		"\u010E\x07\t\x02\x02\u010E%\x03\x02\x02\x02\u010F\u0110\x078\x02\x02\u0110" +
-		"\u0111\x05\x06\x04\x02\u0111\'\x03\x02\x02\x02\u0112\u0114\x07?\x02\x02" +
+		"\x02\x02\x02\u010B\u010C\x07\x10\x02\x02\u010C\u010D\x05\\/\x02\u010D" +
+		"\u010E\x07\n\x02\x02\u010E%\x03\x02\x02\x02\u010F\u0110\x079\x02\x02\u0110" +
+		"\u0111\x05\x06\x04\x02\u0111\'\x03\x02\x02\x02\u0112\u0114\x07@\x02\x02" +
 		"\u0113\u0115\x05Z.\x02\u0114\u0113\x03\x02\x02\x02\u0114\u0115\x03\x02" +
-		"\x02\x02\u0115\u0116\x03\x02\x02\x02\u0116\u0117\x07\x10\x02\x02\u0117" +
-		")\x03\x02\x02\x02\u0118\u011A\x07>\x02\x02\u0119\u011B\x05Z.\x02\u011A" +
+		"\x02\x02\u0115\u0116\x03\x02\x02\x02\u0116\u0117\x07\x11\x02\x02\u0117" +
+		")\x03\x02\x02\x02\u0118\u011A\x07?\x02\x02\u0119\u011B\x05Z.\x02\u011A" +
 		"\u0119\x03\x02\x02\x02\u011A\u011B\x03\x02\x02\x02\u011B\u011C\x03\x02" +
-		"\x02\x02\u011C\u011D\x07\x10\x02\x02\u011D+\x03\x02\x02\x02\u011E\u0120" +
-		"\x07@\x02\x02\u011F\u0121\x05Z.\x02\u0120\u011F\x03\x02\x02\x02\u0120" +
-		"\u0121\x03\x02\x02\x02\u0121\u0122\x03\x02\x02\x02\u0122\u0123\x07\x10" +
+		"\x02\x02\u011C\u011D\x07\x11\x02\x02\u011D+\x03\x02\x02\x02\u011E\u0120" +
+		"\x07A\x02\x02\u011F\u0121\x05Z.\x02\u0120\u011F\x03\x02\x02\x02\u0120" +
+		"\u0121\x03\x02\x02\x02\u0121\u0122\x03\x02\x02\x02\u0122\u0123\x07\x11" +
 		"\x02\x02\u0123-\x03\x02\x02\x02\u0124\u0125\t\x03\x02\x02\u0125\u0126" +
-		"\x07\b\x02\x02\u0126\u0127\x05Z.\x02\u0127\u0128\x07\t\x02\x02\u0128\u0129" +
-		"\x050\x19\x02\u0129/\x03\x02\x02\x02\u012A\u012C\x07\n\x02\x02\u012B\u012D" +
+		"\x07\t\x02\x02\u0126\u0127\x05Z.\x02\u0127\u0128\x07\n\x02\x02\u0128\u0129" +
+		"\x050\x19\x02\u0129/\x03\x02\x02\x02\u012A\u012C\x07\v\x02\x02\u012B\u012D" +
 		"\x052\x1A\x02\u012C\u012B\x03\x02\x02\x02\u012C\u012D\x03\x02\x02\x02" +
 		"\u012D\u0132\x03\x02\x02\x02\u012E\u0130\x056\x1C\x02\u012F\u0131\x05" +
 		"2\x1A\x02\u0130\u012F\x03\x02\x02\x02\u0130\u0131\x03\x02\x02\x02\u0131" +
 		"\u0133\x03\x02\x02\x02\u0132\u012E\x03\x02\x02\x02\u0132\u0133\x03\x02" +
-		"\x02\x02\u0133\u0134\x03\x02\x02\x02\u0134\u0135\x07\v\x02\x02\u01351" +
+		"\x02\x02\u0133\u0134\x03\x02\x02\x02\u0134\u0135\x07\f\x02\x02\u01351" +
 		"\x03\x02\x02\x02\u0136\u0138\x054\x1B\x02\u0137\u0136\x03\x02\x02\x02" +
 		"\u0138\u0139\x03\x02\x02\x02\u0139\u0137\x03\x02\x02\x02\u0139\u013A\x03" +
-		"\x02\x02\x02\u013A3\x03\x02\x02\x02\u013B\u013C\x07C\x02\x02\u013C\u013D" +
-		"\x05Z.\x02\u013D\u013F\x07\x0F\x02\x02\u013E\u0140\x05\n\x06\x02\u013F" +
+		"\x02\x02\x02\u013A3\x03\x02\x02\x02\u013B\u013C\x07D\x02\x02\u013C\u013D" +
+		"\x05Z.\x02\u013D\u013F\x07\x10\x02\x02\u013E\u0140\x05\n\x06\x02\u013F" +
 		"\u013E\x03\x02\x02\x02\u013F\u0140\x03\x02\x02\x02\u01405\x03\x02\x02" +
-		"\x02\u0141\u0142\x07D\x02\x02\u0142\u0144\x07\x0F\x02\x02\u0143\u0145" +
+		"\x02\u0141\u0142\x07E\x02\x02\u0142\u0144\x07\x10\x02\x02\u0143\u0145" +
 		"\x05\n\x06\x02\u0144\u0143\x03\x02\x02\x02\u0144\u0145\x03\x02\x02\x02" +
-		"\u01457\x03\x02\x02\x02\u0146\u0147\x076\x02\x02\u0147\u0148\x05j6\x02" +
-		"\u0148\u0149\x05:\x1E\x02\u0149\u014A\x07\x10\x02\x02\u014A9\x03\x02\x02" +
-		"\x02\u014B\u014F\x07\n\x02\x02\u014C\u014E\x05<\x1F\x02\u014D\u014C\x03" +
+		"\u01457\x03\x02\x02\x02\u0146\u0147\x077\x02\x02\u0147\u0148\x05j6\x02" +
+		"\u0148\u0149\x05:\x1E\x02\u0149\u014A\x07\x11\x02\x02\u014A9\x03\x02\x02" +
+		"\x02\u014B\u014F\x07\v\x02\x02\u014C\u014E\x05<\x1F\x02\u014D\u014C\x03" +
 		"\x02\x02\x02\u014E\u0151\x03\x02\x02\x02\u014F\u014D\x03\x02\x02\x02\u014F" +
 		"\u0150\x03\x02\x02\x02\u0150\u0152\x03\x02\x02\x02\u0151\u014F\x03\x02" +
-		"\x02\x02\u0152\u0153\x07\v\x02\x02\u0153;\x03\x02\x02\x02\u0154\u0157" +
+		"\x02\x02\u0152\u0153\x07\f\x02\x02\u0153;\x03\x02\x02\x02\u0154\u0157" +
 		"\x05> \x02\u0155\u0157\x05B\"\x02\u0156\u0154\x03\x02\x02\x02\u0156\u0155" +
-		"\x03\x02\x02\x02\u0157=\x03\x02\x02\x02\u0158\u0159\x072\x02\x02\u0159" +
+		"\x03\x02\x02\x02\u0157=\x03\x02\x02\x02\u0158\u0159\x073\x02\x02\u0159" +
 		"\u015B\x05j6\x02\u015A\u015C\x05@!\x02\u015B\u015A\x03\x02\x02\x02\u015B" +
-		"\u015C\x03\x02\x02\x02\u015C\u015D\x03\x02\x02\x02\u015D\u015E\x07\x10" +
-		"\x02\x02\u015E?\x03\x02\x02\x02\u015F\u0160\x07\x0F\x02\x02\u0160\u0161" +
-		"\x05\\/\x02\u0161A\x03\x02\x02\x02\u0162\u0163\x075\x02\x02\u0163\u0164" +
-		"\x05j6\x02\u0164\u0166\x07\b\x02\x02\u0165\u0167\x05D#\x02\u0166\u0165" +
+		"\u015C\x03\x02\x02\x02\u015C\u015D\x03\x02\x02\x02\u015D\u015E\x07\x11" +
+		"\x02\x02\u015E?\x03\x02\x02\x02\u015F\u0160\x07\x10\x02\x02\u0160\u0161" +
+		"\x05\\/\x02\u0161A\x03\x02\x02\x02\u0162\u0163\x076\x02\x02\u0163\u0164" +
+		"\x05j6\x02\u0164\u0166\x07\t\x02\x02\u0165\u0167\x05D#\x02\u0166\u0165" +
 		"\x03\x02\x02\x02\u0166\u0167\x03\x02\x02\x02\u0167\u0168\x03\x02\x02\x02" +
-		"\u0168\u016A\x07\t\x02\x02\u0169\u016B\x05@!\x02\u016A\u0169\x03\x02\x02" +
+		"\u0168\u016A\x07\n\x02\x02\u0169\u016B\x05@!\x02\u016A\u0169\x03\x02\x02" +
 		"\x02\u016A\u016B\x03\x02\x02\x02\u016B\u016C\x03\x02\x02\x02\u016C\u016D" +
 		"\x05H%\x02\u016DC\x03\x02\x02\x02\u016E\u0173\x05F$\x02\u016F\u0170\x07" +
-		"\x0E\x02\x02\u0170\u0172\x05F$\x02\u0171\u016F\x03\x02\x02\x02\u0172\u0175" +
+		"\x0F\x02\x02\u0170\u0172\x05F$\x02\u0171\u016F\x03\x02\x02\x02\u0172\u0175" +
 		"\x03\x02\x02\x02\u0173\u0171\x03\x02\x02\x02\u0173\u0174\x03\x02\x02\x02" +
 		"\u0174\u0177\x03\x02\x02\x02\u0175\u0173\x03\x02\x02\x02\u0176\u0178\x07" +
-		"\x0E\x02\x02\u0177\u0176\x03\x02\x02\x02\u0177\u0178\x03\x02\x02\x02\u0178" +
+		"\x0F\x02\x02\u0177\u0176\x03\x02\x02\x02\u0177\u0178\x03\x02\x02\x02\u0178" +
 		"E\x03\x02\x02\x02\u0179\u017B\x05\x1A\x0E\x02\u017A\u017C\x05@!\x02\u017B" +
 		"\u017A\x03\x02\x02\x02\u017B\u017C\x03\x02\x02\x02\u017CG\x03\x02\x02" +
-		"\x02\u017D\u017F\x07\n\x02\x02\u017E\u0180\x05L\'\x02\u017F\u017E\x03" +
+		"\x02\u017D\u017F\x07\v\x02\x02\u017E\u0180\x05L\'\x02\u017F\u017E\x03" +
 		"\x02\x02\x02\u017F\u0180\x03\x02\x02\x02\u0180\u0181\x03\x02\x02\x02\u0181" +
-		"\u0182\x07\v\x02\x02\u0182I\x03\x02\x02\x02\u0183\u0184\x075\x02\x02\u0184" +
-		"\u0185\x05j6\x02\u0185\u0187\x07\b\x02\x02\u0186\u0188\x05D#\x02\u0187" +
+		"\u0182\x07\f\x02\x02\u0182I\x03\x02\x02\x02\u0183\u0184\x076\x02\x02\u0184" +
+		"\u0185\x05j6\x02\u0185\u0187\x07\t\x02\x02\u0186\u0188\x05D#\x02\u0187" +
 		"\u0186\x03\x02\x02\x02\u0187\u0188\x03\x02\x02\x02\u0188\u0189\x03\x02" +
-		"\x02\x02\u0189\u018A\x07\t\x02\x02\u018A\u018B\x07\x10\x02\x02\u018BK" +
+		"\x02\x02\u0189\u018A\x07\n\x02\x02\u018A\u018B\x07\x11\x02\x02\u018BK" +
 		"\x03\x02\x02\x02\u018C\u018E\x05\x04\x03\x02\u018D\u018C\x03\x02\x02\x02" +
 		"\u018E\u018F\x03\x02\x02\x02\u018F\u018D\x03\x02\x02\x02\u018F\u0190\x03" +
-		"\x02\x02\x02\u0190M\x03\x02\x02\x02\u0191\u0192\x07\x06\x02\x02\u0192" +
-		"\u0193\x05P)\x02\u0193\u0194\x07\x07\x02\x02\u0194O\x03\x02\x02\x02\u0195" +
-		"\u0197\x07\x0E\x02\x02\u0196\u0195\x03\x02\x02\x02\u0197\u019A\x03\x02" +
+		"\x02\x02\x02\u0190M\x03\x02\x02\x02\u0191\u0192\x07\x07\x02\x02\u0192" +
+		"\u0193\x05P)\x02\u0193\u0194\x07\b\x02\x02\u0194O\x03\x02\x02\x02\u0195" +
+		"\u0197\x07\x0F\x02\x02\u0196\u0195\x03\x02\x02\x02\u0197\u019A\x03\x02" +
 		"\x02\x02\u0198\u0196\x03\x02\x02\x02\u0198\u0199\x03\x02\x02\x02\u0199" +
 		"\u019C\x03\x02\x02\x02\u019A\u0198\x03\x02\x02\x02\u019B\u019D\x05R*\x02" +
 		"\u019C\u019B\x03\x02\x02\x02\u019C\u019D\x03\x02\x02\x02\u019D\u01A6\x03" +
-		"\x02\x02\x02\u019E\u01A0\x07\x0E\x02\x02\u019F\u019E\x03\x02\x02\x02\u01A0" +
+		"\x02\x02\x02\u019E\u01A0\x07\x0F\x02\x02\u019F\u019E\x03\x02\x02\x02\u01A0" +
 		"\u01A1\x03\x02\x02\x02\u01A1\u019F\x03\x02\x02\x02\u01A1\u01A2\x03\x02" +
 		"\x02\x02\u01A2\u01A3\x03\x02\x02\x02\u01A3\u01A5\x05R*\x02\u01A4\u019F" +
 		"\x03\x02\x02\x02\u01A5\u01A8\x03\x02\x02\x02\u01A6\u01A4\x03\x02\x02\x02" +
 		"\u01A6\u01A7\x03\x02\x02\x02\u01A7\u01AC\x03\x02\x02\x02\u01A8\u01A6\x03" +
-		"\x02\x02\x02\u01A9\u01AB\x07\x0E\x02\x02\u01AA\u01A9\x03\x02\x02\x02\u01AB" +
+		"\x02\x02\x02\u01A9\u01AB\x07\x0F\x02\x02\u01AA\u01A9\x03\x02\x02\x02\u01AB" +
 		"\u01AE\x03\x02\x02\x02\u01AC\u01AA\x03\x02\x02\x02\u01AC\u01AD\x03\x02" +
 		"\x02\x02\u01AD\u01B1\x03\x02\x02\x02\u01AE\u01AC\x03\x02\x02\x02\u01AF" +
 		"\u01B1\x03\x02\x02\x02\u01B0\u0198\x03\x02\x02\x02\u01B0\u01AF\x03\x02" +
 		"\x02\x02\u01B1Q\x03\x02\x02\x02\u01B2\u01B3\x05\\/\x02\u01B3S\x03\x02" +
-		"\x02\x02\u01B4\u01B9\x07\b\x02\x02\u01B5\u01B7\x05V,\x02\u01B6\u01B8\x07" +
-		"\x0E\x02\x02\u01B7\u01B6\x03\x02\x02\x02\u01B7\u01B8\x03\x02\x02\x02\u01B8" +
+		"\x02\x02\u01B4\u01B9\x07\t\x02\x02\u01B5\u01B7\x05V,\x02\u01B6\u01B8\x07" +
+		"\x0F\x02\x02\u01B7\u01B6\x03\x02\x02\x02\u01B7\u01B8\x03\x02\x02\x02\u01B8" +
 		"\u01BA\x03\x02\x02\x02\u01B9\u01B5\x03\x02\x02\x02\u01B9\u01BA\x03\x02" +
-		"\x02\x02\u01BA\u01BB\x03\x02\x02\x02\u01BB\u01BC\x07\t\x02\x02\u01BCU" +
-		"\x03\x02\x02\x02\u01BD\u01C4\x05X-\x02\u01BE\u01C0\x07\x0E\x02\x02\u01BF" +
+		"\x02\x02\u01BA\u01BB\x03\x02\x02\x02\u01BB\u01BC\x07\n\x02\x02\u01BCU" +
+		"\x03\x02\x02\x02\u01BD\u01C4\x05X-\x02\u01BE\u01C0\x07\x0F\x02\x02\u01BF" +
 		"\u01C1\x05X-\x02\u01C0\u01BF\x03\x02\x02\x02\u01C0\u01C1\x03\x02\x02\x02" +
 		"\u01C1\u01C3\x03\x02\x02\x02\u01C2\u01BE\x03\x02\x02\x02\u01C3\u01C6\x03" +
 		"\x02\x02\x02\u01C4\u01C2\x03\x02\x02\x02\u01C4\u01C5\x03\x02\x02\x02\u01C5" +
 		"W\x03\x02\x02\x02\u01C6\u01C4\x03\x02\x02\x02\u01C7\u01C8\x05\\/\x02\u01C8" +
-		"Y\x03\x02\x02\x02\u01C9\u01CE\x05\\/\x02\u01CA\u01CB\x07\x0E\x02\x02\u01CB" +
+		"Y\x03\x02\x02\x02\u01C9\u01CE\x05\\/\x02\u01CA\u01CB\x07\x0F\x02\x02\u01CB" +
 		"\u01CD\x05\\/\x02\u01CC\u01CA\x03\x02\x02\x02\u01CD\u01D0\x03\x02\x02" +
 		"\x02\u01CE\u01CC\x03\x02\x02\x02\u01CE\u01CF\x03\x02\x02\x02\u01CF[\x03" +
 		"\x02\x02\x02\u01D0\u01CE\x03\x02\x02\x02\u01D1\u01D2\b/\x01\x02\u01D2" +
 		"\u01E1\x05^0\x02\u01D3\u01D4\x05b2\x02\u01D4\u01D5\x05\\/\v\u01D5\u01E1" +
-		"\x03\x02\x02\x02\u01D6\u01E1\x07E\x02\x02\u01D7\u01E1\x05j6\x02\u01D8" +
-		"\u01E1\x07\x03\x02\x02\u01D9\u01E1\x07G\x02\x02\u01DA\u01E1\x05f4\x02" +
-		"\u01DB\u01E1\x05N(\x02\u01DC\u01DD\x07\b\x02\x02\u01DD\u01DE\x05Z.\x02" +
-		"\u01DE\u01DF\x07\t\x02\x02\u01DF\u01E1\x03\x02\x02\x02\u01E0\u01D1\x03" +
+		"\x03\x02\x02\x02\u01D6\u01E1\x07F\x02\x02\u01D7\u01E1\x05j6\x02\u01D8" +
+		"\u01E1\x07\x03\x02\x02\u01D9\u01E1\x07H\x02\x02\u01DA\u01E1\x05f4\x02" +
+		"\u01DB\u01E1\x05N(\x02\u01DC\u01DD\x07\t\x02\x02\u01DD\u01DE\x05Z.\x02" +
+		"\u01DE\u01DF\x07\n\x02\x02\u01DF\u01E1\x03\x02\x02\x02\u01E0\u01D1\x03" +
 		"\x02\x02\x02\u01E0\u01D3\x03\x02\x02\x02\u01E0\u01D6\x03\x02\x02\x02\u01E0" +
 		"\u01D7\x03\x02\x02\x02\u01E0\u01D8\x03\x02\x02\x02\u01E0\u01D9\x03\x02" +
 		"\x02\x02\u01E0\u01DA\x03\x02\x02\x02\u01E0\u01DB\x03\x02\x02\x02\u01E0" +
 		"\u01DC\x03\x02\x02\x02\u01E1\u01FA\x03\x02\x02\x02\u01E2\u01E3\f\r\x02" +
-		"\x02\u01E3\u01E4\x07\r\x02\x02\u01E4\u01E5\x05\\/\x02\u01E5\u01E6\x07" +
-		"\x0F\x02\x02\u01E6\u01E7\x05\\/\x0E\u01E7\u01F9\x03\x02\x02\x02\u01E8" +
+		"\x02\u01E3\u01E4\x07\x0E\x02\x02\u01E4\u01E5\x05\\/\x02\u01E5\u01E6\x07" +
+		"\x10\x02\x02\u01E6\u01E7\x05\\/\x0E\u01E7\u01F9\x03\x02\x02\x02\u01E8" +
 		"\u01E9\f\n\x02\x02\u01E9\u01EA\x05d3\x02\u01EA\u01EB\x05\\/\v\u01EB\u01F9" +
-		"\x03\x02\x02\x02\u01EC\u01ED\f\x10\x02\x02\u01ED\u01EE\x07\x06\x02\x02" +
-		"\u01EE\u01EF\x05Z.\x02\u01EF\u01F0\x07\x07\x02\x02\u01F0\u01F9\x03\x02" +
-		"\x02\x02\u01F1\u01F2\f\x0F\x02\x02\u01F2\u01F3\x07\f\x02\x02\u01F3\u01F9" +
-		"\x05j6\x02\u01F4\u01F5\f\x0E\x02\x02\u01F5\u01F9\x05T+\x02\u01F6\u01F7" +
-		"\f\f\x02\x02\u01F7\u01F9\x05`1\x02\u01F8\u01E2\x03\x02\x02\x02\u01F8\u01E8" +
+		"\x03\x02\x02\x02\u01EC\u01ED\f\x10\x02\x02\u01ED\u01EE\x07\x07\x02\x02" +
+		"\u01EE\u01EF\x05Z.\x02\u01EF\u01F0\x07\b\x02\x02\u01F0\u01F9\x03\x02\x02" +
+		"\x02\u01F1\u01F2\f\x0F\x02\x02\u01F2\u01F3\x07\r\x02\x02\u01F3\u01F9\x05" +
+		"j6\x02\u01F4\u01F5\f\x0E\x02\x02\u01F5\u01F9\x05T+\x02\u01F6\u01F7\f\f" +
+		"\x02\x02\u01F7\u01F9\x05`1\x02\u01F8\u01E2\x03\x02\x02\x02\u01F8\u01E8" +
 		"\x03\x02\x02\x02\u01F8\u01EC\x03\x02\x02\x02\u01F8\u01F1\x03\x02\x02\x02" +
 		"\u01F8\u01F4\x03\x02\x02\x02\u01F8\u01F6\x03\x02\x02\x02\u01F9\u01FC\x03" +
 		"\x02\x02\x02\u01FA\u01F8\x03\x02\x02\x02\u01FA\u01FB\x03\x02\x02\x02\u01FB" +
-		"]\x03\x02\x02\x02\u01FC\u01FA\x03\x02\x02\x02\u01FD\u01FE\x075\x02\x02" +
-		"\u01FE\u0200\x07\b\x02\x02\u01FF\u0201\x05D#\x02\u0200\u01FF\x03\x02\x02" +
+		"]\x03\x02\x02\x02\u01FC\u01FA\x03\x02\x02\x02\u01FD\u01FE\x076\x02\x02" +
+		"\u01FE\u0200\x07\t\x02\x02\u01FF\u0201\x05D#\x02\u0200\u01FF\x03\x02\x02" +
 		"\x02\u0200\u0201\x03\x02\x02\x02\u0201\u0202\x03\x02\x02\x02\u0202\u0204" +
-		"\x07\t\x02\x02\u0203\u0205\x05@!\x02\u0204\u0203\x03\x02\x02\x02\u0204" +
+		"\x07\n\x02\x02\u0203\u0205\x05@!\x02\u0204\u0203\x03\x02\x02\x02\u0204" +
 		"\u0205\x03\x02\x02\x02\u0205\u0206\x03\x02\x02\x02\u0206\u0207\x05H%\x02" +
 		"\u0207_\x03\x02\x02\x02\u0208\u0209\t\x04\x02\x02\u0209a\x03\x02\x02\x02" +
 		"\u020A\u020B\t\x05\x02\x02\u020Bc\x03\x02\x02\x02\u020C\u020D\t\x06\x02" +
 		"\x02\u020De\x03\x02\x02\x02\u020E\u020F\t\x07\x02\x02\u020Fg\x03\x02\x02" +
 		"\x02\u0210\u0213\x05j6\x02\u0211\u0213\x05l7\x02\u0212\u0210\x03\x02\x02" +
 		"\x02\u0212\u0211\x03\x02\x02\x02\u0213i\x03\x02\x02\x02\u0214\u0215\x07" +
-		"F\x02\x02\u0215k\x03\x02\x02\x02\u0216\u0217\x05n8\x02\u0217m\x03\x02" +
+		"G\x02\x02\u0215k\x03\x02\x02\x02\u0216\u0217\x05n8\x02\u0217m\x03\x02" +
 		"\x02\x02\u0218\u0219\t\b\x02\x02\u0219o\x03\x02\x02\x02;q\x85\x89\x90" +
 		"\x95\xA1\xAB\xB3\xB7\xBF\xC8\xCB\xD0\xE2\xEE\xF0\xF4\xF8\u0100\u0108\u0114" +
 		"\u011A\u0120\u012C\u0130\u0132\u0139\u013F\u0144\u014F\u0156\u015B\u0166" +
@@ -5718,6 +5721,7 @@ export class BinaryOperatorContext extends ParserRuleContext {
 export class NumericLiteralContext extends ParserRuleContext {
 	public DecimalLiteral(): TerminalNode | undefined { return this.tryGetToken(epScriptParser.DecimalLiteral, 0); }
 	public HexIntegerLiteral(): TerminalNode | undefined { return this.tryGetToken(epScriptParser.HexIntegerLiteral, 0); }
+	public BinaryLiteral(): TerminalNode | undefined { return this.tryGetToken(epScriptParser.BinaryLiteral, 0); }
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}

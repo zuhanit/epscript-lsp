@@ -281,6 +281,7 @@ binaryOperator
 numericLiteral
  : DecimalLiteral
  | HexIntegerLiteral
+ | BinaryLiteral
  ;
 
 identifierName

@@ -14,6 +14,10 @@ DecimalLiteral
 HexIntegerLiteral
  : '0' [xX] HexDigit+
  ;
+ 
+BinaryLiteral
+ : '0' 'b' ('0' | '1')+ 
+ ;
 
 // Special Chars
 OpenBracket     : '[';
@@ -169,6 +173,7 @@ fragment DecimicalDigit
 fragment HexDigit
  : [0-9a-fA-F]
  ;
+ 
 
 fragment IdentifierPart
  : IdentifierStart
