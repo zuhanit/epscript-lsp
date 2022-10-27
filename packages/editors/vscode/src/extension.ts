@@ -25,9 +25,7 @@ let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
   // The server is implemented in node
-  const serverModule = context.asAbsolutePath(
-    path.join("packages", "server", "dist", "server.js")
-  );
+  const serverModule = context.asAbsolutePath(path.join("dist", "server.js"));
   // The debug options for the server
   // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
   const debugOptions = { execArgv: ["--nolazy", "--inspect=6009"] };
@@ -67,15 +65,13 @@ export function activate(context: ExtensionContext) {
   client.start();
   const workspaceFolder = workspace.workspaceFolders;
   if (workspaceFolder) {
-    const workspaces: WorkspaceFolder[] = workspaceFolder.map(
-      (x) => {
-        return {
-          index: x.index,
-          name: x.name,
-          uri: x.uri,
-        };
-      }
-    );
+    const workspaces: WorkspaceFolder[] = workspaceFolder.map((x) => {
+      return {
+        index: x.index,
+        name: x.name,
+        uri: x.uri,
+      };
+    });
     const offsetManager = new OffsetManager();
     const buildManager = new BuildManager(workspaces);
     window.registerTreeDataProvider("euddraftBuild", buildManager);

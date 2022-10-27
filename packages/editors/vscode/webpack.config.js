@@ -4,12 +4,15 @@ const path = require("path");
 /**@type {import('webpack').Configuration}*/
 const clientMain = {
   context: path.join(__dirname),
-  entry: path.resolve(__dirname, "src", "extension.ts"),
+  entry: {
+    extension: "./src/extension.ts",
+    server: "./src/server.ts",
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "extension.js",
+    filename: "[name].js",
     libraryTarget: "commonjs",
   },
 };
-console.log(__dirname)
+console.log(__dirname);
 module.exports = withDefaults(clientMain);
