@@ -30,10 +30,9 @@ export function provideHoverItem(
   );
   const numeric = numerics ? numerics[0] : undefined;
   if (numeric && numeric.text.startsWith("0x")) {
-    console.log(numeric.start.charPositionInLine + numeric.text.length);
     const targetNumeric = numeric.text.substring(2);
     const matchedOffset = offsets.find((offset) =>
-      offset.address.includes(targetNumeric)
+      offset.addr.includes(targetNumeric)
     );
     if (matchedOffset) {
       return {
@@ -70,14 +69,18 @@ type ArrayElement<ArrayType extends readonly unknown[]> =
 function getDocumentationForOffset(
   offset: ArrayElement<typeof offsets>
 ): MarkupContent {
-  const value: string[] = ["### 0x" + offset.address];
-  value.push(`#### ${offset.name}`);
-  offset.description && value.push(offset.description);
-  offset.version && value.push(`- Version: ${offset.version}`);
-  offset.id && value.push(`- Player ID: ${offset.id}`);
-  offset.size && value.push(`- Size: ${offset.size}`);
-  offset.length && value.push(`- Length: ${offset.length}`);
-  offset.scr && value.push(`- Starcraft: Remastered: ${offset.scr}`);
+  const value: string[] = [
+    "### 0x" + offset.addr,
+    `#### ${offset.name}`,
+    offset.desc.split("\r\n").join("\\\n") + "\\\n\\",
+    `_@version_ — \`${offset.ver}\`\\`,
+    `_@playerID_ — \`${offset.pid}\`\\`,
+    `_@size_ — \`${offset.size}\`\\`,
+    `_@length_ — \`${offset.len}\`\\`,
+    `_@remastered_ — \`${offset.scr}\`\\`,
+    "\\",
+    `[Documentation Source](http://farty1billion.dyndns.org/EUDDB/?pg=entry&id=${offset.id})`,
+  ];
 
   return {
     kind: "markdown",
