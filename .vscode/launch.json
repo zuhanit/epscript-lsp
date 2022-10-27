@@ -8,8 +8,13 @@
       "debugWebWorkerHost": true,
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
-      "outFiles": ["${workspaceRoot}/packages/editors/vscode/client/dist/**/*.js"],
+      "args": [
+        "--profile-temp",
+        "--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode"
+      ],
+      "outFiles": [
+        "${workspaceRoot}/packages/editors/vscode/client/dist/**/*.js"
+      ],
       "outputCapture": "std",
       "preLaunchTask": "npm: watch"
     },

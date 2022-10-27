@@ -22,7 +22,7 @@
   "activationEvents": [
     "onLanguage:epscript"
   ],
-  "main": "./client/dist/extension",
+  "main": "./dist/extension.js",
   "icon": "icons/icon.png",
   "contributes": {
     "languages": [
