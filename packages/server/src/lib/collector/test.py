@@ -51,9 +51,9 @@ def generateClass(cls):
 builtins = getBuiltins()
 
 fnc = list(map(generateFunction, builtins["functions"]))
-with open('server/src/lib/json/function.json', 'w') as file:
+with open('../json/function.json', 'w') as file:
     json.dump(fnc, file, indent=4)
 
 cls = list(map(generateClass, builtins["classes"]))
-with open('server/src/lib/json/class.json', 'w') as file:
+with open('../json/class.json', 'w') as file:
     json.dump(cls, file, indent=4)
