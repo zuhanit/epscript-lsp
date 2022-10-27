@@ -1,4 +1,9 @@
-import { Hover, HoverParams, MarkupContent } from "vscode-languageserver";
+import {
+  Hover,
+  HoverParams,
+  MarkupContent,
+  MarkupKind,
+} from "vscode-languageserver";
 import { Analyzer } from "../analyzer";
 import { getSymbolInfo } from "../context/facade";
 import { ISymbol } from "../context/symbolTable/ISymbol";
@@ -69,11 +74,14 @@ type ArrayElement<ArrayType extends readonly unknown[]> =
 function getDocumentationForOffset(
   offset: ArrayElement<typeof offsets>
 ): MarkupContent {
+  const desc = offset.desc
+    .replace(/[\r\n]+([[:alnum:]])+/g, "\\\n$1")
+    .replace("```\\", "```\n");
   const value: string[] = [
     "```",
     `(0x${offset.addr}) ${offset.name}\n`,
     "```",
-    offset.desc.split("\r\n").join("\\\n") + "\\\n\\",
+    desc,
     `_@version_ — \`${offset.ver}\`\\`,
     `_@playerID_ — \`${offset.pid}\`\\`,
     `_@size_ — \`${offset.size}\`\\`,
@@ -84,7 +92,7 @@ function getDocumentationForOffset(
   ];
 
   return {
-    kind: "markdown",
+    kind: MarkupKind.Markdown,
     value: value.join("\n"),
   };
 }
