@@ -1,5 +1,5 @@
 import { QuickPickItem, TextEditor, window } from "vscode";
-import * as offsets from "./data/offset.json";
+import clientOffsets from "./data/offset.json";
 
 export class OffsetManager {
   public async main(editor: TextEditor) {
@@ -18,7 +18,7 @@ export class OffsetManager {
   }
 
   private getOffsetItems(): Offset[] {
-    return offsets.map((offset) => {
+    return clientOffsets.map((offset) => {
       const hexAddress = offset.address.replace("00", "0x");
       return new Offset(
         offset.name,
