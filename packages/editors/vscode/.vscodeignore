@@ -1,10 +1,11 @@
 *
 */**
+**/*
 !language-configuration.json
 !README.md
 !resources
 !icons
-!server/dist/server.js
-!client/dist/extension.js
+!dist/extension.js
+!dist/server.js
 !package.json
 !syntaxes/**/*
