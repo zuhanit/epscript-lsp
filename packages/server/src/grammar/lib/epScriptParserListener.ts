@@ -58,7 +58,6 @@ import { TypeAnnotationContext } from "./epScriptParser";
 import { FunctionDeclarationContext } from "./epScriptParser";
 import { FormalParameterListContext } from "./epScriptParser";
 import { FormalParameterArgContext } from "./epScriptParser";
-import { LastFormalParameterArgContext } from "./epScriptParser";
 import { FunctionBodyContext } from "./epScriptParser";
 import { FunctionDefineContext } from "./epScriptParser";
 import { SourceElementsContext } from "./epScriptParser";
@@ -730,17 +729,6 @@ export interface epScriptParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitFormalParameterArg?: (ctx: FormalParameterArgContext) => void;
-
-	/**
-	 * Enter a parse tree produced by `epScriptParser.lastFormalParameterArg`.
-	 * @param ctx the parse tree
-	 */
-	enterLastFormalParameterArg?: (ctx: LastFormalParameterArgContext) => void;
-	/**
-	 * Exit a parse tree produced by `epScriptParser.lastFormalParameterArg`.
-	 * @param ctx the parse tree
-	 */
-	exitLastFormalParameterArg?: (ctx: LastFormalParameterArgContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `epScriptParser.functionBody`.

@@ -58,7 +58,6 @@ import { TypeAnnotationContext } from "./epScriptParser";
 import { FunctionDeclarationContext } from "./epScriptParser";
 import { FormalParameterListContext } from "./epScriptParser";
 import { FormalParameterArgContext } from "./epScriptParser";
-import { LastFormalParameterArgContext } from "./epScriptParser";
 import { FunctionBodyContext } from "./epScriptParser";
 import { FunctionDefineContext } from "./epScriptParser";
 import { SourceElementsContext } from "./epScriptParser";
@@ -493,13 +492,6 @@ export interface epScriptParserVisitor<Result> extends ParseTreeVisitor<Result> 
 	 * @return the visitor result
 	 */
 	visitFormalParameterArg?: (ctx: FormalParameterArgContext) => Result;
-
-	/**
-	 * Visit a parse tree produced by `epScriptParser.lastFormalParameterArg`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitLastFormalParameterArg?: (ctx: LastFormalParameterArgContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `epScriptParser.functionBody`.

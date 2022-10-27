@@ -160,16 +160,11 @@ functionDeclaration
  ;
 
 formalParameterList
- : formalParameterArg (',' formalParameterArg)* (',' lastFormalParameterArg)?
- | lastFormalParameterArg
+ : formalParameterArg (',' formalParameterArg)* ','?
  ;
 
 formalParameterArg
  : assignAble typeAnnotation?
- ;
-
-lastFormalParameterArg
- : singleExpression
  ;
 
 functionBody
