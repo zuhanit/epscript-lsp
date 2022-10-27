@@ -1,3 +1,6 @@
 [submodule "packages/server/src/lib/eudplib"]
 	path = packages/server/src/lib/eudplib
 	url = https://github.com/armoha/eudplib
+[submodule "packages/server/src/pyright"]
+	path = packages/server/src/pyright
+	url = git@github.com:microsoft/pyright.git

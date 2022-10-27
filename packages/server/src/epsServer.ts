@@ -43,12 +43,14 @@ import {
   tokenModifiers,
   TokenType,
 } from "./document/semanticToken";
+import { PyrightServer } from "./pyright/packages/pyright-internal/src/server";
 
 /**
  * epScript 랭기지 서버.
  *
  */
 export class EPSServer {
+  private pyrightServer: PyrightServer;
   private analyzer: Analyzer;
   private connection: Connection;
   private textDocument: TextDocuments<TextDocument> = new TextDocuments(
@@ -65,6 +67,7 @@ export class EPSServer {
   ) {
     this.connection = connection;
     this.analyzer = analyzer;
+    this.pyrightServer = new PyrightServer(connection);
   }
 
   /**
