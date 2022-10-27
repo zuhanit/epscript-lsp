@@ -1,0 +1,16 @@
+{
+  "name": "@epscript-lsp/vscode-client",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Zuhanit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zuhanit/epscript-lsp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Zuhanit/epscript-lsp/issues"
+  },
+  "dependencies": {
+    "glob": "^8.0.3"
+  }
+}
