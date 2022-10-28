@@ -11,6 +11,8 @@
     "url": "https://github.com/Zuhanit/epscript-lsp/issues"
   },
   "dependencies": {
-    "glob": "^8.0.3"
+    "glob": "^8.0.3",
+    "vscode": "^1.1.37",
+    "vscode-languageclient": "^8.0.2"
   }
 }
