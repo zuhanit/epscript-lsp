@@ -57,7 +57,7 @@ export class EPSClient {
   }
 
   public static createServerOptions(extensionPath: string): ServerOptions {
-    const serverModule = path.join(extensionPath, "dist", "extension.js");
+    const serverModule = path.join(extensionPath, "dist", "server.js");
     const debugArgv = ["--nolazy", "--inspect=6009"];
 
     return {
