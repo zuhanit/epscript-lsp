@@ -15,30 +15,42 @@ import {
 
 import * as glob from "glob";
 import { join } from "path";
-
 interface Script {
   fileName: string;
   filePath: string;
   workspaceFolder: WorkspaceFolder;
 }
-
 export class BuildManager implements TreeDataProvider<BuildScript> {
-  private _onDidChangeTreeData: EventEmitter<BuildScript | undefined> =
-    new EventEmitter<BuildScript | undefined>();
-  readonly onDidChangeTreeData: Event<BuildScript> =
+  private workspaces: undefined | WorkspaceFolder[];
+  private _onDidChangeTreeData: EventEmitter<
+    BuildScript | undefined | null | void
+  > = new EventEmitter<BuildScript | undefined>();
+  readonly onDidChangeTreeData: Event<BuildScript | undefined | null | void> =
     this._onDidChangeTreeData.event;
 
-  constructor(public workspaceFolder: WorkspaceFolder[]) {}
+  constructor() {
+    const workspaceFolder = workspace.workspaceFolders;
+
+    if (workspaceFolder) {
+      this.workspaces = workspaceFolder.map((folder) => {
+        return {
+          name: folder.name,
+          uri: folder.uri,
+          index: folder.index,
+        };
+      });
+    }
+  }
 
   public refresh(): void {
     this._onDidChangeTreeData.fire();
   }
 
   getChildren(element?: BuildScript): ProviderResult<BuildScript[]> {
-    const scripts: Script[] = this.workspaceFolder.flatMap((folder) =>
+    const scripts: Script[] = this.workspaces.flatMap((folder) =>
       this.getDraftFiles(folder)
     );
-    console.log(scripts);
+
     if (element) {
       return scripts.map<BuildScript>(
         (script) => new BuildScript(script, script.workspaceFolder)
@@ -101,5 +113,5 @@ export class BuildScript extends TreeItem {
     (this.tooltip = script.filePath), (this.description = script.filePath);
   }
 
-  iconPath = join(__filename, "..", "..", "..", "resources", "edd.svg");
+  iconPath = join(__filename, "..", "..", "resources", "edd.svg");
 }
