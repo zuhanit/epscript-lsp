@@ -1,14 +1,14 @@
 import { SelectConfigRequest } from "@epscript-lsp/types/src/requests";
 import { glob } from "glob";
 import { Command, window, workspace } from "vscode";
-import { LanguageClient } from "vscode-languageclient/node";
-
+import { EPSClient } from "./epsClient";
+import path from "path";
 export namespace OpenConfig {
   export const Command: Command = {
     command: "epscript.openConfig",
     title: "Select config file",
   };
-  export const Exec = async (client: LanguageClient) => {
+  export const Exec = async (client: EPSClient) => {
     const workspaceFolders = workspace.workspaceFolders;
 
     if (workspaceFolders) {
@@ -20,9 +20,10 @@ export namespace OpenConfig {
       });
       if (pick) {
         // Inform picked config to the server.
-        client.sendRequest(SelectConfigRequest.type, {
+        await client.sendRequest(SelectConfigRequest.type, {
           config: pick,
         });
+        client.configStatus.statusItem.text = path.parse(pick).base;
         return pick;
       } else {
         void window.showErrorMessage(
