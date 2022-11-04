@@ -2,9 +2,7 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
-import { TextDocument } from "vscode-languageserver-textdocument";
 import {
-  TextDocuments,
   Diagnostic,
   InitializeParams,
   CompletionItem,
@@ -16,7 +14,6 @@ import {
   CompletionParams,
   Hover,
   Definition,
-  TextDocumentChangeEvent,
   DidChangeConfigurationParams,
   CreateFilesParams,
   DidChangeConfigurationNotification,
@@ -25,6 +22,11 @@ import {
   DocumentSymbol,
   SymbolInformation,
 } from "vscode-languageserver/node";
+
+import {
+  TextDocuments,
+  TextDocumentChangeEvent,
+} from "vscode-languageserver/lib/common/textDocuments";
 
 import { Analyzer } from "./analyzer";
 import { BaseScope } from "./context/symbolTable/BaseScope";
@@ -43,6 +45,15 @@ import {
   tokenModifiers,
   TokenType,
 } from "./document/semanticToken";
+import {
+  MultipleConfigRequest,
+  SelectConfigRequest,
+} from "@epscript-lsp/types/src/requests";
+import { NoConfigNotification } from "@epscript-lsp/types/src/notifications";
+import { glob } from "glob";
+import { URI } from "vscode-uri";
+import path from "path";
+import { TextDocument } from "vscode-languageserver-textdocument";
 
 /**
  * epScript 랭기지 서버.
@@ -66,7 +77,13 @@ export class EPSServer {
     this.connection = connection;
     this.analyzer = analyzer;
   }
-
+  public draftConfiguration:
+    | {
+        name: string;
+        path: string;
+        dir: string;
+      }
+    | undefined;
   /**
    * 서버 초기화 및 호출.
    *
@@ -101,13 +118,15 @@ export class EPSServer {
         this.analyzer.analyze(
           change.document.uri,
           change.document,
-          this.languageManager
+          this.languageManager,
+          this.draftConfiguration?.dir
         );
       } else {
         this.analyzer.analyze(
           change.document.uri,
           change.document,
-          this.languageManager
+          this.languageManager,
+          this.draftConfiguration?.dir
         );
       }
       this.configuration = await this.getConfiguration(change.document.uri);
@@ -157,7 +176,7 @@ export class EPSServer {
       (params: DidChangeConfigurationParams) =>
         this.onDidChangeConfiguration(params)
     );
-    connection.onInitialized((params) => {
+    connection.onInitialized(async (params) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const p = params as any;
       console.log(
@@ -168,6 +187,21 @@ export class EPSServer {
         DidChangeConfigurationNotification.type,
         undefined
       );
+
+      const folders = await connection.workspace.getWorkspaceFolders();
+
+      if (folders && folders.length > 0) {
+        this.handleDraftConfig(folders.map((folder) => folder.uri));
+      }
+    });
+
+    connection.onRequest(SelectConfigRequest.type, ({ config }) => {
+      const parsedPath = path.parse(config);
+      this.draftConfiguration = {
+        name: parsedPath.base,
+        path: config,
+        dir: parsedPath.dir,
+      };
     });
   }
 
@@ -389,5 +423,45 @@ export class EPSServer {
 
   private async onWorkspaceSymbol(): Promise<SymbolInformation[]> {
     return getWorkspaceSymbol(this.analyzer.documentations);
+  }
+
+  /**
+   * Handle euddraft config files.
+   *
+   * Try to find all euddraft config files, in all workspace folders, by glob.
+   * @param foldersURI Workspace folder uri
+   */
+  private handleDraftConfig(foldersURI: string[]) {
+    function tryGetDraftConfig(workspaceFolderURI: string) {
+      const fsPath = URI.parse(workspaceFolderURI).fsPath;
+      const candidates = glob.sync("**/*.{eds,edd}", {
+        cwd: fsPath,
+        realpath: true,
+      });
+      return candidates;
+    }
+
+    const configs = foldersURI.flatMap((folder) => tryGetDraftConfig(folder));
+
+    if (configs.length === 0) {
+      // If there's no config file, the server notify `NoConfigNotification` to client.
+      this.connection.sendNotification(NoConfigNotification.method);
+    }
+    if (configs.length > 1) {
+      this.connection.sendRequest(MultipleConfigRequest.type, {
+        message: "",
+      });
+    }
+
+    this.setDraftConfiguration(configs[0]);
+  }
+
+  private setDraftConfiguration(configPath: string) {
+    const parsedPath = path.parse(configPath);
+    this.draftConfiguration = {
+      name: parsedPath.base,
+      path: configPath,
+      dir: parsedPath.dir,
+    };
   }
 }
