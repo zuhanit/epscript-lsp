@@ -20,7 +20,8 @@
     "vscode": "^1.43.0"
   },
   "activationEvents": [
-    "onLanguage:epscript"
+    "onLanguage:epscript",
+    "workspaceContains:**/*.{eds,edd}"
   ],
   "main": "./dist/extension",
   "icon": "icons/icon.png",
