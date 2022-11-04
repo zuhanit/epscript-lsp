@@ -48,7 +48,8 @@ export class Parser {
     document: TextDocument,
     analyzer: Analyzer,
     languageManager: LanguageManager,
-    module: boolean
+    module: boolean,
+    configDir?: string
   ): ParsePackage {
     this.setText(document.getText());
     this.tokenStream.seek(0);
@@ -77,7 +78,8 @@ export class Parser {
         analyzer,
         diagnostics,
         languageManager,
-        this.tokenStream
+        this.tokenStream,
+        configDir
       );
     }
     ParseTreeWalker.DEFAULT.walk(listener as ParseTreeListener, tree);

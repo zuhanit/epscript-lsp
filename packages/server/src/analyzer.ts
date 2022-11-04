@@ -83,11 +83,18 @@ export class Analyzer {
     uri: URI,
     document: TextDocument,
     languageManager: LanguageManager,
+    rootDir?: string,
     module = false
   ): ContextPackage {
     const contextPackage: ContextPackage = {
       document: document,
-      parsePackage: this.parser.parse(document, this, languageManager, module),
+      parsePackage: this.parser.parse(
+        document,
+        this,
+        languageManager,
+        module,
+        rootDir
+      ),
     };
     this.documentations.set(uri, contextPackage);
     return contextPackage;
