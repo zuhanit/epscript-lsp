@@ -9,5 +9,8 @@
   },
   "include": ["src"],
   "exclude": ["node_modules", ".vscode-test"],
-  "references": [{ "path": "./packages/editors/vscode/client" }, { "path": "./server" }]
+  "references": [
+    { "path": "./packages/editors/vscode" },
+    { "path": "./server" }
+  ]
 }
