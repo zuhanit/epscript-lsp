@@ -55,7 +55,8 @@ export class BaseListener implements epScriptParserListener {
     public analyzer: Analyzer,
     public diagnostics: Diagnostic[],
     public languageManager: LanguageManager,
-    public tokenStream: CommonTokenStream
+    public tokenStream: CommonTokenStream,
+    public configDir?: string
   ) {
     this.symbolTable = new ContextSymbolTable(document);
     this.currentScope = this.symbolTable.globalScope;
@@ -92,7 +93,6 @@ export class BaseListener implements epScriptParserListener {
     const namespace = ctx.importNamespace();
     const dotted = ctx.dottedName().text.split(".");
     let name: string = dotted[dotted.length - 1];
-    console.log("Import visited:", dotted);
 
     if (namespace !== undefined) {
       name = namespace.identifier().text;
@@ -110,12 +110,18 @@ export class BaseListener implements epScriptParserListener {
 
     // analyzer에서 패키지를 가져오기 위해 파일 경로를 조합해줘야 합니다.
     const currentPath = path.parse(VSURI.parse(this.document.uri).fsPath);
-    const basePath = path.join(
-      currentPath.dir,
-      "..",
-      ...dotted.slice(0, dotted.length - 1),
-      dotted[dotted.length - 1]
-    );
+    const basePath = this.configDir
+      ? path.join(
+          this.configDir,
+          ...dotted.slice(0, dotted.length - 1),
+          dotted[dotted.length - 1]
+        )
+      : path.join(
+          currentPath.dir,
+          "..",
+          ...dotted.slice(0, dotted.length - 1),
+          dotted[dotted.length - 1]
+        );
     if (existsSync(basePath + ".eps")) {
       const epsPath = basePath + ".eps";
       const importURI = VSURI.file(epsPath).toString();
@@ -135,6 +141,7 @@ export class BaseListener implements epScriptParserListener {
           importURI.toString(),
           TextDocument.create(importURI.toString(), "eps", 0, fileContent),
           this.languageManager,
+          this.configDir,
           true
         );
 
