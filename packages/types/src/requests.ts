@@ -1,18 +1,5 @@
 import { RequestType } from "vscode-jsonrpc";
 
-export type NoConfigParams = {
-  message: string;
-};
-
-/**
- * The NoConfigRequest is sent from the server to the client to inform
- * the client that no euddraft configuration file.
- */
-export namespace NoConfigRequest {
-  export const method = "epscript/noConfig" as const;
-  export const type = new RequestType<NoConfigParams, void, void>(method);
-}
-
 export type MultipleConfigParams = {
   message: string;
 };
