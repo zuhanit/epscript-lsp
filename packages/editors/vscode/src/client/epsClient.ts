@@ -19,6 +19,10 @@ import { MultipleConfigRequest } from "@epscript-lsp/types/src/requests";
 import { NoConfigNotification } from "@epscript-lsp/types/src/notifications";
 import { OpenConfig } from "./commands";
 export class EPSClient extends LanguageClient {
+  public offsetManager = new OffsetManager();
+  public buildManager = new BuildManager();
+  public configStatus = new ConfigStatus();
+
   constructor(
     name: string,
     serverOptions: ServerOptions,
@@ -34,11 +38,7 @@ export class EPSClient extends LanguageClient {
       EPSClient.createClientOptions()
     );
 
-    const offsetManager = new OffsetManager();
-    const buildManager = new BuildManager();
-    const configStatus = new ConfigStatus();
-
-    context.subscriptions.push(configStatus.statusItem);
+    context.subscriptions.push(client.configStatus.statusItem);
 
     client.onNotification(NoConfigNotification.type, () => {
       window.showWarningMessage(
@@ -65,18 +65,18 @@ export class EPSClient extends LanguageClient {
     });
 
     context.subscriptions.push(
-      window.registerTreeDataProvider("euddraftBuild", buildManager),
+      window.registerTreeDataProvider("euddraftBuild", client.buildManager),
       commands.registerCommand("euddraftBuild.refresh", () =>
-        buildManager.refresh()
+        client.buildManager.refresh()
       ),
       commands.registerCommand("euddraftBuild.run", (node: BuildScript) =>
-        buildManager.build(node)
+        client.buildManager.build(node)
       ),
       commands.registerCommand("euddraftBuild.edit", (node: BuildScript) =>
-        buildManager.edit(node)
+        client.buildManager.edit(node)
       ),
       commands.registerTextEditorCommand("epscript.offsets", async (editor) =>
-        offsetManager.main(editor)
+        client.offsetManager.main(editor)
       ),
       commands.registerCommand("epscript.openConfig", () =>
         OpenConfig.Exec(client)
@@ -131,7 +131,6 @@ class ConfigStatus {
       "epscript"
     );
 
-    this.statusItem.name = "0.9.8.1";
     this.statusItem.command = OpenConfig.Command;
   }
 }
