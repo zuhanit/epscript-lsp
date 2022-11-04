@@ -1,0 +1,8 @@
+{
+  "name": "@epscript-lsp/types",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "vscode-jsonrpc": "^8.0.2"
+  }
+}
