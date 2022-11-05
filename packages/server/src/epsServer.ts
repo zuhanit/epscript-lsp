@@ -274,17 +274,18 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
+    if (contextPackage === undefined) return undefined;
+
     const scopes = this.analyzer.getScopesAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.symbolTable,
       params.position
     );
     const callExpressions = this.analyzer.getRuleAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position,
       CallExpressionContext
     );
 
-    if (contextPackage === undefined) return undefined;
     if (!callExpressions) return undefined;
 
     const scope: BaseScope = scopes
@@ -310,16 +311,16 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
+    if (contextPackage === undefined) return undefined;
     const scopes = this.analyzer.getScopesAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.symbolTable,
       params.position
     );
     const singleExpressions = this.analyzer.getSingleExpressionAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position
     );
 
-    if (contextPackage === undefined) return undefined;
     if (singleExpressions === null) return undefined;
     const scope: BaseScope = scopes
       ? scopes[scopes.length - 1]
@@ -338,6 +339,7 @@ export class EPSServer {
       languageManager: this.languageManager,
       symbolTable: contextPackage.parsePackage.symbolTable,
     });
+
     return provideCompletion(
       { params: params, contextPackage: contextPackage, name: scope.name },
       scope,
@@ -363,22 +365,23 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
+    if (!contextPackage) return undefined;
     const singleExpressions = this.analyzer.getSingleExpressionAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position
     );
     const node = this.analyzer.getNodeAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position
     );
-
-    if (!contextPackage || !node || !singleExpressions) return undefined;
 
     let singleExpression = singleExpressions[0];
 
     if (singleExpression instanceof CallExpressionContext) {
       singleExpression = singleExpression.singleExpression();
     }
+
+    if (!node) return undefined;
 
     return provideHoverItem(
       {
@@ -396,19 +399,19 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
+
+    if (!contextPackage) return undefined;
     const node = this.analyzer.getNodeAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position
     );
 
-    // 잘못된 다큐먼트?
-    if (node === null || node === undefined) return undefined;
-    if (contextPackage !== undefined)
-      return await provideDefinition({
-        params: params,
-        contextPackage,
-        name: node.text,
-      });
+    if (!node) return undefined;
+    return await provideDefinition({
+      params: params,
+      contextPackage,
+      name: node.text,
+    });
   }
 
   private async onDocumentSymbol(
