@@ -368,13 +368,14 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
+    if (!contextPackage) return undefined;
 
     const scopes = this.analyzer.getScopesAtPosition(
-      params.textDocument.uri,
+      contextPackage?.parsePackage.symbolTable,
       params.position
     );
     const singleExpressions = this.analyzer.getRuleAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position,
       SingleExpressionContext
     );
@@ -383,7 +384,7 @@ export class EPSServer {
       params.position
     );
 
-    if (!contextPackage || !node || !singleExpressions) return undefined;
+    if (!node || !singleExpressions) return undefined;
 
     const scope: BaseScope = scopes
       ? scopes[scopes.length - 1]
@@ -417,12 +418,13 @@ export class EPSServer {
       params.textDocument.uri
     );
 
+    if (!contextPackage) return undefined;
     const scopes = this.analyzer.getScopesAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.symbolTable,
       params.position
     );
     const singleExpressions = this.analyzer.getRuleAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position,
       SingleExpressionContext
     );
@@ -431,7 +433,7 @@ export class EPSServer {
       params.position
     );
 
-    if (!contextPackage || !node || !singleExpressions) return undefined;
+    if (!node || !singleExpressions) return undefined;
 
     const scope: BaseScope = scopes
       ? scopes[scopes.length - 1]
