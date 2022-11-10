@@ -13,18 +13,22 @@ import offsets from "../offsets/offset.json";
 
 export function provideHoverItem(
   { contextPackage, name, params }: ProviderOption<HoverParams>,
-  analyzer: Analyzer
+  analyzer: Analyzer,
+  symbol: ISymbol
 ): Hover | undefined {
-  const symbolTable = contextPackage.parsePackage.symbolTable;
-  const symbol = symbolTable.getSymbolByName(name);
-  let content: MarkupContent | undefined;
-
-  // if (evaluated instanceof BaseScope || evaluated instanceof BaseSymbol) content = getDocumentationForSymbol(evaluated);
-  if (symbol) content = getDocumentationForSymbol(symbol); // FIXME: 이름이 중복됐을 경우 문제 해결 필요
-
-  if (content) {
+  // If there are symbol from Analyzer, the server uses that first.
+  if (symbol) {
     return {
-      contents: content,
+      contents: getDocumentationForSymbol(symbol),
+    };
+  }
+
+  const symbolByName =
+    contextPackage.parsePackage.symbolTable.getSymbolByName(name);
+
+  if (symbolByName) {
+    return {
+      contents: getDocumentationForSymbol(symbolByName),
     };
   }
 

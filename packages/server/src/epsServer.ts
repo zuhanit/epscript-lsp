@@ -37,7 +37,10 @@ import { LanguageManager } from "./i18n/LanguageManager";
 import { Parser } from "./parser";
 import { provideSingatureHelp } from "./document/signatureHelp";
 import { evaluateNode } from "./context/evaluator/evaluator";
-import { CallExpressionContext } from "./grammar/lib/epScriptParser";
+import {
+  CallExpressionContext,
+  SingleExpressionContext,
+} from "./grammar/lib/epScriptParser";
 import { getDocumentSymbol } from "./document/documentSymbol";
 import { getWorkspaceSymbol } from "./document/workspaceSymbol";
 import {
@@ -363,9 +366,15 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
-    const singleExpressions = this.analyzer.getSingleExpressionAtPosition(
+
+    const scopes = this.analyzer.getScopesAtPosition(
       params.textDocument.uri,
       params.position
+    );
+    const singleExpressions = this.analyzer.getRuleAtPosition(
+      params.textDocument.uri,
+      params.position,
+      SingleExpressionContext
     );
     const node = this.analyzer.getNodeAtPosition(
       params.textDocument.uri,
@@ -374,11 +383,17 @@ export class EPSServer {
 
     if (!contextPackage || !node || !singleExpressions) return undefined;
 
-    let singleExpression = singleExpressions[0];
-
-    if (singleExpression instanceof CallExpressionContext) {
-      singleExpression = singleExpression.singleExpression();
-    }
+    const scope: BaseScope = scopes
+      ? scopes[scopes.length - 1]
+      : contextPackage.parsePackage.symbolTable.globalScope;
+    const singleExpression = singleExpressions[singleExpressions.length - 1];
+    const r = evaluateNode({
+      node: singleExpression,
+      currentScope: scope,
+      diagnostics: [],
+      languageManager: this.languageManager,
+      symbolTable: contextPackage.parsePackage.symbolTable,
+    });
 
     return provideHoverItem(
       {
@@ -386,7 +401,8 @@ export class EPSServer {
         name: node.text,
         params: params,
       },
-      this.analyzer
+      this.analyzer,
+      r
     );
   }
 
@@ -396,19 +412,46 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
+
+    const scopes = this.analyzer.getScopesAtPosition(
+      params.textDocument.uri,
+      params.position
+    );
+    const singleExpressions = this.analyzer.getRuleAtPosition(
+      params.textDocument.uri,
+      params.position,
+      SingleExpressionContext
+    );
     const node = this.analyzer.getNodeAtPosition(
       params.textDocument.uri,
       params.position
     );
 
+    if (!contextPackage || !node || !singleExpressions) return undefined;
+
+    const scope: BaseScope = scopes
+      ? scopes[scopes.length - 1]
+      : contextPackage.parsePackage.symbolTable.globalScope;
+    const singleExpression = singleExpressions[singleExpressions.length - 1];
+    const r = evaluateNode({
+      node: singleExpression,
+      currentScope: scope,
+      diagnostics: [],
+      languageManager: this.languageManager,
+      symbolTable: contextPackage.parsePackage.symbolTable,
+    });
+
     // 잘못된 다큐먼트?
     if (node === null || node === undefined) return undefined;
     if (contextPackage !== undefined)
-      return await provideDefinition({
-        params: params,
-        contextPackage,
-        name: node.text,
-      });
+      return await provideDefinition(
+        {
+          params: params,
+          contextPackage,
+          name: node.text,
+        },
+        r
+      );
   }
 
   private async onDocumentSymbol(

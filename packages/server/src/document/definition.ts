@@ -4,15 +4,20 @@ import { BaseScope } from "../context/symbolTable/BaseScope";
 import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
 import { ProviderOption } from "./provider-option";
 
-export async function provideDefinition({
-  contextPackage,
-  name,
-}: ProviderOption<DefinitionParams>): Promise<Definition | undefined> {
+export async function provideDefinition(
+  { contextPackage, name }: ProviderOption<DefinitionParams>,
+  evaluated: BaseSymbol
+): Promise<Definition | undefined> {
   const symbolTable = contextPackage.parsePackage.symbolTable;
   const symbol = symbolTable.getSymbolByName(name);
 
-  if (symbol)
-    return getDefinitionForSymbol(symbol, contextPackage.document.uri);
+  if (evaluated) {
+    return getDefinitionForSymbol(evaluated, contextPackage.document.uri);
+  }
+
+  if (symbol) {
+    return getDefinitionForSymbol(symbol, symbolTable.owner.uri);
+  }
 }
 
 function getDefinitionForSymbol(symbol: BaseSymbol, uri: URI): Definition {
