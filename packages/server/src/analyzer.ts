@@ -146,20 +146,24 @@ export class Analyzer {
     const result: T[] = [];
 
     if (root instanceof rule) {
-      if (
-        root.start.line <= line &&
-        root.stop &&
-        root.stop.line >= line &&
-        root.stop.charPositionInLine >= character
-      ) {
-        result.push(root);
+      if (root.stop) {
+        if (
+          root.start.line <= line &&
+          root.stop.line >= line &&
+          root.stop.charPositionInLine <= character &&
+          root.stop.charPositionInLine +
+            (root.stop.stopIndex - root.stop.startIndex + 1) >=
+            character
+        ) {
+          result.push(root);
+        }
       }
     }
     const context = root as ParserRuleContext;
 
     if (context.children) {
       context.children.forEach((x) => {
-        result.push(...this.ruleFromPosition(x, character, line, rule));
+        result.push(...this.ruleFromPosition(x, character, line, rule, filter));
       });
     }
 
