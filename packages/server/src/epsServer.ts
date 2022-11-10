@@ -277,17 +277,18 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
+    if (contextPackage === undefined) return undefined;
+
     const scopes = this.analyzer.getScopesAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.symbolTable,
       params.position
     );
     const callExpressions = this.analyzer.getRuleAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position,
       CallExpressionContext
     );
 
-    if (contextPackage === undefined) return undefined;
     if (!callExpressions) return undefined;
 
     const scope: BaseScope = scopes
@@ -313,16 +314,16 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
+    if (contextPackage === undefined) return undefined;
     const scopes = this.analyzer.getScopesAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.symbolTable,
       params.position
     );
     const singleExpressions = this.analyzer.getSingleExpressionAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position
     );
 
-    if (contextPackage === undefined) return undefined;
     if (singleExpressions === null) return undefined;
     const scope: BaseScope = scopes
       ? scopes[scopes.length - 1]
@@ -341,6 +342,7 @@ export class EPSServer {
       languageManager: this.languageManager,
       symbolTable: contextPackage.parsePackage.symbolTable,
     });
+
     return provideCompletion(
       { params: params, contextPackage: contextPackage, name: scope.name },
       scope,
@@ -377,7 +379,7 @@ export class EPSServer {
       SingleExpressionContext
     );
     const node = this.analyzer.getNodeAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position
     );
 
@@ -394,6 +396,8 @@ export class EPSServer {
       languageManager: this.languageManager,
       symbolTable: contextPackage.parsePackage.symbolTable,
     });
+
+    if (!node) return undefined;
 
     return provideHoverItem(
       {
@@ -423,7 +427,7 @@ export class EPSServer {
       SingleExpressionContext
     );
     const node = this.analyzer.getNodeAtPosition(
-      params.textDocument.uri,
+      contextPackage.parsePackage.ast,
       params.position
     );
 

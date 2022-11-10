@@ -113,20 +113,18 @@ export class Analyzer {
   /**
    * Get `ParserRuleContext` in position.
    *
-   * @param uri
+   * @param ast
    * @param position
    * @param rule
    * @param filter
    * @returns
    */
   public getRuleAtPosition<T extends ParserRuleContext>(
-    uri: URI,
+    ast: ParserRuleContext,
     position: Position,
     rule: new (...args: any[]) => T,
     filter?: (value: any, index?: number, Array?: any[]) => boolean
   ) {
-    const ast = this.getContextPackageByURI(uri)?.parsePackage.ast;
-    if (ast === undefined) return null;
     return this.ruleFromPosition(
       ast,
       position.character,
@@ -176,20 +174,18 @@ export class Analyzer {
    *
    * _Single_ is `ParserRuleContext` that has same `start` and `stop` token. In this case,
    * analyzer try to find token by text length.
-   * @param uri
+   * @param ast
    * @param position
    * @param rule
    * @param filter
    * @returns
    */
   public getSingleRuleAtPosition<T extends ParserRuleContext>(
-    uri: URI,
+    ast: ParserRuleContext,
     position: Position,
     rule: new (...args: any[]) => T,
     filter?: (value: any, index?: number, Array?: any[]) => boolean
   ) {
-    const ast = this.getContextPackageByURI(uri)?.parsePackage.ast;
-    if (ast === undefined) return null;
     return this.singleRuleFromPosition(
       ast,
       position.character,
@@ -230,12 +226,10 @@ export class Analyzer {
   }
 
   public getSingleExpressionAtPosition(
-    uri: URI,
+    ast: ParserRuleContext,
     position: Position,
     filter?: (value: any, index?: number, Array?: any[]) => boolean
   ) {
-    const ast = this.getContextPackageByURI(uri)?.parsePackage.ast;
-    if (ast === undefined) return null;
     return this.ruleFromPosition(
       ast,
       position.character,
@@ -248,13 +242,11 @@ export class Analyzer {
   /**
    * 현재 포지션에 있는 ANTLR 노드 얻어오기.
    *
-   * @param uri 문서 URI
+   * @param ast 문서 추상 구문 트리
    * @param position 열려있는 문서 커버의 포지션
    * @returns
    */
-  public getNodeAtPosition(uri: URI, position: Position) {
-    const ast = this.getContextPackageByURI(uri)?.parsePackage.ast;
-    if (ast === undefined) return null;
+  public getNodeAtPosition(ast: ParserRuleContext, position: Position) {
     return this.parseTreeFromPosition(
       ast,
       position.character,
@@ -265,15 +257,14 @@ export class Analyzer {
   /**
    * 포지션을 포함하고 있는 스코프 배열 얻어오기.
    *
-   * @param uri 문서 URI
+   * @param symbolTable 문서 심볼 테이블
    * @param position 열려있는 문서 커서의 포지션
    * @returns
    */
-  public getScopesAtPosition(uri: URI, position: Position) {
-    const symbolTable =
-      this.getContextPackageByURI(uri)?.parsePackage.symbolTable;
-    if (symbolTable === undefined) return undefined;
-
+  public getScopesAtPosition(
+    symbolTable: ContextSymbolTable,
+    position: Position
+  ) {
     return this.scopesFromPosition(
       symbolTable,
       position.character,

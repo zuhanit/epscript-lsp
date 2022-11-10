@@ -33,7 +33,7 @@ export function provideHoverItem(
   }
 
   const numerics = analyzer.getSingleRuleAtPosition(
-    contextPackage.document.uri,
+    contextPackage.parsePackage.ast,
     params.position,
     NumericLiteralContext
   );
