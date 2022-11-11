@@ -390,7 +390,7 @@ export class EPSServer {
       ? scopes[scopes.length - 1]
       : contextPackage.parsePackage.symbolTable.globalScope;
     const singleExpression = singleExpressions[singleExpressions.length - 1];
-    const r = evaluateNode({
+    const evaluated = evaluateNode({
       node: singleExpression,
       currentScope: scope,
       diagnostics: [],
@@ -407,7 +407,7 @@ export class EPSServer {
         params: params,
       },
       this.analyzer,
-      r,
+      evaluated,
       singleExpression
     );
   }
