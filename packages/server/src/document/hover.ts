@@ -91,6 +91,8 @@ function getDocumentationForOffset(
     `(0x${offset.addr}) ${offset.name}\n`,
     "```",
     desc,
+    "\\",
+    "\\",
     `_@version_ — \`${offset.ver}\`\\`,
     `_@playerID_ — \`${offset.pid}\`\\`,
     `_@size_ — \`${offset.size}\`\\`,
