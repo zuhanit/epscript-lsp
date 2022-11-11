@@ -7,17 +7,24 @@ import {
 import { Analyzer } from "../analyzer";
 import { getSymbolInfo } from "../context/facade";
 import { ISymbol } from "../context/symbolTable/ISymbol";
-import { NumericLiteralContext } from "../grammar/lib/epScriptParser";
+import {
+  NumericLiteralExpressionContext,
+  SingleExpressionContext,
+} from "../grammar/lib/epScriptParser";
 import { ProviderOption } from "./provider-option";
 import offsets from "../offsets/offset.json";
 
 export function provideHoverItem(
-  { contextPackage, name, params }: ProviderOption<HoverParams>,
+  { contextPackage, name }: ProviderOption<HoverParams>,
   analyzer: Analyzer,
-  symbol: ISymbol
+  symbol: ISymbol,
+  expr: SingleExpressionContext
 ): Hover | undefined {
   // If there are symbol from Analyzer, the server uses that first.
   if (symbol) {
+    if (expr instanceof NumericLiteralExpressionContext) {
+      return numericExpressionToHover(expr);
+    }
     return {
       contents: getDocumentationForSymbol(symbol),
     };
@@ -32,25 +39,23 @@ export function provideHoverItem(
     };
   }
 
-  const numerics = analyzer.getSingleRuleAtPosition(
-    contextPackage.parsePackage.ast,
-    params.position,
-    NumericLiteralContext
-  );
-  const numeric = numerics ? numerics[0] : undefined;
-  if (numeric && numeric.text.startsWith("0x")) {
-    const targetNumeric = numeric.text.substring(2);
-    const matchedOffset = offsets.find((offset) =>
-      offset.addr.includes(targetNumeric)
-    );
-    if (matchedOffset) {
-      return {
-        contents: getDocumentationForOffset(matchedOffset),
-      };
-    }
-  }
-
   return undefined;
+}
+
+function numericExpressionToHover(
+  expr: NumericLiteralExpressionContext
+): Hover | undefined {
+  const targetNumeric = expr.text.substring(2);
+  const matchedOffset = offsets.find((offset) =>
+    offset.addr.includes(targetNumeric)
+  );
+  if (matchedOffset) {
+    return {
+      contents: getDocumentationForOffset(matchedOffset),
+    };
+  } else {
+    return undefined;
+  }
 }
 
 /**

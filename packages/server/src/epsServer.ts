@@ -407,7 +407,8 @@ export class EPSServer {
         params: params,
       },
       this.analyzer,
-      r
+      r,
+      singleExpression
     );
   }
 
