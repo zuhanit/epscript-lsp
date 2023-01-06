@@ -5,27 +5,22 @@
     {
       "name": "Launch Client",
       "type": "extensionHost",
-      "debugWebWorkerHost": true,
       "request": "launch",
       "runtimeExecutable": "${execPath}",
       "args": [
         "--profile-temp",
         "--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode"
       ],
-      "outFiles": [
-        "${workspaceRoot}/packages/editors/vscode/client/dist/**/*.js"
-      ],
-      "outputCapture": "std",
+      "outFiles": ["${workspaceRoot}/packages/editors/vscode"],
       "preLaunchTask": "npm: watch"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "attach",
       "name": "Attach to Server",
       "port": 6009,
       "restart": true,
-      "outFiles": ["${workspaceRoot}/packages/server/dist/**/*.js"],
-      "outputCapture": "std"
+      "outFiles": ["${workspaceRoot}/packages/server/dist/**/*.js"]
     },
     {
       "name": "Debug ANTLR4 grammar",
