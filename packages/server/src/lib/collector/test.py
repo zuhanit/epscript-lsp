@@ -1,3 +1,6 @@
+from utils.filters import isclass, isfunction
+from utils.spec import getFunctionSpec, getClassSpec
+import eudplib
 import sys
 import json
 import inspect
@@ -5,9 +8,6 @@ import os
 
 sys.path.append("packages/server/src/lib/eudplib")
 
-import eudplib
-from utils.spec import getFunctionSpec, getClassSpec
-from utils.filters import isclass, isfunction
 
 def getBuiltins():
     data = {
@@ -51,9 +51,9 @@ def generateClass(cls):
 builtins = getBuiltins()
 
 fnc = list(map(generateFunction, builtins["functions"]))
-with open('../json/function.json', 'w') as file:
+with open(os.path.dirname(__file__) + '/../json/function.json', 'w') as file:
     json.dump(fnc, file, indent=4)
 
 cls = list(map(generateClass, builtins["classes"]))
-with open('../json/class.json', 'w') as file:
+with open(os.path.dirname(__file__) + '/../json/class.json', 'w') as file:
     json.dump(cls, file, indent=4)
