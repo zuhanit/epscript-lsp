@@ -14,7 +14,7 @@ const updateeudplib = async () => {
 };
 
 const buildeudplibData = async () => {
-  return spawn("python", ["packages/server/src/lib/collector/test.py"], {
+  return spawn("python", ["packages/server/src/lib/collector/update.py"], {
     stdio: "inherit",
   });
 };
