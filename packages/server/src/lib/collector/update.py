@@ -1,5 +1,6 @@
 import os
 import json
+import sys
 from core import Collector
 
 c = Collector()
@@ -41,4 +42,6 @@ if is_diff is True:
     print("Update eudplib data")
     update()
 else:
-    raise RuntimeError("Nothing differnt with latest version.")
+    error = "Nothing different with latest version."
+    print(error, file=sys.stderr)
+    raise RuntimeError(error)
