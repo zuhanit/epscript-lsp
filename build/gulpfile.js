@@ -20,10 +20,10 @@ const updateeudplib = () => {
   });
   app.stderr.on("data", (err) => {
     console.log("Error: ", err.toString());
+    throw new Error("Error caused while update eudplib");
   });
   app.stderr.on("end", (err) => {
     console.log(err);
-    throw new Error("Error caused while update eudplib");
   });
   return app;
 };
