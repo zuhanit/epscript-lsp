@@ -1,4 +1,6 @@
 import types
+import sys
+sys.path.append("packages/server/src/lib/eudplib")
 from eudplib.core.eudfunc.eudtypedfuncn import EUDFullFuncN, EUDFuncN, EUDTypedFuncN, EUDXTypedFuncN
 
 

@@ -6,8 +6,6 @@ import json
 import inspect
 import os
 
-sys.path.append("packages/server/src/lib/eudplib")
-
 
 def getBuiltins():
     data = {
