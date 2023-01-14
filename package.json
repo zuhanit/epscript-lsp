@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "gulp build",
+    "update": "gulp update",
     "watch": "webpack --mode development --watch",
     "compile": "webpack --mode development"
   },
