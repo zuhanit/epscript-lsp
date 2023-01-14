@@ -40,3 +40,5 @@ is_diff = check()
 if is_diff is True:
     print("Update eudplib data")
     update()
+else:
+    raise RuntimeError("Nothing differnt with latest version.")
