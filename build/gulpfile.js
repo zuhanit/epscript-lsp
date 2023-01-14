@@ -19,7 +19,8 @@ const updateeudplib = () => {
     console.log(data);
   });
   app.stderr.on("data", (err) => {
-    throw new Error("Error caused while update eudplib. Error: ", err);
+    console.log("Error: ", err.toString());
+    throw new Error("Error caused while update eudplib");
   });
   return app;
 };
@@ -80,13 +81,7 @@ task(
 );
 task(
   "build",
-  series(
-    updateSubmodule,
-    updateeudplib,
-    fetchOffsetData,
-    compileServer,
-    compileClient
-  )
+  series(updateSubmodule, updateeudplib, compileServer, compileClient)
 );
 task(
   "update",
