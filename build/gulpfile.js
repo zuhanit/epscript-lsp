@@ -16,10 +16,13 @@ const updateSubmodule = async () => {
 const updateeudplib = () => {
   const app = spawn("python", ["packages/server/src/lib/collector/update.py"]);
   app.stdout.on("data", (data) => {
-    console.log(data);
+    console.log(data.toString());
   });
   app.stderr.on("data", (err) => {
     console.log("Error: ", err.toString());
+  });
+  app.stderr.on("end", (err) => {
+    console.log(err);
     throw new Error("Error caused while update eudplib");
   });
   return app;
@@ -85,11 +88,5 @@ task(
 );
 task(
   "update",
-  series(
-    updateSubmodule,
-    updateeudplib,
-    updateVersion,
-    compileClient,
-    compileServer
-  )
+  series(updateSubmodule, updateeudplib, compileClient, compileServer)
 );
