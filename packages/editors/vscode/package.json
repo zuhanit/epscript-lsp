@@ -157,7 +157,7 @@
     "lint": "eslint ./client/src ./server/src --ext .ts,.tsx",
     "chrome": "npm run compile && vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ./test-data",
     "build": "gulp build",
-    "publish": "gulp publish"
+    "deploy": "vsce publish --yarn"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.9",
