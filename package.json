@@ -3,7 +3,7 @@
   "version": "1.2.2",
   "repository": "git@github.com:zuhanit/epscript-lsp.git",
   "description": "epScript Language Server Protocol implementation.",
-  "private": "true",
+  "private": true,
   "license": "MIT",
   "workspaces": {
     "packages": [
@@ -12,7 +12,6 @@
   },
   "scripts": {
     "build": "gulp build",
-    "update": "gulp update",
     "watch": "webpack --mode development --watch",
     "compile": "webpack --mode development"
   },
