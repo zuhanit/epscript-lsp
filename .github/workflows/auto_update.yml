@@ -1,0 +1,43 @@
+on:
+  pull_request:
+    types: [opened, edited]
+  schedule:
+    - cron: '0 9 * * *'
+  
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          
+      - name: Install dependencies
+        run: yarn install
+        
+      - name: Check update eudplib
+        run: |
+          yarn update
+          
+      - name: Commit and push all changes
+        if: success()
+        run: |
+          git add .
+          git commit -m "feat: Update eudplib"
+          git push
+      
+      - name: Publish VS Code extension
+        if: success()
+        run: |
+          cd packages/editors/vscode
+          yarn deploy
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+          
