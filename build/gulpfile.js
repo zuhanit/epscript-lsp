@@ -6,17 +6,22 @@ const webpackClientConfig = require("../packages/editors/vscode/webpack.config")
 const webpackServerConfig = require("../packages/server/webpack.config");
 const { writeFileSync, writeFile } = require("fs");
 
-const updateeudplib = async () => {
+const updateSubmodule = async () => {
   return exec("git submodule update", (err, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
   });
 };
 
-const buildeudplibData = async () => {
-  return spawn("python", ["packages/server/src/lib/collector/update.py"], {
-    stdio: "inherit",
+const updateeudplib = () => {
+  const app = spawn("python", ["packages/server/src/lib/collector/update.py"]);
+  app.stdout.on("data", (data) => {
+    console.log(data);
   });
+  app.stderr.on("data", (err) => {
+    throw new Error("Error caused while update eudplib. Error: ", err);
+  });
+  return app;
 };
 
 const fetchOffsetData = async () => {
@@ -46,17 +51,28 @@ const compileServer = () => {
 };
 
 const publish = () => {
-  return exec("vsce publish", (err, stdout, stderr) => {
-    console.log(stdout);
-    console.log(stderr);
-  });
+  return exec(
+    "cd packages/editors/vscode && vsce publish",
+    (err, stdout, stderr) => {
+      console.log(stdout);
+      console.log(stderr);
+    }
+  );
+};
+
+const updateVersion = () => {
+  return Promise.all([
+    exec("yarn version --patch"),
+    exec("cd packages/editors/vscode && yarn version --patch"),
+    exec("cd packages/server && yarn version --patch"),
+  ]);
 };
 
 task(
   "default",
   series(
+    updateSubmodule,
     updateeudplib,
-    buildeudplibData,
     fetchOffsetData,
     compileServer,
     compileClient
@@ -65,14 +81,20 @@ task(
 task(
   "build",
   series(
+    updateSubmodule,
     updateeudplib,
-    buildeudplibData,
     fetchOffsetData,
     compileServer,
     compileClient
   )
 );
 task(
-  "publish",
-  series(updateeudplib, buildeudplibData, compileClient, compileServer, publish)
+  "update",
+  series(
+    updateSubmodule,
+    updateeudplib,
+    updateVersion,
+    compileClient,
+    compileServer
+  )
 );
