@@ -43,8 +43,7 @@ jobs:
       - name: Publish VS Code extension
         if: success()
         run: |
-          cd packages/editors/vscode
-          yarn deploy
+          cd packages/editors/vscode && yarn deploy
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
           
