@@ -59,7 +59,7 @@
     {
         "name": "Always",
         "args": [],
-        "docs": "Always.\n\nAccumulate requires that the player gather enough of a specific resource.z"
+        "docs": "Always.\n\nAccumulate requires that the player gather enough of a specific resource."
     },
     {
         "name": "Assignable2List",
@@ -125,7 +125,7 @@
                 "type": "TrgLocation"
             }
         ],
-        "docs": "Player brings quantity units to location.\n\nThis states that a player is required to bring \u2018X\u2019 number of units to a specific location. The units can be any player-controlled unit available in the game."
+        "docs": "Player brings quantity units to location.\n\nThis states that a player is required to bring 'X' number of units to a specific location.\nThe units can be any player-controlled unit available in the game."
     },
     {
         "name": "CenterView",
@@ -140,7 +140,7 @@
                 "type": "TrgLocation"
             }
         ],
-        "docs": "Center view for current player at location.\n\nThis action creates the specified number of units at the specified Location. If a unit is created \u2018Anywhere\u2019, it will appear in the center of the map. This action will not function while the game is paused.\n\nKeep in mind that when the conditions are successfully met, the unit(s) will be created for each player that owns the trigger. For example, if All Players own a trigger that creates a Terran Marine for Player 1, and the conditions of the trigger are true for four of the players, Player 1 will get 4 Marines."
+        "docs": "Center view for current player at location.\n\nThis action creates the specified number of units at the specified Location.\nIf a unit is created 'Anywhere', it will appear in the center of the map.\nThis action will not function while the game is paused.\n\nKeep in mind that when the conditions are successfully met,\nthe unit(s) will be created for each player that owns the trigger.\nFor example, if All Players own a trigger that creates a Terran Marine for Player 1, and\nthe conditions of the trigger are true for four of the players, Player 1 will get 4 Marines."
     },
     {
         "name": "CenterViewAll",
@@ -212,7 +212,7 @@
                 "type": "TrgUnit"
             }
         ],
-        "docs": "Current player commands the least units.\n\nCommand the Least allows you to define an action based on the player that commands the least units. You might use this to give advantages to slower players or to single out weakened players. Note that this condition checks all players, including neutral, computer controlled, and rescuable players."
+        "docs": "Current player commands the least units.\n\nCommand the Least allows you to define an action based on the player that commands the least units.\nYou might use this to give advantages to slower players or to single out weakened players.\nNote that this condition checks all players, including neutral, computer controlled, and rescuable players."
     },
     {
         "name": "CommandLeastAt",
@@ -236,7 +236,7 @@
                 "type": "TrgLocation"
             }
         ],
-        "docs": "Current player commands the least units at location.\n\nCommand the Least At is similar to \u2018Command the Least\u2019, however, but only compares units at a particular location. The location can be restricted to certain elevations."
+        "docs": "Current player commands the least units at location.\n\nCommand the Least At is similar to 'Command the Least', however, but only compares units at a particular location.\nThe location can be restricted to certain elevations."
     },
     {
         "name": "CommandMost",
@@ -251,7 +251,7 @@
                 "type": "TrgUnit"
             }
         ],
-        "docs": "Current player commands the most units.\n\nCommand the Most requires that you command the most of the defined units. These units can be any player-controlled unit available in the game. This condition compares all players in the game, including neutral and rescuable units."
+        "docs": "Current player commands the most units.\n\nCommand the Most requires that you command the most of the defined units.\nThese units can be any player-controlled unit available in the game.\nThis condition compares all players in the game, including neutral and rescuable units."
     },
     {
         "name": "CommandMostAt",
@@ -275,7 +275,7 @@
                 "type": "TrgLocation"
             }
         ],
-        "docs": "Current player commands the most units at location.\n\nSimilar to the Command the Most, this condition compares the number of units at a specific location. The location can be restricted to certain elevations."
+        "docs": "Current player commands the most units at location.\n\nSimilar to the Command the Most, this condition compares the number of units at a specific location.\nThe location can be restricted to certain elevations."
     },
     {
         "name": "Comment",
@@ -290,7 +290,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Comment: comment.\n\nIf this action exists in a trigger, and is enabled, whatever text is listed in the text field will be displayed in the trigger text. If you disable this action, the normal trigger text will be displayed."
+        "docs": "Comment: comment.\n\nIf this action exists in a trigger, and is enabled, whatever text is listed in the text field will be displayed in the trigger text.\nIf you disable this action, the normal trigger text will be displayed."
     },
     {
         "name": "CompressPayload",
@@ -386,7 +386,7 @@
                 "type": "TrgPlayer"
             }
         ],
-        "docs": "Create quantity unit at location for player.\n\nThis action creates the specified number of units at the specified Location. If a unit is created \u2018Anywhere\u2019, it will appear in the center of the map. This action will not function while the game is paused.\n\nKeep in mind that when the conditions are successfully met, the unit(s) will be created for each player that owns the trigger. For example, if **All Players** own a trigger that creates a Terran Marine for Player 1, and the conditions of the trigger are true for four of the players, Player 1 will get 4 Marines."
+        "docs": "Create quantity unit at location for player.\n\nThis action creates the specified number of units at the specified Location.\nIf a unit is created 'Anywhere', it will appear in the center of the map. This action will not function while the game is paused.\n\nKeep in mind that when the conditions are successfully met, the unit(s) will be created for each player that owns the trigger.\nFor example, if **All Players** own a trigger that creates a Terran Marine for Player 1,\nand the conditions of the trigger are true for four of the players, Player 1 will get 4 Marines."
     },
     {
         "name": "CreateUnitWithProperties",
@@ -574,7 +574,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Display for current player: text.\n\nDisplays a specific text message to each owner of the condition. Text messages will only appear if the affected player has Subtitles turned on in the Starcraft Sound Options Menu or if the Always Display option is checked for the action."
+        "docs": "Display for current player: text.\n\nDisplays a specific text message to each owner of the condition."
     },
     {
         "name": "DisplayTextAll",
@@ -682,21 +682,6 @@
             }
         ],
         "docs": ""
-    },
-    {
-        "name": "EPDOffsetMap",
-        "args": [
-            {
-                "name": "ct",
-                "kind": "POSITIONAL_OR_KEYWORD",
-                "default": {
-                    "value": "empty",
-                    "type": "type"
-                },
-                "type": "any"
-            }
-        ],
-        "docs": "dictionary of \"name\": (size, offset) pairs\n\nsize: 1, 2, 4 or bool, \"cunit\", \"sprite\", \"pos\"\noffset: int"
     },
     {
         "name": "EPDSwitch",
@@ -997,21 +982,6 @@
             }
         ],
         "docs": ""
-    },
-    {
-        "name": "EUDDeque",
-        "args": [
-            {
-                "name": "capacity",
-                "kind": "POSITIONAL_OR_KEYWORD",
-                "default": {
-                    "value": "empty",
-                    "type": "type"
-                },
-                "type": "any"
-            }
-        ],
-        "docs": "A double-ended queue implemented with a fixed-size variable array."
     },
     {
         "name": "EUDDoEvents",
@@ -1536,21 +1506,6 @@
         "docs": ""
     },
     {
-        "name": "EUDQueue",
-        "args": [
-            {
-                "name": "capacity",
-                "kind": "POSITIONAL_OR_KEYWORD",
-                "default": {
-                    "value": "empty",
-                    "type": "type"
-                },
-                "type": "any"
-            }
-        ],
-        "docs": "A single-ended queue implemented with a fixed-size variable array."
-    },
-    {
         "name": "EUDRegisterObjectToNamespace",
         "args": [
             {
@@ -1866,30 +1821,6 @@
         "docs": ""
     },
     {
-        "name": "EUDVArray",
-        "args": [
-            {
-                "name": "size",
-                "kind": "POSITIONAL_OR_KEYWORD",
-                "default": {
-                    "value": "empty",
-                    "type": "type"
-                },
-                "type": "any"
-            },
-            {
-                "name": "basetype",
-                "kind": "POSITIONAL_OR_KEYWORD",
-                "default": {
-                    "value": "None",
-                    "type": "NoneType"
-                },
-                "type": "any"
-            }
-        ],
-        "docs": ""
-    },
-    {
         "name": "EUDWhile",
         "args": [],
         "docs": ""
@@ -2062,6 +1993,54 @@
         "docs": "Convert [All, (other numbers)] to number [0, (as-is)]."
     },
     {
+        "name": "EncodeFlingy",
+        "args": [
+            {
+                "name": "flingy",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "issueError",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "EncodeIcon",
+        "args": [
+            {
+                "name": "icon",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "issueError",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
         "name": "EncodeImage",
         "args": [
             {
@@ -2206,6 +2185,30 @@
         "docs": "Convert player identifier to corresponding number.\n\n======================= ========\n    Identifier           Number\n======================= ========\nP1                         0\nP2                         1\nP3                         2\nP4                         3\nP5                         4\nP6                         5\nP7                         6\nP8                         7\nP9                         8\nP10                        9\nP11                        10\nP12                        11\nPlayer1                    0\nPlayer2                    1\nPlayer3                    2\nPlayer4                    3\nPlayer5                    4\nPlayer6                    5\nPlayer7                    6\nPlayer8                    7\nPlayer9                    8\nPlayer10                   9\nPlayer11                   10\nPlayer12                   11\nCurrentPlayer              13\nFoes                       14\nAllies                     15\nNeutralPlayers             16\nAllPlayers                 17\nForce1                     18\nForce2                     19\nForce3                     20\nForce4                     21\nNonAlliedVictoryPlayers    26\n======================= ========"
     },
     {
+        "name": "EncodePortrait",
+        "args": [
+            {
+                "name": "portrait",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "issueError",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
         "name": "EncodePropState",
         "args": [
             {
@@ -2299,7 +2302,31 @@
                 "type": "any"
             }
         ],
-        "docs": "Convert score type identifier to number.\n\n================= ========\n    Score type     Number\n================= ========\nTotal                0\nUnits                1\nBuildings            2\nUnitsAndBuildings    3\nKills                4\nRazings              5\nKillsAndRazings      6\nCustom               7\n================= ========"
+        "docs": "Convert score type identifier to number.\n\n================= ========\n    _Score type     Number\n================= ========\nTotal                0\nUnits                1\nBuildings            2\nUnitsAndBuildings    3\nKills                4\nRazings              5\nKillsAndRazings      6\nCustom               7\n================= ========"
+    },
+    {
+        "name": "EncodeSprite",
+        "args": [
+            {
+                "name": "sprite",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "issueError",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
     },
     {
         "name": "EncodeString",
@@ -2422,6 +2449,30 @@
         "docs": ""
     },
     {
+        "name": "EncodeTech",
+        "args": [
+            {
+                "name": "tech",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "issueError",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
         "name": "EncodeUnit",
         "args": [
             {
@@ -2432,6 +2483,78 @@
                     "type": "type"
                 },
                 "type": "TrgResource"
+            },
+            {
+                "name": "issueError",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "EncodeUnitOrder",
+        "args": [
+            {
+                "name": "order",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "issueError",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "EncodeUpgrade",
+        "args": [
+            {
+                "name": "upgrade",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "issueError",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "EncodeWeapon",
+        "args": [
+            {
+                "name": "weapon",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
             },
             {
                 "name": "issueError",
@@ -2734,7 +2857,7 @@
                 "type": "TrgScore"
             }
         ],
-        "docs": "Current player has highest score points.\n\nThis condition is considered true if the trigger\u2019s owner has the highest Score. Note that if this is used as the only condition in a trigger, it will activate immediately at the start of the scenario, since all players will be tied for the highest score."
+        "docs": "Current player has highest score points.\n\nThis condition is considered true if the trigger's owner has the highest Score.\nNote that if this is used as the only condition in a trigger, it will activate\nimmediately at the start of the scenario, since all players will be tied for the highest score."
     },
     {
         "name": "IsConstExpr",
@@ -2801,6 +2924,11 @@
         "docs": ""
     },
     {
+        "name": "IsUnlimiterOn",
+        "args": [],
+        "docs": ""
+    },
+    {
         "name": "IsUserCP",
         "args": [],
         "docs": "Condition: check if CurrentPlayer equals to user player id (local)"
@@ -2827,7 +2955,7 @@
                 "type": "TrgPlayer"
             }
         ],
-        "docs": "Kill all units for player.\n\nThis action kills all units of a particular type for the player specified. This action has no effect while the game is paused."
+        "docs": "Kill all units for player.\n\nThis action kills all units of a particular type for the player specified.\nThis action has no effect while the game is paused."
     },
     {
         "name": "KillUnitAt",
@@ -2869,7 +2997,7 @@
                 "type": "TrgPlayer"
             }
         ],
-        "docs": "Kill quantity units for player at location.\n\nSimilar to the \u2018Kill Unit\u2019 action, the \u2018Kill Unit at Location\u2019 action gives you the ability to kill a specified number of units of a particular type belonging to a certain player at the specified Location. This action will not function while the game is paused."
+        "docs": "Kill quantity units for player at location.\n\nSimilar to the 'Kill Unit' action, the 'Kill Unit at Location' action gives you the ability to kill\na specified number of units of a particular type belonging to a certain player at the specified Location.\nThis action will not function while the game is paused."
     },
     {
         "name": "LeaderBoardComputerPlayers",
@@ -2884,7 +3012,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Set use of computer players in leaderboard calculations.\n\nThis action allows you to specify whether neutral, rescue and computer controlled players will be included in the leader board calculations. By default, all computer players are included in the tally."
+        "docs": "Set use of computer players in leaderboard calculations.\n\nThis action allows you to specify whether neutral, rescue and computer controlled players will be included\nin the leader board calculations. By default, all computer players are included in the tally."
     },
     {
         "name": "LeaderBoardControl",
@@ -2974,7 +3102,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Show Leader Board for player closest to control of number of unit. Display label: label\n\nThis will display the Leader Board to all players based on the amount of units controlled on the map that are required to achieve a goal. In this type of leader board, the lower the number the better."
+        "docs": "Show Leader Board for player closest to control of number of unit. Display label: label\n\nThis will display the Leader Board to all players based on the amount of units controlled on the map\nthat are required to achieve a goal. In this type of leader board, the lower the number the better."
     },
     {
         "name": "LeaderBoardGoalControlAt",
@@ -3016,7 +3144,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Show Leader Board for player closest to control of number of units at location. Display label: label\n\nThis will display the Leader Board to all players based on the amount of units controlled at a certain Location that are required to achieve a goal. In this type of leader board, the lower the number the better."
+        "docs": "Show Leader Board for player closest to control of number of units at location. Display label: label\n\nThis will display the Leader Board to all players based on the amount of units controlled at a certain Location\nthat are required to achieve a goal. In this type of leader board, the lower the number the better."
     },
     {
         "name": "LeaderBoardGoalKills",
@@ -3049,7 +3177,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Show Leader Board for player closest to number kills of unit. Display label: label\n\nThis will display the Leader Board to all players based on who have the most kills required to achieve a goal. In this type of leader board, the lower the number the better."
+        "docs": "Show Leader Board for player closest to number kills of unit. Display label: label\n\nThis will display the Leader Board to all players based on who have the most kills required to achieve a goal.\nIn this type of leader board, the lower the number the better."
     },
     {
         "name": "LeaderBoardGoalResources",
@@ -3082,7 +3210,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Show Leader Board for player closest to accumulation of number resource. Display label: label\n\nThis will display the Leader Board to all players based on who have the most resources required to achieve a goal. In this type of leader board, the lower the number the better."
+        "docs": "Show Leader Board for player closest to accumulation of number resource. Display label: label\n\nThis will display the Leader Board to all players based on who have the most resources required to achieve a goal.\nIn this type of leader board, the lower the number the better."
     },
     {
         "name": "LeaderBoardGoalScore",
@@ -3115,7 +3243,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Show Leader Board for player closest to number points. Display label: label\n\nThis will display the Leader Board to all players based on who have the most points required to achieve a goal. In this type of leader board, the lower the number the better."
+        "docs": "Show Leader Board for player closest to number points. Display label: label\n\nThis will display the Leader Board to all players based on who have the most points required to achieve a goal.\nIn this type of leader board, the lower the number the better."
     },
     {
         "name": "LeaderBoardGreed",
@@ -3217,7 +3345,7 @@
                 "type": "TrgUnit"
             }
         ],
-        "docs": "Current player has least kills of unit.\n\nThis condition is considered true if the trigger\u2019s owner has the least kills of the specified Unit."
+        "docs": "Current player has least kills of unit.\n\nThis condition is considered true if the trigger's owner has the least kills of the specified Unit."
     },
     {
         "name": "LeastResources",
@@ -3232,7 +3360,7 @@
                 "type": "TrgResource"
             }
         ],
-        "docs": "Current player has least resources.\n\nSimilar to Least Kills, this condition is considered true if the trigger\u2019s owner has the least of the specified resource. Note that Least Resources checks all players, including neutral, computer controlled and rescuable players."
+        "docs": "Current player has least resources.\n\nSimilar to Least Kills, this condition is considered true if the trigger's owner has the least of the specified resource.\nNote that Least Resources checks all players, including neutral, computer controlled and rescuable players."
     },
     {
         "name": "List2Assignable",
@@ -3277,7 +3405,7 @@
                 "type": "TrgScore"
             }
         ],
-        "docs": "Current player has lowest score points.\n\nThis condition evaluates the current Score and is considered true if the current player has the lowest or is tied for the lowest score. Lowest Score checks all players, including neutral and rescuable players."
+        "docs": "Current player has lowest score points.\n\nThis condition evaluates the current Score and is considered true\nif the current player has the lowest or is tied for the lowest score.\nLowest Score checks all players, including neutral and rescuable players."
     },
     {
         "name": "MPQAddFile",
@@ -3514,7 +3642,7 @@
                 "type": "TrgLocation"
             }
         ],
-        "docs": "Show minimap ping for current player at location.\n\nThis sends out a \u2018ping\u2019 on the mini map at the specified location. This can be used to draw attention to a particular spot or to track a moving location. Note that pressing the spacebar in the game after receiving the ping will not center your screen on the ping Location. Only transmissions allow you to jump to a different location with the spacebar."
+        "docs": "Show minimap ping for current player at location.\n\nThis sends out a 'ping' on the mini map at the specified location.\nThis can be used to draw attention to a particular spot or to track a moving location.\nNote that pressing the spacebar in the game after receiving the ping will not center your screen on the ping Location.\nOnly transmissions allow you to jump to a different location with the spacebar."
     },
     {
         "name": "MinimapPingAll",
@@ -3631,7 +3759,7 @@
                 "type": "TrgLocation"
             }
         ],
-        "docs": "Add at most quantity to hangar for quantity units at location owned by player.\n\nThis action will modify the contents of a unit(s) hangar. For example, this will allow you to add 5 additional Interceptors to the Carrier\u2019s hangar."
+        "docs": "Add at most quantity to hangar for quantity units at location owned by player.\n\nThis action will modify the contents of a unit(s) hangar.\nFor example, this will allow you to add 5 additional Interceptors to the Carrier's hangar."
     },
     {
         "name": "ModifyUnitHitPoints",
@@ -3724,7 +3852,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Set resource amount for quantity resource sources owned by player at location to quantity.\n\nThis action allows you to modify the amount of resources contained in the various mineral stores. For example, you could modify a Vespene Geyser so that it had 0 resources if you desire."
+        "docs": "Set resource amount for quantity resource sources owned by player at location to quantity.\n\nThis action allows you to modify the amount of resources contained in the various mineral stores.\nFor example, you could modify a Vespene Geyser so that it had 0 resources if you desire."
     },
     {
         "name": "ModifyUnitShields",
@@ -3790,7 +3918,7 @@
                 "type": "TrgUnit"
             }
         ],
-        "docs": "Current player has most kills of unit.\n\nThis condition is considered true if the trigger\u2019s owner has the most kills of the specified Unit."
+        "docs": "Current player has most kills of unit.\n\nThis condition is considered true if the trigger's owner has the most kills of the specified Unit."
     },
     {
         "name": "MostResources",
@@ -3805,7 +3933,7 @@
                 "type": "TrgResource"
             }
         ],
-        "docs": "Current player has most resources.\n\nSimilar to Most Kills, this condition is considered true if the trigger\u2019s owner has the most of the specified resource."
+        "docs": "Current player has most resources.\n\nSimilar to Most Kills, this condition is considered true if the trigger's owner has the most of the specified resource."
     },
     {
         "name": "MoveLocation",
@@ -3847,7 +3975,7 @@
                 "type": "TrgLocation"
             }
         ],
-        "docs": "Center location labeled location on units owned by player at location.\n\nThis action will center a Location on a unit. In addition to choosing a location to move, you must specify a search location. The Action will ignore any units outside the search location. If no unit is found, the Location will move to the center of the search location. You can combine this Action with Center View to center the screen on a particular unit."
+        "docs": "Center location labeled location on units owned by player at location.\n\nThis action will center a Location on a unit.\nIn addition to choosing a location to move, you must specify a search location.\nThe Action will ignore any units outside the search location.\nIf no unit is found, the Location will move to the center of the search location.\nYou can combine this Action with Center View to center the screen on a particular unit."
     },
     {
         "name": "MoveUnit",
@@ -3903,12 +4031,12 @@
     {
         "name": "MuteUnitSpeech",
         "args": [],
-        "docs": "Mute all non-trigger unit sounds for current player.\n\nThis action will mute unit speech and set to half-volume all sound effects that the game normally produces, including music and combat sounds. This is particularly useful when you are playing a Transmission Action or any time you want to make sure a triggered sound is heard clearly."
+        "docs": "Mute all non-trigger unit sounds for current player.\n\nThis action will mute unit speech and set to half-volume all sound effects that the game normally produces,\nincluding music and combat sounds. This is particularly useful when you are playing a Transmission Action\nor any time you want to make sure a triggered sound is heard clearly."
     },
     {
         "name": "Never",
         "args": [],
-        "docs": "Never.\n\nThe Never condition can be used to temporarily disable actions for testing. A trigger with the Never condition will not activate at any point."
+        "docs": "Never.\n\nThe Never condition can be used to temporarily disable actions for testing.\nA trigger with the Never condition will not activate at any point."
     },
     {
         "name": "NextTrigger",
@@ -3961,7 +4089,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Player has quantity opponents remaining in the game.\n\n-   This condition evaluates how many of the players are opponents of the trigger owner. By default, all of the other players are considered opponents. A player does not count as an opponent if either of the following conditions are met:\n\n-   The player has been defeated. This condition only counts players that are still in the game.\n\n-   The player is set for allied victory with the trigger owner, AND the player is set for allied victory with all other players set for allied victory with the trigger owner. (The enemy of an ally is still an enemy.)\n\nAs a result, if opponents equals zero, all of remaining players are set for allied victory with each other. Use this condition with the Victory action to create a scenario that allows for allied victory."
+        "docs": "Player has quantity opponents remaining in the game.\n\nThis condition evaluates how many of the players are opponents of the trigger owner.\nBy default, all of the other players are considered opponents.\nA player does not count as an opponent if either of the following conditions are met:\n\n* The player has been defeated. This condition only counts players that are still in the game.\n\n* The player is set for allied victory with the trigger owner,\nAND the player is set for allied victory with all other players set for allied victory with the trigger owner.\n(The enemy of an ally is still an enemy.)\n\nAs a result, if opponents equals zero, all of remaining players are set for allied victory with each other.\nUse this condition with the Victory action to create a scenario that allows for allied victory."
     },
     {
         "name": "Order",
@@ -4012,7 +4140,7 @@
                 "type": "TrgLocation"
             }
         ],
-        "docs": "Issue order to all units owned by player at location: order to destination.\n\nThis action allows you to issue orders through a trigger to a unit (or units) that will change their behavior in a scenario. The different orders are attack, move and patrol."
+        "docs": "Issue order to all units owned by player at location: order to destination.\n\nThis action allows you to issue orders through a trigger to a unit (or units) that will change their behavior in a scenario.\nThe different orders are attack, move and patrol."
     },
     {
         "name": "PColor",
@@ -4110,12 +4238,12 @@
     {
         "name": "PauseGame",
         "args": [],
-        "docs": "Pause the game.\n\nThis action will put the game in a pause state. If a matching Unpause Game is not found, the program automatically unpauses the game when the current trigger is finished. Note that pause game has no effect in multiplayer scenarios or against computer controlled players."
+        "docs": "Pause the game.\n\nThis action will put the game in a pause state.\nIf a matching Unpause Game is not found, the program automatically unpauses the game when the current trigger is finished.\nNote that pause game has no effect in multiplayer scenarios or against computer controlled players."
     },
     {
         "name": "PauseTimer",
         "args": [],
-        "docs": "Pause the game.\n\nThis action will put the game in a pause state. If a matching Unpause Game is not found, the program automatically unpauses the game when the current trigger is finished. Note that pause game has no effect in multiplayer scenarios or against computer controlled players."
+        "docs": "Pause the game.\n\nThis action will put the game in a pause state.\nIf a matching Unpause Game is not found, the program automatically unpauses the game when the current trigger is finished.\nNote that pause game has no effect in multiplayer scenarios or against computer controlled players."
     },
     {
         "name": "PlayWAV",
@@ -4130,7 +4258,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Play WAV file.\n\nThis will play a WAV file for the trigger\u2019s owner."
+        "docs": "Play WAV file.\n\nThis will play a WAV file for the trigger's owner."
     },
     {
         "name": "PlayWAVAll",
@@ -4155,7 +4283,7 @@
     {
         "name": "PreserveTrigger",
         "args": [],
-        "docs": "Preserve Trigger.\n\nNormally, a trigger will only run once for each owner. Triggers automatically disable themselves once they run through all of their actions, unless the Preserve Trigger action is present. If you want a trigger to remain in effect throughout the scenario, add the Preserve Trigger action to its action list."
+        "docs": "Preserve Trigger.\n\nNormally, a trigger will only run once for each owner.\nTriggers automatically disable themselves once they run through all of their actions, unless the Preserve Trigger action is present.\nIf you want a trigger to remain in effect throughout the scenario, add the Preserve Trigger action to its action list."
     },
     {
         "name": "PushTriggerScope",
@@ -4362,7 +4490,7 @@
                 "type": "TrgPlayer"
             }
         ],
-        "docs": "Remove all units for player.\n\nRemove Unit works just like Kill Unit, except that the affected units will simply disappear without actually dying. This action has no effect while the game is paused."
+        "docs": "Remove all units for player.\n\nRemove Unit works just like Kill Unit, except that the affected units will simply disappear without actually dying.\nThis action has no effect while the game is paused."
     },
     {
         "name": "RemoveUnitAt",
@@ -4404,7 +4532,7 @@
                 "type": "TrgPlayer"
             }
         ],
-        "docs": "Remove all units for player.\n\nThis action works just like Remove Unit. In addition, you may specify a location and a quantity of units that the action will affect. It has no effect on a paused game."
+        "docs": "Remove all units for player.\n\nThis action works just like Remove Unit.\nIn addition, you may specify a location and a quantity of units that the action will affect.\nIt has no effect on a paused game."
     },
     {
         "name": "RlocInt",
@@ -4443,7 +4571,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Execute AI script script.\n\nThis instructs the specified computer-controlled players to use a certain AI script. The AI script determines the overall aggressiveness and effectiveness of the computer player, and by changing the AI script during the scenario, you can effectively handicap the scenario."
+        "docs": "Execute AI script script.\n\nThis instructs the specified computer-controlled players to use a certain AI script.\nThe AI script determines the overall aggressiveness and effectiveness of the computer player,\nand by changing the AI script during the scenario, you can effectively handicap the scenario."
     },
     {
         "name": "RunAIScriptAt",
@@ -4467,7 +4595,7 @@
                 "type": "TrgLocation"
             }
         ],
-        "docs": "Execute AI script script at location.\n\nIdentical to [Run AI Script](#link_action_runaiscript) but specifies a location to run the script at. Certain scripts are designed specifically to target a Location."
+        "docs": "Execute AI script script at location.\n\nIdentical to [Run AI Script](#link_action_runaiscript) but specifies a location to run the script at.\nCertain scripts are designed specifically to target a Location."
     },
     {
         "name": "RunTrigTrigger",
@@ -4562,7 +4690,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Player score type score is quantity.\n\nThis condition allows you to analyze a player\u2019s current Score and perform actions based on the value. You can reference any of the individual scoring types from score."
+        "docs": "Player score type score is quantity.\n\nThis condition allows you to analyze a player's current Score and perform actions based on the value.\nYou can reference any of the individual scoring types from score."
     },
     {
         "name": "SeqCompute",
@@ -4601,7 +4729,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Set Player to Ally status.\n\nThis allows you to set the value of the affected players\u2019 alliance status."
+        "docs": "Set Player to Ally status.\n\nThis allows you to set the value of the affected players' alliance status."
     },
     {
         "name": "SetCountdownTimer",
@@ -4625,7 +4753,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Modify Countdown Timer: Set duration seconds.\n\nThis allows you to set a countdown timer, in game seconds, which will appear at the top of the game screen and count down automatically. There is one countdown timer shared by all players. Any time the countdown timer is not equal to zero, it is displayed to all players.\n\nYou can also use this action to add or subtract time from the countdown timer."
+        "docs": "Modify Countdown Timer: Set duration seconds.\n\nThis allows you to set a countdown timer, in game seconds, which will appear at the top of the game screen\nand count down automatically. There is one countdown timer shared by all players.\nAny time the countdown timer is not equal to zero, it is displayed to all players.\n\nYou can also use this action to add or subtract time from the countdown timer."
     },
     {
         "name": "SetCurrentPlayer",
@@ -4775,7 +4903,31 @@
                 "type": "TrgLocation"
             }
         ],
-        "docs": "Set doodad state for units for player at location.\n\nThe Installation tileset contains several doodads that can be enabled or disabled. The doors and concealed turrets can be set to start in one state or another by double clicking on them in the main window, but this action allows you to change their state during the course of the scenario. A location must be drawn around the doodads that you wish to affect with this action.\n\nEnabling a door closes it, and enabling a turret causes it to activate and attack any enemies of the trigger owner."
+        "docs": "Set doodad state for units for player at location.\n\nThe Installation tileset contains several doodads that can be enabled or disabled.\nThe doors and concealed turrets can be set to start in one state or another by double clicking on them in the main window,\nbut this action allows you to change their state during the course of the scenario.\nA location must be drawn around the doodads that you wish to affect with this action.\n\nEnabling a door closes it, and enabling a turret causes it to activate and attack any enemies of the trigger owner."
+    },
+    {
+        "name": "SetGrpWire",
+        "args": [
+            {
+                "name": "unit",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            },
+            {
+                "name": "wireframe",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
     },
     {
         "name": "SetInvincibility",
@@ -5024,7 +5176,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Set Mission Objectives to: text.\n\nChanges the mission objectives text to something other than what was defined at the outset of the level. While this doesn\u2019t actually change the victory or defeat conditions for the scenario, it can be used to notify the players of changes to the scenario\u2019s objectives."
+        "docs": "Set Mission Objectives to: text.\n\nChanges the mission objectives text to something other than what was defined at the outset of the level.\nWhile this doesn't actually change the victory or defeat conditions for the scenario,\nit can be used to notify the players of changes to the scenario's objectives."
     },
     {
         "name": "SetMissionObjectivesAll",
@@ -5258,7 +5410,31 @@
                 "type": "any"
             }
         ],
-        "docs": "Set switch.\n\nThe set switch action can be used to:\n\n-   Set a switch to its set position.\n-   Clear a switch to its cleared position.\n-   Toggle a switch: if a switch is cleared, it becomes set; if it is set, it becomes cleared.\n-   Randomly choose between the set or cleared position."
+        "docs": "Set switch.\n\nThe set switch action can be used to:\n- Set a switch to its set position.\n- Clear a switch to its cleared position.\n- Toggle a switch: if a switch is cleared, it becomes set; if it is set, it becomes cleared.\n- Randomly choose between the set or cleared position."
+    },
+    {
+        "name": "SetTranWire",
+        "args": [
+            {
+                "name": "unit",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            },
+            {
+                "name": "wireframe",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
     },
     {
         "name": "SetVariables",
@@ -5287,6 +5463,54 @@
                 "default": {
                     "value": "None",
                     "type": "NoneType"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "SetWirefram",
+        "args": [
+            {
+                "name": "unit",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            },
+            {
+                "name": "wireframe",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "SetWireframes",
+        "args": [
+            {
+                "name": "unit",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            },
+            {
+                "name": "wireframe",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
                 },
                 "type": "any"
             }
@@ -5330,7 +5554,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Switch is set.\n\nThis allows you to test against a switch value. Switches are on/off values that can be set with an action. Switches can be used to keep track of which triggers have been activated, to disable or enable certain triggers or to link multiple triggers together. You may also rename switches from this dialog box."
+        "docs": "Switch is set.\n\nThis allows you to test against a switch value. Switches are on/off values that can be set with an action.\nSwitches can be used to keep track of which triggers have been activated, to disable or enable certain triggers or to link multiple triggers together.\nYou may also rename switches from this dialog box."
     },
     {
         "name": "TalkingPortrait",
@@ -5615,7 +5839,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Send transmission to current player from unit at location.\n\nA transmission is a combination of several different actions. First, you need to specify which unit at a location you want to send the transmission. This unit\u2019s portrait will be displayed for the duration of the transmission. You then need to select a WAV file to play, how long to animate the unit portrait, and what text message to display for players that have Subtitles turned on. The player receiving the transmission will receive a minimap ping when the transmission starts, and can press the space bar to center their screen on the unit sending the transmission.\n\nNote that this action has no effect on computer players, and it will prevent any other action (in the same trigger) from resuming until it has finished."
+        "docs": "Send transmission to current player from unit at location.\n\nA transmission is a combination of several different actions.\nFirst, you need to specify which unit at a location you want to send the transmission.\nThis unit's portrait will be displayed for the duration of the transmission.\nYou then need to select a WAV file to play, how long to animate the unit portrait, and what text message to display.\nThe player receiving the transmission will receive a minimap ping when the transmission starts,\nand can press the space bar to center their screen on the unit sending the transmission.\n\nNote that this action has no effect on computer players,\nand it will prevent any other action (in the same trigger) from resuming until it has finished."
     },
     {
         "name": "TrigTriggerBegin",
@@ -5688,7 +5912,7 @@
     {
         "name": "UnpauseGame",
         "args": [],
-        "docs": "Unpause the game.\n\nThis action resumes the game from a paused session. Note that this has no effect in multiplayer maps and will not effect any computer opponents in single player maps."
+        "docs": "Unpause the game.\n\nThis action resumes the game from a paused session.\nNote that this has no effect in multiplayer maps and will not effect any computer opponents in single player maps."
     },
     {
         "name": "UnpauseTimer",
@@ -5722,7 +5946,7 @@
     {
         "name": "Victory",
         "args": [],
-        "docs": "End scenario in victory for current player.\n\nThe game ends in victory for the trigger\u2019s owner. Any players who are not executing a victory action are defeated."
+        "docs": "End scenario in victory for current player.\n\nThe game ends in victory for the trigger's owner. Any players who are not executing a victory action are defeated."
     },
     {
         "name": "Wait",
@@ -5737,7 +5961,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Wait for duration milliseconds.\n\nThe wait action is used to delay other actions for the specified number of milliseconds. Because it is a blocking action, no other actions in the same trigger and no other blocking actions in other triggers will activate until it is done."
+        "docs": "Wait for duration milliseconds.\n\nThe wait action is used to delay other actions for the specified number of milliseconds.\nBecause it is a blocking action, no other actions in the same trigger and no other blocking actions in other triggers will activate until it is done."
     },
     {
         "name": "b2i1",
@@ -5827,6 +6051,21 @@
         "docs": ""
     },
     {
+        "name": "b2utf8",
+        "args": [
+            {
+                "name": "b",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
         "name": "bits",
         "args": [
             {
@@ -5845,8 +6084,8 @@
         "name": "cachedfunc",
         "args": [
             {
-                "name": "function",
-                "kind": "POSITIONAL_OR_KEYWORD",
+                "name": "user_function",
+                "kind": "POSITIONAL_ONLY",
                 "default": {
                     "value": "empty",
                     "type": "type"
@@ -5854,22 +6093,7 @@
                 "type": "any"
             }
         ],
-        "docs": ""
-    },
-    {
-        "name": "createEncoder",
-        "args": [
-            {
-                "name": "f",
-                "kind": "POSITIONAL_OR_KEYWORD",
-                "default": {
-                    "value": "empty",
-                    "type": "type"
-                },
-                "type": "any"
-            }
-        ],
-        "docs": ""
+        "docs": "Simple lightweight unbounded cache.  Sometimes called \"memoize\"."
     },
     {
         "name": "ep_assert",
@@ -5998,6 +6222,15 @@
                     "type": "type"
                 },
                 "type": "any"
+            },
+            {
+                "name": "action",
+                "kind": "KEYWORD_ONLY",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
             }
         ],
         "docs": ""
@@ -6020,6 +6253,63 @@
                 "default": {
                     "value": "empty",
                     "type": "str"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "f_atan2_256",
+        "args": [
+            {
+                "name": "y",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            },
+            {
+                "name": "x",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "f_badd_epd",
+        "args": [
+            {
+                "name": "epd",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "subp",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "b",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
                 },
                 "type": "any"
             }
@@ -6319,6 +6609,15 @@
                     "type": "type"
                 },
                 "type": "any"
+            },
+            {
+                "name": "kwargs",
+                "kind": "VAR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
             }
         ],
         "docs": ""
@@ -6374,6 +6673,39 @@
                 "default": {
                     "value": "empty",
                     "type": "str"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "f_bsubtract_epd",
+        "args": [
+            {
+                "name": "epd",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "subp",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "b",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
                 },
                 "type": "any"
             }
@@ -6841,6 +7173,15 @@
                     "type": "type"
                 },
                 "type": "any"
+            },
+            {
+                "name": "action",
+                "kind": "KEYWORD_ONLY",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
             }
         ],
         "docs": ""
@@ -7054,6 +7395,15 @@
             {
                 "name": "ptr",
                 "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "kwargs",
+                "kind": "VAR_KEYWORD",
                 "default": {
                     "value": "empty",
                     "type": "type"
@@ -7314,10 +7664,10 @@
         "args": [
             {
                 "name": "targetplayer",
-                "kind": "POSITIONAL_OR_KEYWORD",
+                "kind": "POSITIONAL_ONLY",
                 "default": {
                     "value": "empty",
-                    "type": "type"
+                    "type": "str"
                 },
                 "type": "any"
             }
@@ -7572,6 +7922,30 @@
         "docs": ""
     },
     {
+        "name": "f_lengthdir_256",
+        "args": [
+            {
+                "name": "length",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            },
+            {
+                "name": "angle",
+                "kind": "POSITIONAL_ONLY",
+                "default": {
+                    "value": "empty",
+                    "type": "str"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
         "name": "f_maskread_cp",
         "args": [
             {
@@ -7759,28 +8133,37 @@
         "args": [
             {
                 "name": "dst",
-                "kind": "POSITIONAL_ONLY",
+                "kind": "POSITIONAL_OR_KEYWORD",
                 "default": {
                     "value": "empty",
-                    "type": "str"
+                    "type": "type"
                 },
                 "type": "any"
             },
             {
                 "name": "src",
-                "kind": "POSITIONAL_ONLY",
+                "kind": "POSITIONAL_OR_KEYWORD",
                 "default": {
                     "value": "empty",
-                    "type": "str"
+                    "type": "type"
                 },
                 "type": "any"
             },
             {
                 "name": "copylen",
-                "kind": "POSITIONAL_ONLY",
+                "kind": "POSITIONAL_OR_KEYWORD",
                 "default": {
                     "value": "empty",
-                    "type": "str"
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "kwargs",
+                "kind": "VAR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
                 },
                 "type": "any"
             }
@@ -8282,6 +8665,15 @@
                     "type": "type"
                 },
                 "type": "any"
+            },
+            {
+                "name": "action",
+                "kind": "KEYWORD_ONLY",
+                "default": {
+                    "value": "False",
+                    "type": "bool"
+                },
+                "type": "any"
             }
         ],
         "docs": ""
@@ -8656,8 +9048,17 @@
         "name": "f_spriteread_cp",
         "args": [
             {
-                "name": "cpoffset",
+                "name": "cpo",
                 "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "kwargs",
+                "kind": "VAR_KEYWORD",
                 "default": {
                     "value": "empty",
                     "type": "type"
@@ -8671,11 +9072,11 @@
         "name": "f_spriteread_epd",
         "args": [
             {
-                "name": "epd",
-                "kind": "POSITIONAL_OR_KEYWORD",
+                "name": "targetplayer",
+                "kind": "POSITIONAL_ONLY",
                 "default": {
                     "value": "empty",
-                    "type": "type"
+                    "type": "str"
                 },
                 "type": "any"
             }
@@ -8856,11 +9257,53 @@
         "docs": ""
     },
     {
+        "name": "f_wadd_epd",
+        "args": [
+            {
+                "name": "epd",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "subp",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "w",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
         "name": "f_wread",
         "args": [
             {
                 "name": "ptr",
                 "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "kwargs",
+                "kind": "VAR_KEYWORD",
                 "default": {
                     "value": "empty",
                     "type": "type"
@@ -8921,6 +9364,39 @@
                 "default": {
                     "value": "empty",
                     "type": "str"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "f_wsubtract_epd",
+        "args": [
+            {
+                "name": "epd",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "subp",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "w",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
                 },
                 "type": "any"
             }
@@ -9087,11 +9563,6 @@
         "docs": ""
     },
     {
-        "name": "isStrict",
-        "args": [],
-        "docs": ""
-    },
-    {
         "name": "isUnproxyInstance",
         "args": [
             {
@@ -9131,10 +9602,25 @@
         "docs": ""
     },
     {
-        "name": "setStrict",
+        "name": "setPyBuiltins",
         "args": [
             {
-                "name": "mode",
+                "name": "builtinList",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "setPyKeywords",
+        "args": [
+            {
+                "name": "keywordList",
                 "kind": "POSITIONAL_OR_KEYWORD",
                 "default": {
                     "value": "empty",
