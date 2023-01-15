@@ -11,12 +11,14 @@ const updateeudplib = () => {
   app.stdout.on("data", (data) => {
     console.log(data.toString());
   });
-  app.stderr.on("data", (err) => {
-    console.log("Error: ", Buffer.concat(err).toString());
-    throw new Error("Error caused while update eudplib");
+  let stderrChunks = [];
+  app.stderr.on("data", (data) => {
+    stderrChunks = stderrChunks.concat(data);
   });
-  app.stderr.on("end", (err) => {
-    console.log(Buffer.concat(err).toString());
+  app.stderr.on("end", () => {
+    const stderrContent = Buffer.concat(stderrChunks).toString();
+    console.log(stderrContent);
+    throw new Error("Error caused while update eudplib, err:", stderrContent);
   });
   return app;
 };
