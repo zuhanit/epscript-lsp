@@ -9,3 +9,4 @@
 !dist/server.js
 !package.json
 !syntaxes/**/*
+!LICENSE.md
