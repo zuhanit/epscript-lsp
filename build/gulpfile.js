@@ -16,7 +16,7 @@ const updateeudplib = () => {
     throw new Error("Error caused while update eudplib");
   });
   app.stderr.on("end", (err) => {
-    console.log(err);
+    console.log(err.toString());
   });
   return app;
 };
