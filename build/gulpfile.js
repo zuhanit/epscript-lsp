@@ -7,7 +7,7 @@ const webpackServerConfig = require("../packages/server/webpack.config");
 const { writeFileSync, writeFile } = require("fs");
 
 const updateSubmodule = async () => {
-  return exec("git submodule update", (err, stdout, stderr) => {
+  return exec("git submodule update --remote", (err, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
   });
