@@ -88,5 +88,11 @@ task(
 );
 task(
   "update",
-  series(updateSubmodule, updateeudplib, compileClient, compileServer)
+  series(
+    updateSubmodule,
+    updateeudplib,
+    compileClient,
+    compileServer,
+    updateVersion
+  )
 );
