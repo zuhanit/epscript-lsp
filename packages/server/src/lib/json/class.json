@@ -239,6 +239,141 @@
                 "docs": ""
             },
             {
+                "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__eq__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__floordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ge__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__gt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__hash__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__init__",
                 "args": [
                     {
@@ -351,6 +486,237 @@
                     }
                 ],
                 "docs": "See :mod:`eudplib.base.stocktrg` for stock actions list."
+            },
+            {
+                "name": "__le__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ne__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__neg__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__radd__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rmul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rsub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__sub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             }
         ],
         "docs": "Action class.\n\nMemory layout.\n\n ======  ============= ========  ==========\n Offset  Field Name    Position  EPD Player\n ======  ============= ========  ==========\n   +00   locid1         dword0   EPD(act)+0\n   +04   strid          dword1   EPD(act)+1\n   +08   wavid          dword2   EPD(act)+2\n   +0C   time           dword3   EPD(act)+3\n   +10   player1        dword4   EPD(act)+4\n   +14   player2        dword5   EPD(act)+5\n   +18   unitid         dword6   EPD(act)+6\n   +1A   acttype\n   +1B   amount\n   +1C   flags          dword7   EPD(act)+7\n   +1D   internal[3\n ======  ============= ========  =========="
@@ -748,7 +1114,142 @@
                 "docs": ""
             },
             {
+                "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__bool__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__eq__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__floordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ge__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__gt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__hash__",
                 "args": [
                     {
                         "name": "self",
@@ -857,6 +1358,237 @@
                     }
                 ],
                 "docs": ""
+            },
+            {
+                "name": "__le__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ne__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__neg__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__radd__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rmul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rsub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__sub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             }
         ],
         "docs": "Condition class.\n\nMemory layout:\n\n ======  =============  ========  ===========\n Offset  Field name     Position  EPD Player\n ======  =============  ========  ===========\n   +00   locid           dword0   EPD(cond)+0\n   +04   player          dword1   EPD(cond)+1\n   +08   amount          dword2   EPD(cond)+2\n   +0C   unitid          dword3   EPD(cond)+3\n   +0E   comparison\n   +0F   condtype\n   +10   restype         dword4   EPD(cond)+4\n   +11   flags\n   +12   internal[2]\n ======  =============  ========  ==========="
@@ -865,8 +1597,8 @@
         "name": "ConstExpr",
         "args": [
             {
-                "name": "args",
-                "kind": "VAR_POSITIONAL",
+                "name": "baseobj",
+                "kind": "POSITIONAL_OR_KEYWORD",
                 "default": {
                     "value": "empty",
                     "type": "type"
@@ -874,17 +1606,450 @@
                 "type": "any"
             },
             {
-                "name": "kwargs",
-                "kind": "VAR_KEYWORD",
+                "name": "offset",
+                "kind": "POSITIONAL_OR_KEYWORD",
                 "default": {
-                    "value": "empty",
-                    "type": "type"
+                    "value": "0",
+                    "type": "int"
+                },
+                "type": "any"
+            },
+            {
+                "name": "rlocmode",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "4",
+                    "type": "int"
                 },
                 "type": "any"
             }
         ],
-        "methods": [],
-        "docs": "Class for general expression with rlocints.\n    "
+        "methods": [
+            {
+                "name": "Evaluate",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__eq__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__floordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ge__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__gt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__hash__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "baseobj",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "offset",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "0",
+                            "type": "int"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "rlocmode",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "4",
+                            "type": "int"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__le__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ne__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__neg__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__radd__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rmul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rsub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__sub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "docs": "Class for general expression with rlocints."
     },
     {
         "name": "CtrlStruOpener",
@@ -2006,6 +3171,141 @@
                 "docs": ""
             },
             {
+                "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__eq__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__floordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ge__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__gt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__hash__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__init__",
                 "args": [
                     {
@@ -2019,6 +3319,237 @@
                     },
                     {
                         "name": "b",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__le__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ne__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__neg__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__radd__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rmul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rsub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__sub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -2960,6 +4491,21 @@
                 "docs": ""
             },
             {
+                "name": "contents",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "create_module",
                 "args": [
                     {
@@ -3188,6 +4734,30 @@
                 "docs": "Concrete implementation of InspectLoader.is_package by checking if\nthe path returned by get_filename has a filename of '__init__.py'."
             },
             {
+                "name": "is_resource",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "load_module",
                 "args": [
                     {
@@ -3228,6 +4798,30 @@
                     }
                 ],
                 "docs": "Load a module from a file.\n\nThis method is deprecated.  Use exec_module() instead."
+            },
+            {
+                "name": "open_resource",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "resource",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             },
             {
                 "name": "path_mtime",
@@ -3276,6 +4870,30 @@
                     }
                 ],
                 "docs": "Return the metadata for the path."
+            },
+            {
+                "name": "resource_path",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "resource",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             },
             {
                 "name": "set_data",
@@ -5655,6 +7273,141 @@
                 "docs": ""
             },
             {
+                "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__eq__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__floordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ge__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__gt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__hash__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__init__",
                 "args": [
                     {
@@ -5668,6 +7421,237 @@
                     },
                     {
                         "name": "content",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__le__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ne__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__neg__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__radd__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rmul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rsub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__sub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -6709,10 +8693,376 @@
                 "docs": "Write object"
             },
             {
+                "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__eq__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__floordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ge__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__gt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__hash__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__init__",
                 "args": [
                     {
                         "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__le__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ne__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__neg__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__radd__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rmul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rsub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__sub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -13266,28 +15616,574 @@
     },
     {
         "name": "Forward",
-        "args": [
+        "args": [],
+        "methods": [
             {
-                "name": "args",
-                "kind": "VAR_POSITIONAL",
-                "default": {
-                    "value": "empty",
-                    "type": "type"
-                },
-                "type": "any"
+                "name": "Evaluate",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             },
             {
-                "name": "kwargs",
-                "kind": "VAR_KEYWORD",
-                "default": {
-                    "value": "empty",
-                    "type": "type"
-                },
-                "type": "any"
+                "name": "IsSet",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "Reset",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__call__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__eq__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__floordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ge__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__getattr__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__getitem__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__gt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__hash__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__le__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lshift__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "expr",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ne__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__neg__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__radd__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rmul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rsub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__setitem__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "newvalue",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__sub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             }
         ],
-        "methods": [],
-        "docs": "Class for forward definition.\n    "
+        "docs": "Class for forward definition."
     },
     {
         "name": "Image",
@@ -15404,6 +18300,141 @@
                 "docs": ""
             },
             {
+                "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__eq__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__floordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ge__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__gt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__hash__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__init__",
                 "args": [
                     {
@@ -15489,6 +18520,237 @@
                     }
                 ],
                 "docs": ""
+            },
+            {
+                "name": "__le__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ne__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__neg__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__radd__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rmul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rsub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__sub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             }
         ],
         "docs": ""
@@ -15497,8 +18759,8 @@
         "name": "RlocInt_C",
         "args": [
             {
-                "name": "args",
-                "kind": "VAR_POSITIONAL",
+                "name": "offset",
+                "kind": "POSITIONAL_OR_KEYWORD",
                 "default": {
                     "value": "empty",
                     "type": "type"
@@ -15506,8 +18768,8 @@
                 "type": "any"
             },
             {
-                "name": "kwargs",
-                "kind": "VAR_KEYWORD",
+                "name": "rlocmode",
+                "kind": "POSITIONAL_OR_KEYWORD",
                 "default": {
                     "value": "empty",
                     "type": "type"
@@ -15515,7 +18777,167 @@
                 "type": "any"
             }
         ],
-        "methods": [],
+        "methods": [
+            {
+                "name": "__add__",
+                "args": [
+                    {
+                        "name": "lhs",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "rhs",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__floordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "offset",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "rlocmode",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__str__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__sub__",
+                "args": [
+                    {
+                        "name": "lhs",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "rhs",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
         "docs": "Relocatable int"
     },
     {
