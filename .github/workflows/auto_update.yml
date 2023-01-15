@@ -30,6 +30,13 @@ jobs:
       - name: Check update eudplib
         run: |
           yarn update
+      
+      - name: Publish VS Code extension
+        if: success()
+        run: |
+          cd packages/editors/vscode && yarn deploy
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
           
       - name: Commit and push all changes
         if: success()
@@ -39,11 +46,3 @@ jobs:
           git config --global user.name "github-actions"
           git commit -m "feat: Update eudplib"
           git push
-      
-      - name: Publish VS Code extension
-        if: success()
-        run: |
-          cd packages/editors/vscode && yarn deploy
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
-          
