@@ -2,7 +2,7 @@
   "name": "eps-server",
   "description": "Language Server for epScript.",
   "author": "Zuhanit",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE.md",
   "version": "1.2.4",
   "repository": {
     "type": "git",
