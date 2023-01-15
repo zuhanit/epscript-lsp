@@ -6,7 +6,7 @@ epScript language support via Language Server Protocol.
 - _Neovim (In progress)_
 
 ## Limited Update
-I'll have to perform korea military service due start from 2023.01.17 to 2024.07. Update can be difficult but I will do my best to maintain this. If anyone interested in epscript-lsp(or eps-server), please contact by github issue.
+I'll have to perform korea military service start from 2023.01.17 to 2024.07. Update can be difficult but I will do my best to maintain this. If anyone interested in epscript-lsp(or eps-server), please contact by github issue.
 
 ## Features
 
