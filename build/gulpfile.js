@@ -18,7 +18,10 @@ const updateeudplib = () => {
   app.stderr.on("end", () => {
     const stderrContent = Buffer.concat(stderrChunks).toString();
     console.log(stderrContent);
-    throw new Error("Error caused while update eudplib, err:", stderrContent);
+
+    if (stderrContent.length !== 0) {
+      throw new Error("Error caused while update eudplib, err:", stderrContent);
+    }
   });
   return app;
 };
