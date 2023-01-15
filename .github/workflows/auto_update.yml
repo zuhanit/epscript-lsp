@@ -1,11 +1,11 @@
 on:
   schedule:
-    - cron: '0 15 * * *'
+    - cron: "0 15 * * *"
   workflow_dispatch:
-      inputs:
-         tags:
-            description: 'Test scenario tags'
-  
+    inputs:
+      tags:
+        description: "Test scenario tags"
+
 jobs:
   cron:
     runs-on: windows-latest
@@ -18,28 +18,31 @@ jobs:
       - name: Repository checkout
         uses: actions/checkout@v3
         with:
-            ref: ${{ github.event.pull_request.head.ref }}
-            submodules: true
-            
+          ref: ${{ github.event.pull_request.head.ref }}
+          submodules: true
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3.6.0
         with:
           node-version: ${{ matrix.node-version }}
-          
+
       - name: Install dependencies
         run: yarn install
-        
+
+      - name: Update submodules
+        run: git submodule update --remote
+
       - name: Check update eudplib
         run: |
           yarn update
-      
+
       - name: Publish VS Code extension
         if: success()
         run: |
           cd packages/editors/vscode && yarn deploy
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-          
+
       - name: Commit and push all changes
         if: success()
         run: |

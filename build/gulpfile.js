@@ -6,13 +6,6 @@ const webpackClientConfig = require("../packages/editors/vscode/webpack.config")
 const webpackServerConfig = require("../packages/server/webpack.config");
 const { writeFileSync, writeFile } = require("fs");
 
-const updateSubmodule = async () => {
-  return exec("git submodule update --remote", (err, stdout, stderr) => {
-    console.log(stdout);
-    console.log(stderr);
-  });
-};
-
 const updateeudplib = () => {
   const app = spawn("python", ["packages/server/src/lib/collector/update.py"]);
   app.stdout.on("data", (data) => {
@@ -74,25 +67,10 @@ const updateVersion = () => {
 
 task(
   "default",
-  series(
-    updateSubmodule,
-    updateeudplib,
-    fetchOffsetData,
-    compileServer,
-    compileClient
-  )
+  series(updateeudplib, fetchOffsetData, compileServer, compileClient)
 );
-task(
-  "build",
-  series(updateSubmodule, updateeudplib, compileServer, compileClient)
-);
+task("build", series(updateeudplib, compileServer, compileClient));
 task(
   "update",
-  series(
-    updateSubmodule,
-    updateeudplib,
-    compileClient,
-    compileServer,
-    updateVersion
-  )
+  series(updateeudplib, compileClient, compileServer, updateVersion)
 );
