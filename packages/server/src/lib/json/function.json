@@ -2446,6 +2446,21 @@
         "docs": ""
     },
     {
+        "name": "Evaluate",
+        "args": [
+            {
+                "name": "x",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": "Evaluate expressions"
+    },
+    {
         "name": "FlattenList",
         "args": [
             {
@@ -2720,6 +2735,21 @@
             }
         ],
         "docs": "Current player has highest score points.\n\nThis condition is considered true if the trigger\u2019s owner has the highest Score. Note that if this is used as the only condition in a trigger, it will activate immediately at the start of the scenario, since all players will be tied for the highest score."
+    },
+    {
+        "name": "IsConstExpr",
+        "args": [
+            {
+                "name": "x",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
     },
     {
         "name": "IsEUDVariable",
@@ -4375,6 +4405,30 @@
             }
         ],
         "docs": "Remove all units for player.\n\nThis action works just like Remove Unit. In addition, you may specify a location and a quantity of units that the action will affect. It has no effect on a paused game."
+    },
+    {
+        "name": "RlocInt",
+        "args": [
+            {
+                "name": "offset",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "rlocmode",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
     },
     {
         "name": "RunAIScript",
@@ -9090,6 +9144,21 @@
             }
         ],
         "docs": ""
+    },
+    {
+        "name": "toRlocInt",
+        "args": [
+            {
+                "name": "x",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": "Convert int/RlocInt to rlocint"
     },
     {
         "name": "u2b",
