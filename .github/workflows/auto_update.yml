@@ -2,7 +2,7 @@ on:
   pull_request:
     types: [opened, edited]
   schedule:
-    - cron: '* * * * *'
+    - cron: '0 9 * * *'
   
 jobs:
   cron:
