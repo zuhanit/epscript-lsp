@@ -1,6 +1,6 @@
 {
   "name": "epscript-lsp",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "repository": "git@github.com:zuhanit/epscript-lsp.git",
   "description": "epScript Language Server Protocol implementation.",
   "private": true,
