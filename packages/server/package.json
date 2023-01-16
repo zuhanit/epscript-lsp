@@ -1,7 +1,7 @@
 {
   "name": "@eps-server/server",
   "description": "Language Server for epScript.",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "author": "Zuhanit",
   "publisher": "zuhanit",
   "license": "MIT",
