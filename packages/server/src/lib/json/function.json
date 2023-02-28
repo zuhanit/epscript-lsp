@@ -679,6 +679,15 @@
                     "type": "type"
                 },
                 "type": "TrgOrder"
+            },
+            {
+                "name": "kwargs",
+                "kind": "VAR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
             }
         ],
         "docs": ""
@@ -1256,6 +1265,11 @@
         "docs": ""
     },
     {
+        "name": "EUDLoopCUnit",
+        "args": [],
+        "docs": "EUDLoopUnit\ubcf4\ub2e4 \uc57d\uac04? \ube60\ub985\ub2c8\ub2e4. \uc720\ub2db \ub9ac\uc2a4\ud2b8\ub97c \ub530\ub77c\uac00\uc9c0 \uc54a\uace0\n1700\uac1c \uc720\ub2db\uc744 \ub3c4\ub294 \ubc29\uc2dd\uc73c\ub85c \uc791\ub3d9\ud569\ub2c8\ub2e4."
+    },
+    {
         "name": "EUDLoopList",
         "args": [
             {
@@ -1282,6 +1296,21 @@
     {
         "name": "EUDLoopN",
         "args": [],
+        "docs": ""
+    },
+    {
+        "name": "EUDLoopNewCUnit",
+        "args": [
+            {
+                "name": "allowance",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "2",
+                    "type": "int"
+                },
+                "type": "any"
+            }
+        ],
         "docs": ""
     },
     {
@@ -1326,6 +1355,21 @@
                 "default": {
                     "value": "None",
                     "type": "NoneType"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "EUDLoopPlayerCUnit",
+        "args": [
+            {
+                "name": "player",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
                 },
                 "type": "any"
             }
@@ -1542,7 +1586,7 @@
                 "type": "any"
             }
         ],
-        "docs": "Decoreator for registering class / function."
+        "docs": "Decorator for registering class / function."
     },
     {
         "name": "EUDReturn",
@@ -2858,6 +2902,11 @@
             }
         ],
         "docs": "Current player has highest score points.\n\nThis condition is considered true if the trigger's owner has the highest Score.\nNote that if this is used as the only condition in a trigger, it will activate\nimmediately at the start of the scenario, since all players will be tied for the highest score."
+    },
+    {
+        "name": "Is64BitWireframe",
+        "args": [],
+        "docs": "Local (desync) condition: check whether StarCraft is 32 bit or 64 bit, by inspecting wireframe.\n\nIs64BitWireframe() loads custom wireframes, causing wireframe graphic glitches by StarCraft."
     },
     {
         "name": "IsConstExpr",
@@ -7217,7 +7266,106 @@
                 "type": "any"
             }
         ],
-        "docs": "Calculate (a//b, a%b)"
+        "docs": "Calculates quotient and remainder of a by b, with unsigned division.\n\nFor signed division, uses `f_div_towards_zero`, `f_div_floor` and `f_div_euclid`."
+    },
+    {
+        "name": "f_div_euclid",
+        "args": [
+            {
+                "name": "a",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "b",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "kwargs",
+                "kind": "VAR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": "Calculates the quotient and remainder of Euclidean division of a by b.\n\nCalculate signed division, unlike unsigned division `f_div(a, b)`.\nThis computes the quotient such that `a = quotient * b + remainder`, and `0 <= r < abs(b)`.\n\nIn other words, the result is a \u00f7 b rounded to the quotient such that `a >= quotient * b`.\nIf `a > 0`, this is equal to round towards zero; if `a < 0`, this is equal to round towards +/- infinity (away from zero)."
+    },
+    {
+        "name": "f_div_floor",
+        "args": [
+            {
+                "name": "a",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "b",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "kwargs",
+                "kind": "VAR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": "Calculates the quotient and remainder of (a \u00f7 b), rounding the quotient towards negative infinity.\n\nCalculate signed division, unlike unsigned division `f_div(a, b)`.\nConsistent with mathematical modulo."
+    },
+    {
+        "name": "f_div_towards_zero",
+        "args": [
+            {
+                "name": "a",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "b",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "kwargs",
+                "kind": "VAR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "docs": "Calculates the quotient and remainder of (a \u00f7 b), rounding the quotient towards zero.\n\nCalculate signed division, unlike unsigned division `f_div(a, b)`.\nConsistent with C-like languages including JavaScript."
     },
     {
         "name": "f_dwadd_cp",
@@ -8484,15 +8632,6 @@
                 "type": "any"
             },
             {
-                "name": "_fdict",
-                "kind": "KEYWORD_ONLY",
-                "default": {
-                    "value": "{}",
-                    "type": "dict"
-                },
-                "type": "any"
-            },
-            {
                 "name": "_check_empty",
                 "kind": "KEYWORD_ONLY",
                 "default": {
@@ -8531,15 +8670,6 @@
                 "default": {
                     "value": "None",
                     "type": "NoneType"
-                },
-                "type": "any"
-            },
-            {
-                "name": "_fdict",
-                "kind": "KEYWORD_ONLY",
-                "default": {
-                    "value": "{}",
-                    "type": "dict"
                 },
                 "type": "any"
             },

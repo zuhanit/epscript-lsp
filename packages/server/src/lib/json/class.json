@@ -239,7 +239,46 @@
                 "docs": ""
             },
             {
+                "name": "__abs__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__divmod__",
                 "args": [
                     {
                         "name": "self",
@@ -885,6 +924,1631 @@
             }
         ],
         "docs": "store String in SetDeaths Actions, easy to concatenate."
+    },
+    {
+        "name": "CSprite",
+        "args": [
+            {
+                "name": "epd",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            },
+            {
+                "name": "ptr",
+                "kind": "KEYWORD_ONLY",
+                "default": {
+                    "value": "None",
+                    "type": "NoneType"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__and__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__bool__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__call__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__eq__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__floordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ge__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__getattr__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__getattribute__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__getitem__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__gt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__hash__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "epd",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "ptr",
+                        "kind": "KEYWORD_ONLY",
+                        "default": {
+                            "value": "None",
+                            "type": "NoneType"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": "EPD Constructor of CSprite. Use CSprite.from_ptr(ptr) for ptr value"
+            },
+            {
+                "name": "__invert__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__iter__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__le__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__len__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lshift__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__lt__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__mul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ne__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__neg__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__or__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__radd__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rand__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rfloordiv__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rlshift__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rmod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rmul__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__ror__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rrshift__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rshift__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rsub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__rxor__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__setitem__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "newvalue",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__sub__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__xor__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "eqattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "geattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "getValue",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "getdwepd",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "getepd",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "getpos",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "gtattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "iaddattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "iandattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "ifloordivattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "iinvertattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "ilshiftattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "imodattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "imulattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "iorattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "ipowattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "irshiftattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "isubattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "isubtractattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "ixorattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "leattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "ltattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "neattr",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "docs": ""
     },
     {
         "name": "CUnit",
@@ -1784,6 +3448,30 @@
                     },
                     {
                         "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "cgive",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "player",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -3019,65 +4707,6 @@
         "docs": ""
     },
     {
-        "name": "Callable",
-        "args": [
-            {
-                "name": "args",
-                "kind": "VAR_POSITIONAL",
-                "default": {
-                    "value": "empty",
-                    "type": "type"
-                },
-                "type": "any"
-            },
-            {
-                "name": "kwargs",
-                "kind": "VAR_KEYWORD",
-                "default": {
-                    "value": "empty",
-                    "type": "type"
-                },
-                "type": "any"
-            }
-        ],
-        "methods": [
-            {
-                "name": "__call__",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "args",
-                        "kind": "VAR_POSITIONAL",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "kwds",
-                        "kind": "VAR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            }
-        ],
-        "docs": ""
-    },
-    {
         "name": "Condition",
         "args": [
             {
@@ -3314,6 +4943,21 @@
                 "docs": ""
             },
             {
+                "name": "__abs__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__add__",
                 "args": [
                     {
@@ -3342,6 +4986,30 @@
                 "args": [
                     {
                         "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__divmod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -3865,7 +5533,46 @@
                 "docs": ""
             },
             {
+                "name": "__abs__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__divmod__",
                 "args": [
                     {
                         "name": "self",
@@ -5458,7 +7165,46 @@
                 "docs": ""
             },
             {
+                "name": "__abs__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__divmod__",
                 "args": [
                     {
                         "name": "self",
@@ -6748,6 +8494,30 @@
                     },
                     {
                         "name": "k",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "cgive",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "player",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -9571,6 +11341,30 @@
                 "docs": ""
             },
             {
+                "name": "_bound_check",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "index",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "eqitem",
                 "args": [
                     {
@@ -9808,7 +11602,7 @@
                 "docs": ""
             },
             {
-                "name": "iinvert",
+                "name": "iinvertitem",
                 "args": [
                     {
                         "name": "self",
@@ -9931,7 +11725,7 @@
                 "docs": ""
             },
             {
-                "name": "inot",
+                "name": "inotitem",
                 "args": [
                     {
                         "name": "self",
@@ -10275,6 +12069,95 @@
                     {
                         "name": "item",
                         "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "docs": ""
+    },
+    {
+        "name": "EUDBag",
+        "args": [
+            {
+                "name": "capacity",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "capacity",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__iter__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "add",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -10991,7 +12874,46 @@
                 "docs": ""
             },
             {
+                "name": "__abs__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__divmod__",
                 "args": [
                     {
                         "name": "self",
@@ -12281,6 +14203,21 @@
                 "docs": ""
             },
             {
+                "name": "iabs",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "iinvert",
                 "args": [
                     {
@@ -12304,6 +14241,15 @@
                         "default": {
                             "value": "empty",
                             "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "action",
+                        "kind": "KEYWORD_ONLY",
+                        "default": {
+                            "value": "False",
+                            "type": "bool"
                         },
                         "type": "any"
                     }
@@ -12411,7 +14357,46 @@
                 "docs": "Write object"
             },
             {
+                "name": "__abs__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__divmod__",
                 "args": [
                     {
                         "name": "self",
@@ -16885,6 +18870,21 @@
                 "docs": ""
             },
             {
+                "name": "iabs",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "iinvert",
                 "args": [
                     {
@@ -16908,6 +18908,15 @@
                         "default": {
                             "value": "empty",
                             "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "action",
+                        "kind": "KEYWORD_ONLY",
+                        "default": {
+                            "value": "False",
+                            "type": "bool"
                         },
                         "type": "any"
                     }
@@ -19017,6 +21026,21 @@
                 "docs": ""
             },
             {
+                "name": "iabs",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "iinvert",
                 "args": [
                     {
@@ -19040,6 +21064,15 @@
                         "default": {
                             "value": "empty",
                             "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "action",
+                        "kind": "KEYWORD_ONLY",
+                        "default": {
+                            "value": "False",
+                            "type": "bool"
                         },
                         "type": "any"
                     }
@@ -20135,6 +22168,21 @@
                 "docs": ""
             },
             {
+                "name": "__abs__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__add__",
                 "args": [
                     {
@@ -20182,6 +22230,30 @@
                     {
                         "name": "kwargs",
                         "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__divmod__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -22753,7 +24825,46 @@
                 "docs": ""
             },
             {
+                "name": "__abs__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "__add__",
+                "args": [
+                    {
+                        "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "other",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__divmod__",
                 "args": [
                     {
                         "name": "self",
@@ -24554,7 +26665,7 @@
                 "docs": ""
             }
         ],
-        "docs": "Loop-efficient CUnit EPD collection\n\n```js\n// epScript example\n\n// UnitGroup Declaration\nconst zerglings = UnitGroup(1000);\n// max capacity = 1000, will use CPTrick\n\n// Register Unit\nzerglings.add(epd);\n\n// Loop UnitGroup\nforeach(unit : zerglings.cploop) {\n    // Run Triggers on **any** zerglings (alive or dead)\n    foreach(dead : unit.dying) {\n        // Run Triggers on dead zerglings\n    }  // <- dead zergling will be removed at end of *dying* block\n    // Run Triggers on alive zerglings\n}\n\n// example usage\nfunction afterTriggerExec() {\n    const zerglings = UnitGroup(1000);\n    foreach(ptr, epd : EUDLoopNewUnit()) {\n        const cunit = EPDCUnitMap(epd);\n        if (cunit.unitId = $U(\"Zerg Zergling\")) {\n            zerglings.add(epd);\n        }\n    }\n    foreach(unit : zerglings.cploop) {\n        foreach(dead : unit.dying) {\n            // spawn Infested Terran when zergling dies\n            dead.move_cp(0x4C / 4);  // Owner\n            const owner = bread_cp(0, 0);\n            dead.move_cp(0x28 / 4);  // Unit Position\n            const x, y = posread_cp(0);\n\n            setloc(\"loc\", x, y);\n            CreateUnit(1, \"Infested Terran\", \"loc\", owner);\n        }\n    }\n}\n```"
+        "docs": "Loop-efficient CUnit EPD collection\n\n```js\n// epScript example\n\n// UnitGroup Declaration\nconst zerglings = UnitGroup(1000);\n// max capacity = 1000, will use CPTrick\n\n// Register Unit\nzerglings.add(epd);\n\n// Loop UnitGroup\nforeach(unit : zerglings.cploop) {\n    // Run Triggers on **any** zerglings (alive or dead)\n    foreach(dead : unit.dying) {\n        // Run Triggers on dead zerglings\n    }  // <- dead zergling will be removed at end of *dying* block\n    // Run Triggers on alive zerglings\n}\n\n// example usage\nfunction afterTriggerExec() {\n    const zerglings = UnitGroup(1000);\n    foreach(cunit : EUDLoopNewCUnit()) {\n        epdswitch(cunit + 0x64/4, 255) {\n        case $U(\"Zerg Zergling\"):\n            zerglings.add(epd);\n            break;\n        }\n    }\n    foreach(unit : zerglings.cploop) {\n        foreach(dead : unit.dying) {\n            // spawn Infested Terran when zergling dies\n            dead.move_cp(0x4C / 4);  // Owner\n            const owner = bread_cp(0, 0);\n            dead.move_cp(0x28 / 4);  // Unit Position\n            const x, y = posread_cp(0);\n\n            setloc(\"loc\", x, y);\n            CreateUnit(1, \"Infested Terran\", \"loc\", owner);\n        }\n    }\n}\n```"
     },
     {
         "name": "UnitProperty",
