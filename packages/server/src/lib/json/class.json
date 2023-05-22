@@ -14926,6 +14926,15 @@
                 "type": "any"
             },
             {
+                "name": "_initial_values_static",
+                "kind": "KEYWORD_ONLY",
+                "default": {
+                    "value": "None",
+                    "type": "NoneType"
+                },
+                "type": "any"
+            },
+            {
                 "name": "kwargs",
                 "kind": "VAR_KEYWORD",
                 "default": {
@@ -15238,6 +15247,15 @@
                     },
                     {
                         "name": "_from",
+                        "kind": "KEYWORD_ONLY",
+                        "default": {
+                            "value": "None",
+                            "type": "NoneType"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "_initial_values_static",
                         "kind": "KEYWORD_ONLY",
                         "default": {
                             "value": "None",
