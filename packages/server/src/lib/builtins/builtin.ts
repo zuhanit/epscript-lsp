@@ -10,6 +10,7 @@ import { zeroRange } from "../../util/range";
 import { builtinEncode } from "./encodes";
 import eudplibFunction from "../json/function.json";
 import eudplibClass from "../json/class.json";
+import { MemberSymbol } from "../../context/symbolTable/MemberSymbol";
 
 /**
  * EUDDraft 기본 함수들 심볼 형태로 얻어오기.
@@ -106,6 +107,10 @@ export function pushBuiltinClass(scope: BaseScope): void {
         );
       });
       symbol.insert(methodSymbol);
+      cls.members.forEach((member) => {
+        const memberSymbol = new MemberSymbol(member, symbol, zeroRange);
+        symbol.insert(memberSymbol);
+      });
     });
     symbol.docString = cls.docs;
     return symbol;

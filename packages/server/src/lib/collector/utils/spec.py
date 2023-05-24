@@ -113,13 +113,23 @@ def getFunctionArgsTypes(function):
         ret = [None]
     return ret
 
-
 def getClassSpec(name, cls):
+    method = inspect.getmembers(cls, isfunction)
+    member = inspect.getmembers(cls, lambda x: not isfunction(x))
+    
+    def notStartsWithUnderScore(name: str):
+        return False if (not name.endswith("__")) and name.startswith("_") else True 
+    
+    filtered_method = filter(lambda x: notStartsWithUnderScore(x[0]), method)
+    filtered_member = filter(lambda x: notStartsWithUnderScore(x[0]), member)
+    
+    
     return {
         "name": name,
         "args": getFunctionArgsSpec(cls.__init__)[1:],
         # FIXME: It can't collect not function inherited method like __class__, or property.
-        "methods": list(map(lambda mem: getFunctionSpec(mem[0], mem[1]), inspect.getmembers(cls, isfunction))),
+        "methods": list(map(lambda x: getFunctionSpec(x[0], x[1]), filtered_method)),
+        "members": list(map(lambda x: x[0], filtered_member)), 
         "object": cls,
         "docs": inspect.getdoc(cls) if cls.__doc__ is not None else ""
     }
