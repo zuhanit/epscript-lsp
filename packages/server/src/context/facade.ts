@@ -23,7 +23,7 @@ export const symbolKindToCompletionKind = new Map<
   [SymbolKind.Function, CompletionItemKind.Function],
   [SymbolKind.Method, CompletionItemKind.Method],
   [SymbolKind.Class, CompletionItemKind.Class],
-  [SymbolKind.Property, CompletionItemKind.Property],
+  [SymbolKind.Property, CompletionItemKind.Field],
   [SymbolKind.Module, CompletionItemKind.Module],
   [SymbolKind.Variable, CompletionItemKind.Variable],
   [SymbolKind.Constant, CompletionItemKind.Variable],
