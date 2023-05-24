@@ -42,6 +42,7 @@ def generateClass(cls):
         "name": cls['name'],
         "args": cls['args'],
         "methods": list(map(generateFunction, cls['methods'])),
+        "members": cls['members'],
         "docs": cls['docs'],
     }
 
