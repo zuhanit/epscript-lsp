@@ -1,13 +1,16 @@
-from eudplib.core.eudfunc.consttype import createEncoder
-from eudplib.core.eudfunc.eudtypedfuncn import EUDFullFuncN, EUDFuncN, EUDTypedFuncN, EUDXTypedFuncN
-import types
+
 import sys
+import types
+
 sys.path.append("packages/server/src/lib/eudplib")
+
+from eudplib.core.eudfunc.eudtypedfuncn import EUDFullFuncN, EUDFuncN, EUDTypedFuncN, EUDXTypedFuncN
+from eudplib.core.eudfunc.consttype import createEncoder
 
 
 def isfunction(object):
 
-    EUD_FUNCS = (types.FunctionType, EUDFullFuncN, EUDFuncN, EUDTypedFuncN,
+    EUD_FUNCS = (types.FunctionType, types.MethodType, EUDFullFuncN, EUDFuncN, EUDTypedFuncN,
                  EUDXTypedFuncN)
 
     return isinstance(object, EUD_FUNCS)
