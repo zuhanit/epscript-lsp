@@ -3,7 +3,7 @@
   "description": "Language Server for epScript.",
   "author": "Zuhanit",
   "license": "SEE LICENSE IN LICENSE.md",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "repository": {
     "type": "git",
     "url": "https://github.com/zuhanit/epscript-lsp.git",
