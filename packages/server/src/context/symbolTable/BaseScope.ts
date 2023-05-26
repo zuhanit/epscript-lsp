@@ -1,6 +1,7 @@
 import { Range } from "vscode-languageserver";
 import { IScope } from "./IScope";
 import { ISymbol } from "./ISymbol";
+import { v4 } from "uuid";
 
 /**
  * 기본 스코프 추상 클래스.
@@ -10,6 +11,7 @@ export abstract class BaseScope implements IScope {
   range: Range;
   blockRange: Range;
   parent?: BaseScope | undefined;
+  uniqueId: string = v4();
 
   /**
    * 스코프 내 심볼들.
@@ -64,9 +66,11 @@ export abstract class BaseScope implements IScope {
   }
 
   getAllSymbols(): ISymbol[] {
+    const visited: Map<string, boolean> = new Map();
     const symbols: ISymbol[] = this.getSymbols();
     symbols.forEach((x) => {
-      if (x instanceof BaseScope) {
+      if (x instanceof BaseScope && !visited.get(x.uniqueId)) {
+        visited.set(x.uniqueId, true);
         symbols.push(...x.getAllSymbols());
       }
     });

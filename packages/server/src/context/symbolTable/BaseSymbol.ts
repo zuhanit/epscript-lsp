@@ -3,6 +3,7 @@ import { Range } from "vscode-languageserver";
 import { Literal } from "../evaluator/literal";
 import { BaseScope } from "./BaseScope";
 import { ISymbol } from "./ISymbol";
+import { v4 } from "uuid";
 
 export abstract class BaseSymbol implements ISymbol {
   public name: string;
@@ -10,6 +11,7 @@ export abstract class BaseSymbol implements ISymbol {
   public type: Literal;
   public defNode: ParserRuleContext | undefined;
   public range: Range;
+  public uniqueId: string = v4();
 
   constructor(
     name: string,

@@ -9,5 +9,6 @@ import { IScope } from "./IScope";
  */
 export interface ISymbol {
   name: string;
+  uniqueId: string;
   scope?: IScope;
 }
