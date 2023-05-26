@@ -17,10 +17,14 @@ export function evaluateBinaryExpression({
   switch (node.binaryOperator().start.type) {
     case epScriptParser.Assign:
       if (left) {
-        setValue(left, right);
+        if (left !== right) {
+          setValue(left, right);
+        }
         return right;
       }
       break;
+    case epScriptParser.Plus:
+      return left + right;
     default:
       return left;
   }
