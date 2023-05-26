@@ -756,31 +756,27 @@
                     }
                 ],
                 "docs": ""
-            },
-            {
-                "name": "_invalid_action",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "i",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "TrgUnit"
-                    }
-                ],
-                "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": "Action class.\n\nMemory layout.\n\n ======  ============= ========  ==========\n Offset  Field Name    Position  EPD Player\n ======  ============= ========  ==========\n   +00   locid1         dword0   EPD(act)+0\n   +04   strid          dword1   EPD(act)+1\n   +08   wavid          dword2   EPD(act)+2\n   +0C   time           dword3   EPD(act)+3\n   +10   player1        dword4   EPD(act)+4\n   +14   player2        dword5   EPD(act)+5\n   +18   unitid         dword6   EPD(act)+6\n   +1A   acttype\n   +1B   amount\n   +1C   flags          dword7   EPD(act)+7\n   +1D   internal[3\n ======  ============= ========  =========="
     },
@@ -842,6 +838,33 @@
                 ],
                 "docs": "Write byte to current position.\n\nWrite a byte to current position of EUDByteWriter. Writer will advance\nby 1 byte.\n\n.. note::\n    Bytes could be buffered before written to memory. After you\n    finished using writebytes, you must call `flushdword` to flush the\n    buffer."
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": "Write byte by byte"
     },
@@ -922,6 +945,33 @@
                 ],
                 "docs": "Constructor for CPString\n:param content: Initial CPString content / capacity. Capacity of\n    CPString is determined by size of this. If content is integer, then\n    initial capacity and content of CPString will be set to\n    content(int) and empty string.\n:type content: str, bytes, int"
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": "store String in SetDeaths Actions, easy to concatenate."
     },
@@ -1035,6 +1085,21 @@
                     {
                         "name": "kwargs",
                         "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__class_getitem__",
+                "args": [
+                    {
+                        "name": "params",
+                        "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -1259,6 +1324,30 @@
                     }
                 ],
                 "docs": "EPD Constructor of CSprite. Use CSprite.from_ptr(ptr) for ptr value"
+            },
+            {
+                "name": "__init_subclass__",
+                "args": [
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             },
             {
                 "name": "__invert__",
@@ -1834,6 +1923,21 @@
                 "docs": ""
             },
             {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "_from",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "eqattr",
                 "args": [
                     {
@@ -1856,6 +1960,36 @@
                     },
                     {
                         "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "from_ptr",
+                "args": [
+                    {
+                        "name": "ptr",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "from_read",
+                "args": [
+                    {
+                        "name": "epd",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -2548,6 +2682,47 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__abstractmethods__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__module__",
+            "__new__",
+            "__orig_bases__",
+            "__parameters__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__slots__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__",
+            "elevationLevel",
+            "flags",
+            "imageHead",
+            "imageTail",
+            "index",
+            "mainGraphic",
+            "next",
+            "playerID",
+            "pos",
+            "posX",
+            "posY",
+            "prev",
+            "ptr",
+            "selectionIndex",
+            "selectionTimer",
+            "sprite",
+            "unknown0x12",
+            "unknown0x13",
+            "visibilityFlags"
+        ],
         "docs": ""
     },
     {
@@ -2660,6 +2835,21 @@
                     {
                         "name": "kwargs",
                         "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__class_getitem__",
+                "args": [
+                    {
+                        "name": "params",
+                        "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -2884,6 +3074,30 @@
                     }
                 ],
                 "docs": "EPD Constructor of CUnit. Use CUnit.from_ptr(ptr) for ptr value"
+            },
+            {
+                "name": "__init_subclass__",
+                "args": [
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             },
             {
                 "name": "__invert__",
@@ -3459,6 +3673,21 @@
                 "docs": ""
             },
             {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "_from",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "cgive",
                 "args": [
                     {
@@ -3652,6 +3881,36 @@
                     },
                     {
                         "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "from_ptr",
+                "args": [
+                    {
+                        "name": "ptr",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "from_read",
+                "args": [
+                    {
+                        "name": "epd",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -4703,6 +4962,259 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "AI",
+            "AIActionFlag",
+            "__abstractmethods__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__module__",
+            "__new__",
+            "__orig_bases__",
+            "__parameters__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__slots__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__",
+            "aCooldown",
+            "acceleration",
+            "acidSporeCount",
+            "acidSporeTime0",
+            "acidSporeTime1",
+            "acidSporeTime2",
+            "acidSporeTime3",
+            "acidSporeTime4",
+            "acidSporeTime5",
+            "acidSporeTime6",
+            "acidSporeTime7",
+            "acidSporeTime8",
+            "addon",
+            "addonBuildType",
+            "airStrength",
+            "airWeaponCooldown",
+            "attackNotifyTimer",
+            "autoTargetUnit",
+            "beaconUnknown0xC0",
+            "beaconUnknown0xC4",
+            "blindFlags",
+            "buildQueue1",
+            "buildQueue12",
+            "buildQueue2",
+            "buildQueue3",
+            "buildQueue34",
+            "buildQueue4",
+            "buildQueue5",
+            "buildQueueSlot",
+            "buildingOverlayState",
+            "connectedUnit",
+            "contourBoundsB",
+            "contourBoundsL",
+            "contourBoundsLU",
+            "contourBoundsR",
+            "contourBoundsRB",
+            "contourBoundsU",
+            "cooldown",
+            "creepTimer",
+            "currentBuildUnit",
+            "currentButtonSet",
+            "currentDirection1",
+            "currentDirection2",
+            "currentSpeed1",
+            "currentSpeed2",
+            "currentVelocityX",
+            "currentVelocityY",
+            "cycleCounter",
+            "defensiveMatrixHp",
+            "defensiveMatrixTimer",
+            "driftPos",
+            "driftX",
+            "driftY",
+            "energy",
+            "ensnareTimer",
+            "finderIndexBottom",
+            "finderIndexLeft",
+            "finderIndexRight",
+            "finderIndexTop",
+            "flagSpawnFrame",
+            "flingyID",
+            "flingyMovementType",
+            "gCooldown",
+            "gatherQueueCount",
+            "ghostNukeMissile",
+            "groundStrength",
+            "groundWeaponCooldown",
+            "haltX",
+            "haltY",
+            "harvestTarget",
+            "hatcheryHarvestB",
+            "hatcheryHarvestL",
+            "hatcheryHarvestLU",
+            "hatcheryHarvestR",
+            "hatcheryHarvestRB",
+            "hatcheryHarvestU",
+            "hp",
+            "hpGain",
+            "inHangarChild",
+            "inHangarCount",
+            "irradiatePlayerID",
+            "irradiateTimer",
+            "irradiatedBy",
+            "isBeingHealed",
+            "isCarryingSomething",
+            "isCloaked",
+            "isOutsideHangar",
+            "isUnderStorm",
+            "killCount",
+            "landingTimer",
+            "larvaTimer",
+            "lastAttackingPlayer",
+            "lastEventColor",
+            "lastEventTimer",
+            "loadedUnit1",
+            "loadedUnit2",
+            "loadedUnit3",
+            "loadedUnit4",
+            "loadedUnit5",
+            "loadedUnit6",
+            "loadedUnit7",
+            "loadedUnit8",
+            "lockdownTimer",
+            "maelstromTimer",
+            "moveTarget",
+            "moveTargetPos",
+            "moveTargetUnit",
+            "moveTargetX",
+            "moveTargetY",
+            "movementFlags",
+            "movementState",
+            "next",
+            "nextBurrowedUnit",
+            "nextFighter",
+            "nextGatherer",
+            "nextHarvestUnit",
+            "nextMovementWaypoint",
+            "nextPlayerUnit",
+            "nextPsiProvider",
+            "nextTargetWaypoint",
+            "nydusExit",
+            "offsetIndex3by3",
+            "order",
+            "orderID",
+            "orderQueueCount",
+            "orderQueueHead",
+            "orderQueueTail",
+            "orderQueueTimer",
+            "orderSignal",
+            "orderState",
+            "orderTarget",
+            "orderTargetPos",
+            "orderTargetUnit",
+            "orderTargetX",
+            "orderTargetXY",
+            "orderTargetY",
+            "orderTimer",
+            "orderUnitType",
+            "outHangarChild",
+            "outHangarCount",
+            "owner",
+            "parasiteFlags",
+            "parent",
+            "path",
+            "pathingCollisionInterval",
+            "pathingFlags",
+            "plagueTimer",
+            "playerID",
+            "pos",
+            "posX",
+            "posY",
+            "powerup",
+            "powerupCarryingUnit",
+            "powerupOrigin",
+            "powerupOriginX",
+            "powerupOriginY",
+            "prev",
+            "prevBurrowedUnit",
+            "prevFighter",
+            "prevHarvestUnit",
+            "prevHp",
+            "prevPlayerUnit",
+            "prevPsiProvider",
+            "prevUnitType",
+            "ptr",
+            "pylonAura",
+            "rallyPos",
+            "rallyUnit",
+            "rallyX",
+            "rallyY",
+            "rankIncrease",
+            "recentOrderTimer",
+            "remainingBuildTime",
+            "removeTimer",
+            "repairResourceLossTimer",
+            "repulseAngle",
+            "repulseUnknown",
+            "resourceAmount",
+            "resourceBelongsToAI",
+            "resourceCarryAmount",
+            "resourceGroup",
+            "resourceIscript",
+            "resourceType",
+            "secondaryOrder",
+            "secondaryOrderID",
+            "secondaryOrderPos",
+            "secondaryOrderState",
+            "secondaryOrderTimer",
+            "secondaryOrderX",
+            "secondaryOrderY",
+            "shield",
+            "shieldGain",
+            "siloNuke",
+            "siloReady",
+            "spellCooldown",
+            "spiderMineCount",
+            "sprite",
+            "stasisTimer",
+            "statusFlags",
+            "stimTimer",
+            "stormTimer",
+            "subUnit",
+            "targetOrderSpecial",
+            "targetResourcePos",
+            "targetResourceUnit",
+            "targetResourceX",
+            "targetResourceY",
+            "techType",
+            "topSpeed",
+            "turnRadius",
+            "uniquenessIdentifier",
+            "unitID",
+            "unitType",
+            "unknown0x106",
+            "unknown0x132",
+            "unknown0x26",
+            "unknown0x52",
+            "unknown0x66",
+            "unknown0x86",
+            "unknown0x8C",
+            "unusedTimer",
+            "upgradeLevel",
+            "upgradeResearchTime",
+            "upgradeType",
+            "userActionFlags",
+            "velocityDirection1",
+            "velocityDirection2",
+            "visibilityStatus",
+            "wireframeRandomizer"
         ],
         "docs": ""
     },
@@ -5457,31 +5969,27 @@
                     }
                 ],
                 "docs": ""
-            },
-            {
-                "name": "_invalid_condition",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "i",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "TrgUnit"
-                    }
-                ],
-                "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": "Condition class.\n\nMemory layout:\n\n ======  =============  ========  ===========\n Offset  Field name     Position  EPD Player\n ======  =============  ========  ===========\n   +00   locid           dword0   EPD(cond)+0\n   +04   player          dword1   EPD(cond)+1\n   +08   amount          dword2   EPD(cond)+2\n   +0C   unitid          dword3   EPD(cond)+3\n   +0E   comparison\n   +0F   condtype\n   +10   restype         dword4   EPD(cond)+4\n   +11   flags\n   +12   internal[2]\n ======  =============  ========  ==========="
     },
@@ -5980,6 +6488,26 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": "Class for general expression with rlocints."
     },
     {
@@ -6083,6 +6611,33 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": ""
     },
@@ -6241,6 +6796,21 @@
                     {
                         "name": "kwargs",
                         "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__class_getitem__",
+                "args": [
+                    {
+                        "name": "params",
+                        "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -6465,6 +7035,30 @@
                     }
                 ],
                 "docs": "Constructor for DBString\n\n:param content: Initial DBString content / capacity. Capacity of\n    DBString is determined by size of this. If content is integer, then\n    initial capacity and content of DBString will be set to\n    content(int) and empty string.\n\n:type content: str, bytes, int"
+            },
+            {
+                "name": "__init_subclass__",
+                "args": [
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             },
             {
                 "name": "__invert__",
@@ -7040,6 +7634,21 @@
                 "docs": ""
             },
             {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "_from",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "getValue",
                 "args": [
                     {
@@ -7054,6 +7663,27 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__module__",
+            "__new__",
+            "__orig_bases__",
+            "__parameters__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__slots__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": "Object for storing single modifiable string.\n\nManipulating STR section is hard. DBString stores only one string, so that\nmodifying its structure is substantially easier than modifying entire STR\nsection. You can do anything you would do with normal string with DBString."
     },
@@ -7594,6 +8224,27 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__abstractmethods__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": "Class for raw data object"
     },
     {
@@ -7706,6 +8357,21 @@
                     {
                         "name": "kwargs",
                         "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__class_getitem__",
+                "args": [
+                    {
+                        "name": "params",
+                        "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -7930,6 +8596,30 @@
                     }
                 ],
                 "docs": "EPD Constructor of CUnit. Use CUnit.from_ptr(ptr) for ptr value"
+            },
+            {
+                "name": "__init_subclass__",
+                "args": [
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
             },
             {
                 "name": "__invert__",
@@ -8505,6 +9195,21 @@
                 "docs": ""
             },
             {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "_from",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "cgive",
                 "args": [
                     {
@@ -8698,6 +9403,36 @@
                     },
                     {
                         "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "from_ptr",
+                "args": [
+                    {
+                        "name": "ptr",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "from_read",
+                "args": [
+                    {
+                        "name": "epd",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -9750,6 +10485,259 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "AI",
+            "AIActionFlag",
+            "__abstractmethods__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__module__",
+            "__new__",
+            "__orig_bases__",
+            "__parameters__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__slots__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__",
+            "aCooldown",
+            "acceleration",
+            "acidSporeCount",
+            "acidSporeTime0",
+            "acidSporeTime1",
+            "acidSporeTime2",
+            "acidSporeTime3",
+            "acidSporeTime4",
+            "acidSporeTime5",
+            "acidSporeTime6",
+            "acidSporeTime7",
+            "acidSporeTime8",
+            "addon",
+            "addonBuildType",
+            "airStrength",
+            "airWeaponCooldown",
+            "attackNotifyTimer",
+            "autoTargetUnit",
+            "beaconUnknown0xC0",
+            "beaconUnknown0xC4",
+            "blindFlags",
+            "buildQueue1",
+            "buildQueue12",
+            "buildQueue2",
+            "buildQueue3",
+            "buildQueue34",
+            "buildQueue4",
+            "buildQueue5",
+            "buildQueueSlot",
+            "buildingOverlayState",
+            "connectedUnit",
+            "contourBoundsB",
+            "contourBoundsL",
+            "contourBoundsLU",
+            "contourBoundsR",
+            "contourBoundsRB",
+            "contourBoundsU",
+            "cooldown",
+            "creepTimer",
+            "currentBuildUnit",
+            "currentButtonSet",
+            "currentDirection1",
+            "currentDirection2",
+            "currentSpeed1",
+            "currentSpeed2",
+            "currentVelocityX",
+            "currentVelocityY",
+            "cycleCounter",
+            "defensiveMatrixHp",
+            "defensiveMatrixTimer",
+            "driftPos",
+            "driftX",
+            "driftY",
+            "energy",
+            "ensnareTimer",
+            "finderIndexBottom",
+            "finderIndexLeft",
+            "finderIndexRight",
+            "finderIndexTop",
+            "flagSpawnFrame",
+            "flingyID",
+            "flingyMovementType",
+            "gCooldown",
+            "gatherQueueCount",
+            "ghostNukeMissile",
+            "groundStrength",
+            "groundWeaponCooldown",
+            "haltX",
+            "haltY",
+            "harvestTarget",
+            "hatcheryHarvestB",
+            "hatcheryHarvestL",
+            "hatcheryHarvestLU",
+            "hatcheryHarvestR",
+            "hatcheryHarvestRB",
+            "hatcheryHarvestU",
+            "hp",
+            "hpGain",
+            "inHangarChild",
+            "inHangarCount",
+            "irradiatePlayerID",
+            "irradiateTimer",
+            "irradiatedBy",
+            "isBeingHealed",
+            "isCarryingSomething",
+            "isCloaked",
+            "isOutsideHangar",
+            "isUnderStorm",
+            "killCount",
+            "landingTimer",
+            "larvaTimer",
+            "lastAttackingPlayer",
+            "lastEventColor",
+            "lastEventTimer",
+            "loadedUnit1",
+            "loadedUnit2",
+            "loadedUnit3",
+            "loadedUnit4",
+            "loadedUnit5",
+            "loadedUnit6",
+            "loadedUnit7",
+            "loadedUnit8",
+            "lockdownTimer",
+            "maelstromTimer",
+            "moveTarget",
+            "moveTargetPos",
+            "moveTargetUnit",
+            "moveTargetX",
+            "moveTargetY",
+            "movementFlags",
+            "movementState",
+            "next",
+            "nextBurrowedUnit",
+            "nextFighter",
+            "nextGatherer",
+            "nextHarvestUnit",
+            "nextMovementWaypoint",
+            "nextPlayerUnit",
+            "nextPsiProvider",
+            "nextTargetWaypoint",
+            "nydusExit",
+            "offsetIndex3by3",
+            "order",
+            "orderID",
+            "orderQueueCount",
+            "orderQueueHead",
+            "orderQueueTail",
+            "orderQueueTimer",
+            "orderSignal",
+            "orderState",
+            "orderTarget",
+            "orderTargetPos",
+            "orderTargetUnit",
+            "orderTargetX",
+            "orderTargetXY",
+            "orderTargetY",
+            "orderTimer",
+            "orderUnitType",
+            "outHangarChild",
+            "outHangarCount",
+            "owner",
+            "parasiteFlags",
+            "parent",
+            "path",
+            "pathingCollisionInterval",
+            "pathingFlags",
+            "plagueTimer",
+            "playerID",
+            "pos",
+            "posX",
+            "posY",
+            "powerup",
+            "powerupCarryingUnit",
+            "powerupOrigin",
+            "powerupOriginX",
+            "powerupOriginY",
+            "prev",
+            "prevBurrowedUnit",
+            "prevFighter",
+            "prevHarvestUnit",
+            "prevHp",
+            "prevPlayerUnit",
+            "prevPsiProvider",
+            "prevUnitType",
+            "ptr",
+            "pylonAura",
+            "rallyPos",
+            "rallyUnit",
+            "rallyX",
+            "rallyY",
+            "rankIncrease",
+            "recentOrderTimer",
+            "remainingBuildTime",
+            "removeTimer",
+            "repairResourceLossTimer",
+            "repulseAngle",
+            "repulseUnknown",
+            "resourceAmount",
+            "resourceBelongsToAI",
+            "resourceCarryAmount",
+            "resourceGroup",
+            "resourceIscript",
+            "resourceType",
+            "secondaryOrder",
+            "secondaryOrderID",
+            "secondaryOrderPos",
+            "secondaryOrderState",
+            "secondaryOrderTimer",
+            "secondaryOrderX",
+            "secondaryOrderY",
+            "shield",
+            "shieldGain",
+            "siloNuke",
+            "siloReady",
+            "spellCooldown",
+            "spiderMineCount",
+            "sprite",
+            "stasisTimer",
+            "statusFlags",
+            "stimTimer",
+            "stormTimer",
+            "subUnit",
+            "targetOrderSpecial",
+            "targetResourcePos",
+            "targetResourceUnit",
+            "targetResourceX",
+            "targetResourceY",
+            "techType",
+            "topSpeed",
+            "turnRadius",
+            "uniquenessIdentifier",
+            "unitID",
+            "unitType",
+            "unknown0x106",
+            "unknown0x132",
+            "unknown0x26",
+            "unknown0x52",
+            "unknown0x66",
+            "unknown0x86",
+            "unknown0x8C",
+            "unusedTimer",
+            "upgradeLevel",
+            "upgradeResearchTime",
+            "upgradeType",
+            "userActionFlags",
+            "velocityDirection1",
+            "velocityDirection2",
+            "visibilityStatus",
+            "wireframeRandomizer"
+        ],
         "docs": ""
     },
     {
@@ -9775,6 +10763,41 @@
             }
         ],
         "methods": [],
+        "members": [
+            "__cause__",
+            "__class__",
+            "__context__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__setstate__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__suppress_context__",
+            "__traceback__",
+            "__weakref__",
+            "args",
+            "with_traceback"
+        ],
         "docs": ""
     },
     {
@@ -9786,30 +10809,6 @@
                 "args": [
                     {
                         "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_getFinder",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "path",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -9862,6 +10861,33 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": ""
     },
@@ -9959,48 +10985,6 @@
                     }
                 ],
                 "docs": "Cache the module name and the path to the file found by the\nfinder."
-            },
-            {
-                "name": "_cache_bytecode",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "source_path",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "bytecode_path",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "data",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
             },
             {
                 "name": "create_module",
@@ -10405,6 +11389,31 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -10430,6 +11439,41 @@
             }
         ],
         "methods": [],
+        "members": [
+            "__cause__",
+            "__class__",
+            "__context__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__setstate__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__suppress_context__",
+            "__traceback__",
+            "__weakref__",
+            "args",
+            "with_traceback"
+        ],
         "docs": ""
     },
     {
@@ -10542,6 +11586,21 @@
                     {
                         "name": "kwargs",
                         "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__class_getitem__",
+                "args": [
+                    {
+                        "name": "params",
+                        "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -10761,6 +11820,30 @@
                         "default": {
                             "value": "None",
                             "type": "NoneType"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__init_subclass__",
+                "args": [
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
                         },
                         "type": "any"
                     }
@@ -11341,19 +12424,10 @@
                 "docs": ""
             },
             {
-                "name": "_bound_check",
+                "name": "cast",
                 "args": [
                     {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "index",
+                        "name": "_from",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -12079,6 +13153,27 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__module__",
+            "__new__",
+            "__orig_bases__",
+            "__parameters__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__slots__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -12168,6 +13263,33 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -12252,6 +13374,33 @@
                 ],
                 "docs": "Seek EUDByteReader to specific address"
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": "Read byte by byte."
     },
@@ -12401,6 +13550,33 @@
                 "docs": "Write byte to current position.\n\nWrite a byte to current position of EUDByteWriter.\nByteWriter will advance by 1 byte."
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": "Write and read byte by byte."
     },
     {
@@ -12412,30 +13588,6 @@
                 "args": [
                     {
                         "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_writebyte",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "byte",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -12534,6 +13686,33 @@
                 "docs": "Write byte to current position.\n\nWrite a byte to current position of EUDByteWriter.\nByteWriter will advance by 1 byte."
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": "Write byte by byte."
     },
     {
@@ -12577,93 +13756,6 @@
             }
         ],
         "methods": [
-            {
-                "name": "_AddReturn",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "retv",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "needjump",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_CallWithLastArgs",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "ret",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "None",
-                            "type": "NoneType"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_CreateFuncArgs",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_CreateFuncBody",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
             {
                 "name": "__call__",
                 "args": [
@@ -12763,6 +13855,33 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": ""
     },
@@ -13303,6 +14422,27 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__abstractmethods__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": "Object for GRP\n\nStarcraft modifies GRP in certain way before it is used ingame. This object\nemulates that modification so that SC recognizes GRP correctly."
     },
     {
@@ -13414,6 +14554,33 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": ""
     },
@@ -14257,6 +15424,27 @@
                 "docs": "In-place negate (x << -x)"
             }
         ],
+        "members": [
+            "__abstractmethods__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -14777,6 +15965,27 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__abstractmethods__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": "Class for standalone object on memory\n\n.. note::\n    Object collection occures in three steps:\n\n    - Collection phase : collects object used in map generation. Object\n    used in WritePayload method are being collected. Methods Evaluate\n    and WritePayload are called during this phase.\n    - Allocation phase : Object have their offset assigned. GetDataSize\n    method is called on this phase, so if GetDataSize is being called,\n    it means that every object required in map has been collected.\n    WritePayload and GetDataSize method should behave exactly the same as\n    it should on Writing phase here.\n    - Writing phase : Object is written into payload."
     },
     {
@@ -14847,6 +16056,33 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -14901,6 +16137,33 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": ""
     },
@@ -15032,6 +16295,21 @@
                     {
                         "name": "kwargs",
                         "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__class_getitem__",
+                "args": [
+                    {
+                        "name": "params",
+                        "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -15260,6 +16538,30 @@
                         "default": {
                             "value": "None",
                             "type": "NoneType"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__init_subclass__",
+                "args": [
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
                         },
                         "type": "any"
                     },
@@ -15882,10 +17184,49 @@
                 "docs": ""
             },
             {
+                "name": "alloc",
+                "args": [
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "asVariable",
                 "args": [
                     {
                         "name": "self",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "_from",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -16021,6 +17362,21 @@
                     },
                     {
                         "name": "value",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "free",
+                "args": [
+                    {
+                        "name": "data",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -16722,6 +18078,26 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__module__",
+            "__new__",
+            "__orig_bases__",
+            "__parameters__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__sizeof__",
+            "__slots__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -16730,21 +18106,6 @@
         "methods": [
             {
                 "name": "__init__",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_maketrg",
                 "args": [
                     {
                         "name": "self",
@@ -16833,6 +18194,33 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": ""
     },
@@ -18971,6 +20359,27 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__abstractmethods__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": "Full variable."
     },
@@ -21128,6 +22537,27 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__abstractmethods__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -21231,6 +22661,21 @@
                     {
                         "name": "kwargs",
                         "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__class_getitem__",
+                "args": [
+                    {
+                        "name": "params",
+                        "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -21438,6 +22883,30 @@
                     {
                         "name": "initval",
                         "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__init_subclass__",
+                "args": [
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -22021,6 +23490,21 @@
                 "docs": ""
             },
             {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "_from",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
                 "name": "getValue",
                 "args": [
                     {
@@ -22035,6 +23519,27 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__module__",
+            "__new__",
+            "__orig_bases__",
+            "__parameters__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__slots__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": "Class which can contain both ConstExpr and EUDVariable"
     },
@@ -22133,6 +23638,122 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "Flingy",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": ""
     },
@@ -22744,7 +24365,205 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": "Class for forward definition."
+    },
+    {
+        "name": "Icon",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "Image",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
     },
     {
         "name": "InitialWireframe",
@@ -22768,7 +24587,227 @@
                 "type": "any"
             }
         ],
-        "methods": [],
+        "methods": [
+            {
+                "name": "grpwire",
+                "args": [
+                    {
+                        "name": "unit",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgUnit"
+                    },
+                    {
+                        "name": "wireframe",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "init",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "tranwire",
+                "args": [
+                    {
+                        "name": "unit",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgUnit"
+                    },
+                    {
+                        "name": "wireframe",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "wirefram",
+                "args": [
+                    {
+                        "name": "unit",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgUnit"
+                    },
+                    {
+                        "name": "wireframe",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "wireframes",
+                "args": [
+                    {
+                        "name": "unit",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgUnit"
+                    },
+                    {
+                        "name": "wireframe",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__annotations__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "Iscript",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -22899,6 +24938,21 @@
                     {
                         "name": "kwargs",
                         "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__class_getitem__",
+                "args": [
+                    {
+                        "name": "params",
+                        "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
                             "type": "type"
@@ -23136,6 +25190,30 @@
                         "default": {
                             "value": "None",
                             "type": "NoneType"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__init_subclass__",
+                "args": [
+                    {
+                        "name": "args",
+                        "kind": "VAR_POSITIONAL",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "kwargs",
+                        "kind": "VAR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
                         },
                         "type": "any"
                     }
@@ -23716,202 +25794,10 @@
                 "docs": ""
             },
             {
-                "name": "_casteudset",
+                "name": "cast",
                 "args": [
                     {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "index",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "value",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_constget",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "i",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "TrgUnit"
-                    },
-                    {
-                        "name": "kwargs",
-                        "kind": "VAR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_eudget",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "i",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "TrgUnit"
-                    },
-                    {
-                        "name": "kwargs",
-                        "kind": "VAR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_get",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "i",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "TrgUnit"
-                    },
-                    {
-                        "name": "kwargs",
-                        "kind": "VAR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_pveudset",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "index",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "value",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
-            },
-            {
-                "name": "_set",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "i",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "TrgUnit"
-                    },
-                    {
-                        "name": "modifier",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "val",
+                        "name": "_from",
                         "kind": "POSITIONAL_OR_KEYWORD",
                         "default": {
                             "value": "empty",
@@ -24679,6 +26565,116 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__module__",
+            "__new__",
+            "__orig_bases__",
+            "__parameters__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__slots__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "Portrait",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -25326,6 +27322,28 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__abstractmethods__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__format__",
+            "__getattribute__",
+            "__init_subclass__",
+            "__module__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__",
+            "preserved"
+        ],
         "docs": ""
     },
     {
@@ -25511,7 +27529,210 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": "Relocatable int"
+    },
+    {
+        "name": "Sprite",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "StatText",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
     },
     {
         "name": "StringBuffer",
@@ -25527,6 +27748,11 @@
             }
         ],
         "methods": [
+            {
+                "name": "CPBranch",
+                "args": [],
+                "docs": ""
+            },
             {
                 "name": "Display",
                 "args": [
@@ -25613,39 +27839,6 @@
                     }
                 ],
                 "docs": "Constructor for StringBuffer\n\n:param content: Initial StringBuffer content / capacity. Capacity of\n    StringBuffer is determined by size of this. If content is integer, then\n    initial capacity and content of StringBuffer will be set to\n    content(int) and empty string.\n\n:type content: str, bytes, int"
-            },
-            {
-                "name": "_display_at",
-                "args": [
-                    {
-                        "name": "self",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "prevpos",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    },
-                    {
-                        "name": "line",
-                        "kind": "POSITIONAL_OR_KEYWORD",
-                        "default": {
-                            "value": "empty",
-                            "type": "type"
-                        },
-                        "type": "any"
-                    }
-                ],
-                "docs": ""
             },
             {
                 "name": "append",
@@ -26305,6 +28498,34 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__annotations__",
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": "Object for storing single modifiable string.\n\nManipulating STR section is easy. :)\nYou can do anything you would do with normal string with StringBuffer."
     },
     {
@@ -26568,6 +28789,122 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "Tech",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -26593,7 +28930,1549 @@
             }
         ],
         "methods": [],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "tb_frame",
+            "tb_lasti",
+            "tb_lineno",
+            "tb_next"
+        ],
         "docs": "TracebackType(tb_next, tb_frame, tb_lasti, tb_lineno)\n--\n\nCreate a new traceback object."
+    },
+    {
+        "name": "TrgAIScript",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgAllyStatus",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgComparison",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgCount",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgLocation",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgModifier",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgOrder",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgPlayer",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgPropState",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgProperty",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgResource",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgScore",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgString",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgSwitch",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgSwitchAction",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgSwitchState",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "TrgUnit",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
     },
     {
         "name": "TriggerScopeError",
@@ -26618,6 +30497,41 @@
             }
         ],
         "methods": [],
+        "members": [
+            "__cause__",
+            "__class__",
+            "__context__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__setstate__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__suppress_context__",
+            "__traceback__",
+            "__weakref__",
+            "args",
+            "with_traceback"
+        ],
         "docs": ""
     },
     {
@@ -26683,7 +30597,123 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": "Loop-efficient CUnit EPD collection\n\n```js\n// epScript example\n\n// UnitGroup Declaration\nconst zerglings = UnitGroup(1000);\n// max capacity = 1000, will use CPTrick\n\n// Register Unit\nzerglings.add(epd);\n\n// Loop UnitGroup\nforeach(unit : zerglings.cploop) {\n    // Run Triggers on **any** zerglings (alive or dead)\n    foreach(dead : unit.dying) {\n        // Run Triggers on dead zerglings\n    }  // <- dead zergling will be removed at end of *dying* block\n    // Run Triggers on alive zerglings\n}\n\n// example usage\nfunction afterTriggerExec() {\n    const zerglings = UnitGroup(1000);\n    foreach(cunit : EUDLoopNewCUnit()) {\n        epdswitch(cunit + 0x64/4, 255) {\n        case $U(\"Zerg Zergling\"):\n            zerglings.add(epd);\n            break;\n        }\n    }\n    foreach(unit : zerglings.cploop) {\n        foreach(dead : unit.dying) {\n            // spawn Infested Terran when zergling dies\n            dead.move_cp(0x4C / 4);  // Owner\n            const owner = bread_cp(0, 0);\n            dead.move_cp(0x28 / 4);  // Unit Position\n            const x, y = posread_cp(0);\n\n            setloc(\"loc\", x, y);\n            CreateUnit(1, \"Infested Terran\", \"loc\", owner);\n        }\n    }\n}\n```"
+    },
+    {
+        "name": "UnitOrder",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
     },
     {
         "name": "UnitProperty",
@@ -26886,7 +30916,224 @@
                 "docs": "Properties : Value/None (Don't care)\n\n- hitpoint : 0~100(%)  if) When unit's hitpoint is greater than 167772,\n- shield   : 0~100(%)   you should give hitpoint None to make 100%% HP.\n- energy   : 0~100(%)\n- resource : 0~4294967295\n- hanger   : 0~65536 (Count)\n\nSpecial properties : True(Enabled)/False(Disabled)/None(Don't care)\n\n- clocked      : Unit is clocked.\n- burrowed     : Unit is burrowed.\n- intransit    : Unit is lifted. (In transit)\n- hallucinated : Unit is hallucination.\n- invincible   : Unit is invincible.\n\n>>> UnitProperty(hitpoint = 50, burrowed = True) # HP 50%, burrowed"
             }
         ],
+        "members": [
+            "__class__",
+            "__ctypes_from_outparam__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__setstate__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__",
+            "energy",
+            "hanger",
+            "hitpoint",
+            "player",
+            "prpvalid",
+            "resource",
+            "shield",
+            "sprpflag",
+            "sprpvalid",
+            "unused"
+        ],
         "docs": "UnitProperty class. Used in 'Create Unit with Properties' action."
+    },
+    {
+        "name": "Upgrade",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
+    },
+    {
+        "name": "Weapon",
+        "args": [
+            {
+                "name": "name",
+                "kind": "POSITIONAL_OR_KEYWORD",
+                "default": {
+                    "value": "empty",
+                    "type": "type"
+                },
+                "type": "any"
+            }
+        ],
+        "methods": [
+            {
+                "name": "__init__",
+                "args": [
+                    {
+                        "name": "func",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    },
+                    {
+                        "name": "name",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "any"
+                    }
+                ],
+                "docs": ""
+            },
+            {
+                "name": "__repr__",
+                "args": [],
+                "docs": ""
+            },
+            {
+                "name": "cast",
+                "args": [
+                    {
+                        "name": "s",
+                        "kind": "POSITIONAL_OR_KEYWORD",
+                        "default": {
+                            "value": "empty",
+                            "type": "type"
+                        },
+                        "type": "TrgResource"
+                    }
+                ],
+                "docs": ""
+            }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__name__",
+            "__ne__",
+            "__new__",
+            "__qualname__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
+        "docs": ""
     },
     {
         "name": "epd2s",
@@ -26926,6 +31173,33 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": ""
     },
@@ -26968,6 +31242,33 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -27009,6 +31310,33 @@
                 "docs": ""
             }
         ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
+        ],
         "docs": ""
     },
     {
@@ -27049,6 +31377,34 @@
                 ],
                 "docs": ""
             }
+        ],
+        "members": [
+            "__class__",
+            "__delattr__",
+            "__dict__",
+            "__dir__",
+            "__doc__",
+            "__eq__",
+            "__format__",
+            "__ge__",
+            "__getattribute__",
+            "__gt__",
+            "__hash__",
+            "__init__",
+            "__init_subclass__",
+            "__le__",
+            "__lt__",
+            "__module__",
+            "__ne__",
+            "__new__",
+            "__reduce__",
+            "__reduce_ex__",
+            "__repr__",
+            "__setattr__",
+            "__sizeof__",
+            "__str__",
+            "__subclasshook__",
+            "__weakref__"
         ],
         "docs": "When used in EUDFuncMethod's type declaration, This is interpreted\nas the owning class itself"
     }
