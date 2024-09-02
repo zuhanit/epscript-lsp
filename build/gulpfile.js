@@ -7,23 +7,35 @@ const webpackServerConfig = require("../packages/server/webpack.config");
 const { writeFileSync, writeFile } = require("fs");
 
 const updateeudplib = () => {
-  const app = spawn("python", ["packages/server/src/lib/collector/update.py"]);
-  app.stdout.on("data", (data) => {
-    console.log(data.toString());
-  });
-  let stderrChunks = [];
-  app.stderr.on("data", (data) => {
-    stderrChunks = stderrChunks.concat(data);
-  });
-  app.stderr.on("end", () => {
-    const stderrContent = Buffer.concat(stderrChunks).toString();
-    console.log(stderrContent);
+  return new Promise((resolve, reject) => {
+    const app = spawn("python", [
+      "packages/server/src/lib/collector/update.py",
+    ]);
 
-    if (stderrContent.length !== 0) {
-      throw new Error("Error caused while update eudplib, err:", stderrContent);
-    }
+    app.stdout.on("data", (data) => {
+      console.log(data.toString());
+    });
+
+    let stderrChunks = [];
+    app.stderr.on("data", (data) => {
+      stderrChunks = stderrChunks.concat(data);
+    });
+
+    app.on("close", (code) => {
+      const stderrContent = Buffer.concat(stderrChunks).toString();
+      console.log(stderrContent);
+
+      if (code !== 0) {
+        reject(
+          new Error(
+            `Python script exited with code ${code}. Error: ${stderrContent}`
+          )
+        );
+      } else {
+        resolve();
+      }
+    });
   });
-  return app;
 };
 
 const fetchOffsetData = async () => {
