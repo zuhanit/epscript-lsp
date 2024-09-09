@@ -5,7 +5,7 @@ import types
 sys.path.append("packages/server/src/lib/eudplib")
 
 from eudplib.core.eudfunc.eudtypedfuncn import EUDFullFuncN, EUDFuncN, EUDTypedFuncN, EUDXTypedFuncN
-from eudplib.core.eudfunc.consttype import createEncoder
+from eudplib.utils.exprproxy import ExprProxy
 
 
 def isfunction(object):
@@ -28,6 +28,6 @@ def iseudfunc(object):
 
 def isclass(object):
     from eudplib.core.eudstruct import EUDStruct
-    EUD_OBJECTS = (type, EUDStruct, createEncoder)
+    EUD_OBJECTS = (type, EUDStruct, ExprProxy)
 
     return isinstance(object, EUD_OBJECTS)
