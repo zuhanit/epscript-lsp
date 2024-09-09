@@ -6,6 +6,7 @@ import json
 import inspect
 import os
 
+eudplib.PushTriggerScope()
 
 def getBuiltins():
     data = {
