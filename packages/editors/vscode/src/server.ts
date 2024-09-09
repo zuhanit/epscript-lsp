@@ -6,7 +6,7 @@ import {
   ProposedFeatures,
 } from "vscode-languageserver/node";
 
-import { EPSServer } from "@eps-server/server/src/epsServer";
+import { EPSServer } from "@epscript-lsp/server/src/epsServer";
 
 // eslint-disable-next-line prefer-const
 let connection: Connection = createConnection(ProposedFeatures.all);
