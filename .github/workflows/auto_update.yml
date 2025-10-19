@@ -38,7 +38,7 @@ jobs:
         run: yarn install
 
       - name: Update submodules
-        run: git submodule update --remote
+        run: git submodule update --init --recursive
 
       - name: Check update eudplib
         run: |
