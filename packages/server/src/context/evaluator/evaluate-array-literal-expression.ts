@@ -1,4 +1,3 @@
-import { ArrayLiteralExpressionContext } from "../../grammar/lib/epScriptParser";
 import { evaluateNode } from "./evaluator";
 import { EvaluatorOption } from "./evaluator-options";
 import { Literal } from "./literal";
@@ -6,16 +5,12 @@ import { Literal } from "./literal";
 export function evaluateArrayLiteralExpression({
   node,
   ...rest
-}: EvaluatorOption<ArrayLiteralExpressionContext>): Literal {
+}: EvaluatorOption): Literal {
   const arr: Literal[] = [];
 
-  node
-    .arrayLiteral()
-    .elementList()
-    ?.arrayElement()
-    .forEach((element) => {
-      arr.push(evaluateNode({ node: element.singleExpression(), ...rest }));
-    });
+  for (const child of node.namedChildren) {
+    arr.push(evaluateNode({ node: child, ...rest }));
+  }
 
   return arr;
 }

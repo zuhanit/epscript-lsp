@@ -1,10 +1,11 @@
-import { ParanthesizedExpressionContext } from "../../grammar/lib/epScriptParser";
 import { evaluateNode } from "./evaluator";
 import { EvaluatorOption } from "./evaluator-options";
 
 export function evaluateParanthesizedExpression({
   node,
   ...rest
-}: EvaluatorOption<ParanthesizedExpressionContext>) {
-  return evaluateNode({ node: node.expressionSequence(), ...rest });
+}: EvaluatorOption) {
+  const inner = node.namedChildren[0];
+  if (!inner) return undefined;
+  return evaluateNode({ node: inner, ...rest });
 }

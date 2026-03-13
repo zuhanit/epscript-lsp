@@ -1,30 +1,22 @@
-import {
-  epScriptParser,
-  IdentifierContext,
-  PostfixExpressionContext,
-} from "../../grammar/lib/epScriptParser";
 import { evaluateNode } from "./evaluator";
 import { EvaluatorOption } from "./evaluator-options";
 
 export function evaluatePostfixExpression({
   node,
   ...rest
-}: EvaluatorOption<PostfixExpressionContext>) {
-  switch (node.postfixOperator().start.type) {
-    case epScriptParser.PlusPlus:
-      if (node.singleExpression() instanceof IdentifierContext) {
-        throw new Error("Blahblah");
-      }
+}: EvaluatorOption) {
+  const argument = node.childForFieldName("argument");
+  if (!argument) return undefined;
 
-      return evaluateNode({ node: node.singleExpression(), ...rest }); // TODO: 실제 평가한 값을 반환하도록
+  const operator = node.childForFieldName("operator")?.text;
 
-    case epScriptParser.MinusMinus:
-      if (node.singleExpression() instanceof IdentifierContext) {
-        throw new Error("Blahblah");
-      }
+  switch (operator) {
+    case "++":
+      return evaluateNode({ node: argument, ...rest }); // TODO: 실제 평가한 값을 반환하도록
 
-      return evaluateNode({ node: node.singleExpression(), ...rest });
+    case "--":
+      return evaluateNode({ node: argument, ...rest });
   }
 
-  return evaluateNode({ node: node.singleExpression(), ...rest });
+  return evaluateNode({ node: argument, ...rest });
 }

@@ -1,5 +1,4 @@
 import { pushDiagnostic } from "../../diagnostic/DiagnosticManager";
-import { MemberDotExpressionContext } from "../../grammar/lib/epScriptParser";
 import { keys } from "../../i18n/LanguageManager";
 import { literalToType } from "../../util/literalUtils";
 import { BaseScope } from "../symbolTable/BaseScope";
@@ -11,9 +10,12 @@ import { EvaluatorOption } from "./evaluator-options";
 export function evaluateMemberDotExpression({
   node,
   ...rest
-}: EvaluatorOption<MemberDotExpressionContext>) {
+}: EvaluatorOption) {
+  const objectNode = node.childForFieldName("object");
+  if (!objectNode) return undefined;
+
   let expressionResult = evaluateNode({
-    node: node.singleExpression(),
+    node: objectNode,
     ...rest,
   });
   while (
@@ -21,23 +23,27 @@ export function evaluateMemberDotExpression({
     expressionResult instanceof MemberSymbol
   )
     expressionResult = expressionResult.value;
+
+  const propertyNode = node.childForFieldName("property");
+  const propertyName = propertyNode?.text ?? "";
+
   const match =
     expressionResult instanceof BaseScope
-      ? expressionResult.getSymbolByName(node.identifier().text)
+      ? expressionResult.getSymbolByName(propertyName)
       : undefined;
 
-  if (match === undefined) {
+  if (match === undefined && propertyNode) {
     const message =
       rest.languageManager.getDiagnosticsKey(keys["diagnostics.property"]) +
       " '" +
-      node.identifier().text +
+      propertyName +
       "' " +
       rest.languageManager.getDiagnosticsKey(keys["diagnostics.doesNotExist"]) +
       " '" +
       literalToType(expressionResult) +
       "'.";
 
-    pushDiagnostic(message, rest.diagnostics, node.identifier());
+    pushDiagnostic(message, rest.diagnostics, propertyNode);
   }
 
   return match;

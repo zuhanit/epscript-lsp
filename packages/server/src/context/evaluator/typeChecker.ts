@@ -1,94 +1,47 @@
-import { ParserRuleContext } from "antlr4ts";
-import {
-  AnonymousFunctionExpressionContext,
-  MemberExpressionContext,
-  MemberDotExpressionContext,
-  CallExpressionContext,
-  TernaryExpressionContext,
-  PostfixExpressionContext,
-  PrefixExpressionContext,
-  BinaryExpressionContext,
-  ThisExpressionContext,
-  IdentifierExpressionContext,
-  ArrayLiteralExpressionContext,
-  ParanthesizedExpressionContext,
-  BooleanLiteralExpressionContext,
-  NumericLiteralExpressionContext,
-  StringLiteralExpressionContext,
-} from "../../grammar/lib/epScriptParser";
+import type { Node } from "web-tree-sitter";
 
-export function isAnonymousFunctionExpression(
-  node: ParserRuleContext
-): node is AnonymousFunctionExpressionContext {
-  return node instanceof AnonymousFunctionExpressionContext;
+export function isAnonymousFunctionExpression(node: Node): boolean {
+  return node.type === "lambda_expression";
 }
-export function isMemberExpression(
-  node: ParserRuleContext
-): node is MemberExpressionContext {
-  return node instanceof MemberExpressionContext;
+export function isMemberExpression(node: Node): boolean {
+  return node.type === "subscript_expression";
 }
-export function isMemberDotExpression(
-  node: ParserRuleContext
-): node is MemberDotExpressionContext {
-  return node instanceof MemberDotExpressionContext;
+export function isMemberDotExpression(node: Node): boolean {
+  return node.type === "member_expression";
 }
-export function isCallExpression(
-  node: ParserRuleContext
-): node is CallExpressionContext {
-  return node instanceof CallExpressionContext;
+export function isCallExpression(node: Node): boolean {
+  return node.type === "call_expression";
 }
-export function isTernaryExpression(
-  node: ParserRuleContext
-): node is TernaryExpressionContext {
-  return node instanceof TernaryExpressionContext;
+export function isTernaryExpression(node: Node): boolean {
+  return node.type === "ternary_expression";
 }
-export function isPostfixExpression(
-  node: ParserRuleContext
-): node is PostfixExpressionContext {
-  return node instanceof PostfixExpressionContext;
+export function isPostfixExpression(node: Node): boolean {
+  return node.type === "update_expression";
 }
-export function isPrefixExpression(
-  node: ParserRuleContext
-): node is PrefixExpressionContext {
-  return node instanceof PrefixExpressionContext;
+export function isPrefixExpression(node: Node): boolean {
+  return node.type === "unary_expression";
 }
-export function isBinaryExpression(
-  node: ParserRuleContext
-): node is BinaryExpressionContext {
-  return node instanceof BinaryExpressionContext;
+export function isBinaryExpression(node: Node): boolean {
+  return node.type === "binary_expression";
 }
-export function isThisExpression(
-  node: ParserRuleContext
-): node is ThisExpressionContext {
-  return node instanceof ThisExpressionContext;
+export function isThisExpression(node: Node): boolean {
+  return node.type === "this";
 }
-export function isIdentifierExpression(
-  node: ParserRuleContext
-): node is IdentifierExpressionContext {
-  return node instanceof IdentifierExpressionContext;
+export function isIdentifierExpression(node: Node): boolean {
+  return node.type === "identifier";
 }
-export function isBooleanLiteralExpression(
-  node: ParserRuleContext
-): node is BooleanLiteralExpressionContext {
-  return node instanceof BooleanLiteralExpressionContext;
+export function isBooleanLiteralExpression(node: Node): boolean {
+  return node.type === "true" || node.type === "false";
 }
-export function isStringLiteralExpression(
-  node: ParserRuleContext
-): node is StringLiteralExpressionContext {
-  return node instanceof StringLiteralExpressionContext;
+export function isStringLiteralExpression(node: Node): boolean {
+  return node.type === "string";
 }
-export function isNumericLiteralExpression(
-  node: ParserRuleContext
-): node is NumericLiteralExpressionContext {
-  return node instanceof NumericLiteralExpressionContext;
+export function isNumericLiteralExpression(node: Node): boolean {
+  return node.type === "number";
 }
-export function isArrayLiteralExpression(
-  node: ParserRuleContext
-): node is ArrayLiteralExpressionContext {
-  return node instanceof ArrayLiteralExpressionContext;
+export function isArrayLiteralExpression(node: Node): boolean {
+  return node.type === "array";
 }
-export function isParanthesizedExpression(
-  node: ParserRuleContext
-): node is ParanthesizedExpressionContext {
-  return node instanceof ParanthesizedExpressionContext;
+export function isParanthesizedExpression(node: Node): boolean {
+  return node.type === "parenthesized_expression";
 }

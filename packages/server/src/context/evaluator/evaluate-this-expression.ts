@@ -1,10 +1,9 @@
-import { ThisExpressionContext } from "../../grammar/lib/epScriptParser";
 import { ClassSymbol } from "../symbolTable/ClassSymbol";
 import { EvaluatorOption } from "./evaluator-options";
 
 export function evaluateThisExpression({
   currentScope,
-}: EvaluatorOption<ThisExpressionContext>) {
+}: EvaluatorOption) {
   if (!currentScope.parent || !ClassSymbol.isClassSymbol(currentScope.parent)) {
     return undefined;
   }

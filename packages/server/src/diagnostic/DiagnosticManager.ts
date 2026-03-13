@@ -1,30 +1,27 @@
-import { ParserRuleContext } from "antlr4ts";
+import type { Node } from "web-tree-sitter";
 import { Diagnostic } from "vscode-languageserver";
 
 export function pushDiagnostic(
   message: string,
   diagnostic: Diagnostic[],
-  t: ParserRuleContext
+  t: Node
 ): void;
 
 export function pushDiagnostic(
   message: string,
   diagnostic: Diagnostic[],
-  t: ParserRuleContext
+  t: Node
 ) {
   diagnostic.push({
     message: message,
     range: {
       start: {
-        character: t.start.charPositionInLine,
-        line: t.start.line - 1,
+        character: t.startPosition.column,
+        line: t.startPosition.row,
       },
       end: {
-        character:
-          t.stop && t.stop.text
-            ? t.stop.charPositionInLine + t.stop.text?.length
-            : t.start.charPositionInLine,
-        line: t.stop ? t.stop.line - 1 : t.start.line - 1,
+        character: t.endPosition.column,
+        line: t.endPosition.row,
       },
     },
   });

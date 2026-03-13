@@ -1,18 +1,21 @@
-import { ParserRuleContext } from "antlr4ts";
-import { ParseTree } from "antlr4ts/tree/ParseTree";
-import { TerminalNode } from "antlr4ts/tree/TerminalNode";
-import { readFile } from "fs";
+import { readFile, readFileSync, existsSync } from "fs";
+import * as path from "path";
 import { promisify } from "util";
-import { Connection, InitializeParams, URI } from "vscode-languageserver";
-import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import {
+  Connection,
+  InitializeParams,
+  Position,
+  URI,
+} from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
 import { URI as VSURI } from "vscode-uri";
 import { ContextSymbolTable } from "./context/ContextSymbolTable";
 import { ContextPackage } from "./context/IContextPackage";
 import { BaseScope } from "./context/symbolTable/BaseScope";
-import { SingleExpressionContext } from "./grammar/lib/epScriptParser";
+import { ModuleResolver, Parser } from "./parser";
 import { LanguageManager } from "./i18n/LanguageManager";
-import { Parser } from "./parser";
 import { getEPSPaths } from "./workspace";
+import type { Node, Tree } from "web-tree-sitter";
 
 const readFileAsync = promisify(readFile);
 /**
@@ -86,18 +89,61 @@ export class Analyzer {
     rootDir?: string,
     module = false
   ): ContextPackage {
+    const resolver = this.createModuleResolver(
+      document,
+      rootDir,
+      languageManager,
+      module
+    );
     const contextPackage: ContextPackage = {
       document: document,
-      parsePackage: this.parser.parse(
-        document,
-        this,
-        languageManager,
-        module,
-        rootDir
-      ),
+      parsePackage: this.parser.parse(document, resolver),
     };
     this.documentations.set(uri, contextPackage);
     return contextPackage;
+  }
+
+  private createModuleResolver(
+    document: TextDocument,
+    rootDir: string | undefined,
+    languageManager: LanguageManager,
+    module: boolean
+  ): ModuleResolver | undefined {
+    // 모듈로 임포트된 파일은 순환 참조를 방지하기 위해 리졸버를 제공하지 않음
+    if (module) return undefined;
+
+    return (dottedName: string): ContextSymbolTable | undefined => {
+      const dotted = dottedName.split(".");
+      const currentPath = path.parse(VSURI.parse(document.uri).fsPath);
+      const basePath = rootDir
+        ? path.join(rootDir, ...dotted.slice(0, -1), dotted[dotted.length - 1])
+        : path.join(
+            currentPath.dir,
+            "..",
+            ...dotted.slice(0, -1),
+            dotted[dotted.length - 1]
+          );
+
+      if (!existsSync(basePath + ".eps")) return undefined;
+
+      const epsPath = basePath + ".eps";
+      const importURI = VSURI.file(epsPath).toString();
+
+      // 캐시 히트
+      const cached = this.getContextPackageByURI(importURI);
+      if (cached) return cached.parsePackage.symbolTable;
+
+      // 캐시 미스 → 분석 (module=true로 순환 참조 방지)
+      const fileContent = readFileSync(epsPath, "utf8");
+      const result = this.analyze(
+        importURI,
+        TextDocument.create(importURI, "eps", 0, fileContent),
+        languageManager,
+        rootDir,
+        true
+      );
+      return result.parsePackage.symbolTable;
+    };
   }
 
   /**
@@ -111,147 +157,71 @@ export class Analyzer {
   }
 
   /**
-   * Get `ParserRuleContext` in position.
-   *
-   * @param ast
-   * @param position
-   * @param rule
-   * @param filter
-   * @returns
-   */
-  public getRuleAtPosition<T extends ParserRuleContext>(
-    ast: ParserRuleContext,
-    position: Position,
-    rule: new (...args: any[]) => T,
-    filter?: (value: any, index?: number, Array?: any[]) => boolean
-  ) {
-    return this.ruleFromPosition(
-      ast,
-      position.character,
-      position.line + 1,
-      rule,
-      filter
-    );
-  }
-
-  private ruleFromPosition<T extends ParserRuleContext>(
-    root: ParseTree,
-    character: number,
-    line: number,
-    rule: new (...args: any[]) => T,
-    filter?: (value: any, index?: number, Array?: any[]) => boolean
-  ) {
-    const result: T[] = [];
-
-    if (root instanceof rule) {
-      if (root.stop) {
-        if (
-          root.start.line <= line &&
-          root.stop.line >= line &&
-          root.stop.charPositionInLine <= character &&
-          root.stop.charPositionInLine +
-            (root.stop.stopIndex - root.stop.startIndex + 1) >=
-            character
-        ) {
-          result.push(root);
-        }
-      }
-    }
-    const context = root as ParserRuleContext;
-
-    if (context.children) {
-      context.children.forEach((x) => {
-        result.push(...this.ruleFromPosition(x, character, line, rule, filter));
-      });
-    }
-
-    if (filter) return result.filter(filter);
-    return result;
-  }
-
-  /**
-   * Get single `ParserRuleContext` in position.
-   *
-   * _Single_ is `ParserRuleContext` that has same `start` and `stop` token. In this case,
-   * analyzer try to find token by text length.
-   * @param ast
-   * @param position
-   * @param rule
-   * @param filter
-   * @returns
-   */
-  public getSingleRuleAtPosition<T extends ParserRuleContext>(
-    ast: ParserRuleContext,
-    position: Position,
-    rule: new (...args: any[]) => T,
-    filter?: (value: any, index?: number, Array?: any[]) => boolean
-  ) {
-    return this.singleRuleFromPosition(
-      ast,
-      position.character,
-      position.line + 1,
-      rule,
-      filter
-    );
-  }
-
-  private singleRuleFromPosition<T extends ParserRuleContext>(
-    root: ParseTree,
-    character: number,
-    line: number,
-    rule: new (...args: any[]) => T,
-    filter?: (value: any, index?: number, Array?: any[]) => boolean
-  ) {
-    const result: T[] = [];
-
-    if (root instanceof rule) {
-      if (
-        root.start.line == line &&
-        root.start.charPositionInLine <= character &&
-        root.start.charPositionInLine + root.text.length >= character
-      ) {
-        result.push(root);
-      }
-    }
-    const context = root as ParserRuleContext;
-
-    if (context.children) {
-      context.children.forEach((x) => {
-        result.push(...this.singleRuleFromPosition(x, character, line, rule));
-      });
-    }
-
-    if (filter) return result.filter(filter);
-    return result;
-  }
-
-  public getSingleExpressionAtPosition(
-    ast: ParserRuleContext,
-    position: Position,
-    filter?: (value: any, index?: number, Array?: any[]) => boolean
-  ) {
-    return this.ruleFromPosition(
-      ast,
-      position.character,
-      position.line + 1,
-      SingleExpressionContext,
-      filter
-    );
-  }
-
-  /**
-   * 현재 포지션에 있는 ANTLR 노드 얻어오기.
+   * 현재 포지션에 있는 tree-sitter 노드 얻어오기.
    *
    * @param ast 문서 추상 구문 트리
-   * @param position 열려있는 문서 커버의 포지션
+   * @param position 열려있는 문서 커서의 포지션
    * @returns
    */
-  public getNodeAtPosition(ast: ParserRuleContext, position: Position) {
-    return this.parseTreeFromPosition(
-      ast,
-      position.character,
-      position.line + 1
-    );
+  public getNodeAtPosition(ast: Tree, position: Position) {
+    const column = Math.max(0, position.character - 1);
+    return ast.rootNode.descendantForPosition({
+      row: position.line,
+      column,
+    });
+  }
+
+  /**
+   * 주어진 위치에서 특정 타입의 가장 가까운 조상 노드를 찾기.
+   *
+   * @param ast 문서 추상 구문 트리
+   * @param position 커서 위치
+   * @param nodeType 찾고자 하는 노드 타입
+   * @returns 매칭되는 노드 배열
+   */
+  public getAncestorOfType(
+    ast: Tree,
+    position: Position,
+    nodeType: string
+  ): Node[] {
+    const node = this.getNodeAtPosition(ast, position);
+    if (!node) return [];
+
+    const result: Node[] = [];
+    let current: Node | null = node;
+
+    while (current) {
+      if (current.type === nodeType) {
+        result.push(current);
+      }
+      current = current.parent;
+    }
+
+    return result;
+  }
+
+  /**
+   * 커서 위치의 expression 노드 찾기.
+   *
+   * @param ast 문서 추상 구문 트리
+   * @param position 커서 위치
+   * @returns expression 노드 배열 (가장 안쪽부터)
+   */
+  public getExpressionAtPosition(ast: Tree, position: Position): Node[] {
+    const node = this.getNodeAtPosition(ast, position);
+    if (!node) return [];
+
+    const result: Node[] = [];
+    let current: Node | null = node;
+
+    while (current) {
+      if (isExpressionNode(current)) {
+        result.push(current);
+      }
+      current = current.parent;
+    }
+
+    return result;
   }
 
   /**
@@ -274,7 +244,7 @@ export class Analyzer {
 
   public scopesFromPosition(
     symbolTable: ContextSymbolTable,
-    character: number,
+    _character: number,
     line: number
   ): BaseScope[] | undefined {
     const scopes = symbolTable.globalScope
@@ -287,62 +257,27 @@ export class Analyzer {
     if (scopes.length === 0) return undefined;
     return scopes;
   }
+}
 
-  public parseTreeFromPosition = (
-    root: ParseTree,
-    column: number,
-    row: number
-  ): ParseTree | undefined => {
-    // Does the root node actually contain the position? If not we don't need to look further.
-    if (root instanceof TerminalNode) {
-      const terminal = root;
-      const token = terminal.symbol;
-      if (token.line !== row) {
-        return undefined;
-      }
+const expressionTypes = new Set([
+  "call_expression",
+  "member_expression",
+  "subscript_expression",
+  "identifier",
+  "binary_expression",
+  "ternary_expression",
+  "unary_expression",
+  "update_expression",
+  "number",
+  "string",
+  "array",
+  "parenthesized_expression",
+  "lambda_expression",
+  "this",
+  "true",
+  "false",
+]);
 
-      const tokenStop =
-        token.charPositionInLine + (token.stopIndex - token.startIndex + 1);
-      if (token.charPositionInLine <= column && tokenStop >= column) {
-        return terminal;
-      }
-
-      return undefined;
-    } else {
-      const context = root as ParserRuleContext;
-      if (!context.start || !context.stop) {
-        // Invalid tree?
-        return undefined;
-      }
-
-      if (
-        context.start.line > row ||
-        (context.start.line === row &&
-          column < context.start.charPositionInLine)
-      ) {
-        return undefined;
-      }
-
-      const tokenStop =
-        context.stop.charPositionInLine +
-        (context.stop.stopIndex - context.stop.startIndex + 1);
-      if (
-        context.stop.line < row ||
-        (context.stop.line === row && tokenStop < column)
-      ) {
-        return undefined;
-      }
-
-      if (context.children) {
-        for (const child of context.children) {
-          const result = this.parseTreeFromPosition(child, column, row);
-          if (result) {
-            return result;
-          }
-        }
-      }
-
-      return context;
-    }
-  };
+function isExpressionNode(node: Node): boolean {
+  return expressionTypes.has(node.type);
 }

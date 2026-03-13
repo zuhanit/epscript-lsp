@@ -1,7 +1,3 @@
-import {
-  BinaryExpressionContext,
-  epScriptParser,
-} from "../../grammar/lib/epScriptParser";
 import { VariableSymbol } from "../symbolTable/VariableSymbol";
 import { evaluateNode } from "./evaluator";
 import { EvaluatorOption } from "./evaluator-options";
@@ -10,12 +6,18 @@ import { Literal } from "./literal";
 export function evaluateBinaryExpression({
   node,
   ...rest
-}: EvaluatorOption<BinaryExpressionContext>) {
-  const left = evaluateNode({ node: node.singleExpression(0), ...rest });
-  const right = evaluateNode({ node: node.singleExpression(1), ...rest });
+}: EvaluatorOption) {
+  const leftNode = node.childForFieldName("left");
+  const rightNode = node.childForFieldName("right");
+  if (!leftNode || !rightNode) return undefined;
 
-  switch (node.binaryOperator().start.type) {
-    case epScriptParser.Assign:
+  const left = evaluateNode({ node: leftNode, ...rest });
+  const right = evaluateNode({ node: rightNode, ...rest });
+
+  const operator = node.childForFieldName("operator")?.text;
+
+  switch (operator) {
+    case "=":
       if (left) {
         if (left !== right) {
           setValue(left, right);
@@ -23,7 +25,7 @@ export function evaluateBinaryExpression({
         return right;
       }
       break;
-    case epScriptParser.Plus:
+    case "+":
       return left + right;
     default:
       return left;

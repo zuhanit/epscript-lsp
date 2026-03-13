@@ -1,4 +1,3 @@
-import { SingleExpressionContext } from "../../grammar/lib/epScriptParser";
 import { evaluateAnonymousFunctionExpression } from "./evaluate-anonymous-function-expression";
 import { evaluateCallExpression } from "./evaluate-call-expression";
 import { evaluateArrayLiteralExpression } from "./evaluate-array-literal-expression";
@@ -49,7 +48,7 @@ import {
 export function evaluateNode({
   node,
   ...rest
-}: EvaluatorOption<SingleExpressionContext>): Literal {
+}: EvaluatorOption): Literal {
   if (isAnonymousFunctionExpression(node)) {
     return evaluateAnonymousFunctionExpression({ node, ...rest });
   } else if (isMemberExpression(node)) {

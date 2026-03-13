@@ -1,5 +1,5 @@
-import { ParserRuleContext } from "antlr4ts";
 import { Range } from "vscode-languageserver";
+import type { Node } from "web-tree-sitter";
 
 export const zeroRange: Range = {
   start: {
@@ -13,24 +13,20 @@ export const zeroRange: Range = {
 };
 
 /**
- * 컨텍스트로부터 `Range` 얻어오기.
+ * tree-sitter 노드로부터 `Range` 얻어오기.
  *
- * @param ctx 파서 컨텍스트
+ * @param node tree-sitter SyntaxNode
  * @returns Range
  */
-export function getRangeByContext(ctx: ParserRuleContext): Range {
-  const result: Range = {
+export function getRangeByNode(node: Node): Range {
+  return {
     start: {
-      line: ctx.start.line - 1,
-      character: ctx.start.charPositionInLine,
+      line: node.startPosition.row,
+      character: node.startPosition.column,
     },
     end: {
-      line: ctx.stop!.line - 1,
-      character:
-        ctx.stop!.charPositionInLine +
-        ctx.stop!.stopIndex -
-        ctx.stop!.startIndex,
+      line: node.endPosition.row,
+      character: node.endPosition.column,
     },
   };
-  return result;
 }

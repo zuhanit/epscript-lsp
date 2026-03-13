@@ -1,16 +1,15 @@
-import { AnonymousFunctionExpressionContext } from "../../grammar/lib/epScriptParser";
-import { getRangeByContext } from "../../util/range";
+import { toRange } from "../../parser";
 import { FunctionSymbol } from "../symbolTable/FunctionSymbol";
 import { EvaluatorOption } from "./evaluator-options";
 
 export function evaluateAnonymousFunctionExpression({
   node,
   symbolTable,
-}: EvaluatorOption<AnonymousFunctionExpressionContext>) {
+}: EvaluatorOption) {
   return new FunctionSymbol(
     "",
-    getRangeByContext(node),
-    getRangeByContext(node),
+    toRange(node),
+    toRange(node),
     symbolTable.globalScope
   );
 }

@@ -1,5 +1,4 @@
 import { pushDiagnostic } from "../../diagnostic/DiagnosticManager";
-import { CallExpressionContext } from "../../grammar/lib/epScriptParser";
 import { keys } from "../../i18n/LanguageManager";
 import { ClassSymbol } from "../symbolTable/ClassSymbol";
 import { FunctionSymbol } from "../symbolTable/FunctionSymbol";
@@ -10,8 +9,11 @@ import { EvaluatorOption } from "./evaluator-options";
 export function evaluateCallExpression({
   node,
   ...rest
-}: EvaluatorOption<CallExpressionContext>) {
-  const evaluated = evaluateNode({ node: node.singleExpression(), ...rest });
+}: EvaluatorOption) {
+  const functionNode = node.childForFieldName("function");
+  if (!functionNode) return undefined;
+
+  const evaluated = evaluateNode({ node: functionNode, ...rest });
 
   // 심볼이 존재하는지 확인.
   if (evaluated) {
@@ -21,15 +23,13 @@ export function evaluateCallExpression({
       evaluated instanceof MethodSymbol
     ) {
       let parameterLength = evaluated.arguments.length;
-      const argumentList = node.arguments().argumentList();
+      const argumentsNode = node.childForFieldName("arguments");
+      const args = argumentsNode ? argumentsNode.namedChildren : [];
 
       let argsIndex: number | undefined = undefined;
-      let argumentLength = argumentList
-        ? node.arguments().argumentList()!.argument().length
-        : 0;
+      let argumentLength = args.length;
 
-      if (argumentList) {
-        const args = argumentList.argument();
+      if (args.length > 0) {
         evaluated.arguments.forEach((arg, index) => {
           if (arg.name.includes("=") && !args[index]) argumentLength += 1;
           if (arg.name.startsWith("**")) {
@@ -60,7 +60,9 @@ export function evaluateCallExpression({
             " " +
             argumentLength +
             ".";
-          pushDiagnostic(message, rest.diagnostics, node.arguments());
+          if (argumentsNode) {
+            pushDiagnostic(message, rest.diagnostics, argumentsNode);
+          }
         }
       }
 
