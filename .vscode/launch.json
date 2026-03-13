@@ -23,14 +23,18 @@
       "outFiles": ["${workspaceRoot}/packages/server/dist/**/*.js"]
     },
     {
-      "name": "Debug ANTLR4 grammar",
-      "type": "antlr-debug",
+      "name": "Debug Current TS File",
+      "type": "node",
       "request": "launch",
-      "input": "server/src/grammar/lib/test/test.eps",
-      "grammar": "server/src/grammar/epScriptParser.g4",
-      "startRule": "program",
-      "printParseTree": true,
-      "visualParseTree": true
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "args": ["${file}"],
+      "env": {
+        "TS_NODE_PROJECT": "${workspaceFolder}/packages/server/tsconfig.json"
+      },
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
     }
   ],
   "compounds": [

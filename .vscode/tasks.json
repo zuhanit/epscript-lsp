@@ -9,7 +9,7 @@
         "panel": "dedicated",
         "reveal": "never"
       },
-      "problemMatcher": ["$ts-webpack", "$tslint-webpack"]
+      "problemMatcher": ["$tsc"]
     },
     {
       "type": "npm",
@@ -23,7 +23,18 @@
         "panel": "dedicated",
         "reveal": "never"
       },
-      "problemMatcher": ["$ts-webpack-watch", "$tslint-webpack-watch"]
+      "problemMatcher": {
+        "owner": "webpack",
+        "pattern": {
+          "regexp": "^ERROR in (.+)$",
+          "file": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "compiled"
+        }
+      }
     },
     {
       "type": "npm",
