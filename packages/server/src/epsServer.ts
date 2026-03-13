@@ -37,10 +37,6 @@ import { LanguageManager } from "./i18n/LanguageManager";
 import { Parser } from "./parser";
 import { provideSingatureHelp } from "./document/signatureHelp";
 import { evaluateNode } from "./context/evaluator/evaluator";
-import {
-  CallExpressionContext,
-  SingleExpressionContext,
-} from "./grammar/lib/epScriptParser";
 import { getDocumentSymbol } from "./document/documentSymbol";
 import { getWorkspaceSymbol } from "./document/workspaceSymbol";
 import {
@@ -98,13 +94,15 @@ export class EPSServer {
     connection: Connection,
     params: InitializeParams
   ): Promise<EPSServer> {
-    const parser = new Parser();
+    const parser = await Parser.create();
     const languageManager = new LanguageManager();
-    return Promise.all([
-      Analyzer.initialize(connection, params, parser, languageManager),
-    ]).then(([analyzer]) => {
-      return new EPSServer(connection, analyzer, languageManager);
-    });
+    const analyzer = await Analyzer.initialize(
+      connection,
+      params,
+      parser,
+      languageManager
+    );
+    return new EPSServer(connection, analyzer, languageManager);
   }
 
   /**
@@ -283,13 +281,13 @@ export class EPSServer {
       contextPackage.parsePackage.symbolTable,
       params.position
     );
-    const callExpressions = this.analyzer.getRuleAtPosition(
+    const callExpressions = this.analyzer.getAncestorOfType(
       contextPackage.parsePackage.ast,
       params.position,
-      CallExpressionContext
+      "call_expression"
     );
 
-    if (!callExpressions) return undefined;
+    if (!callExpressions || callExpressions.length === 0) return undefined;
 
     const scope: BaseScope = scopes
       ? scopes[scopes.length - 1]
@@ -299,8 +297,11 @@ export class EPSServer {
 
     if (!callExpression) return undefined;
 
+    const functionNode = callExpression.childForFieldName("function");
+    if (!functionNode) return undefined;
+
     const evaluated = evaluateNode({
-      node: callExpression.singleExpression(),
+      node: functionNode,
       currentScope: scope,
       diagnostics: [],
       languageManager: this.languageManager,
@@ -314,41 +315,30 @@ export class EPSServer {
     const contextPackage = this.analyzer.getContextPackageByURI(
       params.textDocument.uri
     );
+
     if (contextPackage === undefined) return undefined;
+
     const scopes = this.analyzer.getScopesAtPosition(
       contextPackage.parsePackage.symbolTable,
       params.position
     );
-    const singleExpressions = this.analyzer.getSingleExpressionAtPosition(
-      contextPackage.parsePackage.ast,
-      params.position
-    );
 
-    if (singleExpressions === null) return undefined;
     const scope: BaseScope = scopes
       ? scopes[scopes.length - 1]
       : contextPackage.parsePackage.symbolTable.globalScope;
 
-    let singleExpression = singleExpressions[0];
+    const node = this.analyzer.getNodeAtPosition(
+      contextPackage.parsePackage.ast,
+      params.position
+    );
 
-    if (singleExpression instanceof CallExpressionContext) {
-      singleExpression = singleExpression.singleExpression();
-    }
-
-    const evaluated = evaluateNode({
-      node: singleExpression,
-      currentScope: scope,
-      diagnostics: [],
-      languageManager: this.languageManager,
-      symbolTable: contextPackage.parsePackage.symbolTable,
-    });
+    if (!node) return undefined;
 
     return provideCompletion(
-      { params: params, contextPackage: contextPackage, name: scope.name },
+      node,
       scope,
-      this.analyzer,
-      evaluated,
-      singleExpressions[0]
+      contextPackage.parsePackage.symbolTable,
+      this.languageManager
     );
   }
 
@@ -374,24 +364,23 @@ export class EPSServer {
       contextPackage?.parsePackage.symbolTable,
       params.position
     );
-    const singleExpressions = this.analyzer.getRuleAtPosition(
+    const expressions = this.analyzer.getExpressionAtPosition(
       contextPackage.parsePackage.ast,
-      params.position,
-      SingleExpressionContext
+      params.position
     );
     const node = this.analyzer.getNodeAtPosition(
       contextPackage.parsePackage.ast,
       params.position
     );
 
-    if (!node || !singleExpressions) return undefined;
+    if (!node || expressions.length === 0) return undefined;
 
     const scope: BaseScope = scopes
       ? scopes[scopes.length - 1]
       : contextPackage.parsePackage.symbolTable.globalScope;
-    const singleExpression = singleExpressions[singleExpressions.length - 1];
+    const expression = expressions[expressions.length - 1];
     const evaluated = evaluateNode({
-      node: singleExpression,
+      node: expression,
       currentScope: scope,
       diagnostics: [],
       languageManager: this.languageManager,
@@ -408,7 +397,7 @@ export class EPSServer {
       },
       this.analyzer,
       evaluated,
-      singleExpression
+      expression
     );
   }
 
@@ -424,24 +413,23 @@ export class EPSServer {
       contextPackage.parsePackage.symbolTable,
       params.position
     );
-    const singleExpressions = this.analyzer.getRuleAtPosition(
+    const expressions = this.analyzer.getExpressionAtPosition(
       contextPackage.parsePackage.ast,
-      params.position,
-      SingleExpressionContext
+      params.position
     );
     const node = this.analyzer.getNodeAtPosition(
       contextPackage.parsePackage.ast,
       params.position
     );
 
-    if (!node || !singleExpressions) return undefined;
+    if (!node || expressions.length === 0) return undefined;
 
     const scope: BaseScope = scopes
       ? scopes[scopes.length - 1]
       : contextPackage.parsePackage.symbolTable.globalScope;
-    const singleExpression = singleExpressions[singleExpressions.length - 1];
+    const expression = expressions[expressions.length - 1];
     const r = evaluateNode({
-      node: singleExpression,
+      node: expression,
       currentScope: scope,
       diagnostics: [],
       languageManager: this.languageManager,

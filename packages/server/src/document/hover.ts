@@ -7,22 +7,19 @@ import {
 import { Analyzer } from "../analyzer";
 import { getSymbolInfo } from "../context/facade";
 import { ISymbol } from "../context/symbolTable/ISymbol";
-import {
-  NumericLiteralExpressionContext,
-  SingleExpressionContext,
-} from "../grammar/lib/epScriptParser";
 import { ProviderOption } from "./provider-option";
 import offsets from "../offsets/offset.json";
+import type { Node } from "web-tree-sitter";
 
 export function provideHoverItem(
   { contextPackage, name }: ProviderOption<HoverParams>,
   analyzer: Analyzer,
   symbol: ISymbol,
-  expr: SingleExpressionContext
+  expr: Node
 ): Hover | undefined {
   // If there are symbol from Analyzer, the server uses that first.
   if (symbol) {
-    if (expr instanceof NumericLiteralExpressionContext) {
+    if (expr.type === "number") {
       return numericExpressionToHover(expr);
     }
     return {
@@ -43,7 +40,7 @@ export function provideHoverItem(
 }
 
 function numericExpressionToHover(
-  expr: NumericLiteralExpressionContext
+  expr: Node
 ): Hover | undefined {
   const targetNumeric = expr.text.substring(2);
   const matchedOffset = offsets.find((offset) =>

@@ -1,8 +1,6 @@
-import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
-import { ParseTreeWalker } from "antlr4ts/tree/ParseTreeWalker";
 import { SemanticTokensBuilder } from "vscode-languageserver";
 import { ContextPackage } from "../context/IContextPackage";
-import { SemanticTokenListener } from "../context/listener/SemanticTokenListener";
+import type { Node } from "web-tree-sitter";
 
 export const TokenType = {
   namespace: 0,
@@ -30,14 +28,40 @@ export type BuilderItem = [
   tokenModifiers: number
 ];
 
+const tokenTypeMap: Record<string, number | undefined> = {
+  function_declaration: TokenType.function,
+  object_declaration: TokenType.class,
+  object_method_declaration: TokenType.method,
+  identifier: TokenType.variable,
+  number: TokenType.number,
+  string: TokenType.string,
+  comment: TokenType.comment,
+};
+
 export function provideTokens(
   contextPackage: ContextPackage
 ): SemanticTokensBuilder {
   const builder = new SemanticTokensBuilder();
-  const listener = new SemanticTokenListener(builder);
-  ParseTreeWalker.DEFAULT.walk(
-    listener as ParseTreeListener,
-    contextPackage.parsePackage.ast
-  );
+  visitNode(contextPackage.parsePackage.ast.rootNode, builder);
   return builder;
+}
+
+function visitNode(
+  node: Node,
+  builder: SemanticTokensBuilder
+): void {
+  const tokenType = tokenTypeMap[node.type];
+  if (tokenType !== undefined && node.childCount === 0) {
+    builder.push(
+      node.startPosition.row,
+      node.startPosition.column,
+      node.endPosition.column - node.startPosition.column,
+      tokenType,
+      0
+    );
+  }
+
+  for (const child of node.children) {
+    visitNode(child, builder);
+  }
 }

@@ -8,7 +8,7 @@ import { Literal } from "../context/evaluator/literal";
 import { getSymbolInfo } from "../context/facade";
 import { BaseScope } from "../context/symbolTable/BaseScope";
 import { BaseSymbol } from "../context/symbolTable/BaseSymbol";
-import { SingleExpressionContext } from "../grammar/lib/epScriptParser";
+import type { Node } from "web-tree-sitter";
 import {
   getParameterInformation,
   getActiveParameterNumber,
@@ -16,7 +16,7 @@ import {
 
 export function provideSingatureHelp(
   evaluated: Literal,
-  singleExpression: SingleExpressionContext
+  node: Node
 ): SignatureHelp {
   const signatureItem: SignatureHelp = {
     signatures: [],
@@ -40,7 +40,7 @@ export function provideSingatureHelp(
 
     signatureItem.signatures.push(signature);
     signatureItem.activeParameter = getActiveParameterNumber(
-      singleExpression,
+      node,
       symbolInfo
     );
   }

@@ -1,12 +1,8 @@
-import { CandidateRule, TokenList } from "antlr4-c3";
-import { Token } from "antlr4ts";
 import {
   CompletionItem,
   CompletionItemKind,
-  CompletionParams,
   MarkupContent,
 } from "vscode-languageserver";
-import { Analyzer } from "../analyzer";
 import {
   getSymbolInfo,
   translateSymbolKindToCompletionKind,
@@ -17,10 +13,6 @@ import { FunctionSymbol } from "../context/symbolTable/FunctionSymbol";
 import { ISymbol } from "../context/symbolTable/ISymbol";
 import { ModuleSymbol } from "../context/symbolTable/ModuleSymbol";
 import { VariableSymbol } from "../context/symbolTable/VariableSymbol";
-import {
-  epScriptParser,
-  SingleExpressionContext,
-} from "../grammar/lib/epScriptParser";
 import {
   SCImage,
   SCIscript,
@@ -39,188 +31,136 @@ import {
   SCTrgTBL,
   SCTrgUnit,
 } from "../lib/builtins/encodes";
-import { ProviderOption } from "./provider-option";
 import { getActiveParameterNumber } from "./utils/paramUtil";
+import { ContextSymbolTable } from "../context/ContextSymbolTable";
+import { LanguageManager } from "../i18n/LanguageManager";
+import { evaluateNode } from "../context/evaluator/evaluator";
+import type { Node } from "web-tree-sitter";
+
+const KEYWORDS: CompletionItem[] = [
+  "import", "if", "else", "switch", "while", "foreach", "for",
+  "return", "continue", "break", "once", "function", "object",
+  "extends", "var", "static", "const", "true", "false", "none",
+].map((kw) => ({
+  label: kw,
+  kind: CompletionItemKind.Keyword,
+}));
 
 export function provideCompletion(
-  { params, contextPackage }: ProviderOption<CompletionParams>,
+  node: Node,
   scope: BaseScope,
-  analyzer: Analyzer,
-  evaluated: any,
-  singleExpression: SingleExpressionContext
+  symbolTable: ContextSymbolTable,
+  languageManager: LanguageManager
 ): CompletionItem[] {
-  const result: CompletionItem[] = [];
+  // 1. 주석 안 → 없음
+  if (node.type === "comment") {
+    return [];
+  }
 
-  const core = contextPackage.parsePackage.core;
-  const tokenStream = contextPackage.parsePackage.tokenStream;
-  const symbolTable = contextPackage.parsePackage.symbolTable;
-
-  core.ignoredTokens = ignoredTokenSets;
-  core.preferredRules = new Set([epScriptParser.RULE_singleExpression]);
-
-  let index: number;
-  tokenStream.fill();
-  for (index = 0; ; ++index) {
-    const token = tokenStream.get(index);
-    if (token.type === Token.EOF || token.line > params.position.line + 1) {
-      break;
+  // 2. dot 뒤 (불완전: `myVar.`) → node.type === "."
+  if (node.type === ".") {
+    const objectNode = node.previousSibling;
+    if (objectNode) {
+      return getMemberCompletions(objectNode, scope, symbolTable, languageManager);
     }
-    if (token.line < params.position.line + 1) {
-      continue;
+    return [];
+  }
+
+  // 3. dot 뒤 (완성: `myVar.get`) → parent가 member_expression
+  if (node.parent?.type === "member_expression") {
+    const objectNode = node.parent.childForFieldName("object");
+    if (objectNode) {
+      return getMemberCompletions(objectNode, scope, symbolTable, languageManager);
     }
-    const length = token.text ? token.text.length : 0;
-    if (token.charPositionInLine + length >= params.position.character) {
-      break;
+    return [];
+  }
+
+  // 4. 함수 호출 인자 안
+  const callExpression = findAncestor(node, "call_expression");
+  if (callExpression) {
+    const functionNode = callExpression.childForFieldName("function");
+    if (functionNode) {
+      const evaluated = evaluateNode({
+        node: functionNode,
+        currentScope: scope,
+        diagnostics: [],
+        languageManager,
+        symbolTable,
+      });
+
+      if (FunctionSymbol.isFunctionSymbol(evaluated)) {
+        const result: CompletionItem[] = [];
+
+        evaluated.arguments.forEach((arg: any) => {
+          if (
+            arg.paramKind === "KEYWORD_ONLY" ||
+            arg.paramKind === "POSITIONAL_OR_KEYWORD" ||
+            arg.paramKind === "VAR_KEYWORD"
+          ) {
+            result.push({ label: arg.name + "=" });
+          }
+        });
+
+        result.push(...getTypeCompletion(evaluated, callExpression));
+        result.push(...getScopeCompletions(scope));
+        return result;
+      }
     }
   }
 
-  const candidates = core.collectCandidates(index);
+  // 5. 그 외 → scope 심볼 + 키워드
+  return [...getScopeCompletions(scope), ...KEYWORDS];
+}
 
-  candidates.tokens.forEach((following: TokenList, type: number) => {
-    const label =
-      epScriptParser.VOCABULARY.getSymbolicName(type)?.toLowerCase();
-    if (label) {
-      result.push({
-        label: label,
-        detail: label,
-        kind: CompletionItemKind.Keyword,
-      });
-    }
+function getMemberCompletions(
+  objectNode: Node,
+  scope: BaseScope,
+  symbolTable: ContextSymbolTable,
+  languageManager: LanguageManager
+): CompletionItem[] {
+  const evaluated = evaluateNode({
+    node: objectNode,
+    currentScope: scope,
+    diagnostics: [],
+    languageManager,
+    symbolTable,
   });
-  candidates.rules.forEach((rule: CandidateRule, key: number) => {
-    switch (key) {
-      case epScriptParser.RULE_singleExpression:
-        if (index >= 1 && tokenStream.get(index).text === ".") {
-          // MemberDotExpression
-          const prevTokenText = tokenStream.get(index - 1).text;
-          if (prevTokenText === undefined) break; // Invalid Token?
 
-          const prevSymbol = symbolTable.getSymbolByName(prevTokenText);
-          if (
-            VariableSymbol.isVariableSymbol(prevSymbol) &&
-            (ModuleSymbol.isModule(prevSymbol.value) ||
-              ClassSymbol.isClassSymbol(prevSymbol.value))
-          ) {
-            prevSymbol.value.getSymbols().forEach((x) => {
-              result.push(getCompletionForSymbol(x));
-            });
-          }
-          if (
-            ModuleSymbol.isModule(prevSymbol) ||
-            ClassSymbol.isClassSymbol(prevSymbol)
-          ) {
-            prevSymbol.getSymbols().forEach((x) => {
-              result.push(getCompletionForSymbol(x));
-            });
-          }
-        } else if (index >= 2 && tokenStream.get(index - 1).text === ".") {
-          // MemberDotExpression인데, 썼다가 지운 경우. (예: string.getT)
-          const prevTokenText = tokenStream.get(index - 2).text;
-          if (prevTokenText === undefined) break; // Invalid Token?
+  const result: CompletionItem[] = [];
 
-          const prevSymbol = symbolTable.getSymbolByName(prevTokenText);
-          if (
-            VariableSymbol.isVariableSymbol(prevSymbol) &&
-            (ModuleSymbol.isModule(prevSymbol.value) ||
-              ClassSymbol.isClassSymbol(prevSymbol.value))
-          ) {
-            prevSymbol.value.getSymbols().forEach((x) => {
-              result.push(getCompletionForSymbol(x));
-            });
-          }
-          if (
-            ModuleSymbol.isModule(prevSymbol) ||
-            ClassSymbol.isClassSymbol(prevSymbol)
-          ) {
-            prevSymbol.getSymbols().forEach((x) => {
-              result.push(getCompletionForSymbol(x));
-            });
-          }
-        } else {
-          scope.getSymbolsUntilThis().forEach((x) => {
-            result.push(getCompletionForSymbol(x));
-          });
-        }
-        if (FunctionSymbol.isFunctionSymbol(evaluated)) {
-          evaluated.arguments.forEach((arg) => {
-            if (
-              arg.paramKind === "KEYWORD_ONLY" ||
-              arg.paramKind === "POSITIONAL_OR_KEYWORD" ||
-              arg.paramKind === "VAR_KEYWORD"
-            ) {
-              arg.paramKind;
-              result.push({
-                label: arg.name + "=",
-              });
-            }
-          });
-          result.push(...getTypeCompletion(evaluated, singleExpression));
-        }
-        break;
-    }
-  });
+  if (
+    VariableSymbol.isVariableSymbol(evaluated) &&
+    (ModuleSymbol.isModule(evaluated.value) ||
+      ClassSymbol.isClassSymbol(evaluated.value))
+  ) {
+    evaluated.value.getSymbols().forEach((x) => {
+      result.push(getCompletionForSymbol(x));
+    });
+  }
+  if (
+    ModuleSymbol.isModule(evaluated) ||
+    ClassSymbol.isClassSymbol(evaluated)
+  ) {
+    evaluated.getSymbols().forEach((x) => {
+      result.push(getCompletionForSymbol(x));
+    });
+  }
 
   return result;
 }
 
-const ignoredTokenSets = new Set([
-  epScriptParser.BooleanLiterl,
-  epScriptParser.DecimalLiteral,
-  epScriptParser.HexIntegerLiteral,
-  epScriptParser.OpenBracket,
-  epScriptParser.CloseBracket,
-  epScriptParser.OpenParen,
-  epScriptParser.CloseParen,
-  epScriptParser.OpenBrace,
-  epScriptParser.CloseBrace,
-  epScriptParser.Dot,
-  epScriptParser.QuestionMark,
-  epScriptParser.Comma,
-  epScriptParser.Colon,
-  epScriptParser.SemiColon,
-  epScriptParser.PlusPlus,
-  epScriptParser.MinusMinus,
-  epScriptParser.PlusAssign,
-  epScriptParser.MinusAssign,
-  epScriptParser.MultiplyAssign,
-  epScriptParser.LeftShiftArithmeticAssign,
-  epScriptParser.RightShiftArithmeticAssign,
-  epScriptParser.BitAndAssign,
-  epScriptParser.BitXorAssign,
-  epScriptParser.BitOrAssign,
-  epScriptParser.And,
-  epScriptParser.Or,
-  epScriptParser.LeftShiftArithmetic,
-  epScriptParser.RightShiftArithmetic,
-  epScriptParser.BitNot,
-  epScriptParser.BitAnd,
-  epScriptParser.BitOr,
-  epScriptParser.BitXOr,
-  epScriptParser.Equals,
-  epScriptParser.LessThanEquals,
-  epScriptParser.GreaterThanEquals,
-  epScriptParser.LessThan,
-  epScriptParser.MoreThan,
-  epScriptParser.NotEquals,
-  epScriptParser.Not,
-  epScriptParser.Plus,
-  epScriptParser.Minus,
-  epScriptParser.Multiply,
-  epScriptParser.Divide,
-  epScriptParser.Modulus,
-  epScriptParser.Assign,
-  epScriptParser.L2V,
-  epScriptParser.Identifier,
-  epScriptParser.StringLiteral,
-  epScriptParser.WhiteSpaces,
-  epScriptParser.LineTerminator,
-  epScriptParser.MultiLineComment,
-  epScriptParser.SingleLineComment,
-  epScriptParser.UnexpectedCharacter,
-  epScriptParser.DoubleStringCharacter,
-  epScriptParser.SingleStringCharacter,
-  epScriptParser.EOF,
-]);
+function getScopeCompletions(scope: BaseScope): CompletionItem[] {
+  return scope.getSymbolsUntilThis().map((x) => getCompletionForSymbol(x));
+}
+
+function findAncestor(node: Node, type: string): Node | undefined {
+  let current: Node | null = node;
+  while (current) {
+    if (current.type === type) return current;
+    current = current.parent;
+  }
+  return undefined;
+}
 
 function getCompletionForSymbol(symbol: ISymbol): CompletionItem {
   const info = getSymbolInfo(symbol);
@@ -238,14 +178,8 @@ function getCompletionForSymbol(symbol: ISymbol): CompletionItem {
   };
 }
 
-function getTypeCompletion(
-  symbol: FunctionSymbol,
-  singleExpression: SingleExpressionContext
-) {
-  const activeParameter = getActiveParameterNumber(
-    singleExpression,
-    getSymbolInfo(symbol)
-  );
+function getTypeCompletion(symbol: FunctionSymbol, node: Node) {
+  const activeParameter = getActiveParameterNumber(node, getSymbolInfo(symbol));
   if (activeParameter != -1 && activeParameter <= symbol.arguments.length) {
     const curr = symbol.arguments[activeParameter];
     if (curr && curr.type instanceof ClassSymbol) {

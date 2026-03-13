@@ -1,11 +1,6 @@
 import { ParameterInformation } from "vscode-languageserver";
 import { SymbolInfo } from "../../context/facade";
-import {
-  ArgumentContext,
-  BinaryExpressionContext,
-  CallExpressionContext,
-  SingleExpressionContext,
-} from "../../grammar/lib/epScriptParser";
+import type { Node } from "web-tree-sitter";
 
 /**
  * Get zero-based active parameter number of current Expression.
@@ -15,26 +10,30 @@ import {
  * @returns Zero-based active parameter number.
  */
 export const getActiveParameterNumber = (
-  expr: SingleExpressionContext,
+  expr: Node,
   symbolInfo: SymbolInfo
 ) => {
-  if (expr instanceof CallExpressionContext) {
-    const exprArgumentList = expr.arguments().argumentList();
-    if (exprArgumentList) {
-      const args = exprArgumentList.argument();
-      if (hasAssignOperator(args)) {
-        const currentArgument = args[args.length - 1].singleExpression();
+  if (expr.type === "call_expression") {
+    const argumentsNode = expr.childForFieldName("arguments");
+    if (argumentsNode) {
+      const args = argumentsNode.namedChildren;
+      if (args.length > 0 && hasAssignOperator(args)) {
+        const currentArgument = args[args.length - 1];
         if (isAssignOperator(currentArgument)) {
-          if (symbolInfo.args) {
+          const leftSide = currentArgument.childForFieldName("left");
+          if (leftSide && symbolInfo.args) {
             return symbolInfo.args.findIndex(
-              (arg) => arg.name == currentArgument.singleExpression()[0].text
+              (arg) => arg.name == leftSide.text
             );
           }
         }
       } else {
         // Cannot use positional arguments after Keyword Arguments
-        const commas = exprArgumentList.Comma();
-        return commas.length;
+        // Count commas to determine active parameter
+        const commaCount = argumentsNode.children.filter(
+          (c) => c.type === ","
+        ).length;
+        return commaCount;
       }
     } else {
       // ex: A()
@@ -55,18 +54,15 @@ export const getParameterInformation = (
 
   return [];
 };
-const hasAssignOperator = (args: ArgumentContext[]) => {
+const hasAssignOperator = (args: Node[]) => {
   return args.some((arg) => {
-    const singleExpression = arg.singleExpression();
-    return isAssignOperator(singleExpression);
+    return isAssignOperator(arg);
   });
 };
-const isAssignOperator = (
-  expr: SingleExpressionContext
-): expr is BinaryExpressionContext => {
+const isAssignOperator = (expr: Node): boolean => {
   if (
-    expr instanceof BinaryExpressionContext &&
-    expr.binaryOperator().Assign()
+    expr.type === "binary_expression" &&
+    expr.childForFieldName("operator")?.text === "="
   ) {
     return true;
   } else {
