@@ -39,6 +39,6 @@
   "scripts": {
     "mocha-test": "mocha */test/**/*.test.ts -r ts-node/register",
     "antlr-compile-windows": "cd src/grammar && antlr4ts -o ./lib -visitor ./epScriptLexer.g4 ./epScriptParser.g4",
-    "antlr-compile-linux": "cd src/grammar && antlr4ts epScriptLexer.g4 epScriptParser.g4 -o ./lib"
+    "antlr-compile-linux": "cd src/grammar && antlr4ts -o ./lib -visitor epScriptLexer.g4 epScriptParser.g4"
   }
 }
