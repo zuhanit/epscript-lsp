@@ -167,15 +167,32 @@ export class BaseListener implements epScriptParserListener {
   // 변수 선언 진입
   enterVariableDefineList(ctx: VariableDefineListContext) {
     const modifier = ctx.varModifier().text;
-    const symbols = ctx.assignAble().map((id) => {
+    const symbols = ctx.typedAssignable().map((typedCtx) => {
       const symbol = new VariableSymbol(
-        id.text,
+        typedCtx.assignAble().text,
         this.currentScope,
-        getRangeByContext(id)
+        getRangeByContext(typedCtx)
       );
       symbol.modifier = modifier === "var" ? "var" : "const";
-      this.checkSymbolDuplicated(symbol.name, id);
+      this.checkSymbolDuplicated(symbol.name, typedCtx);
+
+      const typeAnnotation = typedCtx.typeAnnotation()?.singleExpression();
+      if (typeAnnotation) {
+        const resolved =evaluateNode({
+          node: typeAnnotation,
+          symbolTable: this.symbolTable,
+          currentScope: this.currentScope,
+          languageManager: this.languageManager,
+          diagnostics: this.diagnostics,
+        });
+        if (resolved) {
+          symbol.value = resolved;
+          symbol.type = resolved;
+        }
+      }
+
       return symbol;
+
     });
     symbols.forEach((symbol) => this.currentScope.insert(symbol));
   }
@@ -191,15 +208,32 @@ export class BaseListener implements epScriptParserListener {
         diagnostics: this.diagnostics,
       })
     );
-    const symbols = ctx.assignAble().map((assignable, idx) => {
+    const symbols = ctx.typedAssignable().map((typedCtx, idx) => {
       const symbol = new VariableSymbol(
-        assignable.identifier().text,
+        typedCtx.assignAble().identifier().text,
         this.currentScope,
-        getRangeByContext(assignable)
+        getRangeByContext(typedCtx.assignAble())
       );
-      symbol.value = values[idx];
       symbol.modifier = modifier === "var" ? "var" : "const";
-      this.checkSymbolDuplicated(symbol.name, assignable.identifier());
+      this.checkSymbolDuplicated(symbol.name, typedCtx.assignAble().identifier());
+
+      const typeAnnotation = typedCtx.typeAnnotation()?.singleExpression();
+      if (typeAnnotation) {
+        const resolved = evaluateNode({
+          node: typeAnnotation,
+          symbolTable: this.symbolTable,
+          currentScope: this.currentScope,
+          languageManager: this.languageManager,
+          diagnostics: this.diagnostics,
+        });
+        if (resolved) {
+          symbol.value = resolved;
+          symbol.type = resolved;
+        }
+      } else {
+        symbol.value = values[idx];
+      }
+
       return symbol;
     });
     symbols.forEach((symbol) => this.currentScope.insert(symbol));

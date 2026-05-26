@@ -1,4 +1,4 @@
-// Generated from ./epScriptParser.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from epScriptParser.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
@@ -32,6 +32,7 @@ import { ImportStatementContext } from "./epScriptParser";
 import { DottedNameContext } from "./epScriptParser";
 import { ImportNamespaceContext } from "./epScriptParser";
 import { VariableStatementContext } from "./epScriptParser";
+import { TypedAssignableContext } from "./epScriptParser";
 import { VariableDeclarationListContext } from "./epScriptParser";
 import { VariableDeclarationContext } from "./epScriptParser";
 import { EmptyStatementContext } from "./epScriptParser";
@@ -443,6 +444,17 @@ export interface epScriptParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitVariableStatement?: (ctx: VariableStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `epScriptParser.typedAssignable`.
+	 * @param ctx the parse tree
+	 */
+	enterTypedAssignable?: (ctx: TypedAssignableContext) => void;
+	/**
+	 * Exit a parse tree produced by `epScriptParser.typedAssignable`.
+	 * @param ctx the parse tree
+	 */
+	exitTypedAssignable?: (ctx: TypedAssignableContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `epScriptParser.variableDeclarationList`.

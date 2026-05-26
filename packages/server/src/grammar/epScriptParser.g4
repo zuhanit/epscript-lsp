@@ -54,9 +54,13 @@ variableStatement
  : variableDeclarationList SemiColon
  ;
 
+typedAssignable
+ : assignAble typeAnnotation?
+ ;
+
 variableDeclarationList
- : Static? varModifier assignAble (',' assignAble)* # VariableDefineList
- | Static? varModifier assignAble (',' assignAble)* '=' singleExpression (',' singleExpression)* # VariableAssignmentList
+ : Static? varModifier typedAssignable (',' typedAssignable)* # VariableDefineList
+ | Static? varModifier typedAssignable (',' typedAssignable)* '=' singleExpression (',' singleExpression)* # VariableAssignmentList
  ;
 
 variableDeclaration

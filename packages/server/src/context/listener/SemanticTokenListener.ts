@@ -50,15 +50,15 @@ export class SemanticTokenListener implements epScriptParserListener {
 
   enterVariableDefineList = (ctx: VariableDefineListContext) => {
     ctx
-      .assignAble()
-      .forEach((assignable) => this.push(assignable, TokenType.variable));
+      .typedAssignable()
+      .forEach((typedCtx) => this.push(typedCtx.assignAble(), TokenType.variable));
     this.push(ctx.varModifier(), TokenType.keyword);
   };
 
   enterVariableAssignmentList = (ctx: VariableAssignmentListContext) => {
     ctx
-      .assignAble()
-      .forEach((assignable) => this.push(assignable, TokenType.variable));
+      .typedAssignable()
+      .forEach((typedCtx) => this.push(typedCtx.assignAble(), TokenType.variable));
     this.push(ctx.varModifier(), TokenType.keyword);
   };
 
